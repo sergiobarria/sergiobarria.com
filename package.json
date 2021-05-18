@@ -1,7 +1,12 @@
 {
-  "name": "my-next-portfolio",
+  "name": "sergiobarria.com",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Sergio Barria",
+    "email": "sbarria.dev@gmail.com",
+    "url": "https://sergiobarria.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +17,8 @@
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^10.2.0",
     "framer-motion": "^4",
     "next": "10.2.0",
     "react": "17.0.2",
