@@ -1,0 +1,7 @@
+{
+  "extends": "@ijsto",
+  "rules": {
+    "import/no-unresolved": 0,
+    "global-require": "off"
+  }
+}
