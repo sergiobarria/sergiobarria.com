@@ -1,13 +1,16 @@
-import { ChakraProvider, CSSReset } from '@chakra-ui/react';
+import 'tailwindcss/tailwind.css';
 
-import '../styles/globals.css';
+import { MDXProvider } from '@mdx-js/react';
+import { ThemeProvider } from 'next-themes';
+import MDXComponents from '@/components/MDXComponents';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <CSSReset />
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <ThemeProvider attribute="class">
+      <MDXProvider components={MDXComponents}>
+        <Component {...pageProps} />
+      </MDXProvider>
+    </ThemeProvider>
   );
 }
 

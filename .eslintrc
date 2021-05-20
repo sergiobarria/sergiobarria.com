@@ -2,6 +2,13 @@
   "extends": "@ijsto",
   "rules": {
     "import/no-unresolved": 0,
-    "global-require": "off"
+    "global-require": "off",
+    "sort-keys": 0,
+    "jsx-a11y/anchor-has-content": [
+      0,
+      {
+        "components": ["Anchor"]
+      }
+    ]
   }
 }
