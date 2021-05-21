@@ -63,7 +63,7 @@ module.exports = {
             'ul li:before': {
               backgroundColor: theme('colors.gray.500'),
             },
-            strong: { color: theme('colors.gray.600') },
+            strong: { color: theme('colors.gray.800') },
             blockquote: {
               color: theme('colors.gray.900'),
               borderLeftColor: theme('colors.gray.200'),
@@ -113,7 +113,7 @@ module.exports = {
                 '&:before': { backgroundColor: theme('colors.gray.500') },
               },
             },
-            strong: { color: theme('colors.gray.300') },
+            strong: { color: theme('colors.gray.100') },
             thead: {
               color: theme('colors.gray.300'),
             },

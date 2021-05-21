@@ -1,4 +1,5 @@
-import 'tailwindcss/tailwind.css';
+// import 'tailwindcss/tailwind.css';
+import '@/styles/globals.css';
 
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'next-themes';

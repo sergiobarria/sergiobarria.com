@@ -1,8 +1,5 @@
 import NextLink from 'next/link';
 
-// import ActiveLink from '@/components/ActiveLink';
-// import siteMetadata from '@/data/siteMetadata';
-// import Logo from '@/data/logo.svg';
 import links from '@/data/navLinks';
 import MobileNav from '@/components/MobileNav';
 import ThemeSwitch from '@/components/ThemeSwitch';
@@ -11,23 +8,8 @@ import Footer from '@/components/Footer';
 const Container = ({ children }) => (
   <div className="max-w-3xl min-h-screen px-4 mx-auto sm:px-6 xl:max-w-4xl xl:px-0">
     <header className="flex items-center justify-between py-10">
-      <div>
-        <ThemeSwitch />
-        {/* <NextLink href="/" aria-label="Sergio's Blog">
-          <div className="flex items-center justify-between">
-            <div className="mr-3">
-              <Logo />
-            </div>
-            {typeof siteMetadata.headerTitle === 'string' ? (
-              <div className="hidden text-2xl font-semibold h6 sm:block">
-                {siteMetadata.headerTitle}
-              </div>
-            ) : (
-              siteMetadata.headerTitle
-            )}
-          </div>
-        </NextLink> */}
-      </div>
+      <ThemeSwitch />
+
       <div className="flex items-center text-base leading-5">
         <nav className="sticky hidden sm:block">
           {links.map(link => (
