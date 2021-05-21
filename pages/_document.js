@@ -73,7 +73,7 @@ class MyDocument extends Document {
             onLoad="this.media='all'"
           /> */}
         </Head>
-        <body>
+        <body className="antialiased">
           <Main />
           <NextScript />
         </body>

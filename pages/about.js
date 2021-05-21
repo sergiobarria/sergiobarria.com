@@ -2,12 +2,12 @@ import { MDXRemote } from 'next-mdx-remote';
 
 import { getAboutContent } from '@/lib/getAbout';
 import MDXComponents from '@/components/MDXComponents';
-import MainContainer from '@/components/Container';
+import Container from '@/components/Container';
 
 const About = props => (
-  <MainContainer>
+  <Container>
     <MDXRemote {...props.about.mdxSource} components={MDXComponents} />
-  </MainContainer>
+  </Container>
 );
 
 export default About;

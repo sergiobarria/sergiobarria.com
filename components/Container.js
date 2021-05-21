@@ -1,9 +1,10 @@
 import NextLink from 'next/link';
 
 // import ActiveLink from '@/components/ActiveLink';
-import siteMetadata from '@/data/siteMetadata';
-import Logo from '@/data/logo.svg';
+// import siteMetadata from '@/data/siteMetadata';
+// import Logo from '@/data/logo.svg';
 import links from '@/data/navLinks';
+import MobileNav from '@/components/MobileNav';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import Footer from '@/components/Footer';
 
@@ -11,7 +12,8 @@ const Container = ({ children }) => (
   <div className="max-w-3xl min-h-screen px-4 mx-auto sm:px-6 xl:max-w-4xl xl:px-0">
     <header className="flex items-center justify-between py-10">
       <div>
-        <NextLink href="/" aria-label="Sergio's Blog">
+        <ThemeSwitch />
+        {/* <NextLink href="/" aria-label="Sergio's Blog">
           <div className="flex items-center justify-between">
             <div className="mr-3">
               <Logo />
@@ -24,10 +26,10 @@ const Container = ({ children }) => (
               siteMetadata.headerTitle
             )}
           </div>
-        </NextLink>
+        </NextLink> */}
       </div>
       <div className="flex items-center text-base leading-5">
-        <nav className="hidden sm:block">
+        <nav className="sticky hidden sm:block">
           {links.map(link => (
             <NextLink href={link.url} key={link.id}>
               <a className="p-1 font-light text-gray-900 transition-all duration-300 ease-in-out transform sm:p-4 hover:text-green-500 dark:text-gray-100 dark:hover:text-green-500">
@@ -37,7 +39,9 @@ const Container = ({ children }) => (
           ))}
         </nav>
       </div>
-      <ThemeSwitch />
+      <div className="sm:hidden">
+        <MobileNav />
+      </div>
     </header>
     <main>{children}</main>
     <Footer />
