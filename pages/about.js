@@ -4,6 +4,12 @@ import { getAboutContent } from '@/lib/getAbout';
 import MDXComponents from '@/components/MDXComponents';
 import Container from '@/components/Container';
 
+export async function getStaticProps() {
+  const about = await getAboutContent();
+
+  return { props: { about } };
+}
+
 const About = props => (
   <Container>
     <div className="max-w-2xl mx-auto mt-10">
@@ -19,9 +25,3 @@ const About = props => (
 );
 
 export default About;
-
-export async function getStaticProps() {
-  const about = await getAboutContent();
-
-  return { props: { about } };
-}

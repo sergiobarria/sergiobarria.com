@@ -6,8 +6,18 @@ import { ImStack } from 'react-icons/im';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 import Container from '@/components/Container';
-import SinglePostCard from '@/components/SinglePostCard';
+import PostListPreview from '@/components/PostListPreview';
 import Card from '@/components/Card';
+
+export async function getStaticProps() {
+  const posts = getAllFilesFrontMatter();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
 
 export default function Home({ posts }) {
   const latestPosts = posts.allPosts.slice(0, 4);
@@ -65,23 +75,7 @@ export default function Home({ posts }) {
           />
         </div>
       </div>
-      <div className="mx-auto mt-6 divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:leading-10 md:text-4xl md:leading-14">
-            My latest toughts
-          </h1>
-        </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!latestPosts.length && 'No posts found.'}
-          {latestPosts.map(post => (
-            <li key={post.id} className="py-4">
-              <article>
-                <SinglePostCard {...post} />
-              </article>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <PostListPreview postsArr={latestPosts} sectTitle="My latest toughts" />
       <div className="flex justify-center mt-6">
         <NextLink href="/blog">
           <a className="p-1 text-green-600 uppercase border-b border-green-500">
@@ -91,14 +85,4 @@ export default function Home({ posts }) {
       </div>
     </Container>
   );
-}
-
-export async function getStaticProps() {
-  const posts = getAllFilesFrontMatter();
-
-  return {
-    props: {
-      posts,
-    },
-  };
 }

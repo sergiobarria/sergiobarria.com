@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
 import Image from 'next/image';
 
 const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
@@ -7,6 +7,7 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
     month: 'long',
     year: 'numeric',
   });
+
   return (
     <div className="p-3 tracking-wide ">
       <div className="flex">
@@ -14,9 +15,11 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
           <Image src={image} alt={title} layout="fill" objectFit="cover" />
         </div>
         <div className="flex flex-col md:ml-5 md:w-9/12">
-          <h4 className="mb-2 text-xl font-semibold text-gray-900 dark:text-gray-100">
-            {title}
-          </h4>
+          <NextLink href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
+            <h4 className="mb-2 text-xl font-semibold text-gray-900 cursor-pointer dark:text-gray-100 hover:text-green-500">
+              {title}
+            </h4>
+          </NextLink>
           <div className="w-full">
             {tags &&
               tags.map((tag, index) => (
@@ -35,11 +38,11 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
             <h5 className="text-sm text-gray-700 dark:text-gray-400">
               {formatedDate}
             </h5>
-            <Link href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
+            <NextLink href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
               <a className="text-green-600 hover:text-green-700 dark:hover:text-green-400">
                 Read more &rarr;
               </a>
-            </Link>
+            </NextLink>
           </div>
         </div>
       </div>
