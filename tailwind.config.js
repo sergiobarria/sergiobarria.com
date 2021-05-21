@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  mode: 'jit',
+
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
@@ -20,11 +20,11 @@ module.exports = {
               },
               code: { color: theme('colors.green.400') },
             },
-            h1: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.900'),
-            },
+            // h1: {
+            //   fontWeight: '700',
+            //   letterSpacing: theme('letterSpacing.tight'),
+            //   color: theme('colors.gray.900'),
+            // },
             h2: {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
@@ -39,7 +39,7 @@ module.exports = {
               'scroll-margin-top': defaultTheme.spacing[32],
             },
             code: {
-              color: theme('colors.pink.500'),
+              color: theme('colors.green.500'),
               backgroundColor: theme('colors.gray.100'),
               paddingLeft: '4px',
               paddingRight: '4px',
@@ -130,7 +130,13 @@ module.exports = {
   variants: {
     extend: {
       typography: ['dark'],
+      textColor: ['selection'],
+      backgroundColor: ['selection'],
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('tailwindcss-selection-variant'),
+  ],
 };

@@ -35,9 +35,9 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
           </div>
           <p className="mt-2 text-gray-700 dark:text-gray-400">{excerpt}</p>
           <div className="flex items-center justify-between mt-5">
-            <h5 className="text-sm text-gray-700 dark:text-gray-400">
+            <time className="text-sm text-gray-700 dark:text-gray-400">
               {formatedDate}
-            </h5>
+            </time>
             <NextLink href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
               <a className="text-green-600 hover:text-green-700 dark:hover:text-green-400">
                 Read more &rarr;
