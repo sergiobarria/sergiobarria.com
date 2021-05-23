@@ -6,7 +6,7 @@ import ThemeSwitch from '@/components/ThemeSwitch';
 import Footer from '@/components/Footer';
 
 const Container = ({ children }) => (
-  <div className="max-w-3xl min-h-screen px-4 mx-auto sm:px-6 xl:max-w-4xl xl:px-0">
+  <div className="flex flex-col justify-between max-w-3xl min-h-screen px-4 mx-auto sm:px-6 xl:max-w-4xl xl:px-0">
     <header className="flex items-center justify-between py-10">
       <ThemeSwitch />
 

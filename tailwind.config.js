@@ -1,11 +1,39 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-
+  mode: 'jit',
+  purge: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './layouts/**/*.{js,ts,jsx,tsx}',
+  ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      keyframes: {
+        'fade-in': {
+          '0%': {
+            opacity: 0,
+          },
+
+          '100%': {
+            opacity: 1,
+          },
+        },
+        'fade-out': {
+          '0%': {
+            opacity: 1,
+          },
+
+          '100%': {
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-out',
+        'fade-out': 'fade-out 0.5s ease-out',
+      },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
@@ -20,22 +48,8 @@ module.exports = {
               },
               code: { color: theme('colors.green.400') },
             },
-            // h1: {
-            //   fontWeight: '700',
-            //   letterSpacing: theme('letterSpacing.tight'),
-            //   color: theme('colors.gray.900'),
-            // },
-            h2: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.900'),
-            },
-            h3: {
-              fontWeight: '600',
-              color: theme('colors.gray.900'),
-            },
             'h4, h5, h6': {
-              color: theme('colors.gray.900'),
+              color: theme('colors.gray.800'),
               'scroll-margin-top': defaultTheme.spacing[32],
             },
             code: {

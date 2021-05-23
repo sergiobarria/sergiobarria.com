@@ -10,7 +10,7 @@ import PostListPreview from '@/components/PostListPreview';
 import Card from '@/components/Card';
 
 export async function getStaticProps() {
-  const posts = getAllFilesFrontMatter();
+  const posts = await getAllFilesFrontMatter('blog');
 
   return {
     props: {
@@ -20,15 +20,15 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }) {
-  const latestPosts = posts.allPosts.slice(0, 4);
+  const latestPosts = posts.allFiles.slice(0, 4);
 
   return (
     <Container>
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-4">
-        <h1 className="mb-4 text-2xl font-bold text-black md:text-4xl tracking-tigh dark:text-gray-100">
+      <div className="flex flex-col justify-center max-w-2xl mx-auto mb-4">
+        <h1 className="mb-4 text-3xl font-bold text-center text-gray-800 md:text-4xl tracking-tigh dark:text-gray-100">
           Hey, I'm Sergio
         </h1>
-        <p className="mb-8 font-normal prose text-gray-600 dark:text-gray-100">
+        <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
           I'm an Engineer, developer and writer. For last few years I've worked
           as a Civil Engineer until I decide to take a professional turn and
           becoming a web developer. I created this small space on the internet

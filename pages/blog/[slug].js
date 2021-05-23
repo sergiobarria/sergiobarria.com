@@ -5,7 +5,7 @@ import { getFileBySlug, getFiles } from '@/lib/mdx';
 import MDXComponents from '@/components/MDXComponents';
 
 export async function getStaticPaths() {
-  const posts = await getFiles('blog');
+  const posts = getFiles('blog');
 
   return {
     paths: posts.map(p => ({

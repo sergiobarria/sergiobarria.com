@@ -29,7 +29,7 @@ const SocialIcons = () => {
           <FaTwitter className={`${styles.icon}`} />
         </a>
       </NextLink>
-      <NextLink href="https://twitter.com/sergioBarria01">
+      <NextLink href="https://www.linkedin.com/in/sergio-barria-8771b3213/">
         <a>
           <FaLinkedin className={`${styles.icon}`} />
         </a>

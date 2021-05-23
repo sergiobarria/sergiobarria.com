@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import CodeBlock from './CodeBlock';
-
 const CustomLink = props => {
   const { href } = props;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
@@ -21,8 +19,6 @@ const CustomLink = props => {
 const MDXComponents = {
   Image,
   a: CustomLink,
-  pre: props => <div {...props} />,
-  code: CodeBlock,
 };
 
 export default MDXComponents;

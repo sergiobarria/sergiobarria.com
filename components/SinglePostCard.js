@@ -33,7 +33,9 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
                 </span>
               ))}
           </div>
-          <p className="mt-2 text-gray-700 dark:text-gray-400">{excerpt}</p>
+          <p className="mt-2 text-sm text-gray-700 dark:text-gray-400">
+            {excerpt}
+          </p>
           <div className="flex items-center justify-between mt-5">
             <time className="text-sm text-gray-700 dark:text-gray-400">
               {formatedDate}

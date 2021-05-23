@@ -3,7 +3,7 @@ import PostListPreview from '@/components/PostListPreview';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter();
+  const posts = getAllFilesFrontMatter('blog');
 
   return { props: { posts } };
 }
@@ -11,7 +11,7 @@ export async function getStaticProps() {
 export default function Blog({ posts }) {
   return (
     <Container>
-      <PostListPreview postsArr={posts.allPosts} sectTitle="All Posts" />
+      <PostListPreview postsArr={posts.allFiles} sectTitle="All Posts" />
     </Container>
   );
 }

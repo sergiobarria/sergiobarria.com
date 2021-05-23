@@ -1,4 +1,7 @@
+import NextLink from 'next/link';
+
 import Container from '@/components/Container';
+import Card from '@/components/Card';
 // import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 // export async function getStaticProps() {
@@ -8,9 +11,59 @@ import Container from '@/components/Container';
 // }
 
 export default function Resources() {
+  const techList = [
+    {
+      id: 1,
+      title: 'Javascript',
+    },
+    {
+      id: 2,
+      title: 'Vue',
+    },
+    {
+      id: 3,
+      title: 'React',
+    },
+    {
+      id: 4,
+      title: 'Next',
+    },
+  ];
+
   return (
     <Container>
-      <h1>hello world resources</h1>
+      <div className="flex flex-col items-center justify-center max-w-2xl mx-auto mb-4">
+        <h1 className="mb-4 text-2xl font-bold text-center text-gray-800 md:text-4xl tracking-tigh dark:text-gray-100">
+          All Resources
+        </h1>
+        <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
+          In this section I'm going to upload different code snippets, tips and
+          helpful resources in general related to web development in general.
+        </p>
+
+        <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
+          <span className="font-bold">IMPORTANT:</span> Section under
+          construction. Will be available very soon.
+        </p>
+      </div>
+
+      {/* Resources Content */}
+      <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-4">
+        {techList.map(tech => (
+          <NextLink
+            key={tech.id}
+            href={`resources/${tech.title.toLowerCase()}`}
+          >
+            <a className="cursor-pointer">
+              <Card
+                title={tech.title}
+                image={`/static/logos/${tech.title.toLowerCase()}.svg`}
+                description={`Code snippets and resources related to ${tech.title.toLowerCase()} development`}
+              />
+            </a>
+          </NextLink>
+        ))}
+      </div>
     </Container>
   );
 }
