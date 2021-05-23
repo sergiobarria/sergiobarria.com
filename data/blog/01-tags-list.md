@@ -14,4 +14,5 @@
 - sanity io
 - SSG
 - tailwind css
+- web dev
 - vue

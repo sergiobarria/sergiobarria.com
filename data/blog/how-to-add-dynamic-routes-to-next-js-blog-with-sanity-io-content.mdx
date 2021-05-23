@@ -1,5 +1,5 @@
 ---
-id: 0005
+id: 5
 title: 'How to add dynamic routes to Next.js blog with Sanity.io content'
 slug: 'how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content'
 publishedAt: '2021-03-19'
@@ -21,7 +21,7 @@ keywords:
   - 'Content Managment System'
   - 'JavaScript'
 excerpt: 'In this post we look into how to fetch data from Sanity headless CMS and render dynamic pages using Next.js for a blog style site.'
-image: '/static/images/how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content/main-image.png'
+image: '/static/images/blog/how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content/main-image.png'
 ---
 
 In the last post I wrote a short guide on [how to make a blog with Next.js and Sanity.io](https://sergiobarria.com/blog/how-to-make-a-blog-with-next-js-and-sanity-io). We cover almost all the basic needed to build a blog with **_Next.js_** and connect it to the headless CMS **_Sanity_**. The last piece needed to complete the puzzle was, how to add dynamic pages using the content we fetch from [Sanity](https://www.sanity.io/).
@@ -38,7 +38,7 @@ To create the template, in your project folder navigate to your pages folder and
 
 Now, inside your template file is where you will create the model of how your page will look like. It will look something like this.
 
-```
+```js:[slug].jd
 // This is your [slug].js template
 /*
   Your imports here
@@ -78,7 +78,7 @@ To fetch our data, we will make use of two Next.js functions. You can read more 
 
 First, we need to let Next know how many routes we want to render. For that we use the `getStaticPaths` function to fetch something that will be unique for each newly created page. You could fetch for the id of each post but, that would not be very helpful from the User Experience point of view. So, with that in mind, we are going to fetch our **_slug_**.
 
-```
+```js
 // This is your [slug].js template
 
 ...
@@ -103,10 +103,10 @@ The `postSlugsQuery` prop is just a variable I created to manage my queries from
 
 Your query should look something like this.
 
-```
+```js
 export const postSlugsQuery = `
   *[_type == "post" && defined(slug.current)][].slug.current
-`
+`;
 ```
 
 This will fetch all the slugs inside the content of type post. This query will return all the slugs that are in your **_Sanity Studio_** and **_Next_** will take care of generate one `.html` file for each **_slug_**.
@@ -115,7 +115,7 @@ This will fetch all the slugs inside the content of type post. This query will r
 
 Now that we have our dynamic paths, we need to fetch the data for each one of them. For this, we use the `getStaticProps` function from Next. We will have something like this.
 
-```
+```js
 // This is your [slug].js template
 
 ...
@@ -142,7 +142,7 @@ Our function automatically takes on a special prop called context from which we 
 
 Again we pass our sanity fetch function, this time using another parameters. First a postQuery, note here that I removed the query from the function again just to make it look cleaner. Here let's say I'm looking to get the _\_id, title, slug, image, published date and body content_ from Sanity studio.
 
-```
+```js
 // this is your [slug].js
 
 export const postQuery = `
@@ -158,7 +158,7 @@ export const postQuery = `
     },
     publishedAt,
     body,
-  }`
+  }`;
 ```
 
 The second parameter is the id for our single post, in this case, we use the slug. This will tell **_Next.js_** which specific content should be fetched for each `.html` page generated. The rest of the query are just examples of what you can query for. Our function then returns data that can be passed as props to our `[slug].js` component.
@@ -181,7 +181,7 @@ Luckly, Next got us cover. We can use [Incremental Static Regeneration](https://
 
 To activate **ISR**, all we have to do is, on our template go to the `getStaticProps` function and add the revalidate option and the end of the return.
 
-```
+```js
 // This is your [slug].js template
 
 ...
@@ -213,7 +213,7 @@ Here we have a gotcha moment. If our page is not ready at build time, and we kno
 
 To avoid this we have to go into our template component and add something like this.
 
-```
+```js
 // This is your [slug].js template
 /*
   Your imports here

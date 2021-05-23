@@ -1,5 +1,5 @@
 ---
-id: 0004
+id: 4
 title: 'How to make a blog with Next.js and Sanity.io'
 slug: 'how-to-make-a-blog-with-next-js-and-sanity-io'
 publishedAt: '2021-03-12'
@@ -22,7 +22,7 @@ keywords:
   - 'JavaScript'
   - 'developer'
 excerpt: "Let's learn how to create a blog website using Next.js and the headless CMS Sanity"
-image: '/static/images/how-to-make-a-blog-with-next-js-and-sanity-io/main-image.png'
+image: '/static/images/blog/how-to-make-a-blog-with-next-js-and-sanity-io/main-image.png'
 ---
 
 I started using Sanity headless CMS a few weeks back and in general although I hitted a few bumps in the way the process was relatively simple. Nonetheless, I couldn't find many tutorials or information on how to use Next js and Sanity together. And a good part of what I found was a bit outdated.
@@ -37,17 +37,25 @@ Important: you will need to remember the method used to register on sanity.io, e
 
 In case this is the first time you use Sanity you will need to install the Sanity CLI tool. First make sure you have Node and npm installed in your computer by typing this in your command line or terminal:
 
-`node --v`
+```bash
+node --v
+```
 
 If the output shows some version of node like: **_"v14.15.5"_** or similar, your good to go. If not, it means you have to install node in your computer. Just go to this link and install the LTS version.
 
 Now install the Sanity CLI by typing this in your terminal:
-`npm install -g @sanity/cli`
+
+```bash
+npm install -g @sanity/cli
+```
 
 ## 2. Create Next.js Project
 
 Although you can create a Next project using one of the starter templates that Sanity provides, we are going to start with a basic create-next-app. So, in your terminal or command line navigate to the folder where you're going to save your blog and write
-`npx create-next-app your-blog-name-here`
+
+```bash
+npx create-next-app your-blog-name-here
+```
 
 Once the process has finished you can type **_"npm run dev"_** in your terminal to start the developer server on localhost:3000. Now you can open your Next project in your text editor or IDE.
 
@@ -56,7 +64,10 @@ Once the process has finished you can type **_"npm run dev"_** in your terminal 
 Now that we have our Next project ready to start developing, we need to create our Sanity Studio. The studio is the one that will allow us create our "backend" to manage our block content, it is very easy to use and very customizable.
 
 To start a studio, in your terminal navigate inside in your Next project and type:
-`sanity init`
+
+```bash
+sanity init
+```
 
 Now we need to configure our studio by answering the following questions in the terminal.
 
@@ -69,13 +80,14 @@ Now we need to configure our studio by answering the following questions in the 
 Now you can see in your folder tree a new folder called "studio" or the name you decided to use for the folder.
 
 To start the development server navigate inside your "studio" folder and type in your terminal
-`sanity start`
+
+```bash
+sanity start
+```
 
 This will open a development server in the url: **localhost:3333**
 
 Now you can go to localhost:3333 in your web browser and you will be asked to login. Remember to login using the same method you used to register. If everything has gone correctly you should have something like the picture below in your web browser.
-
-![local server](../../public/static/images/how-to-make-a-blog-with-next-js-and-sanity-io/add-local-server.png)
 
 ## 4. Connect Sanity and Next
 
@@ -83,7 +95,7 @@ Now you can go to localhost:3333 in your web browser and you will be asked to lo
 
 First, we're going to create a sanity client in order to tell Next where to fetch data. So inside your next project, create a file for the sanity client, for example "client.js". Inside we're going to type this:
 
-```
+```js:client.js
 // client.js
 
 import sanityClient from '@sanity/client';
@@ -124,7 +136,7 @@ Sanity provides two ways of data fetching. The first is using standard GraphQL. 
 
 Using `GROQ` is very simple and somewhat similar to GraphQL. To fetch our data, we're going to type something like this:
 
-```
+```js:index.js
 import sanityClient from '../sanity'
 
 export default function index({posts}) {
@@ -170,9 +182,9 @@ Our `GROQ` query will be the one inside the backticks of the fetch function.
 
 Now, let's see what we're writing here:
 
-First, the `*[_type == "post"]` is telling Sanity, get us everything (the \* means all) from the studio inside the content of type "post".
+First, the `*[_type == "post"]` is telling Sanity, get us everything (the `\*` means all) from the studio inside the content of type "post".
 
-The "| order(date desc, \_createdAt desc)" is telling Sanity to order everything using the date in descending order, and later order using the \_createdAt date in descending order.
+The `"| order(date desc, \_createdAt desc)"` is telling Sanity to order everything using the date in descending order, and later order using the \_createdAt date in descending order.
 
 The rest of the query simply lists all of the items that we want from the post schema. If you want to know which names are available in the schema go to your studio folder, inside your project you will find a schemas folder, inside that folder is a file named "post.js". In that file you will see all the same inputs you have on the local server studio in your browser.
 
@@ -183,18 +195,19 @@ The rest of the query simply lists all of the items that we want from the post s
 Now that we fetched our data we need to render it to html. We first need to past our data via props to the components that are going to render it. In order to render fields like: title, author or date we can use simple JSX elements to render the data.
 
 Where it gets a bit tricky is with the body content. Sanity uses something called `Portable Text`, in order to render this type of text into html elements we need to download a package from npm. Stop your development server and in your terminal type:
-`npm i @sanity/block-content-to-react`
+
+```bash
+npm i @sanity/block-content-to-react
+```
 
 This package will help us to render our Richt text (portable text) very easy. Import the package in the corresponding component and use it like this.
 
-```
+```js:blockContent.js
 import BlockContent from '@sanity/block-content-to-react';
 
 export default function YourComponent(props) {
   // your code here
-  return (
-    <BlockContent blocks={props.body} />
-  )
+  return <BlockContent blocks={props.body} />;
 }
 ```
 
@@ -211,7 +224,10 @@ We can deploy our front end to any service that we like. The most common ones ar
 ### Deploy Sanity Studio
 
 To deploy our studio, all we have to do is from our terminal, navigate inside the sanity studio project folder and type:
-`sanity deploy`
+
+```bash
+sanity deploy
+```
 
 A prompt will ask you to type a hostname for your studio once deployed. Once the deployment is finished you will have in your terminal the url for your deployed studio, it will look similar to this.
 `<your-project-hostname>.sanity.studio`
