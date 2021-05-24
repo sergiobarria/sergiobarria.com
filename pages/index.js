@@ -22,6 +22,47 @@ export async function getStaticProps() {
 export default function Home({ posts }) {
   const latestPosts = posts.allFiles.slice(0, 4);
 
+  const jobs = [
+    {
+      id: 1,
+      title: 'Frontend Development',
+      icon: {
+        type: RiComputerLine,
+      },
+      description: 'I build UI and scalable SPA with HTML, CSS and JavaScript',
+      techStack: ['JavaScript', 'Vue', 'React'],
+    },
+    {
+      id: 2,
+      title: 'Backend Development',
+      icon: {
+        type: FaServer,
+      },
+      description: 'Connection with the frontend, databases and security',
+      techStack: ['Node js', 'Django', 'MongoDB', 'SQL', 'Firebase'],
+    },
+    {
+      id: 3,
+      title: 'JAM Stack Development',
+      icon: {
+        type: ImStack,
+      },
+      description:
+        'SSR and SSG development for better performance & SEO Optimization',
+      techStack: ['Next js', 'Gatsby'],
+    },
+    {
+      id: 4,
+      title: 'Mobile Development',
+      icon: {
+        type: FaMobileAlt,
+      },
+      description:
+        'Cross platform mobile development for iOS and Android phones',
+      techStack: ['Flutter'],
+    },
+  ];
+
   return (
     <Container>
       <div className="flex flex-col justify-center max-w-2xl mx-auto mb-4">
@@ -36,53 +77,39 @@ export default function Home({ posts }) {
           learn how to code.
         </p>
       </div>
-      <div>
-        <h1 className="mb-4 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:leading-10 md:text-4xl md:leading-14">
+
+      <section>
+        <h1 className="mb-4 text-2xl font-bold leading-9 tracking-tight text-gray-800 dark:text-gray-100 sm:leading-10 md:text-4xl md:leading-14">
           What I do
         </h1>
         <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-4">
-          <Card
-            title="Frontend Development"
-            icon={
-              <RiComputerLine className="w-10 h-10 text-green-500 md:w-12 md:h-12" />
-            }
-            description="I build UI and scalable SPA with HTML, CSS and JavaScript"
-            techStack="JavaScript - Vue - React"
-          />
-          <Card
-            title="Backend Development"
-            icon={
-              <FaServer className="w-10 h-10 text-green-500 md:w-12 md:h-12" />
-            }
-            description="Connection with the frontend, databases and security"
-            techStack="Node js - Django - MongoDB - SQL - Firebase"
-          />
-          <Card
-            title="JAM Stack Development"
-            icon={
-              <ImStack className="w-10 h-10 text-green-500 md:w-12 md:h-12" />
-            }
-            description="SSR and SSG development for better performance & SEO"
-            techStack="Next js - Gatsby"
-          />
-          <Card
-            title="Mobile Development"
-            icon={
-              <FaMobileAlt className="w-10 h-10 text-green-500 md:w-12 md:h-12" />
-            }
-            description="Cross platform mobile development for iOS and Android phones"
-            techStack="Flutter"
-          />
+          {jobs.map((job, id) => (
+            <Card
+              key={id}
+              title={job.title}
+              icon={
+                <job.icon.type className="w-10 h-10 text-green-500 md:w-12 md:h-12" />
+              }
+              description={job.description}
+              techStack={job.techStack}
+            />
+          ))}
         </div>
-      </div>
-      <PostListPreview postsArr={latestPosts} sectTitle="My latest toughts" />
-      <div className="flex justify-center mt-6">
-        <NextLink href="/blog">
-          <a className="p-1 text-green-600 uppercase border-b border-green-500">
-            All Posts &rarr;
-          </a>
-        </NextLink>
-      </div>
+      </section>
+
+      <section className="my-16">
+        <h1 className="pb-4 text-2xl font-bold leading-9 tracking-tight text-gray-800 border-b dark:text-gray-100 sm:leading-10 md:text-4xl md:leading-14">
+          My latest toughts
+        </h1>
+        <PostListPreview postsArr={latestPosts} sectTitle="My latest toughts" />
+        <div className="flex justify-center mt-6">
+          <NextLink href="/blog">
+            <a className="p-1 text-green-600 uppercase border-b border-green-500">
+              All Posts &rarr;
+            </a>
+          </NextLink>
+        </div>
+      </section>
     </Container>
   );
 }

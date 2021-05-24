@@ -16,7 +16,7 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
         </div>
         <div className="flex flex-col md:ml-5 md:w-9/12">
           <NextLink href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
-            <h4 className="mb-2 text-xl font-semibold text-gray-900 cursor-pointer dark:text-gray-100 hover:text-green-500">
+            <h4 className="mb-2 text-xl font-semibold text-gray-900 cursor-pointer dark:text-gray-100 dark:hover:text-green-500 hover:text-green-500">
               {title}
             </h4>
           </NextLink>

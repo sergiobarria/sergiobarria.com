@@ -1,37 +1,26 @@
-import React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import React, { Children } from 'react';
 
-export default function ActiveLink({ href, children }) {
+const ActiveLink = ({ children, ...props }) => {
   const router = useRouter();
+  const child = Children.only(children);
+  let className = child.props.className || '';
+  const isDynamicRoute = props.href.match(/^\/?\[{1,2}\.{0,3}[a-z]+\]{1,2}$/);
 
-  let className = children.props.className || '';
-  if (router.pathname === href) {
-    className = `${className}`;
+  // console.log(router);
+
+  if (
+    router.pathname === props.href &&
+    !isDynamicRoute &&
+    props.activeClassName
+  ) {
+    className = `${className} ${props.activeClassName}`.trim();
+  } else if (router.asPath === props.as && isDynamicRoute) {
+    className = `${className} ${props.activeClassName}`.trim();
   }
 
-  return <Link href={href}>{React.cloneElement(children, { className })}</Link>;
-}
+  return <Link {...props}>{React.cloneElement(child, { className })}</Link>;
+};
 
-// import { useRouter } from 'next/router';
-// import Link from 'next/link';
-// import React, { Children } from 'react';
-
-// const ActiveLink = ({ children, activeClassName, ...props }) => {
-//   const { asPath } = useRouter();
-//   const child = Children.only(children);
-//   const childClassName = child.props.className || '';
-
-//   const className =
-//     asPath === props.href || asPath === props.as
-//       ? `${childClassName} ${activeClassName}`.trim()
-//       : childClassName;
-
-//   return (
-//     <Link {...props}>
-//       {React.cloneElement(child, { classNAme: className || null })}
-//     </Link>
-//   );
-// };
-
-// export default ActiveLink;
+export default ActiveLink;

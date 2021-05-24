@@ -13,7 +13,15 @@ const Card = ({ icon, title, description, techStack, image }) => (
         <div className="text-sm text-gray-500 dark:text-gray-200">
           {description}
         </div>
-        {techStack && <div className="text-sm text-green-500">{techStack}</div>}
+        <div className="flex">
+          {techStack &&
+            techStack.map((tech, index) => (
+              <span key={index} className="mr-2 text-sm text-green-500">
+                {tech}
+                {`${index < techStack.length - 1 ? ' -' : ''}`}
+              </span>
+            ))}
+        </div>
       </div>
     </div>
   </div>

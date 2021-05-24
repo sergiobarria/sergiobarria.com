@@ -1,7 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote';
 
 import BlogLayout from '@/layouts/BlogLayout';
-import { getFileBySlug, getFiles } from '@/lib/mdx';
+import { getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx';
 import MDXComponents from '@/components/MDXComponents';
 
 export async function getStaticPaths() {
@@ -19,16 +19,23 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = await getFileBySlug('blog', params.slug);
+  const allPosts = await getAllFilesFrontMatter('blog');
+  // const postIndex = allPosts.findIndex(p => p.slug === params.slug);
+  // const prev = allPosts[postIndex - 1] || null;
+  // const next = allPosts[postIndex + 1] || null;
+
+  // console.log(postIndex);
 
   return {
     props: {
       ...post,
+      allPosts,
     },
   };
 }
 
-const SingleBlogPost = ({ mdxSource, frontMatter }) => (
-  <BlogLayout frontMatter={frontMatter}>
+const SingleBlogPost = ({ mdxSource, frontMatter, allPosts }) => (
+  <BlogLayout frontMatter={frontMatter} allPosts={allPosts}>
     <MDXRemote {...mdxSource} components={MDXComponents} />
   </BlogLayout>
 );

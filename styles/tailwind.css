@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background-color: #ffc617;
+  color: #fefefe;
+}
+
 .sticky-nav {
   position: sticky;
   z-index: 10;

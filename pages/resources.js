@@ -52,7 +52,7 @@ export default function Resources() {
         {techList.map(tech => (
           <NextLink
             key={tech.id}
-            href={`resources/${tech.title.toLowerCase()}`}
+            href={`/resources/${tech.title.toLowerCase()}`}
           >
             <a className="cursor-pointer">
               <Card
