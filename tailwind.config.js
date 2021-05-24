@@ -10,6 +10,27 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      textColor: {
+        skin: {
+          base: 'var(--color-text-base)',
+          muted: 'var(--color-text-muted)',
+          inverted: 'var(--color-text-inverted)',
+          title: 'var(--color-text-title)',
+          accent: 'var(--color-text-accent)',
+          'button-accent-hover': 'var(--color-button-accent-hover)',
+          warn: 'var(--color-text-warn)',
+        },
+      },
+      borderColor: {
+        skin: {
+          accent: 'var(--color-button-border)',
+        },
+      },
+      backgroundColor: {
+        skin: {
+          fill: 'var(--color-fill)',
+        },
+      },
       keyframes: {
         'fade-in': {
           '0%': {
@@ -47,6 +68,9 @@ module.exports = {
                 color: theme('colors.green.600'),
               },
               code: { color: theme('colors.green.400') },
+            },
+            h2: {
+              color: 'var(--color-text-title)',
             },
             'h4, h5, h6': {
               color: theme('colors.gray.800'),
@@ -106,7 +130,7 @@ module.exports = {
             h2: {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.100'),
+              color: 'var(--color-text-inverted)',
             },
             h3: {
               fontWeight: '600',

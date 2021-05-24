@@ -11,7 +11,7 @@ const Footer = () => (
         </p>
         <p className="text-sm">
           Built with{' '}
-          <span className="font-semibold text-green-500 hover:text-green-700">
+          <span className="font-semibold text-skin-accent hover:text-skin-accent">
             <a
               href="https://www.gatsbyjs.com/"
               target="_blank"
@@ -21,7 +21,7 @@ const Footer = () => (
             </a>
           </span>{' '}
           and{' '}
-          <span className="font-semibold text-green-500 hover:text-green-700">
+          <span className="font-semibold text-skin-accent hover:text-skin-accent">
             <a
               href="https://www.sanity.io"
               target="_blank"

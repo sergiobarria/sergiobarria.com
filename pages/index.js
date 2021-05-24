@@ -39,7 +39,7 @@ export default function Home({ posts }) {
         type: FaServer,
       },
       description: 'Connection with the frontend, databases and security',
-      techStack: ['Node js', 'Django', 'MongoDB', 'SQL', 'Firebase'],
+      techStack: ['Node', 'Django', 'Mongo', 'Firebase'],
     },
     {
       id: 3,
@@ -66,10 +66,10 @@ export default function Home({ posts }) {
   return (
     <Container>
       <div className="flex flex-col justify-center max-w-2xl mx-auto mb-4">
-        <h1 className="mb-4 text-3xl font-bold text-center text-gray-800 md:text-4xl tracking-tigh dark:text-gray-100">
+        <h1 className="mb-4 text-3xl font-bold text-center text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted">
           Hey, I'm Sergio
         </h1>
-        <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
+        <p className="mb-8 font-normal prose text-center text-skin-base dark:text-skin-inverted">
           I'm an Engineer, developer and writer. For last few years I've worked
           as a Civil Engineer until I decide to take a professional turn and
           becoming a web developer. I created this small space on the internet
@@ -79,7 +79,7 @@ export default function Home({ posts }) {
       </div>
 
       <section>
-        <h1 className="mb-4 text-2xl font-bold leading-9 tracking-tight text-gray-800 dark:text-gray-100 sm:leading-10 md:text-4xl md:leading-14">
+        <h1 className="mb-4 text-2xl font-bold leading-9 tracking-tight text-skin-title dark:text-skin-inverted sm:leading-10 md:text-4xl md:leading-14">
           What I do
         </h1>
         <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-4">
@@ -88,7 +88,7 @@ export default function Home({ posts }) {
               key={id}
               title={job.title}
               icon={
-                <job.icon.type className="w-10 h-10 text-green-500 md:w-12 md:h-12" />
+                <job.icon.type className="w-10 h-10 text-skin-accent md:w-12 md:h-12" />
               }
               description={job.description}
               techStack={job.techStack}
@@ -104,7 +104,7 @@ export default function Home({ posts }) {
         <PostListPreview postsArr={latestPosts} sectTitle="My latest toughts" />
         <div className="flex justify-center mt-6">
           <NextLink href="/blog">
-            <a className="p-1 text-green-600 uppercase border-b border-green-500">
+            <a className="px-4 py-2 uppercase transition duration-200 ease-in transform border rounded text-skin-accent border-skin-accent hover:text-skin-inverted hover:border-transparent hover:-translate-y-1 active:translate-y-0 hover:shadow-xl hover:bg-skin-fill">
               All Posts &rarr;
             </a>
           </NextLink>

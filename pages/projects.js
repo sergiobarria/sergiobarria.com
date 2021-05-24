@@ -37,11 +37,11 @@ export default function Projects({ projects }) {
     <Container>
       {/* Project Container Card */}
       <section>
-        <h1 className="mb-4 text-2xl font-bold text-center text-gray-800 md:text-5xl tracking-tigh dark:text-gray-100">
+        <h1 className="mb-4 text-2xl font-bold text-center text-skin-title md:text-5xl tracking-tigh dark:text-skin-inverted">
           Projects Portfolio
         </h1>
         <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-4">
-          <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
+          <p className="mb-8 font-normal prose text-center text-skin-base dark:text-skin-inverted">
             In this section I'm showing some of the projects I've work on. You
             can find live demos, source code, which technologies I used and some
             explanations of the approach I took to complete the project.
@@ -51,7 +51,7 @@ export default function Projects({ projects }) {
 
       {/* What I'm up to right now */}
       <section>
-        <h1 className="my-4 text-2xl font-bold text-gray-800 text-start md:text-4xl tracking-tigh dark:text-gray-100">
+        <h1 className="my-4 text-2xl font-bold text-skin-title text-start md:text-4xl tracking-tigh dark:text-skin-inverted">
           What I'm up to right now
         </h1>
         <div className="px-4 py-2 mx-auto md:w-3/4">
@@ -61,8 +61,10 @@ export default function Projects({ projects }) {
                 key={index}
                 className="flex items-center px-4 py-2 my-4 bg-white border shadow dark:bg-gray-600 rounded-xl"
               >
-                <FiCheckCircle className="text-green-500" />
-                <p className="ml-6 text-gray-600 dark:text-gray-100">{task}</p>
+                <FiCheckCircle className="w-8 h-8 text-skin-accent" />
+                <p className="ml-6 text-skin-base dark:text-skin-inverted">
+                  {task}
+                </p>
               </li>
             ))}
           </ul>
@@ -70,7 +72,7 @@ export default function Projects({ projects }) {
       </section>
 
       <section className="my-6">
-        <h1 className="mb-4 text-2xl font-bold text-gray-800 text-start md:text-4xl tracking-tigh dark:text-gray-100">
+        <h1 className="mb-4 text-2xl font-bold text-skin-title text-start md:text-4xl tracking-tigh dark:text-skin-inverted">
           Check some of the projects I've worked so far
         </h1>
         <ProjectsNavbar />

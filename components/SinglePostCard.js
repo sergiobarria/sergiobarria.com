@@ -16,7 +16,7 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
         </div>
         <div className="flex flex-col md:ml-5 md:w-9/12">
           <NextLink href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
-            <h4 className="mb-2 text-xl font-semibold text-gray-900 cursor-pointer dark:text-gray-100 dark:hover:text-green-500 hover:text-green-500">
+            <h4 className="mb-2 text-xl font-semibold cursor-pointer text-skin-title dark:text-skin-inverted dark:hover:text-skin-accent hover:text-skin-accent">
               {title}
             </h4>
           </NextLink>
@@ -25,7 +25,7 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
               tags.map((tag, index) => (
                 <span
                   key={index}
-                  className={`text-green-600 font-light ${
+                  className={`text-skin-accent font-light ${
                     index === 0 ? '' : 'ml-3'
                   }`}
                 >
@@ -33,15 +33,15 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
                 </span>
               ))}
           </div>
-          <p className="mt-2 text-sm text-gray-700 dark:text-gray-400">
+          <p className="mt-2 text-sm text-skin-base dark:text-skin-inverted">
             {excerpt}
           </p>
           <div className="flex items-center justify-between mt-5">
-            <time className="text-sm text-gray-700 dark:text-gray-400">
+            <time className="text-sm text-skin-base dark:text-skin-muted">
               {formatedDate}
             </time>
             <NextLink href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
-              <a className="text-green-600 hover:text-green-700 dark:hover:text-green-400">
+              <a className="text-skin-accent hover:text-skin-button-accent-hover dark:hover:text-skin-400">
                 Read more &rarr;
               </a>
             </NextLink>

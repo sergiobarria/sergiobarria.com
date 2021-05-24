@@ -4,7 +4,7 @@ import { GrMail } from 'react-icons/gr';
 
 const SocialIcons = () => {
   const styles = {
-    icon: 'w-6 h-6 text-gray-700 hover:text-green-500',
+    icon: 'w-6 h-6 text-gray-700 hover:text-skin-accent',
   };
 
   return (

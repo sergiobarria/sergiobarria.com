@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Adding global theme and styles using CSS variables with Tailwind */
+@layer base {
+  :root {
+    --color-text-base: #52525b;
+    --color-text-muted: #fff9e8;
+    --color-text-inverted: #f4f4f5;
+    --color-text-title: #27272a;
+    --color-text-accent: #d32f2f;
+    --color-text-warn: #ffc617;
+    --color-fill: #d32f2f;
+    --color-button-border: #d32f2f;
+    --color-button-accent: #fff;
+    --color-button-accent-hover: #b71c1c;
+    /* --color-button-muted: ; */
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

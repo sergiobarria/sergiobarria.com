@@ -33,17 +33,17 @@ export default function Resources() {
   return (
     <Container>
       <div className="flex flex-col items-center justify-center max-w-2xl mx-auto mb-4">
-        <h1 className="mb-4 text-2xl font-bold text-center text-gray-800 md:text-4xl tracking-tigh dark:text-gray-100">
+        <h1 className="mb-4 text-2xl font-bold text-center text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted">
           All Resources
         </h1>
-        <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
+        <p className="mb-8 font-normal prose text-center text-skin-base dark:text-gray-100">
           In this section I'm going to upload different code snippets, tips and
           helpful resources in general related to web development in general.
         </p>
 
-        <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
-          <span className="font-bold">IMPORTANT:</span> Section under
-          construction. Will be available very soon.
+        <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-skin-inverted">
+          <span className="font-bold text-skin-warn "> 🚧 IMPORTANT 🚧 :</span>
+          Section under construction. Content will be available very soon👷🏼‍♂️.
         </p>
       </div>
 

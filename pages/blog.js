@@ -55,7 +55,7 @@ export default function Blog({ posts }) {
         </svg>
       </div>
 
-      <h1 className="mt-12 text-2xl font-bold text-gray-800 md:text-4xl tracking-tigh dark:text-gray-100">
+      <h1 className="mt-12 text-2xl font-bold text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted">
         All Blog Posts (<span>{filteredBlogPosts.length}</span>)
       </h1>
       <PostListPreview postsArr={filteredBlogPosts} />
