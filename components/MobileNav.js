@@ -3,7 +3,7 @@ import { FaAlignRight } from 'react-icons/fa';
 import { CgClose } from 'react-icons/cg';
 
 import navLinks from '@/data/navLinks';
-import CustomLink from './CustomLink';
+import ActiveLink from './ActiveLink';
 
 const MobileNav = () => {
   const [showNav, setShowNav] = useState(false);
@@ -14,7 +14,7 @@ const MobileNav = () => {
         document.body.style.overflow = 'auto';
       } else {
         // Prevent scrolling
-        document.body.style.overflow = 'hidden';
+        // document.body.style.overflow = 'hidden';
       }
       return !status;
     });
@@ -24,7 +24,7 @@ const MobileNav = () => {
     <div>
       <button
         type="button"
-        className="flex items-center justify-center w-10 h-10 text-2xl text-green-600 bg-gray-200 rounded dark:bg-gray-800 focus:outline-none"
+        className="flex items-center justify-center w-10 h-10 text-2xl bg-gray-200 rounded text-skin-accent dark:bg-gray-800 focus:outline-none"
         aria-label="Toggle Menu"
         onClick={onToggleNav}
       >
@@ -39,13 +39,11 @@ const MobileNav = () => {
         <nav className="fixed z-20 h-full mt-8">
           {navLinks.map(link => (
             <div key={link.id} className="px-12 py-4">
-              <CustomLink
-                href={link.url}
-                className="text-2xl font-semibold tracking-widest text-gray-900 dark:text-gray-100"
-                onClick={onToggleNav}
-              >
-                {link.text}
-              </CustomLink>
+              <ActiveLink href={link.url} onClick={onToggleNav}>
+                <a className="text-2xl font-semibold tracking-widest text-gray-900 dark:text-gray-100">
+                  {link.text}
+                </a>
+              </ActiveLink>
             </div>
           ))}
         </nav>

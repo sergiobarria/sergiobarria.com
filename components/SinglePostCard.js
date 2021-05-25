@@ -20,13 +20,13 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
               {title}
             </h4>
           </NextLink>
-          <div className="w-full">
+          <div className="flex flex-wrap w-full">
             {tags &&
               tags.map((tag, index) => (
                 <span
                   key={index}
                   className={`text-skin-accent font-light ${
-                    index === 0 ? '' : 'ml-3'
+                    index === 0 ? '' : 'ml-2'
                   }`}
                 >
                   #{tag}

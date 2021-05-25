@@ -63,11 +63,11 @@ module.exports = {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.green.500'),
+              color: 'var(--color-text-accent)',
               '&:hover': {
-                color: theme('colors.green.600'),
+                color: 'var(--color-text-accent-hover)',
               },
-              code: { color: theme('colors.green.400') },
+              code: { color: 'var(--color-text-accent)' },
             },
             h2: {
               color: 'var(--color-text-title)',
@@ -77,7 +77,7 @@ module.exports = {
               'scroll-margin-top': defaultTheme.spacing[32],
             },
             code: {
-              color: theme('colors.green.500'),
+              color: 'var(--color-text-accent)',
               backgroundColor: theme('colors.gray.100'),
               paddingLeft: '4px',
               paddingRight: '4px',
@@ -112,9 +112,9 @@ module.exports = {
           css: {
             color: theme('colors.gray.300'),
             a: {
-              color: theme('colors.green.400'),
+              color: 'var(--color-text-accent)',
               '&:hover': {
-                color: theme('colors.green.600'),
+                color: 'var(--color-text-accent)',
               },
               code: { color: theme('colors.blue.400') },
             },

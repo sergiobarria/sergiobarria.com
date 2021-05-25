@@ -19,6 +19,50 @@
   }
 }
 
+/* Modal styles */
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+@media only screen and (max-width: 640px) {
+  .Modal {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+.ReactModal__Overlay {
+  transform: scale(0);
+  transition: all 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  transform: scale(1);
+}
+
+.ReactModal__Overlay--before-close {
+  transform: scale(0);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -45,7 +89,7 @@ html {
 }
 
 .prose code {
-  @apply text-green-500 font-normal dark:text-green-500 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
+  @apply text-skin-accent font-normal dark:text-skin-accent px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
 }
 
 .prose img {

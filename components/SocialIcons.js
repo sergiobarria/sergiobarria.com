@@ -10,27 +10,27 @@ const SocialIcons = () => {
   return (
     <div className="flex items-center mb-3 space-x-8">
       <NextLink href="mailto:sbarria.dev@gmail.com">
-        <a>
+        <a target="_blank" rel="noopener noreferrer">
           <GrMail className={`${styles.icon}`} />
         </a>
       </NextLink>
       <NextLink href="https://github.com/sergiobarria">
-        <a>
+        <a target="_blank" rel="noopener noreferrer">
           <FaGithub className={`${styles.icon}`} />
         </a>
       </NextLink>
       <NextLink href="https://www.instagram.com/thecodingscript/">
-        <a>
+        <a target="_blank" rel="noopener noreferrer">
           <FaInstagram className={`${styles.icon}`} />
         </a>
       </NextLink>
       <NextLink href="https://twitter.com/sergioBarria01">
-        <a>
+        <a target="_blank" rel="noopener noreferrer">
           <FaTwitter className={`${styles.icon}`} />
         </a>
       </NextLink>
       <NextLink href="https://www.linkedin.com/in/sergio-barria-8771b3213/">
-        <a>
+        <a target="_blank" rel="noopener noreferrer">
           <FaLinkedin className={`${styles.icon}`} />
         </a>
       </NextLink>
