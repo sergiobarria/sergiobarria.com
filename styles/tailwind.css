@@ -9,14 +9,23 @@
     --color-text-muted: #fff9e8;
     --color-text-inverted: #f4f4f5;
     --color-text-title: #27272a;
-    --color-text-accent: #d32f2f;
+    --color-text-accent: #e64a19;
     --color-text-warn: #ffc617;
-    --color-fill: #d32f2f;
-    --color-button-border: #d32f2f;
+    --color-fill: #e64a19;
+    --color-button-border: #e64a19;
     --color-button-accent: #fff;
-    --color-button-accent-hover: #b71c1c;
+    --color-button-accent-hover: #bf360c;
     /* --color-button-muted: ; */
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #ff8a65;
+  color: #fefefe;
 }
 
 /* Modal styles */
@@ -61,15 +70,6 @@
 
 .ReactModal__Overlay--before-close {
   transform: scale(0);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-::selection {
-  background-color: #ffc617;
-  color: #fefefe;
 }
 
 .sticky-nav {

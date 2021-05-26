@@ -28,6 +28,7 @@
     "mdx-prism": "^0.3.3",
     "next": "10.2.0",
     "next-mdx-remote": "^3.0.2",
+    "next-seo": "^4.24.0",
     "next-themes": "^0.0.14",
     "postcss": "^8.2.15",
     "prism-react-renderer": "^1.2.0",
@@ -49,6 +50,7 @@
   "devDependencies": {
     "@ijsto/eslint-config": "4.1.6",
     "eslint": "^7.25.0",
+    "globby": "^11.0.3",
     "prettier": "^2.3.0"
   }
 }

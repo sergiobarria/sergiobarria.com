@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sergiobarria.com/about</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/blog</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/resources</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/about/about</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/5-common-mistakes-beginners-make-when-learning-to-code</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/back-end-vs-front-end-web-development</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/build-projects-build-knowledge-build-a-foundation</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/blog/choosing-your-developer-path</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/blog/hello-world</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/how-to-add-pagination-to-gatsby-site</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/how-to-make-a-blog-with-next-js-and-sanity-io</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/should-i-learn-more-than-one-programming-language-at-the-same-time</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/what-is-the-tutorial-hell-and-how-to-escape-it</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/projects/gatsby-blog-portfolio-with-sanity</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/projects/next-blog-portfolio-with-contentful</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-with-mdx</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-with-sanity</loc>
+  </url>
+</urlset>
