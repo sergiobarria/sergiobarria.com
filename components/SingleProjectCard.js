@@ -27,7 +27,7 @@ const SingleProjectCard = ({ project }) => {
     <>
       <article className="relative grid max-w-xs grid-cols-1 p-3 mx-auto bg-gray-200 rounded shadow-lg cursor-default select-none w-xs dark:bg-gray-900">
         <div className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
-          <h2 className="text-center">{project.title}</h2>
+          <h2 className="text-center">{project.name}</h2>
         </div>
 
         <div className="w-full my-2">
@@ -42,7 +42,7 @@ const SingleProjectCard = ({ project }) => {
         </div>
 
         {/* <Modal showModal={showDetail} /> */}
-        <Modal
+        {/* <Modal
           className="Modal dark:bg-gray-900"
           overlayClassName="Overlay"
           closeTimeoutMS={500}
@@ -114,7 +114,7 @@ const SingleProjectCard = ({ project }) => {
               </button>
             </div>
           </div>
-        </Modal>
+        </Modal> */}
       </article>
     </>
   );

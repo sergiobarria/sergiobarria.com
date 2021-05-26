@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FiCheckCircle } from 'react-icons/fi';
 import { NextSeo } from 'next-seo';
 
@@ -6,6 +7,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 import SingleProjectCard from '@/components/SingleProjectCard';
 import ProjectsNavbar from '@/components/ProjectsNavbar';
 import StackTable from '@/components/Stack';
+import { projects as projectsData } from '@/data/projects';
 
 export async function getStaticProps() {
   const projects = getAllFilesFrontMatter('projects');
@@ -13,7 +15,12 @@ export async function getStaticProps() {
   return { props: { projects } };
 }
 
-export default function Projects({ projects }) {
+export default function Projects() {
+  const [projectsArr, setProjectsArr] = useState(projectsData);
+  const [active, setActive] = useState('all');
+
+  // const category = ['next js', 'gatsby'];
+
   const url = 'https://sergiobarria.com/projects';
   const title = 'Projects | Sergio Barria';
   const description =
@@ -26,19 +33,19 @@ export default function Projects({ projects }) {
   ];
 
   // Function to filter projects
-  // const handlerFilterCategory = category => {
-  //   if (category === 'all') {
-  //     setProjects(projectsData);
-  //     setActive(category);
-  //     return;
-  //   }
+  const handleFilterCategory = category => {
+    if (category === 'all') {
+      setProjectsArr(projectsData);
+      setActive(category);
+      return;
+    }
 
-  //   const newArray = projectsData.filter(project =>
-  //     project.category.includes(category)
-  //   );
-  //   setProjects(newArray);
-  //   setActive(category);
-  // };
+    const newArray = projectsData.filter(project =>
+      project.category.includes(category)
+    );
+    setProjectsArr(newArray);
+    setActive(category);
+  };
 
   return (
     <>
@@ -95,15 +102,18 @@ export default function Projects({ projects }) {
           <h1 className="mb-4 text-2xl font-bold text-skin-title text-start md:text-4xl tracking-tigh dark:text-skin-inverted">
             Check some of the projects I've worked so far
           </h1>
-          <ProjectsNavbar />
+          <ProjectsNavbar
+            handleFilterCategory={handleFilterCategory}
+            active={active}
+          />
           <hr />
           <div className="grid grid-cols-12 gap-4 my-4 ">
-            {projects.allFiles.map((project, index) => (
+            {projectsArr.map(project => (
               <div
-                key={index}
+                key={project.id}
                 className="col-span-12 overflow-hidden rounded sm:col-span-6 lg:col-span-4"
               >
-                <SingleProjectCard key={project.id} project={project} />
+                <SingleProjectCard project={project} />
               </div>
             ))}
           </div>
