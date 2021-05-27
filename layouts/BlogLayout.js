@@ -52,18 +52,20 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
               <div className="p-2 prose dark:prose-dark max-w-none">
                 {children}
               </div>
-              <div className="flex justify-between w-full px-2">
-                <div className="w-5/12 h-40 cursor-pointer">
-                  <NextLink href={`${prevPost ? prevPost.slug : ''}`}>
-                    <div className="p-2 my-6 text-sm border rounded-md shadow text-skin-accent h-28 ">
-                      <p>&larr; Prev</p>
-                      <hr className="my-2" />
-                      <p>{prevPost.title}</p>
-                    </div>
-                  </NextLink>
-                </div>
+              <div className="flex flex-col justify-between w-full px-2 md:flex-row">
+                {prevPost && (
+                  <div className="w-full h-40 cursor-pointer md:w-5/12">
+                    <NextLink href={`${prevPost ? prevPost.slug : ''}`}>
+                      <div className="p-2 my-6 text-sm border rounded-md shadow text-skin-accent h-28 ">
+                        <p>&larr; Prev</p>
+                        <hr className="my-2" />
+                        <p>{prevPost.title}</p>
+                      </div>
+                    </NextLink>
+                  </div>
+                )}
                 {nextPost && (
-                  <div className="w-5/12 h-40 cursor-pointer ">
+                  <div className="w-full h-40 cursor-pointer md:w-5/12 ">
                     <NextLink href={`${nextPost ? nextPost.slug : ''}`}>
                       <div className="p-2 my-6 text-sm border rounded-md shadow text-skin-accent h-28">
                         <p className="text-right">&rarr; Next</p>
@@ -105,7 +107,7 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
                 </div>
               </div>
               <div className="py-2">
-                <h3 className="pb-2 font-semibold text-skin-title dark:text-skin-title">
+                <h3 className="pb-2 font-semibold text-skin-title dark:text-skin-inverted">
                   CATEGORIES
                 </h3>
                 <p className="pb-2 dark:text-skin-base">
@@ -113,7 +115,7 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
                 </p>
               </div>
               <div className="py-2">
-                <h3 className="pb-2 font-semibold text-skin-title dark:text-skin-title">
+                <h3 className="pb-2 font-semibold text-skin-title dark:text-skin-inverted">
                   PUBLISHED ON
                 </h3>
                 <time className="pb-2 dark:text-skin-base">{formatedDate}</time>
@@ -135,7 +137,7 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
               </div>
 
               {/* Latest posts list */}
-              <div className="my-24">
+              <div className="hidden my-24 md:block">
                 <h3 className="py-2 text-base font-normal text-skin-accent dark:text-skin-accent">
                   Other posts that you may be interested
                 </h3>

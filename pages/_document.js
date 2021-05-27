@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
+import { GA_TRACKING_ID } from '@/lib/gtag';
+
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -69,6 +71,25 @@ class MyDocument extends Document {
             color="#4a9885"
             href="/static/favicons/safari-pinned-tab.svg"
             rel="mask-icon"
+          />
+
+          {/* Google Site Tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-G8H7JVKKBY"
+          />
+          {/* eslint-disable */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+            }}
           />
         </Head>
         <body className="antialiased">

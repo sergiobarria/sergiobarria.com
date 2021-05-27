@@ -18,6 +18,7 @@ keywords:
   - 'Sanity'
   - 'Headless CMS'
   - 'CMS'
+  - 'Static Site Generation'
   - 'Content Managment System'
   - 'JavaScript'
   - 'developer'
@@ -41,7 +42,7 @@ In case this is the first time you use Sanity you will need to install the Sanit
 node --v
 ```
 
-If the output shows some version of node like: **_"v14.15.5"_** or similar, your good to go. If not, it means you have to install node in your computer. Just go to this link and install the LTS version.
+If the output shows some version of node like: **_"v14.15.5"_** or similar, your good to go. If not, it means you have to install node in your computer. Just go to this [link](https://nodejs.org/en/) and install the LTS version.
 
 Now install the Sanity CLI by typing this in your terminal:
 
@@ -89,6 +90,13 @@ This will open a development server in the url: **localhost:3333**
 
 Now you can go to localhost:3333 in your web browser and you will be asked to login. Remember to login using the same method you used to register. If everything has gone correctly you should have something like the picture below in your web browser.
 
+<Image
+  src="/static/images/blog/how-to-make-a-blog-with-next-js-and-sanity-io/sanity-studio-local-server.png"
+  width={818}
+  height={295}
+  priority
+/>
+
 ## 4. Connect Sanity and Next
 
 ### Next to Sanity Connection
@@ -114,17 +122,45 @@ Finally, your project ID can be found in 2 places.
 - Inside your studio folder, on the sanity.json file you can see the "projectId".
 - In your browser navigate to sanity.io and login. Inside your dashboard select your project and below your project name you can see your project ID.
 
+<Image
+  src="/static/images/blog/how-to-make-a-blog-with-next-js-and-sanity-io/sanity-project-id.png"
+  width={2138}
+  height={776}
+  priority
+/>
+
 ### Sanity to Next Connection
 
 Now we need to tell sanity that our next project can be trusted. So, in the same page where you saw your project id go to settings -> API -> Add new Origin.
 
-Add your development server: http://localhost:3000
+Add your development server: **http://localhost:3000**
+
+<Image
+  src="/static/images/blog/how-to-make-a-blog-with-next-js-and-sanity-io/add-local-server.png"
+  width={1140}
+  height={471}
+  priority
+/>
+
+<Image
+  src="/static/images/blog/how-to-make-a-blog-with-next-js-and-sanity-io/adding-url.png"
+  width={975}
+  height={348}
+  priority
+/>
 
 **IMPORTANT**: Once we deploy our blog, we need to come back here and add our url for deployment in order to be able to fetch data during production.
 
 ## 5. Fetch data from Sanity
 
 First, let's make sure we have some data to fetch. So, in our sanity studio local server (in the browser) let's add a new post. You can start by using any "dummy data" for a start. Just type any data on the input boxes. In the case of the author and category, you can either leave it empty or create an author and category on the correspondent content tabs, you can read more about the content models in the sanity docs [here](https://www.sanity.io/guides/implementing-a-content-model-in-sanity-io). Remember to click the publish button once you have finished to create your dummy post.
+
+<Image
+  src="/static/images/blog/how-to-make-a-blog-with-next-js-and-sanity-io/create-new-post.png"
+  width={1918}
+  height={426}
+  priority
+/>
 
 Now that we have some data to fetch, let's go to our next js pages and inside the index.js (or any page in which you want to fetch data).
 

@@ -20,11 +20,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const post = await getFileBySlug('blog', params.slug);
   const allPosts = await getAllFilesFrontMatter('blog');
-  // const postIndex = allPosts.findIndex(p => p.slug === params.slug);
-  // const prev = allPosts[postIndex - 1] || null;
-  // const next = allPosts[postIndex + 1] || null;
-
-  // console.log(postIndex);
 
   return {
     props: {

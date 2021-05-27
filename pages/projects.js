@@ -3,23 +3,15 @@ import { FiCheckCircle } from 'react-icons/fi';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
-import { getAllFilesFrontMatter } from '@/lib/mdx';
 import SingleProjectCard from '@/components/SingleProjectCard';
 import ProjectsNavbar from '@/components/ProjectsNavbar';
 import StackTable from '@/components/Stack';
-import { projects as projectsData } from '@/data/projects';
-
-export async function getStaticProps() {
-  const projects = getAllFilesFrontMatter('projects');
-
-  return { props: { projects } };
-}
+import { projects } from '@/data/projectsData';
 
 export default function Projects() {
-  const [projectsArr, setProjectsArr] = useState(projectsData);
+  const orderedProjects = projects.reverse();
+  const [projectsArr, setProjectsArr] = useState(orderedProjects);
   const [active, setActive] = useState('all');
-
-  // const category = ['next js', 'gatsby'];
 
   const url = 'https://sergiobarria.com/projects';
   const title = 'Projects | Sergio Barria';
@@ -35,12 +27,12 @@ export default function Projects() {
   // Function to filter projects
   const handleFilterCategory = category => {
     if (category === 'all') {
-      setProjectsArr(projectsData);
+      setProjectsArr(projects);
       setActive(category);
       return;
     }
 
-    const newArray = projectsData.filter(project =>
+    const newArray = projects.filter(project =>
       project.category.includes(category)
     );
     setProjectsArr(newArray);
@@ -108,12 +100,12 @@ export default function Projects() {
           />
           <hr />
           <div className="grid grid-cols-12 gap-4 my-4 ">
-            {projectsArr.map(project => (
+            {projectsArr.map(p => (
               <div
-                key={project.id}
+                key={p.id}
                 className="col-span-12 overflow-hidden rounded sm:col-span-6 lg:col-span-4"
               >
-                <SingleProjectCard project={project} />
+                <SingleProjectCard project={p} />
               </div>
             ))}
           </div>

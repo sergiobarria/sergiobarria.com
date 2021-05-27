@@ -58,7 +58,7 @@ export default function Resources() {
         </div>
 
         {/* Resources Content */}
-        <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-4">
+        {/* <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-4">
           {techList.map(tech => (
             <NextLink
               key={tech.id}
@@ -73,7 +73,7 @@ export default function Resources() {
               </a>
             </NextLink>
           ))}
-        </div>
+        </div> */}
       </Container>
     </>
   );

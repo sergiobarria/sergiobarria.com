@@ -5,7 +5,7 @@ import Container from '@/components/Container';
 export default function NotFound() {
   return (
     <Container>
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col items-center justify-center max-w-2xl mx-auto">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           404 – Ooops!
         </h1>

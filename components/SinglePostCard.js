@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
   const formatedDate = new Date(publishedAt).toLocaleDateString('en-US', {
@@ -12,7 +12,7 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
     <div className="p-3 tracking-wide ">
       <div className="flex">
         <div className="relative hidden w-3/12 md:flex">
-          <Image src={image} alt={title} layout="fill" objectFit="cover" />
+          <NextImage src={image} alt={title} layout="fill" objectFit="cover" />
         </div>
         <div className="flex flex-col md:ml-5 md:w-9/12">
           <NextLink href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
@@ -25,7 +25,7 @@ const SinglePostCard = ({ title, excerpt, slug, tags, image, publishedAt }) => {
               tags.map((tag, index) => (
                 <span
                   key={index}
-                  className={`text-skin-accent font-light ${
+                  className={`text-sm text-skin-accent font-light ${
                     index === 0 ? '' : 'ml-2'
                   }`}
                 >

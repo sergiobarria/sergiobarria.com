@@ -9,12 +9,12 @@
     --color-text-muted: #fff9e8;
     --color-text-inverted: #f4f4f5;
     --color-text-title: #27272a;
-    --color-text-accent: #e64a19;
+    --color-text-accent: #03a9f4;
     --color-text-warn: #ffc617;
-    --color-fill: #e64a19;
-    --color-button-border: #e64a19;
+    --color-fill: #03a9f4;
+    --color-button-border: #03a9f4;
     --color-button-accent: #fff;
-    --color-button-accent-hover: #bf360c;
+    --color-button-accent-hover: #0277bd;
     /* --color-button-muted: ; */
   }
 }
@@ -24,7 +24,7 @@ html {
 }
 
 ::selection {
-  background-color: #ff8a65;
+  background-color: #039be5;
   color: #fefefe;
 }
 

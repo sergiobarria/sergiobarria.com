@@ -1,7 +1,8 @@
 /* eslint-disable */
 
 export const NavItem = ({ value, handleFilterCategory, active }) => {
-  let className = 'capitalize cursor-pointer hover:text-skin-accent-hover';
+  let className =
+    'capitalize cursor-pointer text-skin-base dark:text-skin-inverted hover:text-skin-accent';
   if (active === value) className += ' text-skin-accent';
 
   return (
