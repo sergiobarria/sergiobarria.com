@@ -1,8 +1,9 @@
-import NextLink from 'next/link';
+import NextImage from 'next/image';
+// import NextLink from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
-import Card from '@/components/Card';
+// import Card from '@/components/Card';
 
 export default function Resources() {
   const url = 'https://sergiobarria.com/resources';
@@ -39,9 +40,7 @@ export default function Resources() {
       />
       <Container>
         <div className="flex flex-col items-center justify-center max-w-2xl mx-auto mb-4">
-          <h1 className="mb-4 text-2xl font-bold text-center text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted">
-            All Resources
-          </h1>
+          <h1>All Resources</h1>
           <p className="mb-8 font-normal prose text-center text-skin-base dark:text-gray-100">
             In this section I'm going to upload different code snippets, tips
             and helpful resources in general related to web development in
@@ -49,12 +48,17 @@ export default function Resources() {
           </p>
 
           <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-skin-inverted">
-            <span className="font-bold text-skin-warn ">
-              {' '}
-              🚧 IMPORTANT 🚧 :
-            </span>
-            Section under construction. Content will be available very soon👷🏼‍♂️.
+            <span className="font-bold text-skin-warn "> 🚧 WARNING 🚧 :</span>
+            Section under construction. Content will be available very soon...👷🏼‍♂️
           </p>
+
+          <div className="bg-gray-100 rounded-full shadow-lg">
+            <NextImage
+              src="/static/images/construction.svg"
+              width="400"
+              height="400"
+            />
+          </div>
         </div>
 
         {/* Resources Content */}

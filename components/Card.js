@@ -7,16 +7,19 @@ const Card = ({ icon, title, description, techStack, image }) => (
         {icon || <Image src={image} width={100} height={100} alt={title} />}
       </div>
       <div className="flex-grow p-3">
-        <div className="font-semibold text-skin-title dark:text-skin-inverted">
+        <div className="text-sm font-semibold sm:text-base text-skin-title dark:text-skin-inverted">
           {title}
         </div>
-        <div className="text-sm text-skin-base dark:text-skin-inverted">
+        <div className="text-xs sm:text-sm text-skin-base dark:text-skin-inverted">
           {description}
         </div>
         <div className="flex">
           {techStack &&
             techStack.map((tech, index) => (
-              <span key={index} className="mr-2 text-sm text-skin-accent">
+              <span
+                key={index}
+                className="mr-2 text-xs sm:text-sm text-skin-accent"
+              >
                 {tech}
                 {`${index < techStack.length - 1 ? ' -' : ''}`}
               </span>

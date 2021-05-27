@@ -15,10 +15,14 @@
     --color-button-border: #03a9f4;
     --color-button-accent: #fff;
     --color-button-accent-hover: #0277bd;
-    /* --color-button-muted: ; */
+  }
+
+  h1 {
+    @apply mb-4 text-3xl font-bold text-skin-title md:text-4xl dark:text-skin-inverted;
   }
 }
 
+/* Global styles */
 html {
   scroll-behavior: smooth;
 }
@@ -27,6 +31,12 @@ html {
   background-color: #039be5;
   color: #fefefe;
 }
+
+/* @layer components {
+  heading: {
+    @apply mb-4 text-3xl font-bold text-center text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted;
+  }
+} */
 
 /* Modal styles */
 .Modal {

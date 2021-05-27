@@ -19,7 +19,7 @@ const Container = ({ children }) => {
             {links.map(link => (
               <ActiveLink href={link.url} key={link.id}>
                 <a
-                  className={`p-1 text-skin-title transition-all duration-300 ease-in-out transform sm:p-4  dark:text-skin-inverted  ${
+                  className={`p-1 transition-all duration-300 ease-in-out transform sm:p-4  dark:text-skin-inverted  ${
                     router.pathname === link.url ||
                     router.asPath.match(/^\/?\[{1,2}\.{0,3}[a-z]+\]{1,2}$/)
                       ? 'font-semibold text-skin-accent dark:text-skin-accent'

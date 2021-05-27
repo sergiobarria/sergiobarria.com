@@ -44,7 +44,7 @@ export default function Home({ posts }) {
         type: FaServer,
       },
       description: 'Connection with the frontend, databases and security',
-      techStack: ['Node', 'Django', 'Mongo', 'Firebase'],
+      techStack: ['Node', 'Django', 'SQL', 'NoSQL'],
     },
     {
       id: 3,
@@ -78,9 +78,7 @@ export default function Home({ posts }) {
       />
       <Container>
         <div className="flex flex-col justify-center max-w-2xl mx-auto mb-4">
-          <h1 className="mb-4 text-3xl font-bold text-center text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted">
-            Hey, I'm Sergio
-          </h1>
+          <h1 className="text-center">Hey, I'm Sergio</h1>
           <p className="mb-8 font-normal prose text-center text-skin-base dark:text-skin-inverted">
             I'm an Engineer, developer and writer. For last few years I've
             worked as a Civil Engineer until I decide to take a professional
@@ -91,9 +89,7 @@ export default function Home({ posts }) {
         </div>
 
         <section>
-          <h1 className="mb-4 text-2xl font-bold leading-9 tracking-tight text-skin-title dark:text-skin-inverted sm:leading-10 md:text-4xl md:leading-14">
-            What I do
-          </h1>
+          <h1>What I do</h1>
           <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-4">
             {jobs.map((job, id) => (
               <Card
@@ -110,9 +106,7 @@ export default function Home({ posts }) {
         </section>
 
         <section className="my-16">
-          <h1 className="pb-4 text-2xl font-bold leading-9 tracking-tight text-gray-800 border-b dark:text-gray-100 sm:leading-10 md:text-4xl md:leading-14">
-            My latest toughts
-          </h1>
+          <h1>My latest toughts</h1>
           <PostListPreview
             postsArr={latestPosts}
             sectTitle="My latest toughts"

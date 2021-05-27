@@ -31,9 +31,7 @@ export default function Blog({ posts }) {
         openGraph={{ url, title, description }}
       />
       <Container>
-        <h1 className="mb-4 text-2xl font-bold text-center text-gray-800 md:text-5xl tracking-tigh dark:text-gray-100">
-          Welcome to my Blog
-        </h1>
+        <h1 className="text-center">Welcome to my Blog</h1>
         <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-4">
           <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-gray-100">
             Welcome to...whatever this is 😅 , here I share my thoughts related
@@ -68,7 +66,7 @@ export default function Blog({ posts }) {
           </svg>
         </div>
 
-        <h1 className="mt-12 text-2xl font-bold text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted">
+        <h1>
           All Blog Posts (<span>{filteredBlogPosts.length}</span>)
         </h1>
         <PostListPreview postsArr={filteredBlogPosts} />

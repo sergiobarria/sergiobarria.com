@@ -50,9 +50,7 @@ export default function Projects() {
       <Container>
         {/* Project Container Card */}
         <section>
-          <h1 className="mb-4 text-2xl font-bold text-center text-skin-title md:text-5xl tracking-tigh dark:text-skin-inverted">
-            Projects Portfolio
-          </h1>
+          <h1 className="text-center">Projects Portfolio</h1>
           <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-4">
             <p className="mb-8 font-normal prose text-center text-skin-base dark:text-skin-inverted">
               In this section I'm showing some of the projects I've work on. You
@@ -64,9 +62,7 @@ export default function Projects() {
 
         {/* What I'm up to right now */}
         <section className="my-6">
-          <h1 className="my-4 text-2xl font-bold text-skin-title text-start md:text-4xl tracking-tigh dark:text-skin-inverted">
-            What I'm up to right now
-          </h1>
+          <h1>What I'm up to right now</h1>
           <div className="px-4 py-2 mx-auto md:w-3/4">
             <ul>
               {taskList.map((task, index) => (
@@ -91,9 +87,7 @@ export default function Projects() {
 
         {/* Projects Portfolio */}
         <section className="my-6">
-          <h1 className="mb-4 text-2xl font-bold text-skin-title text-start md:text-4xl tracking-tigh dark:text-skin-inverted">
-            Check some of the projects I've worked so far
-          </h1>
+          <h1>Check some of the projects I've worked so far</h1>
           <ProjectsNavbar
             handleFilterCategory={handleFilterCategory}
             active={active}
