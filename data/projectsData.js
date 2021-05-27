@@ -45,7 +45,7 @@ export const projects = [
     description:
       'Blog portfolio using Next.js for a static build, MDX for content management, TypeScript for type checking and Tailwind CSS for styling. With SEO optimization',
     image: '/static/images/projects/next portfolio v3.png',
-    liveUrl: 'https://the-coding-script.vercel.app/',
+    liveUrl: 'https://my-next-portfolio-ruddy.vercel.app/projects',
     repo: 'https://github.com/sergiobarria/my-next-portfolio',
     category: 'next js',
     keyTechs: ['next js', 'mdx', 'typescript', 'tailwind css'],
