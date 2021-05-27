@@ -9,7 +9,7 @@ import StackTable from '@/components/Stack';
 import { projects } from '@/data/projectsData';
 
 export default function Projects() {
-  const orderedProjects = projects.reverse();
+  const orderedProjects = projects.sort((projA, projB) => projB.id - projA.id);
   const [projectsArr, setProjectsArr] = useState(orderedProjects);
   const [active, setActive] = useState('all');
 

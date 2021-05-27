@@ -6,7 +6,7 @@ export const projects = [
       'Blog portfolio using headless CMS Contentful for content management',
     description:
       'Blog portfolio using Next.js for a static build, the headless CMS Contentful for content management, TypeScript for type checking and Tailwind CSS for styling. With SEO optimization',
-    image: '/static/images/projects/TCS main page photo.png',
+    image: '/static/images/projects/Website Screenshot.png',
     liveUrl: 'https://blog-portfolio-with-contentful.vercel.app/',
     repo: 'https://github.com/sergiobarria/the-coding-script',
     category: 'next js',
@@ -19,7 +19,7 @@ export const projects = [
       'Blog portfolio using headless CMS Sanity.io for content management',
     description:
       'Blog portfolio using Next.js for a static build, the headless CMS Sanity.io for content management, and Tailwind CSS for styling. With SEO optimization',
-    image: '/static/images/projects/Website Screenshot.png',
+    image: '/static/images/projects/TCS main page photo.png',
     liveUrl: 'https://the-coding-script.vercel.app/',
     repo: 'https://github.com/sergiobarria/blog-portfolio-with-contentful',
     category: 'next js',
@@ -44,7 +44,7 @@ export const projects = [
     summary: 'Blog portfolio using MDX for content management',
     description:
       'Blog portfolio using Next.js for a static build, MDX for content management, TypeScript for type checking and Tailwind CSS for styling. With SEO optimization',
-    image: '/static/images/projects/Website Screenshot.png',
+    image: '/static/images/projects/next portfolio v3.png',
     liveUrl: 'https://the-coding-script.vercel.app/',
     repo: 'https://github.com/sergiobarria/my-next-portfolio',
     category: 'next js',

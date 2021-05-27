@@ -14,8 +14,6 @@
     "lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.3.0",
-    "@fontsource/nunito-sans": "^4.3.0",
     "@mapbox/rehype-prism": "^0.6.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
