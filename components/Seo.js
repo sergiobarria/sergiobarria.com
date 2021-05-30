@@ -1,17 +1,17 @@
 import { NextSeo } from 'next-seo';
 
-const Seo = ({ title, excerpt, slug, coverImage }) => (
+const Seo = ({ title, description, slug, coverImage }) => (
   // const { title, excerpt, slug, coverImage } = postData;
 
   <NextSeo
     title={title}
-    description={excerpt}
+    description={description}
     canonical={`https://sergiobarria.com/blog/${slug}`}
     openGraph={{
       type: 'website',
       url: 'https://sergiobarria.com',
       title: `${title} | originally posted on sergiobarria.com`,
-      description: excerpt,
+      description,
       locale: 'en_EN',
       images: [
         {

@@ -35,9 +35,9 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
     <>
       <Seo
         title={title}
-        excerpt={description}
+        description={description}
         slug={frontMatter.slug}
-        coverImage={image}
+        coverImage={`https://www.sergiobarria.com${image}`}
       />
       <Container>
         <header>
