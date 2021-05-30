@@ -12,6 +12,12 @@ const SEO = {
     url: 'https://sergiobarria.com',
     title,
     description,
+    images: [
+      {
+        url: 'https://sergiobarria.com/images/banner.png',
+        alt: title,
+      },
+    ],
   },
   twitter: {
     handle: '@sergioBarria01',
