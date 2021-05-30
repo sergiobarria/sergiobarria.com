@@ -16,8 +16,11 @@ const SEO = {
       {
         url: 'https://www.sergiobarria.com/static/images/banner.png',
         alt: title,
+        width: 800,
+        height: 600,
       },
     ],
+    site_name: 'sergiobarria.com',
   },
   twitter: {
     handle: '@sergioBarria01',

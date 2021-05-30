@@ -21,22 +21,6 @@
   </url>
 
   <url>
-    <loc>https://sergiobarria.com/projects/gatsby-blog-portfolio</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v1</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v2</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v3</loc>
-  </url>
-
-  <url>
     <loc
       >https://sergiobarria.com/blog/5-common-mistakes-beginners-make-when-learning-to-code</loc
     >
@@ -94,5 +78,21 @@
 
   <url>
     <loc>https://sergiobarria.com/about/about</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/gatsby-blog-portfolio</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v1</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v2</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v3</loc>
   </url>
 </urlset>

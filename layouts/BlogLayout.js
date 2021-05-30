@@ -1,6 +1,7 @@
 import NextImage from 'next/image';
 import NextLink from 'next/link';
-import { NextSeo } from 'next-seo';
+// import { NextSeo } from 'next-seo';
+import Seo from '@/components/Seo';
 
 import Container from '@/components/Container';
 
@@ -13,12 +14,13 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
   const filteredPosts = allPosts.allFiles
     .filter(p => p.id !== currPost)
     .slice(0, 5);
-  // console.log(frontMatter, allPosts, prevPost, nextPost);
 
-  const url = `https://sergiobarria.com/blog/${frontMatter.title}`;
+  // const url = `https://sergiobarria.com/blog/${frontMatter.title}`;
   const title = 'Blog | Sergio Barria';
   const description =
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
+  const { image } = frontMatter;
+  const seoImageUrl = `https://www.sergiobarria.com${image}`;
 
   const formatedDate = new Date(frontMatter.publishedAt).toLocaleDateString(
     'en-US',
@@ -31,11 +33,11 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
 
   return (
     <>
-      <NextSeo
+      <Seo
         title={title}
-        description={description}
-        canonical={url}
-        openGraph={{ url, title, description }}
+        excerpt={description}
+        slug={frontMatter.slug}
+        coverImage={seoImageUrl}
       />
       <Container>
         <header>
