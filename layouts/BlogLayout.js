@@ -15,12 +15,10 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
     .filter(p => p.id !== currPost)
     .slice(0, 5);
 
-  // const url = `https://sergiobarria.com/blog/${frontMatter.title}`;
   const title = 'Blog | Sergio Barria';
   const description =
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
   const { image } = frontMatter;
-  // const seoImageUrl = `https://www.sergiobarria.com${image}`;
 
   const formatedDate = new Date(frontMatter.publishedAt).toLocaleDateString(
     'en-US',
@@ -36,7 +34,7 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
       <Seo
         title={title}
         description={description}
-        slug={frontMatter.slug}
+        slug={`blog/${frontMatter.slug}`}
         coverImage={`https://www.sergiobarria.com${image}`}
       />
       <Container>

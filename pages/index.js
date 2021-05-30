@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import { NextSeo } from 'next-seo';
+// import { NextSeo } from 'next-seo';
 import { RiComputerLine } from 'react-icons/ri';
 import { FaServer, FaMobileAlt } from 'react-icons/fa';
 import { ImStack } from 'react-icons/im';
@@ -9,6 +9,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 import Container from '@/components/Container';
 import PostListPreview from '@/components/PostListPreview';
 import Card from '@/components/Card';
+import Seo from '@/components/Seo';
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
@@ -22,7 +23,7 @@ export async function getStaticProps() {
 
 export default function Home({ posts }) {
   const latestPosts = posts.allFiles.slice(0, 4);
-  const url = 'https://sergiobarria.com';
+  // const url = 'https://sergiobarria.com';
   const title = 'Home | Sergio Barria';
   const description =
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
@@ -70,11 +71,11 @@ export default function Home({ posts }) {
 
   return (
     <>
-      <NextSeo
+      <Seo
         title={title}
         description={description}
-        canonical={url}
-        openGraph={{ url, title, description }}
+        slug="/"
+        // coverImage={`https://www.sergiobarria.com${image}`}
       />
       <Container>
         <div className="flex flex-col justify-center max-w-2xl mx-auto mb-4">

@@ -6,7 +6,7 @@ const Seo = ({ title, description, slug, coverImage }) => (
   <NextSeo
     title={title}
     description={description}
-    canonical={`https://sergiobarria.com/blog/${slug}`}
+    canonical={`https://sergiobarria.com/${slug}`}
     openGraph={{
       type: 'website',
       url: 'https://sergiobarria.com',
@@ -16,7 +16,8 @@ const Seo = ({ title, description, slug, coverImage }) => (
       images: [
         {
           url:
-            coverImage || 'https://sergiobarria.com/static/images/banner.png',
+            coverImage ||
+            'https://www.sergiobarria.com/static/images/banner.png',
           width: 800,
           height: 600,
           alt: `hero image for ${title}`,
