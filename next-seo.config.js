@@ -14,7 +14,7 @@ const SEO = {
     description,
     images: [
       {
-        url: 'https://sergiobarria.com/images/banner.png',
+        url: 'https://sergiobarria.com/static/images/banner.png',
         alt: title,
       },
     ],
