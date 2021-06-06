@@ -15,10 +15,9 @@ export const NavItem = ({ value, handleFilterCategory, active }) => {
 const ProjectsNavbar = props => (
   <div className="flex px-3 py-2 space-x-6 overflow-x-auto list-none ">
     <NavItem value="all" {...props} />
-    {/* <NavItem value="react" {...props} /> */}
-    <NavItem value="next js" {...props} />
     <NavItem value="gatsby" {...props} />
-    {/* <NavItem value="node" {...props} /> */}
+    <NavItem value="next js" {...props} />
+    <NavItem value="vue" {...props} />
   </div>
 );
 

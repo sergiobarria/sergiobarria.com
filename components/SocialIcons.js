@@ -29,7 +29,7 @@ const SocialIcons = () => {
           <FaTwitter className={`${styles.icon}`} />
         </a>
       </NextLink>
-      <NextLink href="https://www.linkedin.com/in/sergio-barria-8771b3213/">
+      <NextLink href="https://www.linkedin.com/in/sergiobarria">
         <a target="_blank" rel="noopener noreferrer">
           <FaLinkedin className={`${styles.icon}`} />
         </a>

@@ -21,10 +21,6 @@
   </url>
 
   <url>
-    <loc>https://sergiobarria.com/about/about</loc>
-  </url>
-
-  <url>
     <loc>https://sergiobarria.com/projects/gatsby-blog-portfolio</loc>
   </url>
 
@@ -38,6 +34,10 @@
 
   <url>
     <loc>https://sergiobarria.com/projects/next-blog-portfolio-v3</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/about/about</loc>
   </url>
 
   <url>
@@ -81,6 +81,12 @@
   <url>
     <loc
       >https://sergiobarria.com/blog/how-to-make-a-blog-with-next-js-and-sanity-io</loc
+    >
+  </url>
+
+  <url>
+    <loc
+      >https://sergiobarria.com/blog/my-personal-portfolio-got-some-improvements</loc
     >
   </url>
 

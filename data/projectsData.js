@@ -50,4 +50,16 @@ export const projects = [
     category: 'next js',
     keyTechs: ['next js', 'mdx', 'typescript', 'tailwind css'],
   },
+  {
+    id: 5,
+    name: 'Vue Todo App',
+    summary: 'Todo tracker list app with user authentication with firebase',
+    description:
+      'The project consists of a basic Todo List app that allows the user to create, read, update and delete tasks. The project allows the user to register/login using an email and password with authtentication from firebase, once the user is logged Vue will fetch the user to-do data from firebase firestore (if they exists) and render them for the user to use.',
+    image: '/static/images/projects/vue-todo-app.png',
+    liveUrl: 'https://vue-todo-app-lake.vercel.app/',
+    repo: 'https://github.com/sergiobarria/vue-todo-app',
+    category: 'vue',
+    keyTechs: ['vue js', 'firebase', 'tailwind css'],
+  },
 ];

@@ -73,6 +73,11 @@ class MyDocument extends Document {
             rel="mask-icon"
           />
 
+          <meta
+            property="og:image"
+            content="https://www.sergiobarria.com/static/images/banner.png"
+          />
+
           {/* Google Site Tag (gtag.js) - Google Analytics */}
           <script
             async
