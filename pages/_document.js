@@ -91,6 +91,11 @@ class MyDocument extends Document {
             `,
             }}
           />
+
+          <meta
+            name="twitter:image"
+            content="https://www.sergiobarria.com/static/images/banner.png"
+          />
         </Head>
         <body className="antialiased">
           <Main />

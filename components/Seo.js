@@ -10,7 +10,7 @@ const Seo = ({ title, description, slug, coverImage }) => (
     openGraph={{
       type: 'website',
       url: 'https://sergiobarria.com',
-      title: `${title} | originally posted on sergiobarria.com`,
+      title: `${title} | Originally posted on sergiobarria.com`,
       description,
       locale: 'en_EN',
       images: [

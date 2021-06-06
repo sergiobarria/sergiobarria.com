@@ -1,4 +1,2 @@
 User-angent: *
-Allow: /
-
 Sitemap: https://sergiobarria.com/sitemap.xml
