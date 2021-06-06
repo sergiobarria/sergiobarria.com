@@ -18,8 +18,8 @@ const Seo = ({ title, description, slug, coverImage }) => (
           url:
             coverImage ||
             'https://www.sergiobarria.com/static/images/banner.png',
-          width: 800,
-          height: 600,
+          width: 1600,
+          height: 882,
           alt: `hero image for ${title}`,
         },
       ],

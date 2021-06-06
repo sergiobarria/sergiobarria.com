@@ -143,12 +143,11 @@ export default function BlogLayout({ children, frontMatter, allPosts }) {
                 </h3>
                 <div className="divide-y divide-dashed">
                   {filteredPosts.map((post, index) => (
-                    <p
-                      key={post.id}
-                      className="py-2 text-sm italic font-light dark:text-skin-inverted"
-                    >
-                      {index + 1}. {post.title.slice(0, 50)}...
-                    </p>
+                    <NextLink key={post.id} href={`/blog/${post.slug}`}>
+                      <p className="py-2 text-sm italic font-light underline cursor-pointer dark:text-skin-inverted">
+                        {index + 1}. {post.title.slice(0, 50)}...
+                      </p>
+                    </NextLink>
                   ))}
                 </div>
               </div>
