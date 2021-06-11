@@ -16,6 +16,8 @@ const ProjectsNavbar = props => (
   <div className="flex px-3 py-2 space-x-6 overflow-x-auto list-none ">
     <NavItem value="all" {...props} />
     <NavItem value="gatsby" {...props} />
+    <NavItem value="HTML/CSS" {...props} />
+    <NavItem value="JavaScript" {...props} />
     <NavItem value="next js" {...props} />
     <NavItem value="vue" {...props} />
   </div>

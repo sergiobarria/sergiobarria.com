@@ -62,4 +62,16 @@ export const projects = [
     category: 'vue',
     keyTechs: ['vue js', 'firebase', 'tailwind css'],
   },
+  {
+    id: 6,
+    name: 'Easybank Website',
+    summary: 'Easybank website made with HTML, CSS and JavaScript',
+    description:
+      'The project consists a single page website for a generic brand called Easybank. The project is part of the Frontend Mentor website challenges. To create the website I used basic HTML, CSS (Flexbox & CSS Grid) and simple JavaScript to toggle the navbar on the mobile view. The styles where added using a mobile first workflow.',
+    image: '/static/images/projects/easybank.png',
+    liveUrl: 'https://easybank-sergiobarria.netlify.app/',
+    repo: 'https://github.com/sergiobarria/EasyBank',
+    category: ['HTML/CSS', 'JavaScript'],
+    keyTechs: ['HTML', 'CSS', 'JavaScript'],
+  },
 ];
