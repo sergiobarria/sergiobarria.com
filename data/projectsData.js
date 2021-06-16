@@ -74,4 +74,16 @@ export const projects = [
     category: ['HTML/CSS', 'JavaScript'],
     keyTechs: ['HTML', 'CSS', 'JavaScript'],
   },
+  {
+    id: 7,
+    name: 'PhotoSnap Website',
+    summary: 'PhotoSnap website made with HTML, SCSS and JavaScript',
+    description:
+      'The project consists of a multipage page website for a generic brand called PhotoSnap. The project is part of the Frontend Mentor website challenges. To create the website I used basic HTML, SCSS (Flexbox & CSS Grid) and simple JavaScript to manipulate the DOM when is needed. The styles where added using a mobile first workflow.',
+    image: '/static/images/projects/photosnap-website.jpg',
+    liveUrl: 'https://photosnap-website-sb.netlify.app/',
+    repo: 'https://github.com/sergiobarria/photosnap-website',
+    category: ['HTML/CSS', 'JavaScript'],
+    keyTechs: ['HTML', 'CSS', 'JavaScript'],
+  },
 ];
