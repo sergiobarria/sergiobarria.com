@@ -19,6 +19,7 @@ const ProjectsNavbar = props => (
     <NavItem value="HTML/CSS" {...props} />
     <NavItem value="JavaScript" {...props} />
     <NavItem value="next js" {...props} />
+    <NavItem value="react" {...props} />
     <NavItem value="vue" {...props} />
   </div>
 );

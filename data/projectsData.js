@@ -86,4 +86,16 @@ export const projects = [
     category: ['HTML/CSS', 'JavaScript'],
     keyTechs: ['HTML', 'CSS', 'JavaScript'],
   },
+  {
+    id: 8,
+    name: 'Rest Countries API',
+    summary: 'Countries data fetching app using the Countries API',
+    description:
+      'The project consists of a SPA (Single Page Application) using React to fetch data from the Rest Countries API and display to the user. The app allows the user to see all the countries and their basic details, also to filter by region. The project makes use of libraries like React Router, Styled Components & the Context API.',
+    image: '/static/images/projects/rest-countries.jpg',
+    liveUrl: 'https://rest-countries-sb.netlify.app/all',
+    repo: 'https://github.com/sergiobarria/rest-countries',
+    category: ['JavaScript', 'react'],
+    keyTechs: ['React', 'JavaScript', 'Context API'],
+  },
 ];

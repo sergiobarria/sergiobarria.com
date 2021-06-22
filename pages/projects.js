@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import Container from '@/components/Container';
 import SingleProjectCard from '@/components/SingleProjectCard';
 import ProjectsNavbar from '@/components/ProjectsNavbar';
-import StackTable from '@/components/Stack';
+// import StackTable from '@/components/Stack';
 import { projects } from '@/data/projectsData';
 
 export default function Projects() {
@@ -19,8 +19,8 @@ export default function Projects() {
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
 
   const taskList = [
-    "I'm working on several personal projects using Vue for practice and to improve my development skills 🤓",
-    "I'm applying TypeScript to some of my projects and learning how to write better and cleaner code. 🤓",
+    "I'm working on projects using React for practice and to improve my development skills 🤓",
+    "I'm working on full stack applications using the MERN Stack, with features like authentication and input validation 🤓",
     'I embarked on a journey to learn Django for Backend Development (wish me luck!) 😱 😁',
   ];
 
@@ -81,9 +81,9 @@ export default function Projects() {
         </section>
 
         {/* My Current Developer Stack */}
-        <section className="my-16">
+        {/* <section className="my-16">
           <StackTable />
-        </section>
+        </section> */}
 
         {/* Projects Portfolio */}
         <section className="my-6">
