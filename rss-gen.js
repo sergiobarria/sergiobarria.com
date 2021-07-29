@@ -43,7 +43,7 @@ fs.readdirSync(blogPostDir)
     feed.item({
       title,
       excerpt,
-      url: `https://www.sergiobarria.com/blog/${fileName.replace('.md', '')}`,
+      url: `https://www.sergiobarria.com/blog/${fileName.replace('.mdx', '')}`,
       author,
       date: publishedAt,
     });

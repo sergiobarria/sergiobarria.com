@@ -11,3 +11,4 @@
 9. Back-End vs Front-End Web Development - 22/apr/2021
 10. 5 Common mistakes beginners make when learning to code - 09/may/2021
 11. My personal portfolio got some improvements - 05/jun/2021
+12. How to add RSS feed to Next.js site - 28/jul/2021

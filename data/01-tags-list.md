@@ -11,8 +11,10 @@
 - programming
 - python
 - react
+- rss
 - sanity io
 - SSG
 - tailwind css
 - web dev
 - vue
+- xml
