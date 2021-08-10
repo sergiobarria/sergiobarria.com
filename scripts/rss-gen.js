@@ -4,7 +4,7 @@ const RSS = require('rss');
 const frontMatter = require('front-matter');
 
 // blog post directory path
-const blogPostDir = path.resolve(__dirname, 'data', 'blog');
+const blogPostDir = path.resolve(__dirname, '../data', 'blog');
 
 // setup feed instance with some high level data
 const feed = new RSS({
@@ -53,4 +53,4 @@ fs.readdirSync(blogPostDir)
 const xml = feed.xml();
 
 // Write file to public directory
-fs.writeFileSync(path.resolve(__dirname, 'public') + '/rss.xml', xml); // eslint-disable-line
+fs.writeFileSync(path.resolve(__dirname, '../public') + '/rss.xml', xml); // eslint-disable-line

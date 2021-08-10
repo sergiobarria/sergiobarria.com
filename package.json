@@ -11,7 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "node rss-gen",
+    "postbuild": "node scripts/rss-gen",
     "lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "dependencies": {

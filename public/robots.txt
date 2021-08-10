@@ -1,2 +1,2 @@
-User-angent: *
+User-agent: *
 Sitemap: https://sergiobarria.com/sitemap.xml
