@@ -13,3 +13,4 @@
 11. My personal portfolio got some improvements - 05/jun/2021
 12. How to add RSS feed to Next.js site - 28/jul/2021
 13. How to create and edit your Github profile - 06/aug/2021
+14. How to link and display your latest blog post to your Github profile
