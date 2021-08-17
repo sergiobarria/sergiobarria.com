@@ -106,10 +106,10 @@ export default function Home({ posts }) {
         </section>
 
         <section className="my-16">
-          <h1>My latest toughts</h1>
+          <h1>My latest thoughts</h1>
           <PostListPreview
             postsArr={latestPosts}
-            sectTitle="My latest toughts"
+            sectTitle="My latest thoughts"
           />
           <div className="flex justify-center mt-6">
             <NextLink href="/blog">

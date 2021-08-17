@@ -18,7 +18,7 @@ keywords:
   - 'Sanity'
   - 'Headless CMS'
   - 'CMS'
-  - 'Content Managment System'
+  - 'Content Management System'
   - 'JavaScript'
 excerpt: 'In this post we look into how to fetch data from Sanity headless CMS and render dynamic pages using Next.js for a blog style site.'
 image: '/static/images/blog/how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content/main-image.png'
@@ -34,7 +34,7 @@ The first thing we need for our routes is a template. This template will be used
 
 To create the template, in your project folder navigate to your pages folder and create a file with the name `[slug].js`. **Important**, the name doesn't matter, what matters is that you put it inside square brackets, this is what will tell Next this is a template. Another common name you will see is to call the file `[id].js`. Basically we name the file after something that will be unique for each page. Again, the name is not a rule, just a convention.
 
-**Note:** the place where you put the template file will determine what the final route will look like. If you put your template inside a folder called blog in your pages folder, then the final route will be `/blog/id.` This is standar Next.js behavior and its file-based routing system.
+**Note:** the place where you put the template file will determine what the final route will look like. If you put your template inside a folder called blog in your pages folder, then the final route will be `/blog/id.` This is standard Next.js behavior and its file-based routing system.
 
 Now, inside your template file is where you will create the model of how your page will look like. It will look something like this.
 
