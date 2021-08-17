@@ -1,4 +1,5 @@
 {
   "editor.formatOnSave": true,
   "css.validate": false,
+  "cSpell.ignoreWords": ["pageview", "rarr"]
 }

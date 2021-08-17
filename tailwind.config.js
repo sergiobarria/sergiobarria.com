@@ -10,8 +10,13 @@ module.exports = {
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    colors: { ...colors },
+    colors: {
+      ...colors,
+    },
     extend: {
+      colors: {
+        main: '#f23333',
+      },
       textColor: {
         skin: {
           base: 'var(--color-text-base)',
@@ -175,7 +180,7 @@ module.exports = {
     },
   },
   plugins: [
-    // require('@tailwindcss/forms'),
+    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('tailwindcss-selection-variant'),
   ],

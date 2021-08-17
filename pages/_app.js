@@ -8,6 +8,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'next-themes';
 import MDXComponents from '@/components/MDXComponents';
 
+import Layout from '@/components/layout/Layout';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
 
@@ -27,7 +28,9 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider attribute="class">
       <MDXProvider components={MDXComponents}>
         <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </MDXProvider>
     </ThemeProvider>
   );
