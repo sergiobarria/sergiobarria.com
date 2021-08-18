@@ -23,7 +23,7 @@
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.3.1",
-    "framer-motion": "^4",
+    "framer-motion": "^4.1.17",
     "front-matter": "^4.0.2",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.3",
@@ -47,7 +47,8 @@
     "rss": "^1.2.2",
     "swr": "^0.5.6",
     "tailwindcss": "^2.2.7",
-    "tailwindcss-selection-variant": "^0.1.0"
+    "tailwindcss-selection-variant": "^0.1.0",
+    "typed.js": "^2.0.12"
   },
   "devDependencies": {
     "@ijsto/eslint-config": "4.1.6",

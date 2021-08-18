@@ -15,7 +15,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        main: '#f23333',
+        main: '#33D399',
+      },
+      backgroundImage: () => ({
+        'services-img': 'url(/static/layout-assets/what-i-do.png)',
+      }),
+      minHeight: {
+        services: '50rem',
+        service: '25rem',
       },
       textColor: {
         skin: {
@@ -64,6 +71,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        londrina: ['Londrina Outline', ...defaultTheme.fontFamily.sans],
       },
       typography: theme => ({
         DEFAULT: {

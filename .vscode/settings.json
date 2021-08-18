@@ -1,5 +1,12 @@
 {
   "editor.formatOnSave": true,
   "css.validate": false,
-  "cSpell.ignoreWords": ["pageview", "rarr"]
+  "cSpell.ignoreWords": [
+    "fa",
+    "linkedin",
+    "monoton",
+    "pageview",
+    "rarr",
+    "semibold"
+  ]
 }

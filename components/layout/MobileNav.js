@@ -3,7 +3,7 @@ import { FaAlignRight } from 'react-icons/fa';
 import { CgClose } from 'react-icons/cg';
 
 import navLinks from '@/data/navLinks';
-import ActiveLink from './ActiveLink';
+import ActiveLink from '../ActiveLink';
 
 const MobileNav = () => {
   const [showNav, setShowNav] = useState(false);
@@ -14,7 +14,7 @@ const MobileNav = () => {
         document.body.style.overflow = 'auto';
       } else {
         // Prevent scrolling
-        // document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
       }
       return !status;
     });

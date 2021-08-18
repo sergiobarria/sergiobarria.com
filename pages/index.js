@@ -11,6 +11,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 // import Seo from '@/components/Seo';
 
 import Hero from '@/components/layout/Hero';
+import Services from '@/components/services/Services';
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
@@ -25,7 +26,12 @@ export async function getStaticProps() {
 export default function Home() {
   const test = undefined;
 
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <Services />
+    </>
+  );
   // const latestPosts = posts.allFiles.slice(0, 4);
   // const title = 'Home | Sergio Barria';
   // const description =
