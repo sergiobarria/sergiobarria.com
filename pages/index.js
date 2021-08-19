@@ -12,6 +12,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 import Hero from '@/components/layout/Hero';
 import Services from '@/components/services/Services';
+import FeaturedProjects from '@/components/projects/FeaturedProjects';
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
@@ -30,6 +31,7 @@ export default function Home() {
     <>
       <Hero />
       <Services />
+      <FeaturedProjects />
     </>
   );
   // const latestPosts = posts.allFiles.slice(0, 4);

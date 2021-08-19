@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import NextLink from 'next/link';
 import { FaAlignRight } from 'react-icons/fa';
 import { CgClose } from 'react-icons/cg';
 
 import navLinks from '@/data/navLinks';
-import ActiveLink from '../ActiveLink';
 
 const MobileNav = () => {
   const [showNav, setShowNav] = useState(false);
@@ -42,11 +42,11 @@ const MobileNav = () => {
               <span className="mr-4 text-6xl text-white opacity-50 font-londrina">
                 {link.id}
               </span>
-              <ActiveLink href={link.url} onClick={onToggleNav}>
+              <NextLink href={link.url} onClick={onToggleNav}>
                 <a className="text-2xl font-semibold tracking-widest text-white uppercase dark:text-gray-100">
                   {link.text}
                 </a>
-              </ActiveLink>
+              </NextLink>
             </div>
           ))}
         </aside>

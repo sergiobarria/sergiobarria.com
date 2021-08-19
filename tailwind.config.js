@@ -15,7 +15,9 @@ module.exports = {
     },
     extend: {
       colors: {
+        'main-light': '#99e9cc',
         main: '#33D399',
+        'main-dark': '#29a97a',
       },
       backgroundImage: () => ({
         'services-img': 'url(/static/layout-assets/what-i-do.png)',
@@ -23,6 +25,9 @@ module.exports = {
       minHeight: {
         services: '50rem',
         service: '25rem',
+      },
+      zIndex: {
+        '-10': '-10',
       },
       textColor: {
         skin: {

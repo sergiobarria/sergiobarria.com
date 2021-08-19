@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import NextImage from 'next/image';
 import Typed from 'typed.js';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AiOutlineArrowDown } from 'react-icons/ai';
 
 import Button from '../ui/Button';
 import ButtonSecondary from '../ui/ButtonSecondary';
@@ -43,7 +44,7 @@ const Hero = () => {
       </div>
       <AnimatePresence>
         <motion.article
-          className="flex flex-col items-center justify-center min-h-full text-white"
+          className="z-10 flex flex-col items-center justify-center min-h-full text-white"
           initial={{ opacity: 0, y: -200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -63,7 +64,14 @@ const Hero = () => {
             </span>
           </p>
           <div className="flex-col items-center justify-center md:flex lg:space-x-16 lg:flex-row">
-            <Button>see my work</Button>
+            <Button
+              uppercase
+              btnType="button"
+              bg="bg-main"
+              hoverBgEffect="hover:bg-main-dark"
+            >
+              see my work <AiOutlineArrowDown className="ml-2 text-xl" />
+            </Button>
             <ButtonSecondary>about me</ButtonSecondary>
           </div>
           <SocialIcons />
