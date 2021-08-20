@@ -18,7 +18,7 @@ const BlogPostCard = ({ post }) => (
     <div className="flex flex-col p-6 min-h-post-card">
       <h4 className="mb-4 text-lg font-semibold text-gray-800">{post.title}</h4>
       <p className="mb-auto text-sm text-gray-700">{post.excerpt}...</p>
-      <NextLink href={`/posts/${post.slug}`}>
+      <NextLink href={`/blog/${post.slug}`}>
         <a className="mt-auto text-sm font-medium text-gray-700 hover:text-main">
           Read More
         </a>

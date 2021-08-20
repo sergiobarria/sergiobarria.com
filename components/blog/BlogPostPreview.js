@@ -1,3 +1,6 @@
+import NextLink from 'next/link';
+import { VscLinkExternal } from 'react-icons/vsc';
+
 import SectionTitleBg from '../ui/SectionTitleBg';
 import SectionContainer from '../ui/SectionContainer';
 import SectionTitle from '../ui/SectionTitle';
@@ -19,6 +22,13 @@ const BlogPostPreview = ({ posts }) => (
         {posts.map(post => (
           <BlogPostCard key={post.id} post={post} />
         ))}
+      </div>
+      <div className="w-3/12 mx-auto mt-16">
+        <NextLink href="/blog">
+          <a className="text-base text-gray-700 bg-gray-200 btn btn-black">
+            See Other Posts <VscLinkExternal className="ml-4" />
+          </a>
+        </NextLink>
       </div>
     </SectionContainer>
   </section>

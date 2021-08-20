@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* NEW DESIGN */
+@layer base {
+  .btn {
+    @apply flex items-center justify-center text-sm font-semibold transition-all duration-300 ease-in-out transform;
+  }
+
+  .btn-black {
+    @apply px-8 py-4 text-white bg-gray-900 hover:text-main;
+  }
+
+  .btn-main {
+    @apply px-4 py-2 btn bg-main hover:bg-main-dark hover:text-white;
+  }
+
+  .btn-white {
+    @apply px-4 py-2 text-sm text-gray-700 bg-gray-200 hover:bg-gray-700 hover:text-main;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 text-base text-gray-600 capitalize border-b hover:text-main;
+  }
+}
+
+/* const styles = {
+  btn: `flex items-center justify-center text-sm md:text-base lg:text-lg px-${px} py-${py} font-bold ${
+    uppercase ? 'uppercase' : ''
+  } ${textSize && textSize} transition-all duration-300 ease-in-out ${
+    bg && bg
+  } ${hoverBgEffect && hoverBgEffect} hover:${
+    hoverTextEffect ? 'text-main' : ''
+  } ${textColor}`,
+}; */
+
+::selection {
+  background-color: #f56647;
+  color: #fefefe;
+}
+
+/* ============================================================== */
+/*                          OLD SECTION                           */
+/* ============================================================== */
+
+/* OLD DESIGN */
 /* Adding global theme and styles using CSS variables with Tailwind */
 @layer base {
   :root {
@@ -25,11 +68,6 @@
 /* Global styles */
 html {
   scroll-behavior: smooth;
-}
-
-::selection {
-  background-color: #039be5;
-  color: #fefefe;
 }
 
 /* @layer components {

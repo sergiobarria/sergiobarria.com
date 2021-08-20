@@ -26,12 +26,10 @@ export default function About(props) {
         openGraph={{ url, title, description }}
       />
       <Container>
-        <div className="max-w-2xl mx-auto mt-10">
-          <h1 className="text-center">{props.about.frontMatter.title}</h1>
-          <hr className="my-4" />{' '}
-          <div className="prose dark:prose-dark">
-            <MDXRemote {...props.about.mdxSource} components={MDXComponents} />
-          </div>
+        <h1 className="text-center">{props.about.frontMatter.title}</h1>
+        <hr className="my-4" />{' '}
+        <div className="prose dark:prose-dark">
+          <MDXRemote {...props.about.mdxSource} components={MDXComponents} />
         </div>
       </Container>
     </>

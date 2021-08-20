@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
 import Image from 'next/image';
 
 const CustomLink = props => {
@@ -7,9 +7,9 @@ const CustomLink = props => {
 
   if (isInternalLink) {
     return (
-      <Link href={href}>
+      <NextLink href={href}>
         <a {...props} /> // eslint-disable-line
-      </Link>
+      </NextLink>
     );
   }
 

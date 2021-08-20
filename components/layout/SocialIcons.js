@@ -10,7 +10,7 @@ const SocialIcons = ({ width = 8, height = 8, isFooter }) => {
   return (
     <div
       className={`flex items-center mx-auto mt-10 space-x-8 ${
-        isFooter ? 'justify-center lg:justify-start' : ''
+        isFooter && 'justify-start'
       }`}
     >
       <NextLink href="mailto:sbarria.dev@gmail.com">

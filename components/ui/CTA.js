@@ -1,7 +1,6 @@
+import NextLink from 'next/link';
 import NextImage from 'next/image';
 import { FiSend } from 'react-icons/fi';
-
-import Button from './Button';
 
 const CTA = () => (
   <section className="relative bg-main">
@@ -14,7 +13,7 @@ const CTA = () => (
           If you want to know more or hire me, don't hesitate and reach out!
         </p>
       </div>
-      <div className="absolute hidden lg:block top-8 right-80">
+      <div className="absolute hidden lg:block top-8 right-1/3">
         <NextImage
           src="/static/layout-assets/arrow.png"
           alt="arrow"
@@ -22,7 +21,7 @@ const CTA = () => (
           height={50}
         />
       </div>
-      <div className="absolute -bottom-11 right-12 md:right-60">
+      <div className="absolute -bottom-11 right-12 md:right-60 lg:right-80">
         <NextImage
           src="/static/layout-assets/square-dots.png"
           alt="arrow"
@@ -30,13 +29,11 @@ const CTA = () => (
           height={80}
         />
       </div>
-      <Button
-        textColor="text-gray-200"
-        hoverBgEffect="bg-gray-700"
-        hoverTextEffect="text-main"
-      >
-        Contact Me <FiSend className="ml-2" />
-      </Button>
+      <NextLink href="/contact">
+        <a className="btn btn-black">
+          Contact Me <FiSend className="ml-2" />
+        </a>
+      </NextLink>
     </div>
   </section>
 );

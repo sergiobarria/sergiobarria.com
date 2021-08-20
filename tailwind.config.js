@@ -18,9 +18,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        'main-light': '#99e9cc',
+        'main-light': '#fab3a3',
         main: '#F56647',
-        'main-dark': '#29a97a',
+        'main-dark': '#c45239',
         accent: '#5378F5',
         secondary: '#33D399',
         tertiary: '#F56647',
@@ -33,6 +33,7 @@ module.exports = {
         service: '25rem',
         'post-card': '15rem',
         '3/4': '75vh',
+        '8/10': '80vh',
         '9/10': '90vh',
       },
       zIndex: {

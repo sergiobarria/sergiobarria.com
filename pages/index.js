@@ -1,3 +1,4 @@
+// import { useRef } from 'react';
 // import NextLink from 'next/link';
 // import { RiComputerLine } from 'react-icons/ri';
 // import { FaServer, FaMobileAlt } from 'react-icons/fa';
@@ -10,7 +11,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 // import Card from '@/components/Card';
 // import Seo from '@/components/Seo';
 
-import Hero from '@/components/layout/Hero';
+import Hero from '@/components/hero/Hero';
 import Services from '@/components/services/Services';
 import FeaturedProjects from '@/components/projects/FeaturedProjects';
 import BlogPostPreview from '@/components/blog/BlogPostPreview';
@@ -28,6 +29,10 @@ export async function getStaticProps() {
 
 export default function HomePage({ posts }) {
   const latestPosts = posts.allFiles.slice(0, 3);
+
+  // const scrollRef = useRef(null);
+
+  // const executeScroll = ref => window.scrollTo(0, ref.current.offsetTop);
 
   return (
     <>

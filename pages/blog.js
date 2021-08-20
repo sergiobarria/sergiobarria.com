@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NextSeo } from 'next-seo';
 
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 import PostListPreview from '@/components/PostListPreview';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
 
