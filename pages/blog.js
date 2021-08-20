@@ -11,7 +11,7 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
-export default function Blog({ posts }) {
+export default function BlogPage({ posts }) {
   const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = posts.allFiles.filter(frontMatter =>
     frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())

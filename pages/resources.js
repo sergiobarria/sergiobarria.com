@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import Container from '@/components/Container';
 // import Card from '@/components/Card';
 
-export default function Resources() {
+export default function ResourcesPage() {
   const url = 'https://sergiobarria.com/resources';
   const title = 'Resources | Sergio Barria';
   const description =

@@ -1,5 +1,5 @@
-const Container = ({ children }) => (
-  <div className="mb-32 mt-44">{children}</div>
+const Container = ({ children, mb = '32', mt = '44' }) => (
+  <div className={`mb-${mb} mt-${mt}`}>{children}</div>
 );
 
 export default Container;

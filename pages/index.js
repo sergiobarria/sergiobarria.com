@@ -26,7 +26,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ posts }) {
+export default function HomePage({ posts }) {
   const latestPosts = posts.allFiles.slice(0, 3);
 
   return (

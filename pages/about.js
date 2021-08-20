@@ -11,7 +11,7 @@ export async function getStaticProps() {
   return { props: { about } };
 }
 
-const About = props => {
+export default function About(props) {
   const url = 'https://sergiobarria.com/about';
   const title = 'About | Sergio Barria';
   const description =
@@ -36,6 +36,4 @@ const About = props => {
       </Container>
     </>
   );
-};
-
-export default About;
+}

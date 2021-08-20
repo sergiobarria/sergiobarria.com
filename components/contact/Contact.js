@@ -6,7 +6,7 @@ import SectionTitle from '../ui/SectionTitle';
 import ContactForm from './ContactForm';
 
 const Contact = () => (
-  <section className="py-16">
+  <section className="py-12 mt-28">
     <div className="grid max-w-screen-lg grid-cols-12 p-8 mx-auto bg-gray-200 rounded-lg">
       <div className="col-span-12 pb-6">
         <SectionTitle title="Contact Me" />

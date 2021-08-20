@@ -9,8 +9,8 @@ const Header = () => (
       <NextImage
         src="/static/layout-assets/logo-web-orange.svg"
         alt="Sergio's Website Logo"
-        width={150}
-        height={60}
+        width={175}
+        height={70}
       />
       <Navbar />
       <MobileNav />
