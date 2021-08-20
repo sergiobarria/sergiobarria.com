@@ -4,6 +4,7 @@ const Button = ({
   px = 8,
   py = 4,
   bg,
+  textSize,
   textColor = 'text-white',
   hoverBgEffect,
   hoverTextEffect,
@@ -11,11 +12,13 @@ const Button = ({
   href,
 }) => {
   const styles = {
-    btn: `flex text-sm md:text-base items-center justify-center px-${px} py-${py} font-bold ${
+    btn: `flex items-center justify-center px-${px} py-${py} font-bold ${
       uppercase ? 'uppercase' : ''
-    } transition-all duration-300 ease-in-out ${bg && bg} ${
-      hoverBgEffect && hoverBgEffect
-    } hover:${hoverTextEffect ? 'text-main' : ''} ${textColor}`,
+    } ${textSize && textSize} transition-all duration-300 ease-in-out ${
+      bg && bg
+    } ${hoverBgEffect && hoverBgEffect} hover:${
+      hoverTextEffect ? 'text-main' : ''
+    } ${textColor}`,
   };
 
   if (btnType === 'button') {

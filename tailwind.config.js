@@ -13,6 +13,9 @@ module.exports = {
     colors: {
       ...colors,
     },
+    flex: {
+      2: '2 2 0%',
+    },
     extend: {
       colors: {
         'main-light': '#99e9cc',
@@ -25,6 +28,7 @@ module.exports = {
       minHeight: {
         services: '50rem',
         service: '25rem',
+        'post-card': '15rem',
       },
       zIndex: {
         '-10': '-10',

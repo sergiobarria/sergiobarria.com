@@ -7,7 +7,11 @@ const ServicesContent = () => (
     {servicesData.map(service => (
       <div
         key={service.id}
-        className={`relative col-span-12 bg-gray-800 rounded overflow-hidden lg:col-span-6 ${
+        className={`relative col-span-12 ${
+          service.id === 2
+            ? 'bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900'
+            : 'bg-gray-800'
+        } rounded overflow-hidden lg:col-span-6 ${
           service.id === 1 ? 'lg:row-span-2' : 'lg:row-span-1'
         }`}
       >

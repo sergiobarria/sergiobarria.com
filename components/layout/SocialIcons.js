@@ -2,13 +2,17 @@ import NextLink from 'next/link';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { GrMail } from 'react-icons/gr';
 
-const SocialIcons = () => {
+const SocialIcons = ({ width = 8, height = 8, justifyCenter }) => {
   const styles = {
-    icon: 'w-8 h-8 text-gray-700 hover:text-main',
+    icon: `w-${width} h-${height} text-gray-700 hover:text-main`,
   };
 
   return (
-    <div className="flex items-center mt-10 space-x-8">
+    <div
+      className={`flex items-center mt-10 space-x-8 ${
+        justifyCenter && 'justify-center'
+      }`}
+    >
       <NextLink href="mailto:sbarria.dev@gmail.com">
         <a target="_blank" rel="noopener noreferrer">
           <GrMail className={`${styles.icon}`} />

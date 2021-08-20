@@ -13,6 +13,10 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 import Hero from '@/components/layout/Hero';
 import Services from '@/components/services/Services';
 import FeaturedProjects from '@/components/projects/FeaturedProjects';
+import BlogPostPreview from '@/components/blog/BlogPostPreview';
+// import Contact from '@/components/contact/Contact';
+import CTA from '@/components/ui/CTA';
+import Footer from '@/components/layout/Footer';
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
@@ -24,14 +28,18 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home() {
-  const test = undefined;
+export default function Home({ posts }) {
+  const latestPosts = posts.allFiles.slice(0, 3);
 
   return (
     <>
       <Hero />
       <Services />
       <FeaturedProjects />
+      <BlogPostPreview posts={latestPosts} />
+      {/* <Contact /> */}
+      <CTA />
+      <Footer />
     </>
   );
   // const latestPosts = posts.allFiles.slice(0, 4);

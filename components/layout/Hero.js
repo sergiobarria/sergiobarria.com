@@ -26,7 +26,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gray-900 pt-28">
+    <section className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900 pt-28">
       <div className="absolute hidden -right-20 lg:block -bottom-16">
         <NextImage
           src="/static/layout-assets/polygon-1.png"

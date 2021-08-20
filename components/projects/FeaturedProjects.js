@@ -54,6 +54,7 @@ const FeaturedProjects = () => {
                     px="4"
                     py="2"
                     bg="bg-main"
+                    textSize="text-xs"
                     hoverBgEffect="hover:bg-main-dark"
                   >
                     View Project <BiLinkExternal className="ml-4 text-xl" />
@@ -63,6 +64,7 @@ const FeaturedProjects = () => {
                     bg="bg-gray-200"
                     px="4"
                     py="2"
+                    textSize="text-xs"
                     textColor="text-gray-800"
                     hoverBgEffect="hover:bg-gray-700"
                     hoverTextEffect="text-white"
