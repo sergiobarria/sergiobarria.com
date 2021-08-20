@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 
 import { getAboutContent } from '@/lib/getAbout';
 import MDXComponents from '@/components/MDXComponents';
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 
 export async function getStaticProps() {
   const about = await getAboutContent();
@@ -28,7 +28,7 @@ const About = props => {
       <Container>
         <div className="max-w-2xl mx-auto mt-10">
           <h1 className="text-center">{props.about.frontMatter.title}</h1>
-          <hr className="my-4" />
+          <hr className="my-4" />{' '}
           <div className="prose dark:prose-dark">
             <MDXRemote {...props.about.mdxSource} components={MDXComponents} />
           </div>
