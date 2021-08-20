@@ -13,11 +13,11 @@ const Footer = () => {
       <div className="grid items-center justify-center h-full max-w-screen-xl grid-cols-12 py-12 mx-auto gap-y-8 lg:justify-between md:px-4 xl:px-0">
         <div className="col-span-12 text-center lg:text-left lg:col-span-3">
           <NextImage
-            src="/static/layout-assets/logo-web-green.svg"
+            src="/static/layout-assets/logo-web-orange.svg"
             width={150}
             height={60}
           />
-          <SocialIcons height="6" width="6" justifyCenter />
+          <SocialIcons height="6" width="6" isFooter />
         </div>
         <div className="col-span-12 text-gray-300 lg:col-span-6">
           <nav className="grid grid-cols-12 text-center">

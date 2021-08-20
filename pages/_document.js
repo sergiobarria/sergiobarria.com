@@ -81,7 +81,7 @@ class MyDocument extends Document {
             content="https://www.sergiobarria.com/static/images/banner.png"
           />
         </Head>
-        <body className="antialiased">
+        <body className="antialiased bg-gray-50">
           <Main />
           <NextScript />
         </body>

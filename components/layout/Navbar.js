@@ -5,19 +5,22 @@ import navLinks from '@/data/navLinks';
 
 const Navbar = () => {
   const router = useRouter();
+  const activeRoute = router.pathname;
 
   return (
-    <nav className="items-center hidden max-w-5xl text-white md:flex bg-main h-28">
-      <ul className="flex items-center mx-10 md:mx-12 lg:mx-16">
+    <nav className="items-center hidden max-w-5xl text-white md:flex h-28">
+      <ul className="flex items-center ">
         {navLinks.map(link => (
-          <li className="mr-8 uppercase last:mr-0" key={link.id}>
+          <li
+            className={`md:mr-4 lg:mr-8 last:mr-0 hover:-skew-y-2 ${
+              link.url === activeRoute ? '-skew-y-6' : ''
+            }`}
+            key={link.id}
+          >
             <NextLink href={link.url}>
               <a
-                className={`transition-all text-sm lg:text-base duration-300 ease-in-out transform pb-2  ${
-                  router.pathname === link.url ||
-                  router.asPath.match(/^\/?\[{1,2}\.{0,3}[a-z]+\]{1,2}$/)
-                    ? 'border-b-2 border-white'
-                    : 'hover:border-b'
+                className={`transition-all px-4 py-2 text-sm lg:text-base duration-300 ease-in-out transform pb-2  ${
+                  link.url === activeRoute ? 'bg-main' : 'hover:text-main '
                 }`}
               >
                 {link.text}

@@ -4,7 +4,7 @@ import ServicesContainer from './ServicesContent';
 import SectionContainer from '../ui/SectionContainer';
 
 const Services = () => (
-  <section className="relative py-16 bg-gray-100">
+  <section id="services" className="relative py-16">
     <SectionTitleBg
       src="/static/layout-assets/what-i-do.png"
       alt="what i do water mark"

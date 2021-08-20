@@ -19,8 +19,11 @@ module.exports = {
     extend: {
       colors: {
         'main-light': '#99e9cc',
-        main: '#33D399',
+        main: '#F56647',
         'main-dark': '#29a97a',
+        accent: '#5378F5',
+        secondary: '#33D399',
+        tertiary: '#F56647',
       },
       backgroundImage: () => ({
         'services-img': 'url(/static/layout-assets/what-i-do.png)',
@@ -29,6 +32,8 @@ module.exports = {
         services: '50rem',
         service: '25rem',
         'post-card': '15rem',
+        '3/4': '75vh',
+        '9/10': '90vh',
       },
       zIndex: {
         '-10': '-10',

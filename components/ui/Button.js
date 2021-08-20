@@ -12,7 +12,7 @@ const Button = ({
   href,
 }) => {
   const styles = {
-    btn: `flex items-center justify-center px-${px} py-${py} font-bold ${
+    btn: `flex items-center justify-center text-sm md:text-base lg:text-lg px-${px} py-${py} font-bold ${
       uppercase ? 'uppercase' : ''
     } ${textSize && textSize} transition-all duration-300 ease-in-out ${
       bg && bg

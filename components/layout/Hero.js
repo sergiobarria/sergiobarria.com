@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
-import NextImage from 'next/image';
 import Typed from 'typed.js';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AiOutlineArrowDown } from 'react-icons/ai';
+import { VscFoldDown } from 'react-icons/vsc';
 
 import Button from '../ui/Button';
 import ButtonSecondary from '../ui/ButtonSecondary';
@@ -26,25 +26,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900 pt-28">
-      <div className="absolute hidden -right-20 lg:block -bottom-16">
-        <NextImage
-          src="/static/layout-assets/polygon-1.png"
-          width={604}
-          height={512}
-        />
-      </div>
-      <div className="absolute hidden lg:block -bottom-24 -left-64">
-        <NextImage
-          src="/static/layout-assets/polygon-2.png"
-          width={539}
-          height={410}
-          objectFit="cover"
-        />
-      </div>
+    <section className="relative flex items-end justify-center px-6 pb-12 overflow-hidden lg:pb-20 lg:px-0 min-h-9/10 ">
       <AnimatePresence>
         <motion.article
-          className="z-10 flex flex-col items-center justify-center min-h-full text-white"
+          className="flex flex-col items-center justify-center min-h-full text-gray-900"
           initial={{ opacity: 0, y: -200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -53,11 +38,11 @@ const Hero = () => {
           <h3 className="mb-4 text-base uppercase md:text-lg ">
             Hi there, my name is <span className="font-bold">Sergio</span>
           </h3>
-          <h1 className="text-4xl text-center text-white md:text-4xl lg:text-7xl">
+          <h1 className="text-4xl text-center md:text-4xl lg:text-7xl">
             I'm <span ref={el} className="text-main" />
           </h1>
           <div className="w-12 h-1 my-8 bg-main" />
-          <p className="max-w-lg mb-16 text-base tracking-wider text-center text-gray-300 md:text-lg lg:text-xl">
+          <p className="max-w-lg mb-16 text-base tracking-wider text-center md:text-lg lg:text-xl">
             I create beautiful, modern and high-performing{' '}
             <span className="font-medium text-main">
               web solutions for your business
@@ -67,14 +52,17 @@ const Hero = () => {
             <Button
               uppercase
               btnType="button"
-              bg="bg-main"
-              hoverBgEffect="hover:bg-main-dark"
+              bg="bg-gray-900"
+              hoverTextEffect="hover:text-main"
             >
-              see my work <AiOutlineArrowDown className="ml-2 text-xl" />
+              See My Work <AiOutlineArrowDown className="ml-2 text-xl" />
             </Button>
             <ButtonSecondary>about me</ButtonSecondary>
           </div>
-          <SocialIcons />
+          <SocialIcons width="6" height="6" />
+          <Button href="i">
+            <VscFoldDown className="mt-16 text-4xl font-bold text-main animate-bounce " />
+          </Button>
         </motion.article>
       </AnimatePresence>
     </section>

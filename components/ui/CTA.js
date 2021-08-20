@@ -14,7 +14,7 @@ const CTA = () => (
           If you want to know more or hire me, don't hesitate and reach out!
         </p>
       </div>
-      <div className="absolute hidden lg:block top-8 right-72">
+      <div className="absolute hidden lg:block top-8 right-80">
         <NextImage
           src="/static/layout-assets/arrow.png"
           alt="arrow"
