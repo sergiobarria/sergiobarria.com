@@ -27,7 +27,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-center px-6 pb-12 overflow-hidden lg:pb-0 lg:px-0 min-h-8/10 ">
+    <section className="relative flex items-center justify-center max-w-screen-xl px-6 pb-12 mx-auto overflow-hidden lg:pb-0 lg:px-0 min-h-8/10 ">
       <AnimatePresence>
         <motion.article
           className="flex flex-col items-center justify-center min-h-full text-gray-900"
