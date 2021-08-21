@@ -31,10 +31,17 @@ module.exports = {
       minHeight: {
         services: '50rem',
         service: '25rem',
+        120: '30rem',
         'post-card': '15rem',
         '3/4': '75vh',
         '8/10': '80vh',
         '9/10': '90vh',
+      },
+      width: {
+        120: '30rem',
+      },
+      height: {
+        100: '25rem',
       },
       zIndex: {
         '-10': '-10',
@@ -206,5 +213,6 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('tailwindcss-selection-variant'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

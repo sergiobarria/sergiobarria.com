@@ -29,6 +29,22 @@
   </url>
 
   <url>
+    <loc>https://sergiobarria.com/projects/gatsby-blog-portfolio</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v1</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v2</loc>
+  </url>
+
+  <url>
+    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v3</loc>
+  </url>
+
+  <url>
     <loc
       >https://sergiobarria.com/blog/5-common-mistakes-beginners-make-when-learning-to-code</loc
     >
@@ -104,21 +120,5 @@
     <loc
       >https://sergiobarria.com/blog/what-is-the-tutorial-hell-and-how-to-escape-it</loc
     >
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/projects/gatsby-blog-portfolio</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v1</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v2</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/projects/next-blog-portfolio-v3</loc>
   </url>
 </urlset>

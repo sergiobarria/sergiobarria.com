@@ -4,9 +4,9 @@ import NextLink from 'next/link';
 const BlogPostCard = ({ post }) => (
   <article
     key={post.id}
-    className="w-full col-span-12 mx-auto overflow-hidden bg-white rounded-md md:w-8/12 lg:col-span-4 lg:w-full xl:w-11/12"
+    className="w-3/4 col-span-12 mx-auto overflow-hidden transition-all duration-300 ease-in-out bg-white rounded-md shadow-lg md:col-span-6 md:w-full lg:col-span-4 lg:w-10/12 hover:scale-110"
   >
-    <div className="relative w-full h-52">
+    <div className="relative w-full h-52 md:h-44">
       <NextImage
         src={post.image}
         alt={post.title}
@@ -19,7 +19,7 @@ const BlogPostCard = ({ post }) => (
       <h4 className="mb-4 text-lg font-semibold text-gray-800">{post.title}</h4>
       <p className="mb-auto text-sm text-gray-700">{post.excerpt}...</p>
       <NextLink href={`/blog/${post.slug}`}>
-        <a className="mt-auto text-sm font-medium text-gray-700 hover:text-main">
+        <a className="mt-auto text-sm font-medium text-main hover:text-main-dark">
           Read More
         </a>
       </NextLink>

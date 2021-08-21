@@ -20,6 +20,7 @@
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.2.0",
     "@svgr/webpack": "^5.5.0",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.3.1",

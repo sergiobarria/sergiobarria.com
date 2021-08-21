@@ -14,7 +14,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 import Hero from '@/components/hero/Hero';
 import Services from '@/components/services/Services';
 import FeaturedProjects from '@/components/projects/FeaturedProjects';
-import BlogPostPreview from '@/components/blog/BlogPostPreview';
+import BlogPostPreview from '@/components/blog/FeaturedPosts';
 // import Contact from '@/components/contact/Contact';
 
 export async function getStaticProps() {

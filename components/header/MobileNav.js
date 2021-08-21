@@ -32,7 +32,7 @@ const MobileNav = () => {
       </button>
 
       <div
-        className={`fixed w-full h-full top-24 right-0 bg-main dark:bg-gray-800 opacity-95 z-10 transform ease-in-out duration-500 ${
+        className={`fixed w-full h-full top-28 right-0 bg-main dark:bg-gray-800 opacity-95 z-10 transform ease-in-out duration-500 ${
           showNav ? 'translate-x-0' : 'translate-y-full'
         }`}
       >

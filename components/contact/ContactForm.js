@@ -5,7 +5,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="w-5/6 py-6 space-y-6">
+    <form className="w-full py-6 space-y-6 md:w-5/6">
       <div className="">
         <input
           type="text"

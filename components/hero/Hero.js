@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react';
 import NextLink from 'next/link';
 import Typed from 'typed.js';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AiOutlineArrowDown } from 'react-icons/ai';
-import { FiArrowUpRight } from 'react-icons/fi';
+import { FiArrowUpRight, FiArrowDown } from 'react-icons/fi';
 import { VscFoldDown } from 'react-icons/vsc';
 import { Link } from 'react-scroll';
 
@@ -36,7 +35,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           exit={{}}
         >
-          <h3 className="mb-4 text-base uppercase md:text-lg ">
+          <h3 className="mb-4 text-base uppercase md:text-lg">
             Hi there, my name is <span className="font-bold">Sergio</span>
           </h3>
           <h1 className="text-4xl text-center md:text-4xl lg:text-8xl">
@@ -49,10 +48,10 @@ const Hero = () => {
               web solutions for your business
             </span>
           </p>
-          <div className="flex-col items-center justify-center md:flex lg:space-x-16 lg:flex-row">
+          <div className="flex-col items-center justify-center space-y-4 lg:space-y-0 md:flex lg:space-x-16 lg:flex-row">
             <Link to="featured-projects" smooth duration={200}>
-              <button type="button" className="uppercase btn btn-black">
-                See My Work <AiOutlineArrowDown className="ml-2 text-xl" />
+              <button type="button" className="uppercase border btn btn-black">
+                See My Work <FiArrowDown className="ml-2 text-xl" />
               </button>
             </Link>
             <NextLink href="/about">

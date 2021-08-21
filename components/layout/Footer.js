@@ -17,7 +17,9 @@ const Footer = () => {
             width={150}
             height={60}
           />
-          <SocialIcons height="6" width="6" isFooter />
+          <div className="flex items-center justify-center lg:justify-start">
+            <SocialIcons height="6" width="6" />
+          </div>
         </div>
         <div className="col-span-12 text-gray-300 lg:col-span-6">
           <nav className="grid grid-cols-12 text-center">
@@ -64,6 +66,8 @@ const Footer = () => {
             <a
               href="https://nextjs.org/"
               className="font-medium underline text-main"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Next.js
             </a>{' '}
@@ -71,6 +75,8 @@ const Footer = () => {
             <a
               href="https://tailwindcss.com/"
               className="font-medium underline text-main"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Tailwind CSS
             </a>
