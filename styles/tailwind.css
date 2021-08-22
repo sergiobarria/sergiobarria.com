@@ -9,7 +9,7 @@
   }
 
   .btn {
-    @apply flex items-center justify-center text-sm font-semibold transition-all duration-300 ease-in-out transform;
+    @apply flex items-center justify-center text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg;
   }
 
   .btn-black {

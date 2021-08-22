@@ -9,7 +9,7 @@ const Footer = () => {
   const router = useRouter();
 
   return (
-    <footer className="bg-gray-900 min-h-60">
+    <footer className="overflow-hidden bg-gray-900 min-h-60">
       <div className="grid items-center justify-center h-full max-w-screen-xl grid-cols-12 py-12 mx-auto gap-y-8 lg:justify-between md:px-4 xl:px-0">
         <div className="col-span-12 text-center lg:text-left lg:col-span-3">
           <NextImage

@@ -61,7 +61,7 @@ const Hero = () => {
             </NextLink>
           </div>
           <div className="flex items-center justify-center max-w-xl mx-auto">
-            <SocialIcons width="6" height="6" />
+            <SocialIcons />
           </div>
           <Link to="services" smooth duration={200}>
             <VscFoldDown className="mt-16 text-4xl font-bold cursor-pointer text-main animate-bounce " />
