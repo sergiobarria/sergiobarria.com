@@ -1,32 +1,62 @@
-import NextImage from 'next/image';
-// import NextLink from 'next/link';
 import { NextSeo } from 'next-seo';
 
-import Container from '@/components/Container';
-// import Card from '@/components/Card';
+import PageHeader from '@/components/utils/PageHeader';
+import Container from '@/components/layout/Container';
+import SectionTitle from '@/components/ui/SectionTitle';
+import ResourceCard from '@/components/resources/ResourceCard';
 
 export default function ResourcesPage() {
   const url = 'https://sergiobarria.com/resources';
   const title = 'Resources | Sergio Barria';
   const description =
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
+  const pageHeaderData = {
+    title: 'Useful Resources for Web Design and Development',
+    subtitle: 'All Resources',
+    text: `In this section I'm going to upload different code snippets, tips
+    and helpful resources related to web development in
+    general.`,
+  };
 
-  const techList = [
+  const categories = [
+    'HTML - CSS',
+    'JavaScript',
+    'Web Design',
+    'Web Development',
+  ];
+
+  const resourcesData = [
     {
       id: 1,
-      title: 'Javascript',
+      title: 'HTML Reference by MDM',
+      description:
+        'MDN is one of the most used sites as reference when writing HTML & CSS',
+      link: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element',
+      category: 'HTML - CSS',
     },
     {
       id: 2,
-      title: 'Vue',
+      title: 'CSS Reference by MDN',
+      description:
+        'MDN is one of the most used sites as reference when writing HTML & CSS',
+      link: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference',
+      category: 'HTML - CSS',
     },
     {
       id: 3,
-      title: 'React',
+      title: 'HTML Reference by MDM',
+      description:
+        'MDN is one of the most used sites as reference when writing HTML & CSS',
+      link: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element',
+      category: 'HTML - CSS',
     },
     {
       id: 4,
-      title: 'Next',
+      title: 'CSS Reference by MDN',
+      description:
+        'MDN is one of the most used sites as reference when writing HTML & CSS',
+      link: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference',
+      category: 'HTML - CSS',
     },
   ];
 
@@ -39,45 +69,24 @@ export default function ResourcesPage() {
         openGraph={{ url, title, description }}
       />
       <Container>
-        <div className="flex flex-col items-center justify-center max-w-2xl mx-auto mb-4">
-          <h1>All Resources</h1>
-          <p className="mb-8 font-normal prose text-center text-skin-base dark:text-gray-100">
-            In this section I'm going to upload different code snippets, tips
-            and helpful resources in general related to web development in
-            general.
-          </p>
+        <PageHeader {...pageHeaderData} />
 
-          <p className="mb-8 font-normal prose text-center text-gray-600 dark:text-skin-inverted">
-            <span className="font-bold text-skin-warn "> 🚧 WARNING 🚧 :</span>
-            Section under construction. Content will be available very soon...👷🏼‍♂️
-          </p>
-
-          <div className="bg-gray-100 rounded-full shadow-lg">
-            <NextImage
-              src="/static/images/construction.svg"
-              width="400"
-              height="400"
-            />
+        <section className="mx-4 xl:mx-0">
+          <div>
+            {categories.map((cat, index) => (
+              <div key={index}>
+                <SectionTitle title={cat} />
+                <div className="grid grid-cols-12 gap-4 my-6 sm:gap-4">
+                  {resourcesData
+                    .filter(resource => resource.category === cat)
+                    .map(resource => (
+                      <ResourceCard key={resource.id} {...resource} />
+                    ))}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-
-        {/* Resources Content */}
-        {/* <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-4">
-          {techList.map(tech => (
-            <NextLink
-              key={tech.id}
-              href={`/resources/${tech.title.toLowerCase()}`}
-            >
-              <a className="cursor-pointer">
-                <Card
-                  title={tech.title}
-                  image={`/static/logos/${tech.title.toLowerCase()}.svg`}
-                  description={`Code snippets and resources related to ${tech.title.toLowerCase()} development`}
-                />
-              </a>
-            </NextLink>
-          ))}
-        </div> */}
+        </section>
       </Container>
     </>
   );

@@ -2,7 +2,7 @@ import { MDXRemote } from 'next-mdx-remote';
 
 import BlogLayout from '@/layouts/BlogLayout';
 import { getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx';
-import MDXComponents from '@/components/MDXComponents';
+import MDXComponents from '@/components/utils/MDXComponents';
 
 export async function getStaticPaths() {
   const posts = getFiles('blog');

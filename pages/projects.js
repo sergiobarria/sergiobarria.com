@@ -47,13 +47,11 @@ export default function ProjectsPage() {
         openGraph={{ url, title, description }}
       />
       <div className="my-10 md:my-20">
-        {/* Project Container Card */}
         <section>
           <PageHeader {...pageHeaderData} />
         </section>
         <CurrentGoals />
 
-        {/* Projects Portfolio */}
         <Portfolio
           handleFilter={handleFilterCategory}
           projects={projectsArr}

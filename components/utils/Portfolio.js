@@ -1,5 +1,5 @@
-import SingleProjectCard from '@/components/SingleProjectCard';
-import ProjectsNavbar from '@/components/ProjectsNavbar';
+import SingleProjectCard from '@/components/projects/SingleProjectCard';
+import ProjectsNavbar from '@/components/utils/ProjectsNavbar';
 import SectionTitle from '@/components/ui/SectionTitle';
 
 const Portfolio = ({ handleFilter, projects, active }) => (

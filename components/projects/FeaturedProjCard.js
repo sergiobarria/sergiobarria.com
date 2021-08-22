@@ -1,5 +1,6 @@
 import { BiLinkExternal } from 'react-icons/bi';
 import { AiFillGithub } from 'react-icons/ai';
+import TechStack from './TechStack';
 
 const FeaturedProjCard = ({ proj, index }) => (
   <div
@@ -39,16 +40,7 @@ const FeaturedProjCard = ({ proj, index }) => (
           Github <AiFillGithub className="ml-4 text-xl" />
         </a>
       </div>
-      <div className="flex flex-wrap justify-end mt-10 space-x-4 text-right">
-        {proj.keyTechs.map((tech, i) => (
-          <small
-            key={i}
-            className="px-2 py-1 mt-2 text-xs font-medium capitalize border border-gray-500 md:px-4 md:py-2 opacity-70"
-          >
-            {tech}
-          </small>
-        ))}
-      </div>
+      <TechStack techArr={proj.keyTechs} />
     </article>
   </div>
 );

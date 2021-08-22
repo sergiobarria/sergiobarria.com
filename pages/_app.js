@@ -6,7 +6,7 @@ import * as gtag from '@/lib/gtag';
 
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'next-themes';
-import MDXComponents from '@/components/MDXComponents';
+import MDXComponents from '@/components/utils/MDXComponents';
 
 import Layout from '@/components/layout/Layout';
 import { DefaultSeo } from 'next-seo';

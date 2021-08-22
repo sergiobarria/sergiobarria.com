@@ -4,6 +4,10 @@
 
 /* NEW DESIGN */
 @layer base {
+  .heading-1 {
+    @apply text-4xl text-center md:text-5xl lg:text-8xl;
+  }
+
   .btn {
     @apply flex items-center justify-center text-sm font-semibold transition-all duration-300 ease-in-out transform;
   }
@@ -26,6 +30,10 @@
 
   .btn-inverted {
     @apply text-base text-gray-700 bg-gray-200 btn btn-black;
+  }
+
+  .btn-project {
+    @apply px-4 py-1 text-sm font-semibold text-white transform bg-gray-900 rounded cursor-pointer hover:bg-gray-700 hover:text-main hover:scale-90 focus:bg-gray-700 focus:outline-none;
   }
 }
 

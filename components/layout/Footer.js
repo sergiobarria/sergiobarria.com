@@ -65,7 +65,7 @@ const Footer = () => {
             Built with{' '}
             <a
               href="https://nextjs.org/"
-              className="font-medium underline text-main"
+              className="font-medium underline text-main hover:text-main-dark"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -74,7 +74,7 @@ const Footer = () => {
             and{' '}
             <a
               href="https://tailwindcss.com/"
-              className="font-medium underline text-main"
+              className="font-medium underline text-main hover:text-main-dark"
               target="_blank"
               rel="noopener noreferrer"
             >

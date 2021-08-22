@@ -2,7 +2,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
 
 import { getAboutContent } from '@/lib/getAbout';
-import MDXComponents from '@/components/MDXComponents';
+import MDXComponents from '@/components/utils/MDXComponents';
 import Container from '@/components/layout/Container';
 
 export async function getStaticProps() {

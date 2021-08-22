@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 
 export default function NotFoundPage() {
   return (
@@ -11,7 +11,7 @@ export default function NotFoundPage() {
         </h1>
         <p className="mb-8 text-gray-600 dark:text-gray-400">
           Seems that you reached a super secret page and I can't allow you to
-          pass it. I'm sorry but the world depends on it
+          pass. I'm sorry but the world may very well depend on it.
         </p>
         <NextLink href="/">
           <a className="w-64 p-1 mx-auto font-bold text-center text-gray-800 bg-gray-200 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">

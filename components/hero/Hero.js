@@ -38,7 +38,7 @@ const Hero = () => {
           <h3 className="mb-4 text-base uppercase md:text-lg">
             Hi there, my name is <span className="font-bold">Sergio</span>
           </h3>
-          <h1 className="text-4xl text-center md:text-4xl lg:text-8xl">
+          <h1 className="heading-1">
             I'm <span ref={el} className="text-main" />
           </h1>
           <div className="w-12 h-1 my-8 bg-main" />
