@@ -6,7 +6,6 @@
 
 import { getAllFilesFrontMatter } from '@/lib/mdx';
 
-// import Container from '@/components/Container';
 // import PostListPreview from '@/components/PostListPreview';
 // import Card from '@/components/Card';
 // import Seo from '@/components/Seo';

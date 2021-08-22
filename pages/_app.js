@@ -1,4 +1,4 @@
-// import 'tailwindcss/tailwind.css';
+import 'react-toastify/dist/ReactToastify.css';
 import '@/styles/tailwind.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';

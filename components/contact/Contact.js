@@ -1,4 +1,3 @@
-import { FiSend } from 'react-icons/fi';
 import SocialIcons from '../layout/SocialIcons';
 
 import SectionTitle from '../ui/SectionTitle';
@@ -12,9 +11,6 @@ const Contact = () => (
       </div>
       <div className="flex flex-col items-start justify-start col-span-12 row-start-3 md:row-start-2 md:col-span-6">
         <ContactForm />
-        <button type="submit" className="btn btn-black">
-          Send Email <FiSend className="ml-2" />
-        </button>
       </div>
       <article className="flex-col justify-center col-span-12 row-start-2 md:row-start-2 md:col-span-6">
         <p className="pt-4">
