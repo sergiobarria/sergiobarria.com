@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { GrMail } from 'react-icons/gr';
+// import { GrMail } from 'react-icons/gr';
 
 const SocialIcons = ({ wdth = 'w-6', ht = 'h-6' }) => {
   const styles = {
@@ -9,11 +9,11 @@ const SocialIcons = ({ wdth = 'w-6', ht = 'h-6' }) => {
 
   return (
     <div className="flex items-center mt-10 space-x-8">
-      <NextLink href="mailto:sbarria.dev@gmail.com">
+      {/* <NextLink href="mailto:sbarria.dev@gmail.com">
         <a target="_blank" rel="noopener noreferrer">
           <GrMail className={styles.icon} />
         </a>
-      </NextLink>
+      </NextLink> */}
       <NextLink href="https://github.com/sergiobarria">
         <a target="_blank" rel="noopener noreferrer">
           <FaGithub className={styles.icon} />

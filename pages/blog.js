@@ -26,7 +26,7 @@ export default function BlogPage({ posts }) {
   const pageHeaderData = {
     title: 'Updates, Reflections, Productivity & much more',
     subtitle: 'my personal blog',
-    text: `Welcome to...whatever this is 😅 , here I share my thoughts related to
+    text: `Welcome to...whatever this is 😅 . Here I share my thoughts related to
     many web development topics and programming in general. I've always been
     a fan of writing, and I hope you can find something here that could help
     you in your developer career.`,

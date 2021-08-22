@@ -48,7 +48,14 @@ const Footer = () => {
                   className="first:mt-4 lg:first:mt-0 hover:scale-110 hover:skew-y-2"
                 >
                   <NextLink href={link.url}>
-                    <a className="transition-all duration-300 ease-in-out transform hover:text-main">
+                    <a
+                      className={`transition-all duration-300 ease-in-out transform hover:text-main ${
+                        router.pathname === link.url ||
+                        router.asPath.match(/^\/?\[{1,2}\.{0,3}[a-z]+\]{1,2}$/)
+                          ? 'text-main'
+                          : 'hover:text-main'
+                      } `}
+                    >
                       {link.text}
                     </a>
                   </NextLink>
