@@ -1,15 +1,11 @@
-import NextLink from 'next/link';
-import { RiComputerLine } from 'react-icons/ri';
-import { FaServer, FaMobileAlt } from 'react-icons/fa';
-import { ImStack } from 'react-icons/im';
-
 import { getAllFilesFrontMatter } from '@/lib/mdx';
-// import { generateRSSFeed } from 'utils/rss';
 
-import Container from '@/components/Container';
-import PostListPreview from '@/components/PostListPreview';
-import Card from '@/components/Card';
-import Seo from '@/components/Seo';
+import Seo from '@/components/utils/Seo';
+
+import Hero from '@/components/hero/Hero';
+import Services from '@/components/services/Services';
+import FeaturedProjects from '@/components/projects/FeaturedProjects';
+import BlogPostPreview from '@/components/blog/FeaturedPosts';
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
@@ -21,52 +17,12 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ posts }) {
-  const latestPosts = posts.allFiles.slice(0, 4);
+export default function HomePage({ posts }) {
+  const latestPosts = posts.allFiles.slice(0, 3);
+
   const title = 'Home | Sergio Barria';
   const description =
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
-
-  const jobs = [
-    {
-      id: 1,
-      title: 'Frontend Development',
-      icon: {
-        type: RiComputerLine,
-      },
-      description: 'I build UI and scalable SPA with HTML, CSS and JavaScript',
-      techStack: ['JavaScript', 'Vue', 'React'],
-    },
-    {
-      id: 2,
-      title: 'Backend Development',
-      icon: {
-        type: FaServer,
-      },
-      description: 'Connection with the frontend, databases and security',
-      techStack: ['Node', 'Django', 'SQL', 'NoSQL'],
-    },
-    {
-      id: 3,
-      title: 'JAM Stack Development',
-      icon: {
-        type: ImStack,
-      },
-      description:
-        'SSR and SSG development for better performance & SEO Optimization',
-      techStack: ['Next js', 'Gatsby'],
-    },
-    {
-      id: 4,
-      title: 'Mobile Development',
-      icon: {
-        type: FaMobileAlt,
-      },
-      description:
-        'Cross platform mobile development for iOS and Android phones',
-      techStack: ['Flutter'],
-    },
-  ];
 
   return (
     <>
@@ -76,6 +32,7 @@ export default function Home({ posts }) {
         slug="/"
         // coverImage={`https://www.sergiobarria.com${image}`}
       />
+<<<<<<< HEAD
       <Container>
         <div className="flex flex-col justify-center max-w-2xl mx-auto mb-4">
           <h1 className="text-center">Hey, I'm Sergio</h1>
@@ -120,6 +77,12 @@ export default function Home({ posts }) {
           </div>
         </section>
       </Container>
+=======
+      <Hero />
+      <Services />
+      <FeaturedProjects />
+      <BlogPostPreview posts={latestPosts} />
+>>>>>>> update-ui
     </>
   );
 }

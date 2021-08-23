@@ -1,8 +1,8 @@
 import NextLink from 'next/link';
 
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
     <Container>
       <div className="flex flex-col items-center justify-center max-w-2xl mx-auto">
@@ -10,8 +10,8 @@ export default function NotFound() {
           404 – Ooops!
         </h1>
         <p className="mb-8 text-gray-600 dark:text-gray-400">
-          Seems that you reached a page that either doesn't exist or is under
-          construction.
+          Seems that you reached a super secret page and I can't allow you to
+          pass. I'm sorry but the world may very well depend on it.
         </p>
         <NextLink href="/">
           <a className="w-64 p-1 mx-auto font-bold text-center text-gray-800 bg-gray-200 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">

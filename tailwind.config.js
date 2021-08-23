@@ -10,8 +10,40 @@ module.exports = {
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    colors: { ...colors },
+    colors: {
+      ...colors,
+    },
     extend: {
+      colors: {
+        'main-light': '#a9bcfa',
+        main: '#5378F5',
+        'main-dark': '#4260c4',
+        primary: '#5378F5',
+        secondary: '#33D399',
+        tertiary: '#F56647',
+        accent: '#f23333',
+      },
+      backgroundImage: () => ({
+        'services-img': 'url(/static/layout-assets/what-i-do.png)',
+      }),
+      minHeight: {
+        services: '50rem',
+        service: '25rem',
+        120: '30rem',
+        'post-card': '15rem',
+        '3/4': '75vh',
+        '8/10': '80vh',
+        '9/10': '90vh',
+      },
+      width: {
+        120: '30rem',
+      },
+      height: {
+        100: '25rem',
+      },
+      zIndex: {
+        '-10': '-10',
+      },
       textColor: {
         skin: {
           base: 'var(--color-text-base)',
@@ -59,6 +91,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        londrina: ['Londrina Outline', ...defaultTheme.fontFamily.sans],
       },
       typography: theme => ({
         DEFAULT: {
@@ -175,8 +208,9 @@ module.exports = {
     },
   },
   plugins: [
-    // require('@tailwindcss/forms'),
+    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('tailwindcss-selection-variant'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

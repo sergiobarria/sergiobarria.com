@@ -34,7 +34,6 @@ fs.readdirSync(blogPostDir)
     // just want the attributes
     const { attributes } = frontMatter(file);
 
-    // console.log(attributes);
     return { ...attributes, fileName };
   })
   // sort the items by date in descending order

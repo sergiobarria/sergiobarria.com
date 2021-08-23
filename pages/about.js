@@ -2,8 +2,8 @@ import { MDXRemote } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
 
 import { getAboutContent } from '@/lib/getAbout';
-import MDXComponents from '@/components/MDXComponents';
-import Container from '@/components/Container';
+import MDXComponents from '@/components/utils/MDXComponents';
+import Container from '@/components/layout/Container';
 
 export async function getStaticProps() {
   const about = await getAboutContent();
@@ -11,7 +11,7 @@ export async function getStaticProps() {
   return { props: { about } };
 }
 
-const About = props => {
+export default function About(props) {
   const url = 'https://sergiobarria.com/about';
   const title = 'About | Sergio Barria';
   const description =
@@ -26,16 +26,14 @@ const About = props => {
         openGraph={{ url, title, description }}
       />
       <Container>
-        <div className="max-w-2xl mx-auto mt-10">
+        <article className="max-w-2xl px-4 mx-auto lg:px-0">
           <h1 className="text-center">{props.about.frontMatter.title}</h1>
           <hr className="my-4" />
           <div className="prose dark:prose-dark">
             <MDXRemote {...props.about.mdxSource} components={MDXComponents} />
           </div>
-        </div>
+        </article>
       </Container>
     </>
   );
-};
-
-export default About;
+}

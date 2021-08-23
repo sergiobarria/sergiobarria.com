@@ -24,11 +24,11 @@ const links = [
     text: 'Resources',
     url: '/resources',
   },
-  // {
-  //   id: 6,
-  //   text: 'Contact',
-  //   url: '/contact',
-  // },
+  {
+    id: 6,
+    text: 'Contact',
+    url: '/contact',
+  },
 ];
 
 export default links;

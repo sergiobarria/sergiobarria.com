@@ -11,6 +11,7 @@ export const projects = [
     repo: 'https://github.com/sergiobarria/the-coding-script',
     category: 'next js',
     keyTechs: ['next js', 'contentful', 'typescript', 'tailwind css'],
+    featured: false,
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const projects = [
     repo: 'https://github.com/sergiobarria/blog-portfolio-with-contentful',
     category: 'next js',
     keyTechs: ['next js', 'sanity io', 'tailwind css'],
+    featured: false,
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ export const projects = [
     repo: 'https://github.com/sergiobarria/my-sanity-gatsby-portfolio',
     category: 'gatsby',
     keyTechs: ['gatsby', 'sanity io', 'tailwind css'],
+    featured: false,
   },
   {
     id: 4,
@@ -44,11 +47,12 @@ export const projects = [
     summary: 'Blog portfolio using MDX for content management',
     description:
       'Blog portfolio using Next.js for a static build, MDX for content management, TypeScript for type checking and Tailwind CSS for styling. With SEO optimization',
-    image: '/static/images/projects/next portfolio v3.png',
+    image: '/static/images/projects/my-next-portfolio-mockup.png',
     liveUrl: 'https://my-next-portfolio-ruddy.vercel.app/projects',
     repo: 'https://github.com/sergiobarria/my-next-portfolio',
     category: 'next js',
     keyTechs: ['next js', 'mdx', 'typescript', 'tailwind css'],
+    featured: true,
   },
   {
     id: 5,
@@ -61,18 +65,20 @@ export const projects = [
     repo: 'https://github.com/sergiobarria/vue-todo-app',
     category: 'vue',
     keyTechs: ['vue js', 'firebase', 'tailwind css'],
+    featured: false,
   },
   {
     id: 6,
-    name: 'Easybank Website',
+    name: 'EasyBank Website',
     summary: 'Easybank website made with HTML, CSS and JavaScript',
     description:
       'The project consists a single page website for a generic brand called Easybank. The project is part of the Frontend Mentor website challenges. To create the website I used basic HTML, CSS (Flexbox & CSS Grid) and simple JavaScript to toggle the navbar on the mobile view. The styles where added using a mobile first workflow.',
-    image: '/static/images/projects/easybank.png',
+    image: '/static/images/projects/easybank-mockup.png',
     liveUrl: 'https://easybank-sergiobarria.netlify.app/',
     repo: 'https://github.com/sergiobarria/EasyBank',
     category: ['HTML/CSS', 'JavaScript'],
     keyTechs: ['HTML', 'CSS', 'JavaScript'],
+    featured: true,
   },
   {
     id: 7,
@@ -80,11 +86,12 @@ export const projects = [
     summary: 'PhotoSnap website made with HTML, SCSS and JavaScript',
     description:
       'The project consists of a multipage page website for a generic brand called PhotoSnap. The project is part of the Frontend Mentor website challenges. To create the website I used basic HTML, SCSS (Flexbox & CSS Grid) and simple JavaScript to manipulate the DOM when is needed. The styles where added using a mobile first workflow.',
-    image: '/static/images/projects/photosnap-website.jpg',
+    image: '/static/images/projects/photosnap-project-mockup.png',
     liveUrl: 'https://photosnap-website-sb.netlify.app/',
     repo: 'https://github.com/sergiobarria/photosnap-website',
     category: ['HTML/CSS', 'JavaScript'],
     keyTechs: ['HTML', 'CSS', 'JavaScript'],
+    featured: true,
   },
   {
     id: 8,
@@ -97,5 +104,6 @@ export const projects = [
     repo: 'https://github.com/sergiobarria/rest-countries',
     category: ['JavaScript', 'react'],
     keyTechs: ['React', 'JavaScript', 'Context API'],
+    featured: false,
   },
 ];
