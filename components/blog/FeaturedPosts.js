@@ -4,7 +4,7 @@ import SectionTitleBg from '../ui/SectionTitleBg';
 import SectionContainer from '../ui/SectionContainer';
 import SectionTitle from '../ui/SectionTitle';
 import ColorBar from './ColorBar';
-import PostsPreviewContainer from './PostsPreviewContainer';
+import PostsPreviewContainer from './PostsPreview';
 import SectionBtn from '../utils/SectionBtn';
 
 const BlogPostPreview = ({ posts }) => (
@@ -19,7 +19,7 @@ const BlogPostPreview = ({ posts }) => (
     <SectionContainer>
       <SectionTitle title="My Latest Thoughts" textColor="text-white" />
       <PostsPreviewContainer posts={posts} />
-      <SectionBtn btnClass="btn-white" url="/blog">
+      <SectionBtn btnClass="btn-inverted" url="/blog">
         See Other Posts <VscLinkExternal className="ml-4" />
       </SectionBtn>
     </SectionContainer>

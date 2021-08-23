@@ -9,7 +9,7 @@
   }
 
   .btn {
-    @apply flex items-center justify-center text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg;
+    @apply flex items-center justify-center text-sm font-semibold transition-all duration-300 ease-in-out transform rounded-lg hover:scale-105 hover:shadow-lg;
   }
 
   .btn-black {
@@ -34,6 +34,10 @@
 
   .btn-project {
     @apply px-4 py-1 text-sm font-semibold text-white transform bg-gray-900 rounded cursor-pointer hover:bg-gray-700 hover:text-main hover:scale-90 focus:bg-gray-700 focus:outline-none;
+  }
+
+  .post-card {
+    @apply flex flex-col w-3/4 h-full col-span-12 mx-auto overflow-hidden transition-all duration-300 ease-in-out bg-white rounded-md shadow-lg cursor-pointer md:col-span-6 md:w-full lg:col-span-4 xl:w-11/12 hover:scale-110 hover:shadow-2xl;
   }
 }
 

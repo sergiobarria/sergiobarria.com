@@ -5,7 +5,7 @@ const Logo = () => (
   <NextLink href="/">
     <a>
       <NextImage
-        src="/static/layout-assets/logo-web-orange.svg"
+        src="/static/layout-assets/logo-web-indigo.svg"
         alt="Sergio's Website Logo"
         width={175}
         height={70}

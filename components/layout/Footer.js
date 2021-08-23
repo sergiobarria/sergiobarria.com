@@ -1,9 +1,9 @@
-import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
 import navLinks from '@/data/navLinks';
 import SocialIcons from './SocialIcons';
+import Logo from '../header/Logo';
 
 const Footer = () => {
   const router = useRouter();
@@ -12,11 +12,7 @@ const Footer = () => {
     <footer className="overflow-hidden bg-gray-900 min-h-60">
       <div className="grid items-center justify-center h-full max-w-screen-xl grid-cols-12 py-12 mx-auto gap-y-8 lg:justify-between md:px-4 xl:px-0">
         <div className="col-span-12 text-center lg:text-left lg:col-span-3">
-          <NextImage
-            src="/static/layout-assets/logo-web-orange.svg"
-            width={150}
-            height={60}
-          />
+          <Logo />
           <div className="flex items-center justify-center lg:justify-start">
             <SocialIcons height="6" width="6" />
           </div>

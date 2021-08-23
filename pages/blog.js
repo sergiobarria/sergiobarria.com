@@ -5,7 +5,7 @@ import Container from '@/components/layout/Container';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
 import PageHeader from '@/components/utils/PageHeader';
 import SearchBar from '@/components/utils/SearchBar';
-import PostsPreviewContainer from '@/components/blog/PostsPreviewContainer';
+import PostsPreview from '@/components/blog/PostsPreview';
 
 export async function getStaticProps() {
   const posts = getAllFilesFrontMatter('blog');
@@ -49,7 +49,7 @@ export default function BlogPage({ posts }) {
           All Blog Posts (<span>{filteredBlogPosts.length}</span>)
         </h1>
         <hr />
-        <PostsPreviewContainer posts={filteredBlogPosts} />
+        <PostsPreview posts={filteredBlogPosts} />
       </Container>
     </>
   );

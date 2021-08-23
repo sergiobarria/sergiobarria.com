@@ -13,17 +13,15 @@ module.exports = {
     colors: {
       ...colors,
     },
-    flex: {
-      2: '2 2 0%',
-    },
     extend: {
       colors: {
-        'main-light': '#fab3a3',
-        main: '#F56647',
-        'main-dark': '#c45239',
-        accent: '#5378F5',
+        'main-light': '#a9bcfa',
+        main: '#5378F5',
+        'main-dark': '#4260c4',
+        primary: '#5378F5',
         secondary: '#33D399',
         tertiary: '#F56647',
+        accent: '#f23333',
       },
       backgroundImage: () => ({
         'services-img': 'url(/static/layout-assets/what-i-do.png)',
