@@ -12,12 +12,14 @@
     "build": "next build",
     "start": "next start",
     "postbuild": "node scripts/rss-gen",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.6.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@next/bundle-analyzer": "^11.1.0",
     "@next/mdx": "^10.2.0",
     "@svgr/webpack": "^5.5.0",
     "@tailwindcss/aspect-ratio": "^0.2.1",
@@ -25,6 +27,7 @@
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.3.1",
     "axios": "^0.21.1",
+    "cross-env": "^7.0.3",
     "framer-motion": "^4.1.17",
     "front-matter": "^4.0.2",
     "gray-matter": "^4.0.3",
