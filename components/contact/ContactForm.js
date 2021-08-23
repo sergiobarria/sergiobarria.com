@@ -48,7 +48,7 @@ const ContactForm = () => {
       }
     } catch (err) {
       setIsLoading(false);
-      toast.error('Something Went Wrong! Please try again later');
+      toast.error('Something Went Wrong! Please try again later.');
     }
   };
 

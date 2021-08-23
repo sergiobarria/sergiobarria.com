@@ -16,13 +16,16 @@ const MobileNav = ({ showNav, toggler }) => (
     </button>
 
     <div
-      className={`fixed w-full h-full top-28 right-0 bg-main dark:bg-gray-800 opacity-95 z-10 transform ease-in-out duration-500 ${
+      className={`fixed left-0 top-28 right-0 bottom-0 bg-main dark:bg-gray-800 overflow-x-auto opacity-95 z-10 transform ease-in-out duration-500 ${
         showNav ? 'translate-x-0' : 'translate-y-full'
       }`}
     >
-      <aside className="fixed z-20 w-full h-full px-6 mt-16 divide-y ">
+      <aside className="z-20 px-6 mt-6 divide-y">
         {navLinks.map(link => (
-          <div key={link.id} className="relative px-12 pt-10 pb-2 ">
+          <div
+            key={link.id}
+            className="relative px-12 pt-10 pb-2 first-of-type:pt-4 "
+          >
             <span className="mr-4 text-6xl text-white opacity-50 font-londrina">
               {link.id}
             </span>
