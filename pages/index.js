@@ -20,7 +20,7 @@ export async function getStaticProps() {
       projects,
       posts: allPosts,
     },
-    revalidate: 60 * 60,
+    revalidate: 60 * 5,
   };
 }
 
