@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import Image from 'next/image';
+import { CodeBlock } from './CodeBlock';
 
 const CustomLink = props => {
   const { href } = props;
@@ -8,7 +8,7 @@ const CustomLink = props => {
   if (isInternalLink) {
     return (
       <NextLink href={href}>
-        <a {...props} /> // eslint-disable-line
+        <a {...props} className="text-main" /> // eslint-disable-line
       </NextLink>
     );
   }
@@ -17,8 +17,9 @@ const CustomLink = props => {
 };
 
 const MDXComponents = {
-  Image,
   a: CustomLink,
+  pre: props => <div {...props} />,
+  code: CodeBlock,
 };
 
 export default MDXComponents;

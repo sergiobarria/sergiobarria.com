@@ -16,7 +16,7 @@ const FeaturedProjCard = ({ proj, index }) => (
         index === 1 ? 'lg:text-right' : ''
       }`}
     >
-      {proj.name}
+      {proj.projectName}
     </h3>
     <article key={proj.id} className="p-6 bg-gray-800 rounded-lg">
       <p className="mb-4 text-xs text-gray-300 md:text-sm">
@@ -32,7 +32,7 @@ const FeaturedProjCard = ({ proj, index }) => (
           View Project <BiLinkExternal className="ml-4 text-xl" />
         </a>
         <a
-          href={proj.repo}
+          href={proj.repositoryUrl}
           className="btn btn-white"
           target="_blank"
           rel="noopener noreferrer"
@@ -40,7 +40,7 @@ const FeaturedProjCard = ({ proj, index }) => (
           Github <AiFillGithub className="ml-4 text-xl" />
         </a>
       </div>
-      <TechStack techArr={proj.keyTechs} />
+      <TechStack techArr={proj.techStack} />
     </article>
   </div>
 );

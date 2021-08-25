@@ -1,22 +1,30 @@
 import { useState } from 'react';
 import { NextSeo } from 'next-seo';
 
+import { getAllPosts } from '@/lib/graphcms';
 import Container from '@/components/layout/Container';
-import { getAllFilesFrontMatter } from '@/lib/mdx';
 import PageHeader from '@/components/utils/PageHeader';
 import SearchBar from '@/components/utils/SearchBar';
 import PostsPreview from '@/components/blog/PostsPreview';
+import { addReadTime } from '@/lib/addReadTime';
 
 export async function getStaticProps() {
-  const posts = getAllFilesFrontMatter('blog');
+  const posts = await getAllPosts();
 
-  return { props: { posts } };
+  const allPosts = await addReadTime(posts);
+
+  return {
+    props: {
+      posts: allPosts,
+    },
+    revalidate: 60 * 60,
+  };
 }
 
 export default function BlogPage({ posts }) {
   const [searchValue, setSearchValue] = useState('');
-  const filteredBlogPosts = posts.allFiles.filter(frontMatter =>
-    frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
+  const filteredBlogPosts = posts.filter(post =>
+    post.title.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const url = 'https://sergiobarria.com/blog';
@@ -45,11 +53,17 @@ export default function BlogPage({ posts }) {
 
         <SearchBar setSearchValue={setSearchValue} />
 
-        <h1>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
           All Blog Posts (<span>{filteredBlogPosts.length}</span>)
-        </h1>
+        </h2>
         <hr />
-        <PostsPreview posts={filteredBlogPosts} />
+        {filteredBlogPosts.length ? (
+          <PostsPreview posts={filteredBlogPosts} />
+        ) : (
+          <p className="mt-4 text-gray-900">
+            No results found for your search. Please try another term.
+          </p>
+        )}
       </Container>
     </>
   );

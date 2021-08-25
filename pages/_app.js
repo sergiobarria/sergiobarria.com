@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import * as gtag from '@/lib/gtag';
 
 import { MDXProvider } from '@mdx-js/react';
-import { ThemeProvider } from 'next-themes';
 import MDXComponents from '@/components/utils/MDXComponents';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,21 +32,19 @@ function MyApp({ Component, pageProps, router }) {
   }, [routerHook.events]);
 
   return (
-    <ThemeProvider attribute="class">
-      <MDXProvider components={MDXComponents}>
-        <DefaultSeo {...SEO} />
-        <Layout>
-          <motion.div
-            key={router.route}
-            variants={variants}
-            initial="pageInitial"
-            animate="pageAnimate"
-          >
-            <Component {...pageProps} />
-          </motion.div>
-        </Layout>
-      </MDXProvider>
-    </ThemeProvider>
+    <MDXProvider components={MDXComponents}>
+      <DefaultSeo {...SEO} />
+      <Layout>
+        <motion.div
+          key={router.route}
+          variants={variants}
+          initial="pageInitial"
+          animate="pageAnimate"
+        >
+          <Component {...pageProps} />
+        </motion.div>
+      </Layout>
+    </MDXProvider>
   );
 }
 

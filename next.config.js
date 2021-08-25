@@ -3,6 +3,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+  images: {
+    domains: ['media.graphcms.com'],
+  },
   future: {
     strictPostcssConfiguration: true,
   },

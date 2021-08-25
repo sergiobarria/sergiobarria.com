@@ -1,16 +1,18 @@
 import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import readingTime from 'reading-time';
 
 import BlogLayout from '@/layouts/BlogLayout';
-import { getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx';
-import MDXComponents from '@/components/utils/MDXComponents';
+import { getAllSlug, getPostBySlug } from '@/lib/graphcms';
+// import MDXComponents from '@/components/utils/MDXComponents';
 
 export async function getStaticPaths() {
-  const posts = getFiles('blog');
+  const data = await getAllSlug();
 
   return {
-    paths: posts.map(p => ({
+    paths: data.map(slug => ({
       params: {
-        slug: p.replace(/\.mdx/, ''),
+        ...slug,
       },
     })),
     fallback: false,
@@ -18,21 +20,31 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getFileBySlug('blog', params.slug);
-  const allPosts = await getAllFilesFrontMatter('blog');
+  const { slug } = params;
+
+  const { post, posts } = await getPostBySlug(slug);
+
+  const source = await serialize(post.body.markdown);
 
   return {
     props: {
-      ...post,
-      allPosts,
+      post: {
+        ...post,
+        readingTime: readingTime(post.body.markdown),
+      },
+      allPosts: posts,
+      source,
     },
   };
 }
 
-const SingleBlogPost = ({ mdxSource, frontMatter, allPosts }) => (
-  <BlogLayout frontMatter={frontMatter} allPosts={allPosts}>
-    <MDXRemote {...mdxSource} components={MDXComponents} />
+const SingleBlogPost = ({ post, allPosts, source }) => (
+  // <BlogLayout frontMatter={frontMatter} allPosts={allPosts}>
+  <BlogLayout post={post} allPosts={allPosts}>
+    <MDXRemote {...source} />
   </BlogLayout>
 );
 
 export default SingleBlogPost;
+
+// components={MDXComponents}

@@ -1,15 +1,27 @@
 import { useState } from 'react';
-
 import { NextSeo } from 'next-seo';
 
-import { projects } from '@/data/projectsData';
+import { getAllProjects } from '@/lib/graphcms';
 import PageHeader from '@/components/utils/PageHeader';
 
 import CurrentGoals from '@/components/utils/CurrentGoals';
-import Portfolio from '@/components/utils/Portfolio';
+import Portfolio from '@/components/projects/Portfolio';
 
-export default function ProjectsPage() {
-  const orderedProjects = projects.sort((projA, projB) => projB.id - projA.id);
+export async function getStaticProps() {
+  const projects = await getAllProjects();
+
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 60 * 60,
+  };
+}
+
+export default function ProjectsPage({ projects }) {
+  const orderedProjects = projects.sort(
+    (projA, projB) => projB.projectNumber - projA.projectNumber
+  );
   const [projectsArr, setProjectsArr] = useState(orderedProjects);
   const [active, setActive] = useState('all');
 
@@ -34,6 +46,7 @@ export default function ProjectsPage() {
     const newArray = projects.filter(project =>
       project.category.includes(category)
     );
+
     setProjectsArr(newArray);
     setActive(category);
   };
@@ -46,7 +59,7 @@ export default function ProjectsPage() {
         canonical={url}
         openGraph={{ url, title, description }}
       />
-      <div className="my-10 md:my-20">
+      <div className="my-12">
         <section>
           <PageHeader {...pageHeaderData} />
         </section>

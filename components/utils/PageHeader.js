@@ -6,7 +6,7 @@ const PageHeader = ({ subtitle, title, text }) => (
       <h3 className="mb-4 text-base uppercase md:text-lg text-main">
         {subtitle}
       </h3>
-      <h1 className="max-w-6xl text-4xl text-center lg:text-7xl">{title}</h1>
+      <h1 className="heading-1">{title}</h1>
       <div className="w-12 h-1 my-8 bg-main" />
     </div>
     <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-4">

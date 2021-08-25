@@ -4,8 +4,18 @@
 
 /* NEW DESIGN */
 @layer base {
+  :root {
+    --color-main: #5378f5;
+    --color-main-light: #a9bcfa;
+    --color-main-hover: #4260c4;
+  }
+
   .heading-1 {
-    @apply text-4xl text-center md:text-5xl lg:text-8xl;
+    @apply text-4xl font-bold text-center text-gray-900 md:text-5xl lg:text-8xl;
+  }
+
+  .heading-2 {
+    @apply text-2xl font-bold uppercase md:text-4xl lg:text-5xl;
   }
 
   .btn {
@@ -86,198 +96,6 @@
 }
 
 ::selection {
-  background-color: #f56647;
+  background-color: var(--color-main);
   color: #fefefe;
-}
-
-/* ============================================================== */
-/*                          OLD SECTION                           */
-/* ============================================================== */
-
-/* OLD DESIGN */
-/* Adding global theme and styles using CSS variables with Tailwind */
-@layer base {
-  :root {
-    --color-text-base: #52525b;
-    --color-text-muted: #fff9e8;
-    --color-text-inverted: #f4f4f5;
-    --color-text-title: #27272a;
-    --color-text-accent: #03a9f4;
-    --color-text-warn: #ffc617;
-    --color-fill: #03a9f4;
-    --color-button-border: #03a9f4;
-    --color-button-accent: #fff;
-    --color-button-accent-hover: #0277bd;
-  }
-
-  h1 {
-    @apply mb-4 text-3xl font-bold text-skin-title md:text-4xl dark:text-skin-inverted;
-  }
-}
-
-/* Global styles */
-html {
-  scroll-behavior: smooth;
-}
-
-/* @layer components {
-  heading: {
-    @apply mb-4 text-3xl font-bold text-center text-skin-title md:text-4xl tracking-tigh dark:text-skin-inverted;
-  }
-} */
-
-/* Modal styles */
-.Modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  background-color: #fff;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  outline: none;
-  border-radius: 4px;
-  padding: 10px;
-}
-
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.95);
-}
-
-@media only screen and (max-width: 640px) {
-  .Modal {
-    width: 90%;
-    height: 90%;
-  }
-}
-
-.ReactModal__Overlay {
-  transform: scale(0);
-  transition: all 500ms ease-in-out;
-}
-
-.ReactModal__Overlay--after-open {
-  transform: scale(1);
-}
-
-.ReactModal__Overlay--before-close {
-  transform: scale(0);
-}
-
-.sticky-nav {
-  position: sticky;
-  z-index: 10;
-  top: 0;
-  backdrop-filter: saturate(180%) blur(20px);
-  transition: background-color 0.1 ease-in-out;
-}
-
-.skip-nav {
-  @apply absolute px-4 py-2 transition-transform duration-200 transform -translate-y-12 focus:translate-y-3 -top-8;
-}
-
-.prose pre {
-  @apply border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
-}
-
-.prose code {
-  @apply text-skin-accent font-normal dark:text-skin-accent px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
-}
-
-.prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
-}
-
-.prose > :first-child {
-  /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  @apply text-gray-700 dark:text-gray-300;
-}
-
-.token.punctuation {
-  @apply text-gray-700 dark:text-gray-300;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  @apply text-green-500;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  @apply text-purple-500;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  @apply text-yellow-500;
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  @apply text-blue-500;
-}
-
-.token.function,
-.token.class-name {
-  @apply text-pink-500;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-  @apply text-yellow-500;
-}
-
-code[class*='language-'],
-pre[class*='language-'] {
-  @apply text-gray-800 dark:text-gray-50;
-}
-
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.remark-code-title {
-  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
-}
-
-.remark-code-title + pre {
-  @apply mt-0 rounded-t-none;
-}
-
-.mdx-marker {
-  @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
 }

@@ -1,19 +1,23 @@
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 
+import { formatDate } from '@/lib/formatDate';
+
 const BlogPostCard = ({ post }) => {
-  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  // console.log(post);
+  const publishedDate =
+    post.originallyPublishedOn < post.publishedAt
+      ? post.originallyPublishedOn
+      : post.publishedAt;
+
+  const formattedDate = formatDate(publishedDate);
 
   return (
     <NextLink href={`blog/${post.slug}`}>
       <article key={post.id} className="post-card">
         <div className="relative w-full h-40 sm:h-52 md:h-44">
           <NextImage
-            src={post.image}
+            src={post.coverImage.url}
             alt={post.title}
             layout="fill"
             objectFit="cover"
@@ -28,7 +32,7 @@ const BlogPostCard = ({ post }) => {
             {post.excerpt.substring(0, 100)}...
           </p>
           <p className="mt-auto text-xs text-gray-500 md:text-sm">
-            Published on: {formattedDate}
+            {formattedDate} - <span>{post.readingTime.text}</span>
           </p>
         </div>
       </article>

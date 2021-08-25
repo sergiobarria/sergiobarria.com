@@ -44,17 +44,6 @@ module.exports = {
       zIndex: {
         '-10': '-10',
       },
-      textColor: {
-        skin: {
-          base: 'var(--color-text-base)',
-          muted: 'var(--color-text-muted)',
-          inverted: 'var(--color-text-inverted)',
-          title: 'var(--color-text-title)',
-          accent: 'var(--color-text-accent)',
-          'button-accent-hover': 'var(--color-button-accent-hover)',
-          warn: 'var(--color-text-warn)',
-        },
-      },
       borderColor: {
         skin: {
           accent: 'var(--color-button-border)',
@@ -98,21 +87,21 @@ module.exports = {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: 'var(--color-text-accent)',
+              color: 'var(--color-main)',
               '&:hover': {
-                color: 'var(--color-text-accent-hover)',
+                color: 'var(--color-main-hover)',
               },
-              code: { color: 'var(--color-text-accent)' },
+              code: { color: 'var(--color-main)' },
             },
             h2: {
-              color: 'var(--color-text-title)',
+              color: theme('colors.gray.900'),
             },
             'h4, h5, h6': {
-              color: theme('colors.gray.800'),
+              color: theme('colors.gray.900'),
               'scroll-margin-top': defaultTheme.spacing[32],
             },
             code: {
-              color: 'var(--color-text-accent)',
+              color: 'var(--color-main)',
               backgroundColor: theme('colors.gray.100'),
               paddingLeft: '4px',
               paddingRight: '4px',
@@ -126,74 +115,38 @@ module.exports = {
             'code:after': {
               content: 'none',
             },
-            'blockquote p:first-of-type::before': false,
-            'blockquote p:last-of-type::after': false,
             hr: { borderColor: theme('colors.gray.200') },
             'ol li:before': {
               fontWeight: '600',
-              color: theme('colors.gray.500'),
+              color: 'var(--color-main-light)',
             },
             'ul li:before': {
-              backgroundColor: theme('colors.gray.500'),
+              backgroundColor: 'var(--color-main-light)',
             },
             strong: { color: theme('colors.gray.800') },
+
+            // BLOCKQUOTE STYLES
+            // 'blockquote p:first-of-type::before': false,
+            'blockquote p:last-of-type::after': false,
+            'blockquote p:first-of-type::before': {
+              color: 'var(--color-main)',
+              fontWeight: 'bold',
+              fontSize: '4rem',
+              position: 'absolute',
+              top: '-1rem',
+              left: '0',
+            },
             blockquote: {
               color: theme('colors.gray.900'),
-              borderLeftColor: theme('colors.gray.200'),
+              borderLeftColor: 'var(--color-main)',
+              backgroundColor: theme('colors.gray.200'),
+              padding: '1.5rem 2.5rem 1.5rem',
+              borderRadius: '0.5rem',
+              position: 'relative',
             },
-          },
-        },
-        dark: {
-          css: {
-            color: theme('colors.gray.300'),
-            a: {
-              color: 'var(--color-text-accent)',
-              '&:hover': {
-                color: 'var(--color-text-accent)',
-              },
-              code: { color: theme('colors.blue.400') },
-            },
-            blockquote: {
-              borderLeftColor: theme('colors.gray.700'),
-              color: theme('colors.gray.300'),
-            },
-            h1: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.100'),
-            },
-            h2: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: 'var(--color-text-inverted)',
-            },
-            h3: {
-              fontWeight: '600',
-              color: theme('colors.gray.100'),
-            },
-            'h4, h5, h6': {
-              color: theme('colors.gray.100'),
-              'scroll-margin-top': defaultTheme.spacing[32],
-            },
-            hr: { borderColor: theme('colors.gray.700') },
-            ol: {
-              li: {
-                '&:before': { color: theme('colors.gray.500') },
-              },
-            },
-            ul: {
-              li: {
-                '&:before': { backgroundColor: theme('colors.gray.500') },
-              },
-            },
-            strong: { color: theme('colors.gray.100') },
-            thead: {
-              color: theme('colors.gray.300'),
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme('colors.gray.700'),
-              },
+            'blockquote > p': {
+              margin: '0px',
+              fontSize: '0.9rem',
             },
           },
         },
@@ -211,6 +164,5 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('tailwindcss-selection-variant'),
-    require('@tailwindcss/aspect-ratio'),
   ],
 };

@@ -10,8 +10,8 @@ const FeaturedProjImg = ({ proj, index }) => (
   >
     <div className="absolute inset-0 z-10 bg-black opacity-70" />
     <NextImage
-      src={proj.image}
-      alt={proj.name}
+      src={proj.coverImage.url}
+      alt={proj.projectName}
       layout="fill"
       objectFit="cover"
     />
