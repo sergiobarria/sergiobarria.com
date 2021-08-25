@@ -4,7 +4,6 @@ import readingTime from 'reading-time';
 
 import BlogLayout from '@/layouts/BlogLayout';
 import { getAllSlug, getPostBySlug } from '@/lib/graphcms';
-// import MDXComponents from '@/components/utils/MDXComponents';
 
 export async function getStaticPaths() {
   const data = await getAllSlug();
