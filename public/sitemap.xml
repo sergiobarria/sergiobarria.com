@@ -25,6 +25,10 @@
   </url>
 
   <url>
+    <loc>https://sergiobarria.com/about/about</loc>
+  </url>
+
+  <url>
     <loc
       >https://sergiobarria.com/blog/5-common-mistakes-beginners-make-when-learning-to-code</loc
     >
@@ -100,9 +104,5 @@
     <loc
       >https://sergiobarria.com/blog/what-is-the-tutorial-hell-and-how-to-escape-it</loc
     >
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/about/about</loc>
   </url>
 </urlset>

@@ -4,6 +4,7 @@ import Seo from '@/components/utils/Seo';
 
 import { formatDate } from '@/lib/formatDate';
 import SectionBtn from '@/components/utils/SectionBtn';
+import SocialShare from '@/components/utils/SocialShare';
 
 export default function BlogLayout({ children, post, allPosts }) {
   const currPost = post.id;
@@ -49,7 +50,7 @@ export default function BlogLayout({ children, post, allPosts }) {
           <div className="p-2 prose dark:prose-dark max-w-none">{children}</div>
         </article>
         <hr className="my-2 border-t border-main-light" />
-        <div>Share post Component</div>
+        <SocialShare url={`https://www.sergiobarria.com/blog/${post.slug}`} />
         <hr className="my-2 border-t border-main-light" />
         <h3 className="text-lg font-bold capitalize md:text-xl lg:text-2xl">
           Other posts you may find interesting
