@@ -4,7 +4,6 @@ import NextLink from 'next/link';
 import { formatDate } from '@/lib/formatDate';
 
 const BlogPostCard = ({ post }) => {
-  // console.log(post);
   const publishedDate =
     post.originallyPublishedOn < post.publishedAt
       ? post.originallyPublishedOn
@@ -24,7 +23,7 @@ const BlogPostCard = ({ post }) => {
           />
         </div>
 
-        <div className="flex flex-col flex-1 p-3 lg:p-6">
+        <div className="flex flex-col flex-1 p-4 lg:p-6">
           <h4 className="mb-3 text-lg font-semibold text-gray-800 cursor-pointer md:text-xl lg:text-2xl hover:text-main">
             {post.title.substring(0, 45)}...
           </h4>

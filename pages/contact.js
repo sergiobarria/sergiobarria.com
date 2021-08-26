@@ -1,12 +1,10 @@
 import { NextSeo } from 'next-seo';
 
 import Contact from '@/components/contact/Contact';
+import { contactPage } from '@/data/pagesData';
 
 export default function ContactPage() {
-  const url = 'https://sergiobarria.com/contact';
-  const title = 'Contact | Sergio Barria';
-  const description =
-    'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
+  const { url, title, keywords, description } = contactPage;
 
   return (
     <>
@@ -15,6 +13,12 @@ export default function ContactPage() {
         description={description}
         canonical={url}
         openGraph={{ url, title, description }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: `${keywords}, contact form`,
+          },
+        ]}
       />
       <Contact />
     </>

@@ -5,6 +5,7 @@ import PageHeader from '@/components/utils/PageHeader';
 import Container from '@/components/layout/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ResourceCard from '@/components/resources/ResourceCard';
+import { resourcesPage } from '@/data/pagesData';
 
 export async function getStaticProps() {
   const resources = await getAllResources();
@@ -18,22 +19,12 @@ export async function getStaticProps() {
       resources,
       categories,
     },
-    revalidate: 60 * 60,
+    revalidate: 60 * 30,
   };
 }
 
 export default function ResourcesPage({ resources, categories }) {
-  const url = 'https://sergiobarria.com/resources';
-  const title = 'Resources | Sergio Barria';
-  const description =
-    'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
-  const pageHeaderData = {
-    title: 'Useful Resources for Web Design and Development',
-    subtitle: 'All Resources',
-    text: `In this section I'm going to upload different code snippets, tips
-    and helpful resources related to web development in
-    general.`,
-  };
+  const { url, title, description, keywords, pageHeaderData } = resourcesPage;
 
   return (
     <>
@@ -42,6 +33,12 @@ export default function ResourcesPage({ resources, categories }) {
         description={description}
         canonical={url}
         openGraph={{ url, title, description }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: keywords,
+          },
+        ]}
       />
       <Container>
         <PageHeader {...pageHeaderData} />

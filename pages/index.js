@@ -1,13 +1,13 @@
 import { getFeaturedProjects, getFeaturedPosts } from '@/lib/graphcms';
-// import readingTime from 'reading-time';
+import { NextSeo } from 'next-seo';
 
-import Seo from '@/components/utils/Seo';
-
+// import Seo from '@/components/utils/Seo';
 import Hero from '@/components/hero/Hero';
 import Services from '@/components/services/Services';
 import FeaturedProjects from '@/components/projects/FeaturedProjects';
 import BlogPostPreview from '@/components/blog/FeaturedPosts';
 import { addReadTime } from '@/lib/addReadTime';
+import { homePage } from '@/data/pagesData';
 
 export async function getStaticProps() {
   const projects = await getFeaturedProjects();
@@ -25,17 +25,21 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ projects, posts }) {
-  const title = 'Home | Sergio Barria';
-  const description =
-    'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
+  const { url, title, description, keywords } = homePage;
 
   return (
     <>
-      <Seo
+      <NextSeo
         title={title}
         description={description}
-        slug="/"
-        // coverImage={`https://www.sergiobarria.com${image}`}
+        canonical={url}
+        openGraph={{ url, title, description }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: keywords,
+          },
+        ]}
       />
       <Hero />
       <Services />

@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <section className="relative flex items-center justify-center max-w-screen-xl px-6 pb-12 mx-auto overflow-hidden lg:pb-0 lg:px-0 min-h-8/10 ">
       <motion.article
-        className="flex flex-col items-center justify-center min-h-full text-gray-900"
+        className="flex flex-col items-center justify-center w-full min-h-full text-gray-900"
         initial={{ opacity: 0, y: -200 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -40,7 +40,7 @@ const Hero = () => {
           I'm <span ref={el} className="text-main" />
         </h1>
         <div className="w-12 h-1 my-8 bg-main" />
-        <p className="max-w-lg mb-16 text-base tracking-wider text-center opacity-70 md:text-lg lg:text-xl">
+        <p className="max-w-lg mb-16 text-base tracking-wider text-center opacity-90 md:text-lg lg:text-xl">
           I create beautiful, modern and high-performing{' '}
           <span className="font-medium text-main">
             web solutions for your business

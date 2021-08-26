@@ -7,6 +7,7 @@ import PageHeader from '@/components/utils/PageHeader';
 import SearchBar from '@/components/utils/SearchBar';
 import PostsPreview from '@/components/blog/PostsPreview';
 import { addReadTime } from '@/lib/addReadTime';
+import { blogPage } from '@/data/pagesData';
 
 export async function getStaticProps() {
   const posts = await getAllPosts();
@@ -27,18 +28,7 @@ export default function BlogPage({ posts }) {
     post.title.toLowerCase().includes(searchValue.toLowerCase())
   );
 
-  const url = 'https://sergiobarria.com/blog';
-  const title = 'Blog | Sergio Barria';
-  const description =
-    'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer';
-  const pageHeaderData = {
-    title: 'Updates, Reflections, Productivity & much more',
-    subtitle: 'my personal blog',
-    text: `Welcome to...whatever this is 😅 . Here I share my thoughts related to
-    many web development topics and programming in general. I've always been
-    a fan of writing, and I hope you can find something here that could help
-    you in your developer career.`,
-  };
+  const { url, title, description, keywords, pageHeaderData } = blogPage;
 
   return (
     <>
@@ -47,6 +37,12 @@ export default function BlogPage({ posts }) {
         description={description}
         canonical={url}
         openGraph={{ url, title, description }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: keywords,
+          },
+        ]}
       />
       <Container>
         <PageHeader {...pageHeaderData} />

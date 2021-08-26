@@ -1,8 +1,8 @@
 const title = 'Sergio Barria - Engineer, developer and writer';
 const description =
-  'Personal blog portfolio website. Created with Next.js, MDX, TypeScript and Tailwind CSS';
+  'Personal blog portfolio website. Created with Next.js, GraphCMS, and Tailwind CSS';
 
-const SEO = {
+export default {
   title,
   description,
   canonical: 'https://sergiobarria.com',
@@ -10,8 +10,6 @@ const SEO = {
     type: 'website',
     locale: 'en_IE',
     url: 'https://sergiobarria.com',
-    title,
-    description,
     images: [
       {
         url: 'https://www.sergiobarria.com/static/images/banner.png',
@@ -29,4 +27,11 @@ const SEO = {
   },
 };
 
-export default SEO;
+// additionalMetaTags={[
+//   {
+//     name: 'keywords',
+//     content: `Sergio Barria's blog, HTML, CSS, JavaScript, Next js, Gatsby, React, Node js, Vue js, Tailwind CSS, Web Development, Web Developer, ${
+//       !keywords ? '' : keywords
+//     }`,
+//   },
+// ]}

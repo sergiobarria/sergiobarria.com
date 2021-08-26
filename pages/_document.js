@@ -76,10 +76,10 @@ class MyDocument extends Document {
             }}
           />
 
-          <meta
+          {/* <meta
             name="twitter:image"
             content="https://www.sergiobarria.com/static/images/banner.png"
-          />
+          /> */}
         </Head>
         <body className="antialiased bg-gray-50">
           <Main />
