@@ -32,7 +32,7 @@ export const blogPage = {
 
 export const portfolioPage = {
   url: 'https://sergiobarria.com/portfolio',
-  title: 'Projects | Sergio Barria',
+  title: 'Portfolio | Sergio Barria',
   description:
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer',
   keywords: `Sergio Barria's blog, HTML, CSS, JavaScript, Next js, Gatsby, React, Node js, Vue js, Tailwind CSS`,
