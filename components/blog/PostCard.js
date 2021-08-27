@@ -37,10 +37,10 @@ const BlogPostCard = ({ post }) => {
             {post.excerpt.substring(0, 100)}...
           </p>
           <div className="flex items-center justify-between mt-auto text-gray-500">
-            <p className="text-xs  md:text-sm">
+            <p className="text-xs md:text-sm">
               {formattedDate} - <span>{post.readingTime.text}</span>
             </p>
-            {views > 1 && <small>{views} views</small>}
+            {views > 100 && <small>{views} views</small>}
           </div>
         </div>
       </article>
