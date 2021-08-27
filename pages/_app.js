@@ -25,7 +25,12 @@ function MyApp({ Component, pageProps, router }) {
     const handleRouteChange = url => {
       gtag.pageview(url);
     };
+    // When component is mounted, subscribe to router changes
+    // and log those page views
     routerHook.events.on('routeChangeComplete', handleRouteChange);
+
+    // If component is unmounted, unsubscribe
+    // from the event with the `off` method
     return () => {
       routerHook.events.off('routeChangeComplete', handleRouteChange);
     };

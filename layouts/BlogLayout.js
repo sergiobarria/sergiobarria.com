@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import { formatDate } from '@/lib/formatDate';
 import SectionBtn from '@/components/utils/SectionBtn';
 import SocialShare from '@/components/utils/SocialShare';
+import ViewCounter from '@/components/utils/ViewCounter';
 
 export default function BlogLayout({ children, post, allPosts }) {
   const currPost = post.id;
@@ -23,9 +24,13 @@ export default function BlogLayout({ children, post, allPosts }) {
           <h4 className="font-semibold capitalize">
             by: {post.author.replace('_', ' ')}
           </h4>
-          <p className="text-gray-500">
-            <span>{formattedDate}</span> -<span> {post.readingTime.text}</span>
-          </p>
+          <div className="flex items-center justify-between text-gray-500">
+            <p>
+              <span>{formattedDate}</span> -
+              <span> {post.readingTime.text}</span>
+            </p>
+            <ViewCounter slug={post.slug} />
+          </div>
         </div>
         <div className="relative w-full h-52 sm:h-72 md:h-80 lg:h-96">
           <NextImage

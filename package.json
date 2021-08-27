@@ -29,6 +29,7 @@
     "next-mdx-remote": "^3.0.2",
     "next-seo": "^4.24.0",
     "nodemailer": "^6.6.3",
+    "planetscale-node": "^0.1.0",
     "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

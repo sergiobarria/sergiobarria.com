@@ -68,7 +68,7 @@ export const contactPage = {
 
 export const slugPage = {
   url: 'https://sergiobarria.com/blog',
-  title: 'Contact | Sergio Barria',
+  title: 'Blog | Sergio Barria',
   description:
     'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer',
   keywords: `Sergio Barria's blog, HTML, CSS, JavaScript, Next js, Gatsby, React, Node js, Vue js, Tailwind CSS`,

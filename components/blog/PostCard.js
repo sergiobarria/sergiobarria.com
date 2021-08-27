@@ -1,9 +1,15 @@
 import NextImage from 'next/image';
 import NextLink from 'next/link';
+import useSWR from 'swr';
 
+import fetcher from '@/lib/fetcher';
 import { formatDate } from '@/lib/formatDate';
 
 const BlogPostCard = ({ post }) => {
+  const { data } = useSWR(`/api/views/${post.slug}`, fetcher);
+  const views = data?.total;
+  // console.log(views);
+
   const publishedDate =
     post.originallyPublishedOn < post.publishedAt
       ? post.originallyPublishedOn
@@ -30,9 +36,12 @@ const BlogPostCard = ({ post }) => {
           <p className="mb-4 text-sm text-gray-700 md:text-base">
             {post.excerpt.substring(0, 100)}...
           </p>
-          <p className="mt-auto text-xs text-gray-500 md:text-sm">
-            {formattedDate} - <span>{post.readingTime.text}</span>
-          </p>
+          <div className="flex items-center justify-between mt-auto text-gray-500">
+            <p className="text-xs  md:text-sm">
+              {formattedDate} - <span>{post.readingTime.text}</span>
+            </p>
+            {views > 1 && <small>{views} views</small>}
+          </div>
         </div>
       </article>
     </NextLink>

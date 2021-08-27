@@ -35,3 +35,5 @@ yarn-error.log*
 
 /public/mockups/
 /public/other-favicons/
+
+pagesViews.md
