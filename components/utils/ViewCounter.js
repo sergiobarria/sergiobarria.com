@@ -13,7 +13,11 @@ const ViewCounter = ({ slug }) => {
     registerView();
   }, [slug]);
 
-  return `${views > 0 ? views.toLocaleString() : '---'} views`;
+  if (views >= 100) {
+    return `${views.toLocaleString()} views`;
+  }
+
+  return '';
 };
 
 export default ViewCounter;
