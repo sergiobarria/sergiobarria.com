@@ -1,12 +1,34 @@
+import Container from '@/components/layout/MainContainer'
 import Hero from '@/components/home/Hero'
 import FeaturedPosts from '@/components/home/FeaturedPosts'
+import FeaturedProjects from '@/components/home/FeaturedProjects'
+
+export async function getStaticProps() {
+  // const projects = await getFeaturedProjects();
+  // const posts = await getFeaturedPosts();
+
+  // const allPosts = await addReadTime(posts);
+
+  return {
+    // props: {
+    //   projects,
+    //   posts: allPosts,
+    // },
+    // revalidate: 60 * 5,
+  }
+}
 
 export default function HomePage() {
+  const customMetadata = {
+    title: 'Home | Sergio Barria',
+  }
+
   return (
-    <>
+    <Container customMetadata={customMetadata}>
       <Hero />
       <FeaturedPosts />
-    </>
+      <FeaturedProjects />
+    </Container>
   )
 }
 

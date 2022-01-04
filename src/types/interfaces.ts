@@ -5,8 +5,16 @@ export interface IPropsWithChildren {
 }
 
 export interface IPostCardPreview {
-  postTitle: String
-  postSummary: String
-  postSlug: String
-  publishedDate: String
+  postTitle: string
+  postSummary: string
+  postSlug: string
+  publishedDate: string
+}
+
+export interface ICustomMetadata {
+  title?: string
+  description?: string
+  image?: string
+  date?: string
+  type?: string
 }

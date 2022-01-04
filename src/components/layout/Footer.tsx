@@ -4,7 +4,7 @@ export default function Footer() {
   // }
 
   return (
-    <footer className="flex items-center justify-center py-8 mt-auto border-t-[1px]">
+    <footer className="flex items-center justify-center py-8 mt-16 border-t-[1px]">
       <div className="text-center">
         <p>
           Sergio Barria &middot; <span>&copy; {new Date().getFullYear()}</span>

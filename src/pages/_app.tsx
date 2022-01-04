@@ -6,7 +6,6 @@ import { ThemeProvider } from 'next-themes'
 import * as gtag from '@/lib/gtag'
 import '@/styles/tailwind.css'
 
-import MainLayout from '@/components/layout/MainLayout'
 // import { MDXProvider } from '@mdx-js/react';
 // import MDXComponents from '@/components/utils/MDXComponents';
 
@@ -41,9 +40,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       {/* <DefaultSeo {...SEO} /> */}
       <ThemeProvider enableSystem={true} attribute="class">
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   )
