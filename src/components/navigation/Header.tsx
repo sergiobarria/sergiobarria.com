@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { RiSunFill, RiMoonFill } from 'react-icons/ri'
 
 import NavItem from './NavItem'
+import ThemeTogglerBtn from '@/components/misc/ThemeTogglerBtn'
 
-export default function NavBar() {
+export default function Header() {
   const [mounted, setMounted] = useState(false)
   const { systemTheme, theme, resolvedTheme, setTheme } = useTheme()
 
@@ -19,23 +20,15 @@ export default function NavBar() {
 
     if (currentTheme === 'dark') {
       return (
-        <button
-          type="button"
-          className="themeToggler"
-          onClick={() => setTheme('light')}
-        >
+        <ThemeTogglerBtn onClickCallback={() => setTheme('light')}>
           <RiSunFill className="w-5 h-5" />
-        </button>
+        </ThemeTogglerBtn>
       )
     } else {
       return (
-        <button
-          type="button"
-          className="themeToggler"
-          onClick={() => setTheme('dark')}
-        >
+        <ThemeTogglerBtn onClickCallback={() => setTheme('dark')}>
           <RiMoonFill className="w-5 h-5" />
-        </button>
+        </ThemeTogglerBtn>
       )
     }
   }
