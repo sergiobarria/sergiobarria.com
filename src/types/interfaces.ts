@@ -9,6 +9,7 @@ export interface IPostCardPreview {
   postSummary: string
   postSlug: string
   publishedDate: string
+  readingTime: string
 }
 
 export interface ICustomMetadata {

@@ -18,6 +18,7 @@ export default function FeaturedPosts() {
           postSummary="In this guide, we’ll see an easy way of linking our latest blog posts
             to our Github profile using a…"
           publishedDate="August 14, 2021"
+          readingTime="3"
         />
       ))}
     </CustomSection>
