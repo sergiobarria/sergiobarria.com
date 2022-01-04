@@ -20,13 +20,18 @@
   }
 
   .heading-1 {
-    @apply text-4xl font-bold text-gray-900 md:text-5xl;
+    @apply text-4xl font-bold text-gray-900 dark:text-gray-200 md:text-5xl;
   }
 
-  /* 
   .heading-2 {
-    @apply text-2xl font-bold uppercase md:text-4xl lg:text-5xl;
+    @apply text-2xl font-bold text-gray-900 uppercase dark:text-gray-200 md:text-4xl;
   }
+
+  .heading-3 {
+    @apply text-lg font-bold text-gray-900 uppercase dark:text-gray-200 md:text-2xl;
+  }
+
+  /*
 
   .btn {
     @apply flex items-center justify-center text-sm font-semibold transition-all duration-300 ease-in-out transform rounded-lg hover:scale-105 hover:shadow-lg;
