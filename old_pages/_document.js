@@ -1,16 +1,23 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
   }
 
   render() {
     return (
       <Html lang="en">
         <Head>
+          {/* Font Family Import: IBM Plex Sans */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+          />
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
@@ -25,11 +32,9 @@ class MyDocument extends Document {
             rel="preconnect"
             href="https://fonts.gstatic.com"
             crossOrigin="true"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap"
-            rel="stylesheet"
-          />
+          /> */}
+
+          {/* Favicon */}
           <link href="/static/favicon/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicon/site.webmanifest" rel="manifest" />
           <link
@@ -73,19 +78,14 @@ class MyDocument extends Document {
             `,
             }}
           />
-
-          {/* <meta
-            name="twitter:image"
-            content="https://www.sergiobarria.com/static/images/banner.png"
-          /> */}
         </Head>
         <body className="antialiased bg-gray-50">
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument

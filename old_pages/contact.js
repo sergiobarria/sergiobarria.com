@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 
-import Contact from '@/components/contact/Contact';
+// import Contact from '@/components/contact/Contact';
 import { contactPage } from '@/data/pagesData';
 
 export default function ContactPage() {
@@ -20,7 +20,7 @@ export default function ContactPage() {
           },
         ]}
       />
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 }
