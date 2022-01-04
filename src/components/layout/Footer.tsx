@@ -28,6 +28,15 @@ export default function Footer() {
           >
             Tailwind CSS
           </a>
+          . Content with{' '}
+          <a
+            href="https://graphcms.com/"
+            className="font-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GraphCMS
+          </a>
         </p>
       </div>
     </footer>

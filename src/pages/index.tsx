@@ -2,6 +2,7 @@ import Container from '@/components/layout/MainContainer'
 import Hero from '@/components/home/Hero'
 import FeaturedPosts from '@/components/home/FeaturedPosts'
 import FeaturedProjects from '@/components/home/FeaturedProjects'
+import DeveloperSkills from '@/components/home/DeveloperSkills'
 
 export async function getStaticProps() {
   // const projects = await getFeaturedProjects();
@@ -10,6 +11,7 @@ export async function getStaticProps() {
   // const allPosts = await addReadTime(posts);
 
   return {
+    props: {},
     // props: {
     //   projects,
     //   posts: allPosts,
@@ -28,6 +30,7 @@ export default function HomePage() {
       <Hero />
       <FeaturedPosts />
       <FeaturedProjects />
+      <DeveloperSkills />
     </Container>
   )
 }

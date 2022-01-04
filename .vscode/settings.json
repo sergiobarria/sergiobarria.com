@@ -3,6 +3,9 @@
   "css.validate": false,
   "cSpell.ignoreWords": [
     "Plex",
+    "Preact",
+    "Vuejs",
+    "contentlayer",
     "easybank",
     "fa",
     "gtag",
