@@ -56,20 +56,13 @@ export default class MyDocument extends Document {
             crossOrigin="true"
           />
 
-          <link
+          {/* <link
             rel="preload"
             href="/fonts/operator-mono/OperatorMono-Book_Web.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/wotfard/Wotfard-Regular"
-            as="font"
-            type="font/ttf"
-            crossOrigin="anonymous"
-          />
+          /> */}
 
           {/* Favicon */}
           <link href="/static/favicon/favicon.ico" rel="shortcut icon" />

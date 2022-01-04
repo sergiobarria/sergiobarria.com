@@ -12,7 +12,6 @@ module.exports = {
         // sans: ['Inter', ...defaultTheme.fontFamily.sans],
         // sans: ['Operator Mono', ...defaultTheme.fontFamily.sans],
         // sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
-        // sans: ['Wotfard', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         gray: {
