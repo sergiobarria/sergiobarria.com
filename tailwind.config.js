@@ -8,7 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+        // sans: ['Inconsolata', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        // sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         gray: {

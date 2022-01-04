@@ -2,6 +2,7 @@
   "editor.formatOnSave": true,
   "css.validate": false,
   "cSpell.ignoreWords": [
+    "Inconsolata",
     "Plex",
     "Preact",
     "Vuejs",

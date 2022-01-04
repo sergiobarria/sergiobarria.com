@@ -24,11 +24,15 @@
   }
 
   .heading-2 {
-    @apply text-2xl font-bold text-gray-900 uppercase dark:text-gray-200 md:text-4xl;
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-200 md:text-4xl;
   }
 
   .heading-3 {
-    @apply text-lg font-bold text-gray-900 uppercase dark:text-gray-200 md:text-2xl;
+    @apply text-lg font-bold text-gray-900 dark:text-gray-200 md:text-2xl;
+  }
+
+  .heading-4 {
+    @apply text-base font-bold text-gray-900 dark:text-gray-200 md:text-lg;
   }
 
   /*
