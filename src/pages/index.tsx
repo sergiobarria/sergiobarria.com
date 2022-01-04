@@ -1,5 +1,7 @@
+import Hero from '@/components/home/Hero'
+
 export default function HomePage() {
-  return <div>Hello World, from the homepage</div>
+  return <Hero />
 }
 
 // import { getFeaturedProjects, getFeaturedPosts } from '@/lib/graphcms';

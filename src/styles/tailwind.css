@@ -19,10 +19,11 @@
     @apply flex items-center justify-center transition-all bg-gray-200 rounded-lg w-9 h-9 dark:bg-gray-600 hover:ring-2 ring-gray-300;
   }
 
-  /* .heading-1 {
-    @apply text-4xl font-bold text-center text-gray-900 md:text-5xl lg:text-8xl;
+  .heading-1 {
+    @apply text-4xl font-bold text-gray-900 md:text-5xl;
   }
 
+  /* 
   .heading-2 {
     @apply text-2xl font-bold uppercase md:text-4xl lg:text-5xl;
   }
