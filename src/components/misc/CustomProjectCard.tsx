@@ -13,10 +13,10 @@ export default function CustomProjectCard({
 }: IProject) {
   return (
     <div
-      className={`flex flex-col justify-between h-full p-4 bg-white rounded-lg transition hover:scale-[1.01] hover:ring-1 ring-${mainTechnology?.toLowerCase()} dark:bg-gray-700`}
+      className={`flex flex-col justify-between h-full p-4 bg-white rounded-lg transition hover:scale-[1.01] hover:ring-1 ring-${mainTechnology?.toLowerCase()} dark:bg-gray-700 hover:shadow-md`}
     >
       <h4 className="mb-3 heading-4">{projectName}</h4>
-      <p>{description.substring(0, 100)}...</p>
+      <p className="text-gray-500">{description.substring(0, 100)}...</p>
       <div className="flex items-center justify-between mt-4">
         <div className="flex items-center">
           <a

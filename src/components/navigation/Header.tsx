@@ -3,16 +3,28 @@ import { useTheme } from 'next-themes'
 import { RiSunFill, RiMoonFill } from 'react-icons/ri'
 
 import NavItem from './NavItem'
-import ThemeTogglerBtn from '@/components/misc/ThemeTogglerBtn'
+import TogglerBtn from '@/components/misc/TogglerBtn'
+import MobileMenu from './MobileMenu'
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
-  const { systemTheme, theme, resolvedTheme, setTheme } = useTheme()
+  const [showMobileNav, setShowMobileNav] = useState(false)
+  const { systemTheme, resolvedTheme, setTheme } = useTheme()
 
   // After mounting on client, we have access to the theme
   useEffect(() => setMounted(true), [])
 
-  const renderThemeToggler = () => {
+  const toggleMobileNav = () => {
+    if (showMobileNav) {
+      setShowMobileNav(false)
+      document.body.style.overflow = ''
+    } else {
+      setShowMobileNav(true)
+      document.body.style.overflow = 'hidden'
+    }
+  }
+
+  function RenderThemeToggler() {
     if (!mounted) return null
 
     const currentTheme =
@@ -20,15 +32,23 @@ export default function Header() {
 
     if (currentTheme === 'dark') {
       return (
-        <ThemeTogglerBtn onClickCallback={() => setTheme('light')}>
+        <TogglerBtn
+          ariaLabel="Toggle Theme"
+          className="toggler"
+          onClickCallback={() => setTheme('light')}
+        >
           <RiSunFill className="w-5 h-5" />
-        </ThemeTogglerBtn>
+        </TogglerBtn>
       )
     } else {
       return (
-        <ThemeTogglerBtn onClickCallback={() => setTheme('dark')}>
+        <TogglerBtn
+          ariaLabel="Toggle Theme"
+          className="toggler"
+          onClickCallback={() => setTheme('dark')}
+        >
           <RiMoonFill className="w-5 h-5" />
-        </ThemeTogglerBtn>
+        </TogglerBtn>
       )
     }
   }
@@ -43,7 +63,10 @@ export default function Header() {
         <NavItem href="/projects" text="Projects" />
         <NavItem href="/resources" text="Resources" />
       </nav>
-      {renderThemeToggler()}
+      <div className="flex items-center space-x-2">
+        <RenderThemeToggler />
+        <MobileMenu showMobileNav={showMobileNav} toggleBtn={toggleMobileNav} />
+      </div>
     </div>
   )
 }

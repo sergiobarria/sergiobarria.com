@@ -2,14 +2,21 @@ import { IPropsWithChildren } from '@/types/interfaces'
 
 interface IProps extends IPropsWithChildren {
   onClickCallback: React.MouseEventHandler<HTMLButtonElement>
+  ariaLabel: string
+  className?: string
 }
 
-const ThemeTogglerBtn = ({ children, onClickCallback }: IProps) => {
+const TogglerBtn = ({
+  children,
+  ariaLabel,
+  className,
+  onClickCallback,
+}: IProps) => {
   return (
     <button
-      aria-label="Toggle Theme"
+      aria-label={ariaLabel}
       type="button"
-      className="themeToggler"
+      className={className}
       onClick={onClickCallback}
     >
       {children}
@@ -17,4 +24,4 @@ const ThemeTogglerBtn = ({ children, onClickCallback }: IProps) => {
   )
 }
 
-export default ThemeTogglerBtn
+export default TogglerBtn
