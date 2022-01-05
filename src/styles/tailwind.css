@@ -35,6 +35,22 @@
     @apply text-base font-bold text-gray-900 dark:text-gray-200 md:text-lg;
   }
 
+  /* .dart {
+    background-color: #2c74d7;
+  }
+  .react {
+    background-color: #00c2e6;
+  }
+  .vue {
+    background-color: #41b983;
+  }
+  .node {
+    background-color: #61af43;
+  }
+  .django {
+    background-color: #3a74a5;
+  } */
+
   /*
 
   .btn {
@@ -72,6 +88,50 @@
 
 input:checked ~ .dot {
   transform: translateX(22px);
+}
+
+/* TODO: Find a better way to change the colors by project */
+.javascript {
+  background-color: #f7df1e;
+}
+
+.ring-javascript {
+  @apply ring-[#f7df1e];
+}
+
+.dart {
+  background-color: #2c74d7;
+}
+.ring-dart {
+  @apply ring-[#2c74d7];
+}
+
+.react {
+  background-color: #00c2e6;
+}
+.ring-react {
+  @apply ring-[#00c2e6];
+}
+
+.vue {
+  background-color: #41b983;
+}
+.ring-vue {
+  @apply ring-[#41b983];
+}
+
+.node {
+  background-color: #61af43;
+}
+.ring-node {
+  @apply ring-[#61af43];
+}
+
+.django {
+  background-color: #3a74a5;
+}
+.ring-django {
+  @apply ring-[#3a74a5];
 }
 
 /* .loader-dots div {

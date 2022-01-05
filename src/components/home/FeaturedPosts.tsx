@@ -1,26 +1,32 @@
-import NextLink from 'next/link'
-
 import CustomSection from '../misc/CustomSection'
 import SectionTitle from '../misc/SectionTitle'
 import BlogPostCard from '../misc/BlogPostCard'
+import { formatDate } from '@/lib/formatDate'
 
-export default function FeaturedPosts() {
+import { IPost } from '@/types/interfaces'
+
+type Props = {
+  featuredPosts: IPost[]
+}
+
+export default function FeaturedPosts({ featuredPosts }: Props) {
   return (
     <CustomSection>
       <SectionTitle title="Featured Posts" />
-      {[...Array(3)].map((_, index) => (
-        <BlogPostCard
-          key={index}
-          postTitle="How to link and display your latest blog posts to your Github
-            Profile"
-          postSlug="How to link and display your latest blog posts to your Github
-            Profile"
-          postSummary="In this guide, we’ll see an easy way of linking our latest blog posts
-            to our Github profile using a…"
-          publishedDate="August 14, 2021"
-          readingTime="3"
-        />
-      ))}
+      {featuredPosts.map((post, index) => {
+        const formattedDate = formatDate({ date: post.originallyPublishedOn })
+
+        return (
+          <BlogPostCard
+            key={index}
+            postTitle={post.title}
+            postSlug={post.slug}
+            postSummary={post.excerpt}
+            publishedDate={formattedDate}
+            readTime={post.readTime || '0 min read'}
+          />
+        )
+      })}
     </CustomSection>
   )
 }

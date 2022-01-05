@@ -1,17 +1,31 @@
+import { GetStaticProps } from 'next'
+
 import Container from '@/components/layout/MainContainer'
 import Hero from '@/components/home/Hero'
 import FeaturedPosts from '@/components/home/FeaturedPosts'
 import FeaturedProjects from '@/components/home/FeaturedProjects'
 import DeveloperSkills from '@/components/home/DeveloperSkills'
+import { addReadTime } from '@/lib/addReadTime'
+import { getFeaturedPosts, getFeaturedProjects } from '@/lib/graphcms/queries'
+import { IPost, IProject } from '@/types/interfaces'
 
-export async function getStaticProps() {
-  // const projects = await getFeaturedProjects();
+type Props = {
+  featuredPosts: IPost[]
+  featuredProjects: IProject[]
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getFeaturedPosts()
+  const projects = await getFeaturedProjects()
   // const posts = await getFeaturedPosts();
 
-  // const allPosts = await addReadTime(posts);
+  const featuredPosts = addReadTime(posts)
 
   return {
-    props: {},
+    props: {
+      featuredPosts,
+      featuredProjects: projects,
+    },
     // props: {
     //   projects,
     //   posts: allPosts,
@@ -20,7 +34,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function HomePage() {
+export default function HomePage({ featuredPosts, featuredProjects }: Props) {
   const customMetadata = {
     title: 'Home | Sergio Barria',
   }
@@ -28,8 +42,8 @@ export default function HomePage() {
   return (
     <Container customMetadata={customMetadata}>
       <Hero />
-      <FeaturedPosts />
-      <FeaturedProjects />
+      <FeaturedPosts featuredPosts={featuredPosts} />
+      <FeaturedProjects featuredProjects={featuredProjects} />
       <DeveloperSkills />
     </Container>
   )
