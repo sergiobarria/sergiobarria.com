@@ -4,15 +4,23 @@ import CustomSection from '../misc/CustomSection'
 import SectionTitle from '../misc/SectionTitle'
 import { skills } from '@/types/data/skills'
 
+// TODO: Finish this paragraph content
+
 export default function DeveloperSkills() {
   return (
     <CustomSection>
       <SectionTitle title="Developer Skills" />
-      <ul className="flex flex-wrap gap-3 mt-6">
+      <p className="my-6">
+        This are some of the technologies I know, and have work with.
+      </p>
+      <ul className="flex flex-wrap gap-3">
         {skills
           .filter(skill => !skill.hide)
           .map((skill, index) => (
-            <li key={index} className="py-2 px-4 rounded-2xl border-[1px]">
+            <li
+              key={index}
+              className="py-2 px-4 rounded-lg border-[1px] text-sm text-gray-600 dark:text-gray-300"
+            >
               <span className="flex items-center">
                 <Icon
                   path={skill.iconPath}

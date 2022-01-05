@@ -11,10 +11,11 @@ export default function BlogPostCard({
 }: IPostCardPreview) {
   return (
     <article className="mt-6">
-      <p className="flex items-center text-gray-400">
-        {publishedDate} <span className="text-2xl">&middot;</span> {readTime}{' '}
+      <p className="flex items-center text-gray-400 dark:text-gray-500">
+        {publishedDate} <span className="mx-2 text-3xl">&middot;</span>{' '}
+        {readTime}{' '}
       </p>
-      <h3 className="transition-all duration-300 heading-3 hover:text-gray-700 hover:scale-[1.01]">
+      <h3 className="transition-all duration-300 hover:text-gray-700 hover:scale-[1.01]">
         <NextLink href={`/blog/${postSlug}`}>{postTitle}</NextLink>
       </h3>
       <p>{postSummary}</p>
