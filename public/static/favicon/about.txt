@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Bangers
+- Font Author: Copyright 2010 The Bangers Project Authors (contact@sansoxygen.com)
+- Font Source: http://fonts.gstatic.com/s/bangers/v13/FeVQS0BTqb0h60ACL5la2bxii28.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

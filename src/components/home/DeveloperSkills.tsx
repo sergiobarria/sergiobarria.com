@@ -1,6 +1,6 @@
 import Icon from '@mdi/react'
 
-import CustomSection from '../misc/CustomSection'
+import Section from '../misc/Section'
 import SectionTitle from '../misc/SectionTitle'
 import { skills } from '@/types/data/skills'
 
@@ -8,9 +8,9 @@ import { skills } from '@/types/data/skills'
 
 export default function DeveloperSkills() {
   return (
-    <CustomSection>
+    <Section>
       <SectionTitle title="Developer Skills" />
-      <p className="my-6">
+      <p className="my-6 long-text">
         This are some of the technologies I know, and have work with.
       </p>
       <ul className="flex flex-wrap gap-3">
@@ -33,6 +33,6 @@ export default function DeveloperSkills() {
             </li>
           ))}
       </ul>
-    </CustomSection>
+    </Section>
   )
 }

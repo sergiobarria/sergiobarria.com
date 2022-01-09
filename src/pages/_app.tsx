@@ -2,14 +2,13 @@ import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
+import 'react-toastify/dist/ReactToastify.css'
 
 import * as gtag from '@/lib/gtag'
 import '@/styles/tailwind.css'
 
 // import { MDXProvider } from '@mdx-js/react';
 // import MDXComponents from '@/components/utils/MDXComponents';
-
-// import 'react-toastify/dist/ReactToastify.css'
 
 // import { DefaultSeo } from 'next-seo'
 // import SEO from '../next-seo.config';

@@ -1,0 +1,65 @@
+.navLink {
+  padding: 8px 12px;
+  color: #888;
+  cursor: pointer;
+}
+
+.navLink,
+.navLink::after {
+  transition: all 0.5s;
+}
+
+.navLink:hover {
+  color: #444;
+}
+
+/* Stroke Style */
+.navLink.stroke {
+  position: relative;
+}
+
+.navLink.stroke::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 3px;
+}
+
+.navLink.stroke:hover::after {
+  width: 80%;
+}
+
+.navLink.activeLight {
+  color: #444;
+  font-weight: 600;
+}
+
+.navLink.activeDark {
+  color: #eaeaea;
+  font-weight: 600;
+}
+
+.navLink.activeLight::after,
+.navLink.activeDark::after {
+  content: '.';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 80%;
+  background: #aaa;
+  height: 3px;
+}
+
+@media (max-width: 768px) {
+  .navLink {
+    display: none;
+  }
+}

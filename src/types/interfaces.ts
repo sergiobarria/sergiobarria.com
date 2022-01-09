@@ -35,13 +35,16 @@ export interface IPost {
   originallyPublishedOn: string
   createdAt?: string
   publishedAt?: string
-  coverImage?: {
+  coverImage: {
     url: string
+    width: number
+    height: number
   }
   body?: {
     markdown: string
   }
   readTime?: string | undefined
+  formattedDate?: string
 }
 
 export interface IProject {
@@ -55,8 +58,5 @@ export interface IProject {
     url: string
   }
   mainTechnology?: string
+  projectNumber: number
 }
-
-// export interface IPost {
-//   featuredPosts: Post[]
-// }

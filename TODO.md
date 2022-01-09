@@ -1,0 +1,16 @@
+- [] Convert project tech tags from text to icons
+- [] Syntax highlight for code blocks
+- [] Reorganize and clean all code and folders
+- [] Reorganize types and interfaces
+- [] Add correct types to pages components (use the PropsWithChildren prop from react)
+- [] Clean styles from tailwind and check for improvements inside every component
+- [] Add revalidate to getStaticProps
+- [] Add PlanetScale and Prisma (probably after deployment)
+- [] Add What I do to home page
+- [] Update content in graphCMS to make it shorter for project descriptions
+- [] Check names and types of graphCMS content to possibly make it shorter (e.g. projectName -> name)
+- [] Add summary section to each blog (figure if the post preview excerpt will be different from summary or just a substring).
+- [] Check for the alt text on images or aria-label
+- [] Check to use theme toggle with context
+- [] Look for custom styles for mobile menu
+- [] Pick Text Selection color (at the moment is yellow)

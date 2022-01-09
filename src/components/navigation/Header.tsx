@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import NextLink from 'next/link'
-import NextImage from 'next/image'
 import { useTheme } from 'next-themes'
 import { RiSunFill, RiMoonFill } from 'react-icons/ri'
 
+import Logo from '@/components/misc/Logo'
 import NavItem from './NavItem'
 import TogglerBtn from '@/components/misc/TogglerBtn'
 import MobileMenu from './MobileMenu'
+import routes from '@/data/routes'
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -57,32 +57,26 @@ export default function Header() {
 
   return (
     <div className="flex items-center justify-between py-8">
-      {/* <div className="relative w-24 h-24 px-4 py-6 bg-red-500"> */}
-      <NextLink href="/">
-        <a>
-          <NextImage
-            src={`/static/images/logo-${
-              resolvedTheme === 'light' ? 'black' : 'white'
-            }.svg`}
-            // src="/static/images/logo-black copy.svg"
-            width={60}
-            height={60}
-
-            // layout="fill"
-            // objectFit="contain"
-          />
-        </a>
-      </NextLink>
-      {/* </div> */}
+      <Logo resolvedTheme={resolvedTheme} />
 
       <div className="flex items-center space-x-4">
+        {/* <nav className={cn(styles.navbar, styles.stroke)}> */}
         <nav>
-          <NavItem href="/" text="Home" />
-          <NavItem href="/about" text="About" />
-          <NavItem href="/writing" text="Writing" />
-          <NavItem href="/projects" text="Projects" />
-          <NavItem href="/resources" text="Resources" />
+          <ul className="flex">
+            {routes.map(route => (
+              <li key={route.id} className="relative">
+                <NavItem href={route.route} text={route.text} />
+              </li>
+            ))}
+          </ul>
         </nav>
+        {/* <nav className={cn(styles.navbar, styles.stroke)}>
+          <ul>
+            <li>
+              <a>Test Link</a>
+            </li>
+          </ul>
+        </nav> */}
         <div className="flex items-center space-x-2">
           <RenderThemeToggler />
           <MobileMenu

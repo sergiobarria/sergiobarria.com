@@ -13,27 +13,28 @@ const routes = [
   },
   {
     id: 3,
-    text: 'Writing',
-    route: '/writing',
+    text: 'Blog',
+    route: '/blog',
     delay: '300',
   },
   {
     id: 4,
-    text: 'Projects',
-    route: '/projects',
+    text: 'Portfolio',
+    route: '/portfolio',
     delay: '500',
   },
+  // {
+  //   id: 5,
+  //   text: 'Resources',
+  //   route: '/resources',
+  //   delay: '700',
+  // },
   {
-    id: 5,
-    text: 'Resources',
-    route: '/resources',
+    id: 6,
+    text: 'Contact',
+    route: '/contact',
     delay: '700',
   },
-  // {
-  //   id: 6,
-  //   text: 'Contact',
-  //   url: '/contact',
-  // },
 ]
 
 export default routes

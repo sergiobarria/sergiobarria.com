@@ -1,7 +1,6 @@
 // TODO: Update next.config file
 const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@next/bundle-analyzer')
-const { withContentlayer } = require('next-contentlayer')
 
 /**
  * @type {import('next').NextConfig}
@@ -11,7 +10,7 @@ const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: ['media.graphcms.com'],
+    domains: ['media.graphcms.com', 'giphy.com'],
   },
   reactStrictMode: true,
   experimental: {
@@ -35,7 +34,6 @@ const nextConfig = {
 }
 
 module.exports = withPlugins([
-  withContentlayer,
   withBundleAnalyzer({
     enabled: process.env.ANALYZE === 'true',
   }),

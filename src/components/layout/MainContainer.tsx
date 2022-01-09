@@ -28,7 +28,7 @@ export default function Container({
   }
 
   return (
-    <div className="flex flex-col max-w-screen-md mx-4 md:px-4 md:mx-auto lg:px-0">
+    <div className="flex flex-col max-w-screen-md min-h-screen mx-4 md:px-4 md:mx-auto lg:px-0">
       <Head>
         <title>{metadata.title}</title>
         <meta name="robots" content="index, follow" />
@@ -59,7 +59,7 @@ export default function Container({
         )}
       </Head>
       <Header />
-      <main>{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   )
