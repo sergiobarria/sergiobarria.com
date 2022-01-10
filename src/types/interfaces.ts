@@ -42,6 +42,8 @@ export interface IPost {
   }
   body?: {
     markdown: string
+    json: any
+    references: any
   }
   readTime?: string | undefined
   formattedDate?: string
@@ -59,4 +61,11 @@ export interface IProject {
   }
   mainTechnology?: string
   projectNumber: number
+}
+
+export interface IIcon {
+  name: string
+  path: string
+  color: string
+  hide?: boolean
 }

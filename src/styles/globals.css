@@ -4,12 +4,6 @@
 
 /* NEW DESIGN */
 @layer base {
-  :root {
-    /* --color-main: #5378f5;
-    --color-main-light: #a9bcfa;
-    --color-main-hover: #4260c4; */
-  }
-
   body {
     @apply transition-colors duration-700 bg-gray-50 dark:bg-gray-900 dark:text-gray-100;
     /* @apply min-h-screen; */
@@ -43,9 +37,13 @@
     @apply flex items-center justify-center transition-all bg-gray-200 rounded-lg w-9 h-9 dark:bg-gray-600 hover:ring-2 ring-gray-300;
   }
 
-  .mobile-nav-link {
-    @apply text-xl font-normal text-gray-900 transition duration-1000 ease-in-out transform border-b-[1px] border-gray-200 dark:border-gray-700 dark:text-gray-100;
+  .mobile-link {
+    @apply text-sm font-semibold text-gray-900 border-b border-gray-300 dark:border-gray-700 dark:text-gray-100;
   }
+
+  /* .mobile-nav-link {
+    @apply text-xl font-normal text-gray-900 transition duration-1000 ease-in-out transform border-b-[1px] border-gray-200 dark:border-gray-700 dark:text-gray-100;
+  } */
 
   .input {
     @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-teal-400 focus:border-0;

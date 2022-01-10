@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import 'react-toastify/dist/ReactToastify.css'
 
 import * as gtag from '@/lib/gtag'
-import '@/styles/tailwind.css'
+import '@/styles/globals.css'
 
 // import { MDXProvider } from '@mdx-js/react';
 // import MDXComponents from '@/components/utils/MDXComponents';

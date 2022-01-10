@@ -1,5 +1,6 @@
-import { gql, useQuery } from '@apollo/client'
-import client from './apolloClient'
+import { gql } from '@apollo/client'
+import { getPlaiceholder } from 'plaiceholder'
+import { client } from './apolloClient'
 
 export async function getFeaturedProjects() {
   const query = gql`
@@ -56,7 +57,7 @@ export async function getFeaturedPosts() {
         id
         title
         slug
-        excerpt
+        summary
         originallyPublishedOn
         publishedAt
         coverImage {
@@ -64,7 +65,8 @@ export async function getFeaturedPosts() {
             transformation: { image: { resize: { height: 240, width: 427 } } }
           )
         }
-        body {
+        content {
+          json
           markdown
         }
       }
@@ -83,7 +85,7 @@ export async function getAllPosts() {
         id
         title
         slug
-        excerpt
+        summary
         originallyPublishedOn
         createdAt
         publishedAt
@@ -92,7 +94,8 @@ export async function getAllPosts() {
             transformation: { image: { resize: { height: 240, width: 427 } } }
           )
         }
-        body {
+        content {
+          json
           markdown
         }
       }
@@ -162,22 +165,30 @@ export async function getPostBySlug(slug: string) {
         title
         slug
         author
-        excerpt
+        summary
         originallyPublishedOn
         coverImage {
           url
           width
           height
+          alt
         }
-        body {
+        content {
           markdown
+          json
+          references {
+            ... on Asset {
+              id
+              handle
+              height
+              mimeType
+              size
+              url
+              width
+            }
+          }
         }
         otherContent
-      }
-      posts(orderBy: originallyPublishedOn_DESC) {
-        id
-        title
-        slug
       }
     }
   `

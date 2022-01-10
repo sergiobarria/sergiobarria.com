@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
 import { RiSunFill, RiMoonFill } from 'react-icons/ri'
 
 import Logo from '@/components/misc/Logo'
@@ -7,30 +5,15 @@ import NavItem from './NavItem'
 import TogglerBtn from '@/components/misc/TogglerBtn'
 import MobileMenu from './MobileMenu'
 import routes from '@/data/routes'
+import useSetTheme from '@/hooks/useSetTheme'
 
 export default function Header() {
-  const [mounted, setMounted] = useState(false)
-  const [showMobileNav, setShowMobileNav] = useState(false)
-  const { systemTheme, resolvedTheme, setTheme } = useTheme()
-
-  // After mounting on client, we have access to the theme
-  useEffect(() => setMounted(true), [])
-
-  const toggleMobileNav = () => {
-    if (showMobileNav) {
-      setShowMobileNav(false)
-      document.body.style.overflow = ''
-    } else {
-      setShowMobileNav(true)
-      document.body.style.overflow = 'hidden'
-    }
-  }
+  const { mounted, currentTheme, setTheme } = useSetTheme()
 
   function RenderThemeToggler() {
+    // if the application is not mounted yet return null to avoid hydration mismatch
+    // because the theme will be undefined
     if (!mounted) return null
-
-    const currentTheme =
-      resolvedTheme === 'system' ? systemTheme : resolvedTheme
 
     if (currentTheme === 'dark') {
       return (
@@ -56,35 +39,24 @@ export default function Header() {
   }
 
   return (
-    <div className="flex items-center justify-between py-8">
-      <Logo resolvedTheme={resolvedTheme} />
+    <header className="flex items-center justify-between py-8">
+      <Logo resolvedTheme={currentTheme} />
 
       <div className="flex items-center space-x-4">
-        {/* <nav className={cn(styles.navbar, styles.stroke)}> */}
         <nav>
-          <ul className="flex">
+          <ul className="flex items-center">
             {routes.map(route => (
-              <li key={route.id} className="relative">
-                <NavItem href={route.route} text={route.text} />
-              </li>
+              <NavItem key={route.id} href={route.route} text={route.text} />
             ))}
           </ul>
         </nav>
-        {/* <nav className={cn(styles.navbar, styles.stroke)}>
-          <ul>
-            <li>
-              <a>Test Link</a>
-            </li>
-          </ul>
-        </nav> */}
-        <div className="flex items-center space-x-2">
+
+        <div className="flex items-center">
           <RenderThemeToggler />
-          <MobileMenu
-            showMobileNav={showMobileNav}
-            toggleBtn={toggleMobileNav}
-          />
+          <span className="mx-2"></span>
+          <MobileMenu />
         </div>
       </div>
-    </div>
+    </header>
   )
 }

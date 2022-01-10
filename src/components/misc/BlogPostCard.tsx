@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 
-import { IPost } from '@/types/interfaces'
+import { IPost } from '@/types/PostTypes'
 
 interface IProps {
   post: IPost
@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export default function BlogPostCard({ post, isLast }: IProps) {
-  const { title, formattedDate, readTime, slug, excerpt } = post
+  const { title, formattedDate, readTime, slug, summary } = post
 
   return (
     <article className="mt-1">
@@ -19,7 +19,7 @@ export default function BlogPostCard({ post, isLast }: IProps) {
       <h3 className="transition-all duration-300 hover:text-gray-700 hover:scale-[1.01]">
         <NextLink href={`/blog/${slug}`}>{title}</NextLink>
       </h3>
-      <p className="mt-2 long-text">{excerpt}</p>
+      <p className="mt-2 long-text">{summary}</p>
       <hr className={`my-4 ${isLast ? 'hidden' : ''}`} />
     </article>
   )

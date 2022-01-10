@@ -13,13 +13,7 @@ import {
   mdiLeaf,
   mdiPuzzleOutline,
 } from '@mdi/js'
-
-export interface ISkillProps {
-  name: string
-  iconPath: string
-  color: string
-  hide?: boolean
-}
+import { ISkillProps } from '../interfaces'
 
 export const skills: ISkillProps[] = [
   { name: 'HTML5', iconPath: mdiLanguageHtml5, color: '#e34f26' },

@@ -22,9 +22,11 @@
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["src/styles/*"],
       "@/theme/*": ["theme/*"],
-      "@/types/*": ["src/types/*"]
+      "@/types/*": ["src/types/*"],
+      "@/utils/*": ["src/utils/*"],
+      "@/hooks/*": ["src/hooks/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/gtag.js"],
   "exclude": ["node_modules"]
 }

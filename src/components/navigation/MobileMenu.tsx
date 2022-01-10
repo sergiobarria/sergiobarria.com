@@ -1,64 +1,169 @@
+import { useState, useEffect } from 'react'
 import NextLink from 'next/link'
-import { useRouter } from 'next/router'
+import useDelayedRender from 'use-delayed-render'
+import cn from 'classnames'
 
-import { FaAlignRight } from 'react-icons/fa'
-import { CgClose } from 'react-icons/cg'
+import styles from '@/styles/mobile-menu.module.css'
 
-import TogglerBtn from '../misc/TogglerBtn'
-import routes from '@/data/routes'
+export default function MobileMenu() {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
+    isMenuOpen,
+    { enterDelay: 20, exitDelay: 300 }
+  )
 
-interface IMobileNav {
-  showMobileNav: boolean
-  toggleBtn: React.MouseEventHandler<HTMLButtonElement>
-}
+  function toggleMenu() {
+    if (isMenuOpen) {
+      setIsMenuOpen(false)
+      document.body.style.overflow = ''
+    } else {
+      setIsMenuOpen(true)
+      document.body.style.overflow = 'hidden'
+    }
+  }
 
-export default function MobileMenu({ showMobileNav, toggleBtn }: IMobileNav) {
-  const router = useRouter()
+  useEffect(() => {
+    return function cleanup() {
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   return (
-    <div className=" md:hidden">
-      <TogglerBtn
-        ariaLabel="Toggle Mobile Navbar"
-        onClickCallback={toggleBtn}
-        className="toggler"
+    <>
+      <button
+        className={cn(styles.burger, 'visible md:hidden')}
+        aria-label="Toggle menu"
+        type="button"
+        onClick={toggleMenu}
       >
-        {showMobileNav ? (
-          <CgClose className="w-5 h-5" />
-        ) : (
-          <FaAlignRight className="w-5 h-5" />
-        )}
-      </TogglerBtn>
+        {isMenuOpen && <CrossIcon data-hide={!isMenuOpen} />}
+        {!isMenuOpen && <MenuIcon data-hide={isMenuOpen} />}
+      </button>
 
-      <div
-        className={`fixed left-0 top-28 right-0 bottom-0 bg-white dark:bg-gray-800 overflow-x-auto opacity-[0.99] z-10 transform ease-in-out duration-500 ${
-          showMobileNav ? 'translate-x-0' : 'translate-y-full'
-        }`}
-      >
-        <aside className="z-20 px-6 mt-6">
-          <ul className="flex flex-col">
-            {routes.map(route => {
-              const isActive = router.asPath === route.route
+      {isMenuMounted && (
+        <ul
+          className={cn(
+            styles.menu,
+            'flex flex-col absolute top-32 bg-gray-100 dark:bg-gray-900',
+            isMenuRendered && styles.menuRendered
+          )}
+        >
+          <li className="mobile-link" style={{ transitionDelay: '150ms' }}>
+            <NextLink href="/">
+              <a className="flex w-auto pb-4">Home</a>
+            </NextLink>
+          </li>
+          <li className="mobile-link" style={{ transitionDelay: '200ms' }}>
+            <NextLink href="/about">
+              <a className="flex w-auto pb-4">About</a>
+            </NextLink>
+          </li>
+          <li className="mobile-link" style={{ transitionDelay: '250ms' }}>
+            <NextLink href="/blog">
+              <a className="flex w-auto pb-4">Blog</a>
+            </NextLink>
+          </li>
+          <li className="mobile-link" style={{ transitionDelay: '300ms' }}>
+            <NextLink href="/portfolio">
+              <a className="flex w-auto pb-4">Portfolio</a>
+            </NextLink>
+          </li>
+          <li className="mobile-link" style={{ transitionDelay: '350ms' }}>
+            <NextLink href="/contact">
+              <a className="flex w-auto pb-4">Contact</a>
+            </NextLink>
+          </li>
+        </ul>
+      )}
+    </>
+  )
+}
 
-              return (
-                <li
-                  key={route.id}
-                  className={`mobile-nav-link delay-${route.delay} ${
-                    showMobileNav
-                      ? 'translate-x-0 opacity-100'
-                      : '-translate-x-full opacity-0'
-                  } ${
-                    isActive ? 'bg-gray-200 rounded-lg dark:bg-gray-700' : ''
-                  }`}
-                >
-                  <NextLink href={route.route}>
-                    <a className="flex w-auto px-2 py-4">{route.text}</a>
-                  </NextLink>
-                </li>
-              )
-            })}
-          </ul>
-        </aside>
-      </div>
-    </div>
+// function MenuIcon(props: JSX.IntrinsicElements['svg']) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className="absolute w-6 h-6 text-gray-700 dark:text-gray-200"
+//       fill="none"
+//       viewBox="0 0 24 24"
+//       stroke="currentColor"
+//       {...props}
+//     >
+//       <path
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//         strokeWidth={2}
+//         d="M4 6h16M4 12h16M4 18h16"
+//       />
+//     </svg>
+//   )
+// }
+
+// function CrossIcon(props: JSX.IntrinsicElements['svg']) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className="absolute w-6 h-6 text-gray-700 dark:text-gray-200"
+//       fill="none"
+//       viewBox="0 0 24 24"
+//       stroke="currentColor"
+//       {...props}
+//     >
+//       <path
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//         strokeWidth={2}
+//         d="M6 18L18 6M6 6l12 12"
+//       />
+//     </svg>
+//   )
+// }
+
+function MenuIcon(props: JSX.IntrinsicElements['svg']) {
+  return (
+    <svg
+      className="absolute w-6 h-6 text-gray-900 dark:text-gray-100"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      {...props}
+    >
+      <path
+        d="M2.5 7.5H17.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2.5 12.5H17.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function CrossIcon(props: JSX.IntrinsicElements['svg']) {
+  return (
+    <svg
+      className="absolute w-6 h-6 text-gray-900 dark:text-gray-100"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      shapeRendering="geometricPrecision"
+      {...props}
+    >
+      <path d="M18 6L6 18" />
+      <path d="M6 6l12 12" />
+    </svg>
   )
 }
