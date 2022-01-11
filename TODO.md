@@ -1,8 +1,0 @@
-- [] Add PlanetScale and Prisma (probably after deployment)
-- [] Add What I do to home page
-- [] Add keywords to each blog post
-- [] Add General data like projects info posts list, etc. To Notion (easy to handle that info)
-- [] Create a notion todo list and display in the home page
-- [] Redesign projects card
-- [] Add Spotify playlist to homepage
-- [] Redesign and add resources page
