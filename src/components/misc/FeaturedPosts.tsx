@@ -1,9 +1,9 @@
 import Section from './Section'
 import SectionTitle from './SectionTitle'
 import BlogPostCard from './BlogPostCard'
-import { formatDate } from '@/lib/formatDate'
+import { formatDate } from 'src/lib/formatDate'
 
-import { IPost } from '@/types/interfaces'
+import { IPost } from '@/types/PostTypes'
 
 type Props = {
   featuredPosts: IPost[]

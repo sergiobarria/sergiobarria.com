@@ -13,7 +13,7 @@ export interface IPost {
     type: string
     alt?: string
   }
-  content?: {
+  content: {
     markdown: any
     json?: any
     references?: IAssetImage[]
@@ -21,6 +21,7 @@ export interface IPost {
   otherContent?: any
   readTime?: string
   formattedDate: string
+  assetImages?: IAssetImage[]
 }
 
 export interface IAssetImage {

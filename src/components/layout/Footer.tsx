@@ -1,12 +1,11 @@
-export default function Footer() {
-  // const styles = {
-  //   anchorTag:
-  // }
+import SocialIcons from '../misc/SocialIcons'
 
+export default function Footer() {
   return (
     <footer className="flex items-center justify-center py-8 mt-16 border-t-[1px] border-gray-200 dark:border-gray-500">
-      <div className="text-center">
-        <p className="flex items-center justify-center text-sm long-text">
+      <div className="flex flex-col items-center text-center">
+        <SocialIcons />
+        <p className="flex items-center justify-center mt-4 text-sm long-text">
           <span>&copy; {new Date().getFullYear()}</span>
           <span className="mx-1 text-3xl">&middot;</span>
           <span>Sergio Barria</span>

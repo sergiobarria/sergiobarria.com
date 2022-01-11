@@ -1,6 +1,6 @@
-import { IPropsWithChildren } from '@/types/interfaces'
+import { PropsWithChildren } from 'react'
 
-interface IProps extends IPropsWithChildren {
+interface IProps {
   onClickCallback: React.MouseEventHandler<HTMLButtonElement>
   ariaLabel: string
   className?: string
@@ -11,7 +11,7 @@ const TogglerBtn = ({
   ariaLabel,
   className,
   onClickCallback,
-}: IProps) => {
+}: PropsWithChildren<IProps>) => {
   return (
     <button
       aria-label={ariaLabel}

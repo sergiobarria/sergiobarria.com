@@ -1,7 +1,7 @@
 import Section from '../misc/Section'
 import SectionTitle from '../misc/SectionTitle'
 import CustomProjectCard from '../misc/CustomProjectCard'
-import { IProject } from '@/types/interfaces'
+import { IProject } from '@/types/ProjectTypes'
 
 type Props = {
   featuredProjects: IProject[]
@@ -12,7 +12,7 @@ export default function FeaturedProjects({ featuredProjects }: Props) {
     <Section>
       <SectionTitle title="Featured Projects" />
 
-      <div className="flex flex-col gap-6 mt-6 md:flex-row">
+      <div className="grid grid-cols-1 gap-6 mt-6 md:grid-cols-3 md:flex-row">
         {featuredProjects.map(project => (
           <CustomProjectCard key={project.id} {...project} />
         ))}

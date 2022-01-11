@@ -1,5 +1,3 @@
-import { gql } from '@apollo/client'
-import { client } from './apolloClient'
 import {
   getFeaturedProjects,
   getFeaturedPosts,
@@ -12,8 +10,6 @@ import {
 } from './queries'
 
 export {
-  client,
-  gql,
   getFeaturedProjects,
   getFeaturedPosts,
   getAboutContent,

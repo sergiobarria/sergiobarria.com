@@ -1,14 +1,14 @@
-import NextLink from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import NextLink from 'next/link'
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa'
 // import { GrMail } from 'react-icons/gr';
 
-const SocialIcons = ({ wdth = 'w-6', ht = 'h-6' }) => {
+export default function SocialIcons({ wdth = 'w-6', ht = 'h-6' }) {
   const styles = {
-    icon: `${wdth} ${ht} text-gray-700 hover:text-main opacity-70 hover:opacity-100`,
-  };
+    icon: `${wdth} ${ht} text-gray-700 transition duration-300 hover:text-gray-900 dark:hover:text-gray-300 opacity-70 hover:opacity-100`,
+  }
 
   return (
-    <div className="flex items-center mt-10 space-x-8">
+    <div className="flex items-center mt-2 space-x-8">
       {/* <NextLink href="mailto:sbarria.dev@gmail.com">
         <a target="_blank" rel="noopener noreferrer">
           <GrMail className={styles.icon} />
@@ -35,7 +35,7 @@ const SocialIcons = ({ wdth = 'w-6', ht = 'h-6' }) => {
         </a>
       </NextLink>
     </div>
-  );
-};
+  )
+}
 
-export default SocialIcons;
+SocialIcons

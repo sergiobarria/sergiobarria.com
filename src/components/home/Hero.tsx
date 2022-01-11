@@ -1,3 +1,5 @@
+// import SocialIcons from '../misc/SocialIcons'
+
 export default function Hero() {
   return (
     <div className="w-10/12 mt-8">
@@ -9,6 +11,7 @@ export default function Hero() {
         Welcome to my small piece of the internet, where I write and share about
         web & mobile development topics.
       </p>
+      {/* <SocialIcons /> */}
     </div>
   )
 }

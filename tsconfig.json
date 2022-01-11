@@ -18,8 +18,7 @@
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/data/*": ["data/*"],
-      // "@/layouts/*": ["layouts/*"],
-      "@/lib/*": ["lib/*"],
+      "@/lib/*": ["src/lib/*"],
       "@/styles/*": ["src/styles/*"],
       "@/theme/*": ["theme/*"],
       "@/types/*": ["src/types/*"],
@@ -27,6 +26,6 @@
       "@/hooks/*": ["src/hooks/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/gtag.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/gtag.js"],
   "exclude": ["node_modules"]
 }

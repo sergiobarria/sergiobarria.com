@@ -1,58 +1,63 @@
-import { gql } from '@apollo/client'
-import { getPlaiceholder } from 'plaiceholder'
-import { client } from './apolloClient'
-
-export async function getFeaturedProjects() {
-  const query = gql`
-    query getFeaturedProjects {
+export function getFeaturedProjects() {
+  const query = `
+    query FeaturedProjects {
       projects(where: { isFeatured: true }) {
         id
-        projectName
+        name
         description
         liveUrl
-        repositoryUrl
+        repo
         techStack
         coverImage {
           url
+          size
+          width
+          height
         }
-        mainTechnology
+        framework
+        isFeatured
+        jamstack
+        headlessCms
       }
     }
   `
 
-  const { data } = await client.query({ query })
-
-  return data.projects
+  return query
 }
 
-export async function getAllProjects() {
-  const query = gql`
+export function getAllProjects() {
+  const query = `
     query getAllProjects {
       projects {
         id
-        projectName
-        projectNumber
-        summary
-        category
+        name
         description
         liveUrl
-        repositoryUrl
+        repo
         techStack
         coverImage {
           url
+          size
+          width
+          height
         }
+        framework
+        isFeatured
+        jamstack
+        headlessCms
       }
     }
   `
 
-  const { data } = await client.query({ query })
+  return query
+  // const { data } = await client.query({ query })
 
-  return data.projects
+  // return data.projects
 }
 
-export async function getFeaturedPosts() {
-  const query = gql`
-    query MyQuery {
+export function getFeaturedPosts() {
+  const query = `
+    query FeaturedPosts {
       posts(where: { isFeatured: true }) {
         id
         title
@@ -60,26 +65,18 @@ export async function getFeaturedPosts() {
         summary
         originallyPublishedOn
         publishedAt
-        coverImage {
-          url(
-            transformation: { image: { resize: { height: 240, width: 427 } } }
-          )
-        }
         content {
-          json
           markdown
         }
       }
     }
   `
 
-  const { data } = await client.query({ query })
-
-  return data.posts
+  return query
 }
 
-export async function getAllPosts() {
-  const query = gql`
+export function getAllPosts() {
+  const query = `
     query getAllPosts {
       posts(orderBy: createdAt_DESC) {
         id
@@ -89,11 +86,6 @@ export async function getAllPosts() {
         originallyPublishedOn
         createdAt
         publishedAt
-        coverImage {
-          url(
-            transformation: { image: { resize: { height: 240, width: 427 } } }
-          )
-        }
         content {
           json
           markdown
@@ -101,32 +93,33 @@ export async function getAllPosts() {
       }
     }
   `
+  return query
+  // const { data } = await client.query({ query })
 
-  const { data } = await client.query({ query })
-
-  return data.posts
+  // return data.posts
 }
 
-export async function getAboutContent() {
-  const query = gql`
-    query MyQuery {
+export function getAboutContent() {
+  const query = `
+    query AboutContent {
       about(where: { id: "cksp9obk88fga0c786ndmrd3r" }) {
         id
         title
         content {
           markdown
+          json
         }
       }
     }
   `
+  return query
+  // const { data } = await client.query({ query })
 
-  const { data } = await client.query({ query })
-
-  return data.about
+  // return data.about
 }
 
-export async function getAllResources() {
-  const query = gql`
+export function getAllResources() {
+  const query = `
     query getAllResources {
       resources {
         id
@@ -138,13 +131,11 @@ export async function getAllResources() {
     }
   `
 
-  const { data } = await client.query({ query })
-
-  return data.resources
+  return query
 }
 
-export async function getAllSlug() {
-  const query = gql`
+export function getAllSlug() {
+  const query = `
     query getAllSlug {
       posts {
         slug
@@ -152,13 +143,11 @@ export async function getAllSlug() {
     }
   `
 
-  const { data } = await client.query({ query })
-
-  return data.posts
+  return query
 }
 
-export async function getPostBySlug(slug: string) {
-  const query = gql`
+export function getPostBySlug() {
+  const query = `
     query getPostBySlug($slug: String!) {
       post(where: { slug: $slug }) {
         id
@@ -193,12 +182,5 @@ export async function getPostBySlug(slug: string) {
     }
   `
 
-  const { data } = await client.query({
-    query,
-    variables: {
-      slug,
-    },
-  })
-
-  return data
+  return query
 }

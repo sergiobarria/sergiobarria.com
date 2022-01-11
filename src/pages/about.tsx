@@ -1,54 +1,52 @@
 import { GetStaticProps } from 'next'
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
+import { RichText } from '@graphcms/rich-text-react-renderer'
 
-import { getAboutContent } from '@/lib/graphcms'
+import { client } from '@/lib/urql/client'
+import { getAboutContent } from 'src/lib/graphcms'
+import MainLayout from '@/components/layout/MainLayout'
 
-import MainContainer from '@/components/layout/MainContainer'
-
-type Props = {
-  aboutPageContent: {
-    url: string
+interface IProps {
+  about: {
+    id: string
     title: string
-    description: string
-    keywords: string[]
+    content: {
+      markdown: any
+      json: any
+    }
   }
-  serializedSource: any
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const aboutPageContent = await getAboutContent()
+  const query = getAboutContent()
 
-  const serializedSource = await serialize(aboutPageContent.content.markdown)
+  const {
+    data: { about },
+  } = await client?.query(query).toPromise()
 
   return {
     props: {
-      aboutPageContent,
-      serializedSource,
+      about,
     },
+    revalidate: 60 * 60 * 24, // 86,400s -> 1 day
   }
 }
 
-// TODO: Update SEO keywords and url
-export default function HomePage({
-  aboutPageContent,
-  serializedSource,
-}: Props) {
-  const { title } = aboutPageContent
+export default function AboutPage({ about }: IProps) {
   const customMetadata = {
     title: 'About | Sergio Barria',
+    url: 'https://sergiobarria.com/about',
   }
 
   return (
-    <MainContainer customMetadata={customMetadata}>
+    <MainLayout customMetadata={customMetadata}>
       <article className="mt-8">
-        <h1>{title}</h1>
+        <h1>{about.title}</h1>
         <hr />
 
         <div className="prose max-w-none prose-neutral dark:prose-invert">
-          <MDXRemote {...serializedSource} />
+          <RichText content={about.content.json} />
         </div>
       </article>
-    </MainContainer>
+    </MainLayout>
   )
 }

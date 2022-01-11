@@ -1,10 +1,10 @@
 import { PropsWithChildren } from 'react'
 import NextImage from 'next/image'
 
-import MainContainer from '@/components/layout/MainContainer'
+import MainLayout from '@/components/layout/MainLayout'
 import ContentWrapper from '../misc/ContentWrapper'
 import { IPost } from '@/types/PostTypes'
-import { formatDate } from '@/lib/formatDate'
+import { formatDate } from 'src/lib/formatDate'
 
 interface IProps {
   post: IPost
@@ -18,8 +18,13 @@ export default function BlogPostLayout({
 
   const formattedDate = formatDate({ date: originallyPublishedOn })
 
+  const customMetadata = {
+    url: 'https://sergiobarria.com/blog',
+    title: 'Blog | Sergio Barria',
+  }
+
   return (
-    <MainContainer>
+    <MainLayout customMetadata={customMetadata}>
       <NextImage
         src={coverImage?.url || '/static/images/placeholder.jpeg'}
         width={coverImage?.width || 1280}
@@ -43,6 +48,6 @@ export default function BlogPostLayout({
       <div className="py-6 italic long-text border-y">{summary}</div>
 
       <ContentWrapper>{children}</ContentWrapper>
-    </MainContainer>
+    </MainLayout>
   )
 }

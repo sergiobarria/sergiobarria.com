@@ -1,23 +1,8 @@
-- [x] Convert project tech tags from text to icons
-- [] Add default icon, in case there is no tech registered
-- [] Put each page text (content & SEO) inside each page, instead of a separate page
-- [] Add the option to put the CMS apart from the tech icons
-- [] Syntax highlight for code blocks
-- [] Reorganize and clean all code and folders
-- [] Reorganize types and interfaces
-- [] Add correct types to pages components (use the PropsWithChildren prop from react)
-- [] Clean styles from tailwind and check for improvements inside every component
-- [] Add revalidate to getStaticProps
 - [] Add PlanetScale and Prisma (probably after deployment)
 - [] Add What I do to home page
-- [] Update content in graphCMS to make it shorter for project descriptions
-- [] Check names and types of graphCMS content to possibly make it shorter (e.g. projectName -> name)
-- [x] Add summary section to each blog (figure if the post preview excerpt will be different from summary or just a substring).
-- [] Check for the alt text on images or aria-label
-- [x] Check to use theme toggle with context -> (Next Theme acts like a provider, no need to create context)
-- [x] Look for custom styles for mobile menu -> (using Lee's design while I find a new one, in the mean time, I want to improve his)
-- [] Pick Text Selection color (at the moment is yellow)
-- [x] Add custom styles to navbar items
-- [x] Fix navItem theme className not match error (has to do with dark and light styles)
-- [] In graphCMS at a section for adding a CMS and remove the CMS from Tech Stack
-- [x] Find a better 404 image
+- [] Add keywords to each blog post
+- [] Add General data like projects info posts list, etc. To Notion (easy to handle that info)
+- [] Create a notion todo list and display in the home page
+- [] Redesign projects card
+- [] Add Spotify playlist to homepage
+- [] Redesign and add resources page

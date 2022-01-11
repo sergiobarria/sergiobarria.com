@@ -1,10 +1,15 @@
-import MainContainer from '@/components/layout/MainContainer'
+import MainLayout from '@/components/layout/MainLayout'
 import ContactForm from '@/components/misc/ContactForm'
 import SectionTitle from '@/components/misc/SectionTitle'
 
 export default function contact() {
+  const customMetadata = {
+    url: 'https://sergiobarria.com/contact',
+    title: 'Contact | Sergio Barria',
+  }
+
   return (
-    <MainContainer>
+    <MainLayout customMetadata={customMetadata}>
       <div className="max-w-lg mx-auto md:mt-10">
         <SectionTitle title="Contact Me" />
         <p className="my-6 long-text">
@@ -13,6 +18,6 @@ export default function contact() {
         </p>
         <ContactForm />
       </div>
-    </MainContainer>
+    </MainLayout>
   )
 }

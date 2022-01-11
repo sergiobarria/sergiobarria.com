@@ -6,7 +6,6 @@
 @layer base {
   body {
     @apply transition-colors duration-700 bg-gray-50 dark:bg-gray-900 dark:text-gray-100;
-    /* @apply min-h-screen; */
   }
 
   h1 {
@@ -41,34 +40,13 @@
     @apply text-sm font-semibold text-gray-900 border-b border-gray-300 dark:border-gray-700 dark:text-gray-100;
   }
 
-  /* .mobile-nav-link {
-    @apply text-xl font-normal text-gray-900 transition duration-1000 ease-in-out transform border-b-[1px] border-gray-200 dark:border-gray-700 dark:text-gray-100;
-  } */
-
   .input {
-    @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-teal-400 focus:border-0;
+    @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-amber-400 focus:border-0;
   }
 
   .send-form-btn {
-    @apply px-4 py-2 font-bold text-white transition duration-300 bg-teal-400 rounded shadow hover:scale-105 hover:bg-teal-400 focus:outline-none;
+    @apply px-4 py-2 font-bold text-white transition duration-300 rounded shadow bg-amber-500 hover:scale-105 hover:bg-amber-400 focus:outline-none;
   }
-  /* bg-amber-400  */
-
-  /* .dart {
-    background-color: #2c74d7;
-  }
-  .react {
-    background-color: #00c2e6;
-  }
-  .vue {
-    background-color: #41b983;
-  }
-  .node {
-    background-color: #61af43;
-  }
-  .django {
-    background-color: #3a74a5;
-  } */
 }
 
 /* TODO: Find a better way to change the colors by project */
@@ -115,6 +93,7 @@
   @apply ring-[#3a74a5];
 }
 
+/* Loader Animation */
 .loader-dots div {
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
@@ -160,6 +139,6 @@
 }
 
 ::selection {
-  background-color: #f7df1e;
+  background-color: #f59e0b;
   color: #fefefe;
 }

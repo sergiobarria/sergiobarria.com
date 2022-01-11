@@ -1,10 +1,10 @@
 import { RiSunFill, RiMoonFill } from 'react-icons/ri'
 
 import Logo from '@/components/misc/Logo'
-import NavItem from './NavItem'
+import Navbar from './Navbar'
 import TogglerBtn from '@/components/misc/TogglerBtn'
 import MobileMenu from './MobileMenu'
-import routes from '@/data/routes'
+
 import useSetTheme from '@/hooks/useSetTheme'
 
 export default function Header() {
@@ -43,13 +43,7 @@ export default function Header() {
       <Logo resolvedTheme={currentTheme} />
 
       <div className="flex items-center space-x-4">
-        <nav>
-          <ul className="flex items-center">
-            {routes.map(route => (
-              <NavItem key={route.id} href={route.route} text={route.text} />
-            ))}
-          </ul>
-        </nav>
+        <Navbar />
 
         <div className="flex items-center">
           <RenderThemeToggler />

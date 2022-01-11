@@ -1,30 +1,31 @@
-import React, { useEffect } from 'react'
+import NextImage from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
+
+import { client } from '@/lib/urql/client'
 import { RichText } from '@graphcms/rich-text-react-renderer'
 import { getPlaiceholder } from 'plaiceholder'
 import { ParsedUrlQuery } from 'querystring'
-import NextImage from 'next/image'
-// import imageSize from 'rehype-image-size'
 
 import BlogPostLayout from '@/components/layout/BlogPostLayout'
-import { getAllSlug } from '@/lib/graphcms'
-import { getPostBySlug } from '@/lib/graphcms'
+import { getAllSlug } from 'src/lib/graphcms'
+import { getPostBySlug } from 'src/lib/graphcms'
 import readingTime from 'reading-time'
-import { addDataBlurUrl } from '@/lib/addDataBlurUrl'
-import { IAssetImage } from '@/types/PostTypes'
-
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
+import { addDataBlurUrl } from 'src/lib/addDataBlurUrl'
+import { IAssetImage, IPost } from '@/types/PostTypes'
 
 interface IParams extends ParsedUrlQuery {
   slug: string
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await getAllSlug()
+  const GET_SLUGS_QUERY = getAllSlug()
+  // const data = await getAllSlug()
 
+  const {
+    data: { posts },
+  } = await client?.query(GET_SLUGS_QUERY).toPromise()
   return {
-    paths: data.map((slug: any) => ({
+    paths: posts.map((slug: any) => ({
       params: {
         ...slug,
       },
@@ -35,16 +36,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params as IParams
-  const { post } = await getPostBySlug(slug)
+  const query = getPostBySlug()
+
+  const {
+    data: { post },
+  } = await client.query(query, { slug }).toPromise()
   const { base64: blurDataUrl, img } = await getPlaiceholder(
     post.coverImage.url
   )
-
-  const mdxSource = await serialize(post.content.markdown, {
-    mdxOptions: {
-      // rehypePlugins: [imageSize],
-    },
-  })
 
   const references = post.content.references
   const images = references.filter((asset: IAssetImage) =>
@@ -62,32 +61,16 @@ export const getStaticProps: GetStaticProps = async context => {
         coverImage: { ...coverImageAssets },
         readTime: readingTime(post.content.markdown).text,
       },
-      mdxSource,
     },
   }
 }
 
-// TODO: Check if the allPosts will be used or removed it from fetch
-export default function PostPage({
-  data,
-  mdxSource,
-}: {
-  data: any
-  mdxSource: any
-}) {
+export default function PostPage({ data }: { data: IPost }) {
   const { content, assetImages } = data
-  console.log(mdxSource)
-
-  const components = {
-    img: (props: any) => (
-      <NextImage {...props} alt="test" layout="responsive" loading="lazy" />
-    ),
-  }
 
   return (
     <BlogPostLayout post={data}>
-      <MDXRemote {...mdxSource} components={components} />
-      {/* <RichText
+      <RichText
         content={content.json}
         references={assetImages}
         renderers={{
@@ -103,19 +86,9 @@ export default function PostPage({
                 />
               )
             },
-            // a: ({ children }: { children: React.ReactNode }) => {
-            //   return <a className="bg-teal-400">{children}</a>
-            // },
-            // code_block: ({ children }: { children: React.ReactNode }) => {
-            //   return (
-            //     <pre className="bg-gray-200">
-            //       <code className="bg-gray-200">{children}</code>
-            //     </pre>
-            //   )
-            // },
           },
         }}
-      /> */}
+      />
     </BlogPostLayout>
   )
 }

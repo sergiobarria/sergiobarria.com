@@ -1,45 +1,58 @@
 import { GetStaticProps } from 'next'
 
-import Container from '@/components/layout/MainContainer'
+import { client } from '@/lib/urql/client'
+
+import MainLayout from '@/components/layout/MainLayout'
 import Hero from '@/components/home/Hero'
 import FeaturedPosts from '@/components/misc/FeaturedPosts'
 import FeaturedProjects from '@/components/home/FeaturedProjects'
 import DeveloperSkills from '@/components/home/DeveloperSkills'
-import { addReadTime } from '@/lib/addReadTime'
-import { getFeaturedPosts, getFeaturedProjects } from '@/lib/graphcms/queries'
-import { IPost, IProject } from '@/types/interfaces'
+import { addReadTime } from 'src/lib/addReadTime'
+import { getFeaturedPosts, getFeaturedProjects } from 'src/lib/graphcms/queries'
+import { IPost } from '@/types/PostTypes'
+import { IProject } from '@/types/ProjectTypes'
 
-type Props = {
-  featuredPosts: IPost[]
-  featuredProjects: IProject[]
+interface IProps {
+  posts: IPost[]
+  projects: IProject[]
 }
-// TODO: Add revalidate
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getFeaturedPosts()
-  const projects = await getFeaturedProjects()
 
-  const featuredPosts = addReadTime(posts)
+export const getStaticProps: GetStaticProps = async () => {
+  const featuredPostsQuery = getFeaturedPosts()
+  const featuredProjectsQuery = getFeaturedProjects()
+
+  const {
+    data: { posts },
+  } = await client?.query(featuredPostsQuery).toPromise()
+  const {
+    data: { projects },
+  } = await client?.query(featuredProjectsQuery).toPromise()
 
   return {
     props: {
-      featuredPosts,
-      featuredProjects: projects,
+      posts,
+      projects,
     },
-    // revalidate: 60 * 5,
+    revalidate: 60 * 10, // 10 min
   }
 }
 
-export default function HomePage({ featuredPosts, featuredProjects }: Props) {
+export default function HomePage({ posts, projects }: IProps) {
+  const featuredPosts = addReadTime(posts)
+
   const customMetadata = {
+    url: 'https://sergiobarria.com/',
     title: 'Home | Sergio Barria',
+    description:
+      'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer',
   }
 
   return (
-    <Container customMetadata={customMetadata}>
+    <MainLayout customMetadata={customMetadata}>
       <Hero />
       <FeaturedPosts featuredPosts={featuredPosts} />
-      <FeaturedProjects featuredProjects={featuredProjects} />
+      <FeaturedProjects featuredProjects={projects} />
       <DeveloperSkills />
-    </Container>
+    </MainLayout>
   )
 }

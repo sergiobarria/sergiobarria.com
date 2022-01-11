@@ -1,19 +1,20 @@
+import { PropsWithChildren } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import Header from '@/components/navigation/Header'
 import Footer from './Footer'
 
-import { IPropsWithChildren, ICustomMetadata } from '@/types/interfaces'
+import { ICustomMetadata } from '@/types/interfaces'
 
-interface IPropsMetadata extends IPropsWithChildren {
+interface IPropsMetadata {
   customMetadata?: ICustomMetadata
 }
 
 export default function Container({
   children,
   customMetadata,
-}: IPropsMetadata) {
+}: PropsWithChildren<IPropsMetadata>) {
   const router = useRouter()
 
   const metadata = {
@@ -23,7 +24,7 @@ export default function Container({
     image: 'https://www.sergiobarria.com/static/images/banner.png',
     type: 'website',
     keywords:
-      "Sergio Barria's blog, HTML, CSS, JavaScript, Next js, Gatsby, React, Node, View, Tailwind CSS, Flutter",
+      "Sergio Barria's blog, HTML, CSS, JavaScript, Next js, Gatsby, React, Node, View, Tailwind CSS, React Native, Flutter",
     ...customMetadata,
   }
 
