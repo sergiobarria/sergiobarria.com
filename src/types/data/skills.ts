@@ -13,22 +13,22 @@ import {
   mdiLeaf,
   mdiPuzzleOutline,
 } from '@mdi/js'
-import { ISkillProps } from '../interfaces'
+import { IIcon } from '../interfaces'
 
-export const skills: ISkillProps[] = [
-  { name: 'HTML5', iconPath: mdiLanguageHtml5, color: '#e34f26' },
-  { name: 'CSS', iconPath: mdiLanguageCss3, color: '#3572b5' },
-  { name: 'JavaScript', iconPath: mdiLanguageJavascript, color: '#f7df1e' },
-  { name: 'TypeScript', iconPath: mdiLanguageTypescript, color: '#3178c6' },
-  { name: 'React', iconPath: mdiReact, color: '#00c2e6' },
-  { name: 'Vue', iconPath: mdiVuejs, color: '#41B983' },
-  { name: 'NextJs', iconPath: mdiTriangle, color: '#000' },
-  { name: 'Node', iconPath: mdiNodejs, color: '#61af43' },
-  { name: 'Express', iconPath: mdiPuzzleOutline, color: '#888' },
-  { name: 'Django', iconPath: mdiLanguagePython, color: '#3a74a5' },
-  { name: 'TailwindCSS', iconPath: mdiTailwind, color: '#06b6d4' },
-  { name: 'MongoDB', iconPath: mdiLeaf, color: '#69a14a' },
-  { name: 'Firebase', iconPath: mdiFirebase, color: '#F6840D' },
+export const skills: IIcon[] = [
+  { name: 'HTML5', path: mdiLanguageHtml5, color: '#e34f26' },
+  { name: 'CSS', path: mdiLanguageCss3, color: '#3572b5' },
+  { name: 'JavaScript', path: mdiLanguageJavascript, color: '#f7df1e' },
+  { name: 'TypeScript', path: mdiLanguageTypescript, color: '#3178c6' },
+  { name: 'React', path: mdiReact, color: '#00c2e6' },
+  { name: 'Vue', path: mdiVuejs, color: '#41B983' },
+  { name: 'NextJs', path: mdiTriangle, color: '#000' },
+  { name: 'Node', path: mdiNodejs, color: '#61af43' },
+  { name: 'Express', path: mdiPuzzleOutline, color: '#888' },
+  { name: 'Django', path: mdiLanguagePython, color: '#3a74a5' },
+  { name: 'TailwindCSS', path: mdiTailwind, color: '#06b6d4' },
+  { name: 'MongoDB', path: mdiLeaf, color: '#69a14a' },
+  { name: 'Firebase', path: mdiFirebase, color: '#F6840D' },
 ]
 
 const skillsKeys = [...skills.map(item => item.name.toLowerCase())]

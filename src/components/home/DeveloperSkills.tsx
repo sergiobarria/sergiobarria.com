@@ -23,7 +23,7 @@ export default function DeveloperSkills() {
             >
               <span className="flex items-center">
                 <Icon
-                  path={skill.iconPath}
+                  path={skill.path}
                   size={0.8}
                   className="mr-2"
                   color={skill.color}

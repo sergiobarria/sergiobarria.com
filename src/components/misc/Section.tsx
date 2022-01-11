@@ -1,5 +1,5 @@
-import { IPropsWithChildren } from '@/types/interfaces'
+import { PropsWithChildren } from 'react'
 
-export default function Section({ children }: IPropsWithChildren) {
+export default function Section({ children }: PropsWithChildren<any>) {
   return <section className="mt-16">{children}</section>
 }
