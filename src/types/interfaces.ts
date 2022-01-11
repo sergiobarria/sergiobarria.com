@@ -12,3 +12,7 @@ export interface IIcon {
   color: string
   hide?: boolean
 }
+
+export interface IViews {
+  total: number
+}

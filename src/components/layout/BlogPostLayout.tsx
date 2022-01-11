@@ -3,6 +3,7 @@ import NextImage from 'next/image'
 
 import MainLayout from '@/components/layout/MainLayout'
 import ContentWrapper from '../misc/ContentWrapper'
+import ViewCounter from '../misc/ViewCounter'
 import { IPost } from '@/types/PostTypes'
 import { formatDate } from 'src/lib/formatDate'
 
@@ -14,7 +15,8 @@ export default function BlogPostLayout({
   children,
   post,
 }: PropsWithChildren<IProps>) {
-  const { coverImage, title, originallyPublishedOn, readTime, summary } = post
+  const { coverImage, title, originallyPublishedOn, readTime, summary, slug } =
+    post
 
   const formattedDate = formatDate({ date: originallyPublishedOn })
 
@@ -36,13 +38,11 @@ export default function BlogPostLayout({
       />
       <h1 className="mt-4">{title}</h1>
       <div className="flex items-center my-4 space-x-4 long-text">
-        <p>
-          Published on: <span>{formattedDate}</span>{' '}
-        </p>
-        <span className="text-4xl">&middot;</span>
+        <span>{formattedDate}</span> <span className="text-4xl">&middot;</span>
         <p>{readTime}</p>
         <span className="text-4xl">&middot;</span>
-        <p>--- views</p>
+        {/* <p>--- views</p> */}
+        <ViewCounter slug={slug} />
       </div>
 
       <div className="py-6 italic long-text border-y">{summary}</div>
