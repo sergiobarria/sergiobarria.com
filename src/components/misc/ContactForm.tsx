@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { formValidationSchema } from 'src/utils/formValidationSchema'
 import { FiSend } from 'react-icons/fi'
-// import { ToastContainer, toast } from 'react-toastify'
 import cn from 'classnames'
 
 import { UserSubmitForm } from '@/types/types'
@@ -22,21 +21,12 @@ export default function ContactForm() {
   const handler = (data: UserSubmitForm) =>
     submitFormHandler('api/contact', data, reset)
 
-  // console.log('Component rendered')
-
   return (
     <>
       {isLoading && <Loader />}
       {message && <MessageCard message={message} />}
       {!message && (
         <form className="w-full" onSubmit={handleSubmit(handler)}>
-          {/* <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            closeOnClick
-          /> */}
-
           {/* Name Input */}
           <div className="flex flex-wrap w-full mb-6">
             <input

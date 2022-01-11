@@ -29,7 +29,7 @@ export default function Container({
   }
 
   return (
-    <div className="flex flex-col max-w-screen-md min-h-screen mx-4 md:px-4 md:mx-auto lg:px-0">
+    <div className="max-w-screen-md min-h-screen px-4 mx-auto md:px-0">
       <Head>
         <title>{metadata.title}</title>
         <meta name="robots" content="index, follow" />
@@ -59,8 +59,9 @@ export default function Container({
           <meta property="article:published_time" content={metadata.date} />
         )}
       </Head>
+
       <Header />
-      <main className="flex-grow">{children}</main>
+      <main className="md:my-4">{children}</main>
       <Footer />
     </div>
   )

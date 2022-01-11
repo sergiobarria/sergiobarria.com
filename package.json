@@ -6,12 +6,12 @@
     "name": "Sergio Barria",
     "url": "https://sergiobarria.com"
   },
-  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "postbuild": "node scripts/rss-gen",
+    "db": "pscale connect sergiobarria_com initial-setup --port 3309",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build"
   },
@@ -23,7 +23,7 @@
     "@mdi/react": "^1.5.0",
     "@mdx-js/react": "^1.6.22",
     "@next/bundle-analyzer": "^11.1.0",
-    "@prisma/client": "^3.7.0",
+    "@prisma/client": "^3.8.0",
     "@sendgrid/mail": "^7.6.0",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
@@ -62,7 +62,7 @@
     "next-compose-plugins": "^2.2.1",
     "postcss": "^8.4.5",
     "prettier": "^2.3.0",
-    "prisma": "^3.7.0",
+    "prisma": "^3.8.0",
     "rss": "^1.2.2",
     "typescript": "^4.5.4"
   }

@@ -3,15 +3,12 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 
 import { client } from '@/lib/urql/client'
 import { RichText } from '@graphcms/rich-text-react-renderer'
-import { getPlaiceholder } from 'plaiceholder'
 import { ParsedUrlQuery } from 'querystring'
 
 import BlogPostLayout from '@/components/layout/BlogPostLayout'
 import { getAllSlug } from 'src/lib/graphcms'
 import { getPostBySlug } from 'src/lib/graphcms'
-import readingTime from 'reading-time'
-import { addDataBlurUrl } from 'src/lib/addDataBlurUrl'
-import { IAssetImage, IPost } from '@/types/PostTypes'
+import { IPost } from '@/types/PostTypes'
 
 interface IParams extends ParsedUrlQuery {
   slug: string
@@ -41,50 +38,26 @@ export const getStaticProps: GetStaticProps = async context => {
   const {
     data: { post },
   } = await client.query(query, { slug }).toPromise()
-  const { base64: blurDataUrl, img } = await getPlaiceholder(
-    post.coverImage.url
-  )
-
-  const references = post.content.references
-  const images = references.filter((asset: IAssetImage) =>
-    asset.mimeType.includes('image')
-  )
-
-  const assetImages = await addDataBlurUrl(references, images)
-  const coverImageAssets = { ...post.coverImage, blurDataUrl, ...img }
 
   return {
     props: {
-      data: {
-        ...post,
-        assetImages,
-        coverImage: { ...coverImageAssets },
-        readTime: readingTime(post.content.markdown).text,
-      },
+      post,
     },
   }
 }
 
-export default function PostPage({ data }: { data: IPost }) {
-  const { content, assetImages } = data
+export default function PostPage({ post }: { post: IPost }) {
+  // console.log(post)
 
   return (
-    <BlogPostLayout post={data}>
+    <BlogPostLayout post={post}>
       <RichText
-        content={content.json}
-        references={assetImages}
+        content={post.content.json}
+        references={post.content.references}
         renderers={{
           Asset: {
-            image: ({ url, width, height, blurDataUrl }) => {
-              return (
-                <NextImage
-                  src={url}
-                  width={width}
-                  height={height}
-                  placeholder={blurDataUrl ? 'blur' : 'empty'}
-                  blurDataURL={blurDataUrl}
-                />
-              )
+            image: ({ url, width, height }) => {
+              return <NextImage src={url} width={width} height={height} />
             },
           },
         }}

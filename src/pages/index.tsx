@@ -7,8 +7,7 @@ import Hero from '@/components/home/Hero'
 import FeaturedPosts from '@/components/misc/FeaturedPosts'
 import FeaturedProjects from '@/components/home/FeaturedProjects'
 import DeveloperSkills from '@/components/home/DeveloperSkills'
-import { addReadTime } from 'src/lib/addReadTime'
-import { getFeaturedPosts, getFeaturedProjects } from 'src/lib/graphcms/queries'
+import { getAllPosts, getFeaturedProjects } from 'src/lib/graphcms/queries'
 import { IPost } from '@/types/PostTypes'
 import { IProject } from '@/types/ProjectTypes'
 
@@ -18,28 +17,31 @@ interface IProps {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredPostsQuery = getFeaturedPosts()
-  const featuredProjectsQuery = getFeaturedProjects()
+  const postsQuery = getAllPosts()
+  const projectsQuery = getFeaturedProjects()
 
   const {
     data: { posts },
-  } = await client?.query(featuredPostsQuery).toPromise()
+  } = await client?.query(postsQuery).toPromise()
   const {
     data: { projects },
-  } = await client?.query(featuredProjectsQuery).toPromise()
+  } = await client?.query(projectsQuery).toPromise()
+
+  const featuredPosts = posts.filter((post: IPost) => post.isFeatured)
+  const featuredProjects = projects.filter(
+    (project: IProject) => project.isFeatured
+  )
 
   return {
     props: {
-      posts,
-      projects,
+      posts: featuredPosts,
+      projects: featuredProjects,
     },
     revalidate: 60 * 10, // 10 min
   }
 }
 
 export default function HomePage({ posts, projects }: IProps) {
-  const featuredPosts = addReadTime(posts)
-
   const customMetadata = {
     url: 'https://sergiobarria.com/',
     title: 'Home | Sergio Barria',
@@ -50,7 +52,7 @@ export default function HomePage({ posts, projects }: IProps) {
   return (
     <MainLayout customMetadata={customMetadata}>
       <Hero />
-      <FeaturedPosts featuredPosts={featuredPosts} />
+      <FeaturedPosts featuredPosts={posts} />
       <FeaturedProjects featuredProjects={projects} />
       <DeveloperSkills />
     </MainLayout>

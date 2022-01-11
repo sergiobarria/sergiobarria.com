@@ -1,6 +1,6 @@
 import {
   getFeaturedProjects,
-  getFeaturedPosts,
+  // getFeaturedPosts,
   getAboutContent,
   getAllPosts,
   getAllProjects,
@@ -11,7 +11,7 @@ import {
 
 export {
   getFeaturedProjects,
-  getFeaturedPosts,
+  // getFeaturedPosts,
   getAboutContent,
   getAllPosts,
   getAllProjects,

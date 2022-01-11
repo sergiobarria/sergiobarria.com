@@ -5,7 +5,7 @@ import { client } from '@/lib/urql/client'
 
 import MainLayout from '@/components/layout/MainLayout'
 import SearchBar from '@/components/misc/SearchBar'
-import { getFeaturedPosts, getAllPosts } from 'src/lib/graphcms'
+import { getAllPosts } from 'src/lib/graphcms'
 import FeaturedPosts from '@/components/misc/FeaturedPosts'
 import BlogPostCard from '@/components/misc/BlogPostCard'
 import { IPost } from '@/types/PostTypes'
@@ -13,35 +13,31 @@ import { addReadTime } from 'src/lib/addReadTime'
 import { formatDate } from 'src/lib/formatDate'
 
 interface IProps {
-  featPosts: IPost[]
-  allPostsData: IPost[]
+  posts: IPost[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredPostsQuery = getFeaturedPosts()
   const allPostsQuery = getAllPosts()
 
   const {
-    data: { posts: featPosts },
-  } = await client?.query(featuredPostsQuery).toPromise()
-  const {
-    data: { posts: allPostsData },
+    data: { posts },
   } = await client?.query(allPostsQuery).toPromise()
 
   return {
     props: {
-      featPosts,
-      allPostsData,
+      posts,
     },
     revalidate: 60 * 60, // 3600s -> 1 hour
   }
 }
 
-export default function BlogPage({ featPosts, allPostsData }: IProps) {
+export default function BlogPage({ posts }: IProps) {
   const [searchValue, setSearchValue] = useState('')
 
-  const featuredPosts = addReadTime(featPosts)
-  const allPosts = addReadTime(allPostsData)
+  let featuredPosts = posts.filter(post => post.isFeatured)
+
+  featuredPosts = addReadTime(featuredPosts)
+  const allPosts = addReadTime(posts)
 
   // Filter blog posts
   const filteredBlogPosts = allPosts.filter((post: IPost) =>

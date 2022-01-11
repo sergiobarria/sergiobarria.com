@@ -10,7 +10,7 @@ export default function contact() {
 
   return (
     <MainLayout customMetadata={customMetadata}>
-      <div className="max-w-lg mx-auto md:mt-10">
+      <div className="w-full mx-auto md:w-8/12">
         <SectionTitle title="Contact Me" />
         <p className="my-6 long-text">
           If you want to hire me, collaborate or give me any feedback or

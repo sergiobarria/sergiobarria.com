@@ -55,25 +55,25 @@ export function getAllProjects() {
   // return data.projects
 }
 
-export function getFeaturedPosts() {
-  const query = `
-    query FeaturedPosts {
-      posts(where: { isFeatured: true }) {
-        id
-        title
-        slug
-        summary
-        originallyPublishedOn
-        publishedAt
-        content {
-          markdown
-        }
-      }
-    }
-  `
+// export function getFeaturedPosts() {
+//   const query = `
+//     query FeaturedPosts {
+//       posts(where: { isFeatured: true }) {
+//         id
+//         title
+//         slug
+//         summary
+//         originallyPublishedOn
+//         publishedAt
+//         content {
+//           markdown
+//         }
+//       }
+//     }
+//   `
 
-  return query
-}
+//   return query
+// }
 
 export function getAllPosts() {
   const query = `
@@ -87,9 +87,9 @@ export function getAllPosts() {
         createdAt
         publishedAt
         content {
-          json
           markdown
         }
+        isFeatured
       }
     }
   `

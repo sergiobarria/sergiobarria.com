@@ -6,6 +6,7 @@ import ContentWrapper from '../misc/ContentWrapper'
 import ViewCounter from '../misc/ViewCounter'
 import { IPost } from '@/types/PostTypes'
 import { formatDate } from 'src/lib/formatDate'
+import readingTime from 'reading-time'
 
 interface IProps {
   post: IPost
@@ -15,10 +16,10 @@ export default function BlogPostLayout({
   children,
   post,
 }: PropsWithChildren<IProps>) {
-  const { coverImage, title, originallyPublishedOn, readTime, summary, slug } =
-    post
+  const { coverImage, title, originallyPublishedOn, summary, slug } = post
 
   const formattedDate = formatDate({ date: originallyPublishedOn })
+  const readTime = readingTime(post.content.markdown).text
 
   const customMetadata = {
     url: 'https://sergiobarria.com/blog',

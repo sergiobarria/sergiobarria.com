@@ -8,9 +8,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // sans: ['Inconsolata', ...defaultTheme.fontFamily.sans],
-        // sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        // sans: ['Operator Mono', ...defaultTheme.fontFamily.sans],
         sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
@@ -32,13 +29,7 @@ module.exports = {
   variants: {
     extend: {
       typography: ['dark'],
-      // textColor: ['selection'],
-      // backgroundColor: ['selection'],
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    // require('tailwindcss-selection-variant'),
-  ],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }

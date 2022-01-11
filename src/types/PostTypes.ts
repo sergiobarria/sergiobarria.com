@@ -18,6 +18,7 @@ export interface IPost {
     json?: any
     references?: IAssetImage[]
   }
+  isFeatured: boolean
   otherContent?: any
   readTime?: string
   formattedDate: string

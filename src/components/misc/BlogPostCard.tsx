@@ -4,6 +4,7 @@ import useSWR from 'swr'
 import { IPost } from '@/types/PostTypes'
 import { IViews } from '@/types/interfaces'
 import fetcher from '@/lib/fetcher'
+import readingTime from 'reading-time'
 
 interface IProps {
   post: IPost
@@ -11,9 +12,11 @@ interface IProps {
 }
 
 export default function BlogPostCard({ post, isLast }: IProps) {
-  const { title, formattedDate, readTime, slug, summary } = post
+  const { title, formattedDate, slug, summary } = post
   const { data } = useSWR<IViews>(`/api/views/${slug}`, fetcher)
   const views = data?.total
+
+  const readTime = readingTime(post.content.markdown).text
 
   return (
     <article className="mt-1">

@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <div className="w-10/12 mt-8">
+    <div className="w-full mt-8 md:w-10/12">
       <h1 className="mb-3">Hi, I&apos;m Sergio</h1>
       <p className="text-lg text-gray-400 dark:text-gray-400">
         Full Stack Web & Mobile Developer
