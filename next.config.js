@@ -12,7 +12,7 @@ const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: ['media.graphcms.com', 'giphy.com'],
+    domains: ['media.graphcms.com', 'i.scdn.co'],
   },
   reactStrictMode: true,
   experimental: {
