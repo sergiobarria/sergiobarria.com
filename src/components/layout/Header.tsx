@@ -6,6 +6,8 @@ import { FiMoon, FiSun } from 'react-icons/fi'
 
 import useSetTheme from '@/hooks/useSetTheme'
 
+import MobileMenu from '../navigation/MobileMenu'
+
 interface IRoute {
   text: string
   route: string
@@ -32,7 +34,7 @@ export default function Header() {
             isActive
               ? 'text-gray-darker dark:text-gray-light font-semibold'
               : 'text-gray-lighter animated-underline',
-            'transition-all duration-300 ease-in-out'
+            'hidden md:block mr-6 transition-all duration-300 ease-in-out'
           )}
         >
           {text}
@@ -41,7 +43,6 @@ export default function Header() {
     )
   }
 
-  // TODO: Add mobile menu
   return (
     <header>
       {/* Skip Navigation */}
@@ -50,7 +51,7 @@ export default function Header() {
       </a>
 
       {/* Navbar */}
-      <nav className="flex items-center justify-end py-6 space-x-6 layout">
+      <nav className="flex items-center justify-end py-6 layout">
         <NavLink route="/" text="Home" />
         <NavLink route="/about" text="About" />
         <NavLink route="/blog" text="Blog" />
@@ -79,6 +80,7 @@ export default function Header() {
             />
           )}
         </button>
+        <MobileMenu />
       </nav>
     </header>
   )

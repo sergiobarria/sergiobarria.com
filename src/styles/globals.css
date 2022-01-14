@@ -9,19 +9,6 @@
   --tw-clr-gray-regular: #666666;
   --tw-clr-gray-darker: #333333;
   --tw-clr-gray-dark: #111111;
-
-  /* --tw-clr-accent:  */
-
-  /* Temp */
-  --tw-clr-primary-200: 219, 255, 0;
-  --tw-clr-primary-300: 0, 232, 135;
-  --tw-clr-primary-400: 0, 224, 243;
-  --tw-clr-primary-500: 0, 196, 253;
-
-  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
-  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #00e0f3 */
-  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
 }
 
 html {
@@ -104,7 +91,7 @@ html {
 @layer utilities {
   .layout {
     max-width: 48rem;
-    @apply mx-auto;
+    @apply mx-auto px-4 md:px-0;
   }
 
   .section {
@@ -113,6 +100,10 @@ html {
 
   .text-gradient {
     @apply text-transparent bg-clip-text bg-gradient-to-tr from-green-500 to-yellow-300;
+  }
+
+  .mobile-link {
+    @apply text-sm font-semibold text-gray-900 border-b border-gray-300 dark:border-gray-700 dark:text-gray-100;
   }
 
   .animated-underline {
@@ -171,72 +162,8 @@ code > span {
   @apply text-green-500 dark:text-gradient;
 }
 
-/* NEW DESIGN */
-/* @layer base {
-  body {
-    @apply transition-colors duration-700 bg-gray-50 dark:bg-gray-900 dark:text-gray-100;
-  }
-
-
-  .toggler {
-    @apply flex items-center justify-center transition-all bg-gray-200 rounded-lg w-9 h-9 dark:bg-gray-600 hover:ring-2 ring-gray-300;
-  }
-
-  .mobile-link {
-    @apply text-sm font-semibold text-gray-900 border-b border-gray-300 dark:border-gray-700 dark:text-gray-100;
-  }
-
-  
-
-  
-} */
-
-/* TODO: Find a better way to change the colors by project */
-/* .javascript {
-  background-color: #f7df1e;
-}
-
-.ring-javascript {
-  @apply ring-[#f7df1e];
-}
-
-.dart {
-  background-color: #2c74d7;
-}
-.ring-dart {
-  @apply ring-[#2c74d7];
-}
-
-.react {
-  background-color: #00c2e6;
-}
-.ring-react {
-  @apply ring-[#00c2e6];
-}
-
-.vue {
-  background-color: #41b983;
-}
-.ring-vue {
-  @apply ring-[#41b983];
-}
-
-.node {
-  background-color: #61af43;
-}
-.ring-node {
-  @apply ring-[#61af43];
-}
-
-.django {
-  background-color: #3a74a5;
-}
-.ring-django {
-  @apply ring-[#3a74a5];
-} */
-
 /* Loader Animation */
-/* .loader-dots div {
+.loader-dots div {
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .loader-dots div:nth-child(1) {
@@ -278,4 +205,4 @@ code > span {
   100% {
     transform: translate(24px, 0);
   }
-} */
+}

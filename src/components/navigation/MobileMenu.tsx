@@ -46,7 +46,7 @@ export default function MobileMenu() {
         <ul
           className={cn(
             styles.menu,
-            'flex flex-col absolute top-32 bg-gray-100 dark:bg-gray-900',
+            'flex flex-col absolute top-20 bg-gray-100 dark:bg-gray-900',
             isMenuRendered && styles.menuRendered
           )}
         >
@@ -71,6 +71,11 @@ export default function MobileMenu() {
             </NextLink>
           </li>
           <li className="mobile-link" style={{ transitionDelay: '350ms' }}>
+            <NextLink href="/library">
+              <a className="flex w-auto pb-4">Library</a>
+            </NextLink>
+          </li>
+          <li className="mobile-link" style={{ transitionDelay: '400ms' }}>
             <NextLink href="/contact">
               <a className="flex w-auto pb-4">Contact</a>
             </NextLink>

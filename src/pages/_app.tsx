@@ -7,8 +7,8 @@ import { ThemeProvider } from 'next-themes'
 
 import '@/styles/globals.css'
 import '@/styles/dracula.css'
+import 'react-toastify/dist/ReactToastify.css'
 
-// import 'react-toastify/dist/ReactToastify.css'
 import * as gtag from '@/lib/gtag'
 
 // TODO: if not used, remove router from _app props
