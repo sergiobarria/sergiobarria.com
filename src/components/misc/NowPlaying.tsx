@@ -108,7 +108,7 @@ export default function NowPlaying() {
         <p className="font-bold component">
           {data?.isPlaying ? data.title : 'Not Listening'}
         </p>
-        <p className="flex items-center justify-between text-xs font-gray-900">
+        <div className="flex items-center justify-between text-xs font-gray-900">
           {data?.isPlaying ? (
             <>
               <span>{data?.artist}</span>
@@ -120,7 +120,7 @@ export default function NowPlaying() {
           ) : (
             'Spotify'
           )}
-        </p>
+        </div>
       </div>
     </a>
   )
