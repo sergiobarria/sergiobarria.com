@@ -10,17 +10,23 @@ import GithubCard from '@/components/misc/GithubCard'
 
 import { allPosts } from '.contentlayer/data'
 
+import { IGithubRepoGQL } from '@/types/interfaces'
+
 export async function getStaticProps() {
   const featuredPosts = allPosts.filter(post => post.isFeatured)
 
-  const { data } = await client.query(PINNED_REPOS_QUERY).toPromise()
+  const {
+    data: { user },
+  } = await client.query(PINNED_REPOS_QUERY).toPromise()
 
-  const repos = data.user.pinnedItems.edges
+  const pinnedRepos = user.pinnedItems.edges.map(
+    ({ node }: { node: IGithubRepoGQL }) => node
+  )
 
   return {
     props: {
       featuredPosts,
-      repos,
+      repos: pinnedRepos,
     },
     revalidate: 60 * 10, // 10 min
   }
@@ -73,8 +79,8 @@ export default function HomePage({
             from Github using Github's GraphQL API.
           </p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {repos.map((item: any) => (
-              <GithubCard key={item.node.id} repo={item.node.name} />
+            {repos.map((repo: IGithubRepoGQL) => (
+              <GithubCard key={repo.id} repo={repo} />
             ))}
           </div>
         </div>

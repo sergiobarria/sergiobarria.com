@@ -55,7 +55,7 @@ export default function Header() {
         <NavLink route="/" text="Home" />
         <NavLink route="/about" text="About" />
         <NavLink route="/blog" text="Blog" />
-        <NavLink route="/projects" text="Projects" />
+        <NavLink route="/portfolio" text="Portfolio" />
         <NavLink route="/library" text="Library" />
         <NavLink route="/contact" text="Contact" />
         <button

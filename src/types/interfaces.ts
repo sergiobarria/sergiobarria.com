@@ -25,3 +25,16 @@ export interface NowPlayingSong {
   songUrl: string
   title: string
 }
+
+export interface IGithubRepoGQL {
+  id: string
+  name: string
+  description: string
+  url: string
+  homepageUrl: string
+  primaryLanguage: {
+    id: string
+    name: string
+    color: string
+  }
+}
