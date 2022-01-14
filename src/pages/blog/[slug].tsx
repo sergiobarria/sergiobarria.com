@@ -1,43 +1,22 @@
-import NextImage from 'next/image'
-import { GetStaticProps, GetStaticPaths } from 'next'
-
-import { client } from '@/lib/urql/client'
-import { RichText } from '@graphcms/rich-text-react-renderer'
-import { ParsedUrlQuery } from 'querystring'
+import { GetStaticPropsContext } from 'next'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import BlogPostLayout from '@/components/layout/BlogPostLayout'
-import { getAllSlug } from 'src/lib/graphcms'
-import { getPostBySlug } from 'src/lib/graphcms'
-import { IPost } from '@/types/PostTypes'
+import components from '@/components/MDXComponents'
 
-interface IParams extends ParsedUrlQuery {
-  slug: string
-}
+import { allPosts } from '.contentlayer/data'
+import { Post } from '.contentlayer/types'
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const GET_SLUGS_QUERY = getAllSlug()
-  // const data = await getAllSlug()
-
-  const {
-    data: { posts },
-  } = await client?.query(GET_SLUGS_QUERY).toPromise()
+export async function getStaticPaths() {
   return {
-    paths: posts.map((slug: any) => ({
-      params: {
-        ...slug,
-      },
-    })),
+    paths: allPosts.map(p => ({ params: { slug: p.slug } })),
     fallback: false,
   }
 }
 
-export const getStaticProps: GetStaticProps = async context => {
-  const { slug } = context.params as IParams
-  const query = getPostBySlug()
-
-  const {
-    data: { post },
-  } = await client.query(query, { slug }).toPromise()
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const slug = context.params?.slug
+  const post = allPosts.find(post => post.slug === slug)
 
   return {
     props: {
@@ -46,22 +25,12 @@ export const getStaticProps: GetStaticProps = async context => {
   }
 }
 
-export default function PostPage({ post }: { post: IPost }) {
-  // console.log(post)
+export default function PostPage({ post }: { post: Post }) {
+  const Component = useMDXComponent(post?.body.code)
 
   return (
     <BlogPostLayout post={post}>
-      <RichText
-        content={post.content.json}
-        references={post.content.references}
-        renderers={{
-          Asset: {
-            image: ({ url, width, height }) => {
-              return <NextImage src={url} width={width} height={height} />
-            },
-          },
-        }}
-      />
+      <Component components={{ ...(components as any) }} />
     </BlogPostLayout>
   )
 }

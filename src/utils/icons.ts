@@ -1,22 +1,23 @@
-import { IIcon } from '@/types/interfaces'
 import {
-  mdiLanguageHtml5,
-  mdiLanguageCss3,
-  mdiLanguageJavascript,
-  mdiLanguageTypescript,
-  mdiNodejs,
-  mdiReact,
-  mdiVuejs,
-  mdiTailwind,
-  mdiLanguagePython,
-  mdiTriangle,
   mdiFirebase,
-  mdiLeaf,
-  mdiPuzzleOutline,
   mdiGatsby,
+  mdiLanguageCss3,
+  mdiLanguageHtml5,
+  mdiLanguageJavascript,
   mdiLanguageMarkdown,
+  mdiLanguagePython,
+  mdiLanguageTypescript,
+  mdiLeaf,
+  mdiNodejs,
+  mdiPuzzleOutline,
+  mdiReact,
   mdiSass,
+  mdiTailwind,
+  mdiTriangle,
+  mdiVuejs,
 } from '@mdi/js'
+
+import { IIcon } from '@/types/interfaces'
 
 export const icons: IIcon[] = [
   { name: 'HTML', path: mdiLanguageHtml5, color: '#e34f26' },

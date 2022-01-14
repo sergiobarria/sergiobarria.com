@@ -1,6 +1,5 @@
-import MainLayout from '@/components/layout/MainLayout'
+import Layout from '@/components/layout/Layout'
 import ContactForm from '@/components/misc/ContactForm'
-import SectionTitle from '@/components/misc/SectionTitle'
 
 export default function contact() {
   const customMetadata = {
@@ -9,15 +8,19 @@ export default function contact() {
   }
 
   return (
-    <MainLayout customMetadata={customMetadata}>
-      <div className="w-full mx-auto md:w-8/12">
-        <SectionTitle title="Contact Me" />
-        <p className="my-6 long-text">
-          If you want to hire me, collaborate or give me any feedback or
-          suggestions, get in touch.
-        </p>
-        <ContactForm />
-      </div>
-    </MainLayout>
+    <Layout customMetadata={customMetadata}>
+      <section className="section">
+        <div className="layout">
+          <div className="w-full mx-auto md:w-8/12">
+            <h2>Contact Me</h2>
+            <p className="my-2 text-long">
+              If you want to hire me, collaborate or give me any feedback or
+              suggestions, get in touch.
+            </p>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+    </Layout>
   )
 }

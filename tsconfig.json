@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -14,16 +14,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "noUnusedLocals": true,
+    "baseUrl": "./src",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/data/*": ["data/*"],
-      "@/lib/*": ["src/lib/*"],
-      "@/styles/*": ["src/styles/*"],
-      "@/theme/*": ["theme/*"],
-      "@/types/*": ["src/types/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/hooks/*": ["src/hooks/*"]
+      "@/*": ["*"]
+      // "@/components/*": ["src/components/*"],
+      // "@/data/*": ["data/*"],
+      // "@/lib/*": ["src/lib/*"],
+      // "@/styles/*": ["src/styles/*"],
+      // "@/theme/*": ["theme/*"],
+      // "@/types/*": ["src/types/*"],
+      // "@/utils/*": ["src/utils/*"],
+      // "@/hooks/*": ["src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/gtag.js"],

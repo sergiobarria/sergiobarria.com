@@ -1,4 +1,5 @@
 import readingTime from 'reading-time'
+
 import { IPost } from '@/types/PostTypes'
 
 export const addReadTime = (posts: IPost[]) => {

@@ -1,6 +1,7 @@
+import CustomProjectCard from '../misc/CustomProjectCard'
 import Section from '../misc/Section'
 import SectionTitle from '../misc/SectionTitle'
-import CustomProjectCard from '../misc/CustomProjectCard'
+
 import { IProject } from '@/types/ProjectTypes'
 
 type Props = {

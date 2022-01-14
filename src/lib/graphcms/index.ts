@@ -1,21 +1,21 @@
 import {
-  getFeaturedProjects,
   // getFeaturedPosts,
   getAboutContent,
   getAllPosts,
   getAllProjects,
   // getAllResources,
   getAllSlug,
+  getFeaturedProjects,
   getPostBySlug,
 } from './queries'
 
 export {
-  getFeaturedProjects,
   // getFeaturedPosts,
   getAboutContent,
   getAllPosts,
   getAllProjects,
   // getAllResources,
   getAllSlug,
+  getFeaturedProjects,
   getPostBySlug,
 }

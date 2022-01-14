@@ -1,5 +1,6 @@
 import NextLink from 'next/link'
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa'
+
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 // import { GrMail } from 'react-icons/gr';
 
 export default function SocialIcons({ wdth = 'w-6', ht = 'h-6' }) {

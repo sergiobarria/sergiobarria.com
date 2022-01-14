@@ -1,5 +1,5 @@
-import { FaGithub } from 'react-icons/fa'
 import { BiLinkExternal } from 'react-icons/bi'
+import { FaGithub } from 'react-icons/fa'
 
 interface IProps {
   repoUrl: string

@@ -1,11 +1,11 @@
-import NextLink from 'next/link'
 import NextImage from 'next/image'
+import NextLink from 'next/link'
 
-import MainLayout from '@/components/layout/MainLayout'
+import Layout from '@/components/layout/Layout'
 
 export default function NotFoundPage() {
   return (
-    <MainLayout>
+    <Layout>
       <div className="flex flex-col items-center justify-center">
         <NextImage
           src="/static/images/not-found.jpg"
@@ -29,6 +29,6 @@ export default function NotFoundPage() {
           </NextLink>
         </div>
       </div>
-    </MainLayout>
+    </Layout>
   )
 }

@@ -1,13 +1,16 @@
-import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { formValidationSchema } from 'src/utils/formValidationSchema'
-import { FiSend } from 'react-icons/fi'
 import cn from 'classnames'
+import { useForm } from 'react-hook-form'
+import { FiSend } from 'react-icons/fi'
 
-import { UserSubmitForm } from '@/types/types'
-import useSubmit from 'src/hooks/useSubmit'
+import useSubmit from '@/hooks/useSubmit'
+
+import { formValidationSchema } from '@/utils/formValidationSchema'
+
 import Loader from './Loader'
 import MessageCard from './MessageCard'
+
+import { UserSubmitForm } from '@/types/types'
 
 export default function ContactForm() {
   const {

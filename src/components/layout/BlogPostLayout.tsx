@@ -1,25 +1,25 @@
 import { PropsWithChildren } from 'react'
-import NextImage from 'next/image'
 
-import MainLayout from '@/components/layout/MainLayout'
-import ContentWrapper from '../misc/ContentWrapper'
+import Link from 'next/link'
+
+import { format } from 'date-fns'
+import {
+  HiOutlineArrowNarrowLeft,
+  HiOutlineClock,
+  HiOutlineEye,
+} from 'react-icons/hi'
+
+import Layout from '@/components/layout/Layout'
+
+import { Post } from '.contentlayer/types'
+import CloudinaryImage from '../images/CloudinaryImage'
 import ViewCounter from '../misc/ViewCounter'
-import { IPost } from '@/types/PostTypes'
-import { formatDate } from 'src/lib/formatDate'
-import readingTime from 'reading-time'
-
-interface IProps {
-  post: IPost
-}
 
 export default function BlogPostLayout({
   children,
   post,
-}: PropsWithChildren<IProps>) {
-  const { coverImage, title, originallyPublishedOn, summary, slug } = post
-
-  const formattedDate = formatDate({ date: originallyPublishedOn })
-  const readTime = readingTime(post.content.markdown).text
+}: PropsWithChildren<{ post: Post }>) {
+  const formattedDate = format(new Date(post.publishedAt), 'MMMM dd, yyyy')
 
   const customMetadata = {
     url: 'https://sergiobarria.com/blog',
@@ -27,28 +27,46 @@ export default function BlogPostLayout({
   }
 
   return (
-    <MainLayout customMetadata={customMetadata}>
-      <NextImage
-        src={coverImage?.url || '/static/images/placeholder.jpeg'}
-        width={coverImage?.width || 1280}
-        height={coverImage?.height || 720}
-        placeholder={coverImage?.blurDataUrl ? 'blur' : 'empty'}
-        blurDataURL={coverImage?.blurDataUrl}
-        alt={coverImage?.alt}
-        className="rounded-2xl"
-      />
-      <h1 className="mt-4">{title}</h1>
-      <div className="flex items-center my-4 space-x-4 long-text">
-        <span>{formattedDate}</span> <span className="text-4xl">&middot;</span>
-        <p>{readTime}</p>
-        <span className="text-4xl">&middot;</span>
-        {/* <p>--- views</p> */}
-        <ViewCounter slug={slug} />
+    <Layout customMetadata={customMetadata}>
+      <div className="my-10 layout">
+        <Link href="/blog">
+          <a className="inline-block mb-4 text-gray-regular hover:text-gray-darker">
+            <span className="flex items-center">
+              <HiOutlineArrowNarrowLeft size={30} className="mr-2" />
+              Back
+            </span>
+          </a>
+        </Link>
+        <CloudinaryImage
+          publicId={`sergiobarria/banners/${post.banner}`}
+          alt="blog post cover"
+          width={1200}
+          height={720}
+        />
+        <h1 className="mt-4">{post.title}</h1>
+        <div className="flex items-center gap-1 my-4 text-gray-regular">
+          <div>
+            <span>{formattedDate}</span>
+            <span className="mx-2 text-gray-lighter">|</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <HiOutlineClock />
+            <span>{post.readingTime.text}</span>
+            <span className="mx-2 text-gray-lighter">|</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <HiOutlineEye />
+            <ViewCounter slug={post.slug} />
+          </div>
+        </div>
+
+        <div className="py-6 my-10 italic border-dashed text-long dark:text-gray-lighter border-y">
+          {post.summary}
+        </div>
+        <div className="prose max-w-none dark:prose-invert prose-li:marker:text-green-400 prose-li:marker:text-lg prose-a:no-underline">
+          {children}
+        </div>
       </div>
-
-      <div className="py-6 italic long-text border-y">{summary}</div>
-
-      <ContentWrapper>{children}</ContentWrapper>
-    </MainLayout>
+    </Layout>
   )
 }

@@ -1,5 +1,5 @@
-import NextLink from 'next/link'
 import NextImage from 'next/image'
+import NextLink from 'next/link'
 
 interface IProps {
   resolvedTheme?: string

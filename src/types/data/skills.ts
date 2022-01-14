@@ -1,18 +1,19 @@
 import {
-  mdiLanguageHtml5,
-  mdiLanguageCss3,
-  mdiLanguageJavascript,
-  mdiLanguageTypescript,
-  mdiNodejs,
-  mdiReact,
-  mdiVuejs,
-  mdiTailwind,
-  mdiLanguagePython,
-  mdiTriangle,
   mdiFirebase,
+  mdiLanguageCss3,
+  mdiLanguageHtml5,
+  mdiLanguageJavascript,
+  mdiLanguagePython,
+  mdiLanguageTypescript,
   mdiLeaf,
+  mdiNodejs,
   mdiPuzzleOutline,
+  mdiReact,
+  mdiTailwind,
+  mdiTriangle,
+  mdiVuejs,
 } from '@mdi/js'
+
 import { IIcon } from '../interfaces'
 
 export const skills: IIcon[] = [

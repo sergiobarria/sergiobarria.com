@@ -1,9 +1,12 @@
 import { useEffect } from 'react'
+
 import NextImage from 'next/image'
-import useSWR from 'swr'
+
 import { animate } from 'motion'
+import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
+
 import { NowPlayingSong } from '@/types/interfaces'
 
 function AnimatedBars() {

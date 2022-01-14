@@ -1,4 +1,5 @@
 import { getPlaiceholder } from 'plaiceholder'
+
 import { IAssetImage } from '@/types/PostTypes'
 
 export const addDataBlurUrl = async (

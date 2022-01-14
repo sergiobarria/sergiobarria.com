@@ -1,6 +1,7 @@
 import cn from 'classnames'
 
 import ExternalIcons from './ExternalIcons'
+
 import { IProject } from '@/types/ProjectTypes'
 
 export default function CustomProjectCard({

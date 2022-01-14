@@ -2,6 +2,7 @@ import Icon from '@mdi/react'
 
 import Section from '../misc/Section'
 import SectionTitle from '../misc/SectionTitle'
+
 import { skills } from '@/types/data/skills'
 
 // TODO: Finish this paragraph content

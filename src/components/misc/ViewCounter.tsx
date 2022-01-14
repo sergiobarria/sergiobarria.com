@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
+
 import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
+
 import { IViews } from '@/types/interfaces'
 
 export default function ViewCounter({ slug }: { slug: string }) {

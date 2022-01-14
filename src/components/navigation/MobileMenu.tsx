@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
 import NextLink from 'next/link'
-import useDelayedRender from 'use-delayed-render'
+
 import cn from 'classnames'
+import useDelayedRender from 'use-delayed-render'
 
 import styles from '@/styles/mobile-menu.module.css'
 

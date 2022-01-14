@@ -1,12 +1,15 @@
-import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { ThemeProvider } from 'next-themes'
-import { SessionProvider } from 'next-auth/react'
-// import 'react-toastify/dist/ReactToastify.css'
 
-import * as gtag from '@/lib/gtag'
+import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
+import { SessionProvider } from 'next-auth/react'
+import { ThemeProvider } from 'next-themes'
+
 import '@/styles/globals.css'
+import '@/styles/dracula.css'
+
+// import 'react-toastify/dist/ReactToastify.css'
+import * as gtag from '@/lib/gtag'
 
 // TODO: if not used, remove router from _app props
 

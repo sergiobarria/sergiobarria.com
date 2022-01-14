@@ -1,9 +1,10 @@
-import NextImage from 'next/image'
 import Icon from '@mdi/react'
 
-import ExternalIcons from './ExternalIcons'
-import { IProject } from '@/types/ProjectTypes'
 import { getIcon } from '@/utils/getIcon'
+
+import ExternalIcons from './ExternalIcons'
+
+import { IProject } from '@/types/ProjectTypes'
 
 interface IProps {
   project: IProject

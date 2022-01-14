@@ -1,6 +1,8 @@
-import { IIcon } from '@/types/interfaces'
-import { icons } from './icons'
 import { mdiPuzzleOutline } from '@mdi/js'
+
+import { icons } from './icons'
+
+import { IIcon } from '@/types/interfaces'
 
 export function getIcon(iconName: string) {
   let icon: IIcon

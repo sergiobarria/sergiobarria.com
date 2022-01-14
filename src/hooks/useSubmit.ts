@@ -1,7 +1,10 @@
 import { useState } from 'react'
+
 import { useRouter } from 'next/router'
-import { UserSubmitForm } from '@/types/types'
+
 import axios, { AxiosRequestConfig } from 'axios'
+
+import { UserSubmitForm } from '@/types/types'
 
 const useSubmit = () => {
   const [isLoading, setIsLoading] = useState(false)

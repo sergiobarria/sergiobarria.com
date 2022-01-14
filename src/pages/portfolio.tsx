@@ -1,54 +1,58 @@
-import { useState } from 'react'
-import { GetStaticProps } from 'next'
+// import { useState } from 'react'
 
-import { client } from '@/lib/urql/client'
+// import { GetStaticProps } from 'next'
 
-import MainLayout from '@/components/layout/MainLayout'
-import CurrentGoals from '@/components/misc/CurrentGoals'
-import Section from '@/components/misc/Section'
-import SectionTitle from '@/components/misc/SectionTitle'
-import { getAllProjects } from 'src/lib/graphcms'
-import { IProject } from '@/types/ProjectTypes'
-import SingleProjectCard from '@/components/misc/SingleProjectCard'
-import SearchBar from '@/components/misc/SearchBar'
+// import { getAllProjects } from 'src/lib/graphcms'
 
-interface IProps {
-  projects: IProject[]
-}
+// import { client } from '@/lib/urql/client'
 
-export const getStaticProps: GetStaticProps = async () => {
-  const projectsQuery = getAllProjects()
+import Layout from '@/components/layout/Layout'
+// import MainLayout from '@/components/layout/MainLayout'
+// import CurrentGoals from '@/components/misc/CurrentGoals'
+// import SearchBar from '@/components/misc/SearchBar'
+// import Section from '@/components/misc/Section'
+// import SectionTitle from '@/components/misc/SectionTitle'
+// import SingleProjectCard from '@/components/misc/SingleProjectCard'
 
-  const {
-    data: { projects },
-  } = await client?.query(projectsQuery).toPromise()
+// import { IProject } from '@/types/ProjectTypes'
 
-  return {
-    props: {
-      projects,
-    },
-    revalidate: 60 * 60, // Every 1 hr
-  }
-}
+// interface IProps {
+//   projects: IProject[]
+// }
 
-export default function PortfolioPage({ projects }: IProps) {
-  const [searchValue, setSearchValue] = useState('')
-  const orderedProjects = [...projects].sort(
-    (projA, projB) => projB.number - projA.number
-  )
+// export const getStaticProps: GetStaticProps = async () => {
+//   const projectsQuery = getAllProjects()
 
-  // Search project functionality
-  const filterProjects = (projects: IProject[], searchValue: string) => {
-    const filteredProjects = projects.filter(
-      p =>
-        p.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchValue.toLowerCase())
-    )
+//   const {
+//     data: { projects },
+//   } = await client?.query(projectsQuery).toPromise()
 
-    return filteredProjects
-  }
+//   return {
+//     props: {
+//       projects,
+//     },
+//     revalidate: 60 * 60, // Every 1 hr
+//   }
+// }
 
-  const filteredProjects = filterProjects(orderedProjects, searchValue)
+export default function PortfolioPage() {
+  // const [searchValue, setSearchValue] = useState('')
+  // const orderedProjects = [...projects].sort(
+  //   (projA, projB) => projB.number - projA.number
+  // )
+
+  // // Search project functionality
+  // const filterProjects = (projects: IProject[], searchValue: string) => {
+  //   const filteredProjects = projects.filter(
+  //     p =>
+  //       p.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+  //       p.description.toLowerCase().includes(searchValue.toLowerCase())
+  //   )
+
+  //   return filteredProjects
+  // }
+
+  // const filteredProjects = filterProjects(orderedProjects, searchValue)
 
   const customMetadata = {
     url: 'https://sergiobarria.com/portfolio',
@@ -56,8 +60,8 @@ export default function PortfolioPage({ projects }: IProps) {
   }
 
   return (
-    <MainLayout customMetadata={customMetadata}>
-      <div>
+    <Layout customMetadata={customMetadata}>
+      {/* <div>
         <h1>Welcome to my Portfolio</h1>
         <hr className="my-6" />
         <p className="mb-6 prose max-w-none long-text dark:prose-invert">
@@ -86,7 +90,7 @@ export default function PortfolioPage({ projects }: IProps) {
             <SingleProjectCard key={project.id} project={project} />
           ))}
         </div>
-      </Section>
-    </MainLayout>
+      </Section> */}
+    </Layout>
   )
 }

@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react'
+
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
 
 const useSetTheme = () => {
   const [mounted, setMounted] = useState<boolean | null>(false)

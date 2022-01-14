@@ -2,11 +2,11 @@
 //   date: string
 // }
 
-interface Props {
-  date: string
-}
+// interface Props {
+//   date: string
+// }
 
-export const formatDate = ({ date }: Props) => {
+const formatDate = (date: string) => {
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
@@ -16,3 +16,5 @@ export const formatDate = ({ date }: Props) => {
 
   return formattedDate
 }
+
+export default formatDate

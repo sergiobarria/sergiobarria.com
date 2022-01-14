@@ -1,3 +1,50 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next", "next/core-web-vitals"],
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "no-console": "warn",
+    "react/no-unescaped-entities": 0,
+
+    // Sort
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          // Node.js built in modules
+          ["^(fs|http|https|module|path)(/.*|$)"],
+          // Packages. `react` related packages come first.
+          ["^react$"],
+          // Packages. `next` related packages come second.
+          ["^next"],
+          // ext library & side effect imports
+          ["^@?\\w", "^\\u0000"],
+          // {s}css files
+          ["^.+\\.s?css$"],
+          // Lib and hooks
+          ["^@/lib", "^@/hooks"],
+          // static data
+          ["^@/data"],
+          // components
+          ["^@/components"],
+          // Other imports
+          ["^@/"],
+          // relative paths up until 3 level
+          [
+            "^\\./?$",
+            "^\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\./\\.\\.(?!/?$)"
+          ],
+          ["^@/types"],
+          // other that didn't fit in
+          ["^"]
+        ]
+      }
+    ]
+  }
 }

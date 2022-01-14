@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+
 import sgMail from '@sendgrid/mail'
 
 // Set SendGrid Api key
