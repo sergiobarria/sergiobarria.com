@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import { SessionProvider } from 'next-auth/react'
+// import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from 'next-themes'
 
 import '@/styles/globals.css'
@@ -33,11 +33,11 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <SessionProvider session={pageProps.session}>
-        <ThemeProvider enableSystem={true} attribute="class">
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </SessionProvider>
+      {/* <SessionProvider session={pageProps.session}> */}
+      <ThemeProvider enableSystem={true} attribute="class">
+        <Component {...pageProps} />
+      </ThemeProvider>
+      {/* </SessionProvider> */}
     </>
   )
 }

@@ -1,5 +1,7 @@
 ## sergiobarria.com
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 My personal portfolio and blog hosted at [sergiobarria.com](https://www.sergiobarria.com/).
 
 I recently migrated my porfolio from a Gatsby - Sanity.io stack to using Next js.

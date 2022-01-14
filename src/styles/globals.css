@@ -78,7 +78,7 @@ html {
   }
 
   h4 {
-    @apply text-base font-bold text-gray-700 dark:text-gray-200 md:text-lg;
+    @apply text-base font-semibold text-gray-700 dark:text-gray-200;
   }
 
   /* END - DEFAULT TYPOGRAPHY */
@@ -137,6 +137,22 @@ html {
   .send-form-btn {
     @apply px-4 py-2 font-bold text-white transition duration-300 rounded shadow bg-amber-500 hover:scale-105 hover:bg-amber-400 focus:outline-none;
   }
+}
+
+.javascript {
+  @apply bg-[#f1e05a];
+}
+
+.typescript {
+  @apply bg-[#2b7489];
+}
+
+.vue {
+  @apply bg-[#41b883];
+}
+
+.html {
+  @apply bg-[#e34c26];
 }
 
 /* Titles for rehype-code-title class */

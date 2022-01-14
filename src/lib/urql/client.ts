@@ -1,18 +1,24 @@
 import {
+  cacheExchange,
   createClient,
-  // dedupExchange,
-  // cacheExchange,
-  // fetchExchange,
-  // ssrExchange,
+  dedupExchange,
+  fetchExchange,
+  ssrExchange,
 } from 'urql'
 
-// const isServerSide = typeof window === 'undefined'
+const isServerSide = typeof window === 'undefined'
+const ssrCache = ssrExchange({ isClient: !isServerSide })
 
-// const ssr = ssrExchange({
-//   isClient: !isServerSide,
-// })
-
-export const client = createClient({
-  url: process.env.NEXT_PUBLIC_GRAPHCMS_URL!,
-  // exchanges: [dedupExchange, cacheExchange, ssr, fetchExchange],
+const client = createClient({
+  url: 'https://api.github.com/graphql',
+  exchanges: [dedupExchange, cacheExchange, ssrCache, fetchExchange],
+  fetchOptions: () => {
+    return {
+      headers: {
+        authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+      },
+    }
+  },
 })
+
+export { client, ssrCache }

@@ -10,12 +10,12 @@ export default function Footer() {
         </div>
         <div className="flex flex-col items-center text-center">
           <SocialIcons />
-          <p className="flex items-center justify-center mt-4 text-sm long-text">
+          <p className="flex items-center justify-center mt-4 text-sm text-gray-regular dark:text-gray-lighter">
             <span>&copy; {new Date().getFullYear()}</span>
             <span className="mx-1 text-3xl">&middot;</span>
             <span>Sergio Barria</span>
           </p>
-          <p className="text-sm long-text">
+          <p className="text-sm text-gray-regular dark:text-gray-lighter">
             Built with{' '}
             <a
               href="https://nextjs.org/"

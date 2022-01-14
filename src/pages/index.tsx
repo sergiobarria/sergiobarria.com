@@ -1,39 +1,26 @@
 import { InferGetStaticPropsType } from 'next'
 
-// import { client } from '@/lib/urql/client'
+import { client } from '@/lib/urql/client'
+import { PINNED_REPOS_QUERY } from '@/lib/urql/queries'
+
 import Layout from '@/components/layout/Layout'
 import BlogPostCard from '@/components/misc/BlogPostCard'
 import CurrentGoals from '@/components/misc/CurrentGoals'
+import GithubCard from '@/components/misc/GithubCard'
 
-// import Hero from '@/components/home/Hero'
-// import FeaturedPosts from '@/components/misc/FeaturedPosts'
-// import FeaturedProjects from '@/components/home/FeaturedProjects'
-// import DeveloperSkills from '@/components/home/DeveloperSkills'
-// import { getAllPosts, getFeaturedProjects } from '@/lib/graphcms/queries'
-// import { IPost } from '@/types/PostTypes'
-// import { IProject } from '@/types/ProjectTypes'
 import { allPosts } from '.contentlayer/data'
 
-// interface IProps {
-//   featuredPosts: IPost[]
-//   projects: IProject[]
-// }
-
 export async function getStaticProps() {
-  // const posts = await getAllFilesFrontmatter('blog')
   const featuredPosts = allPosts.filter(post => post.isFeatured)
-  // console.log(featuredPosts)
 
-  // console.log(posts)
-  // const featuredPosts = getFeatured(posts, [
-  //   'how-to-make-a-blog-with-next-js-and-sanity-io',
-  //   'how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content',
-  //   'how-to-link-and-display-your-latest-blog-posts-to-your-github-profile',
-  // ])
+  const { data } = await client.query(PINNED_REPOS_QUERY).toPromise()
+
+  const repos = data.user.pinnedItems.edges
 
   return {
     props: {
       featuredPosts,
+      repos,
     },
     revalidate: 60 * 10, // 10 min
   }
@@ -41,6 +28,7 @@ export async function getStaticProps() {
 
 export default function HomePage({
   featuredPosts,
+  repos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const customMetadata = {
     url: 'https://sergiobarria.com/',
@@ -80,6 +68,15 @@ export default function HomePage({
       <section className="section">
         <div className="layout">
           <h2 className="mb-6">Featured Projects</h2>
+          <p className="mb-4 text-long">
+            Here you can see some of the projects I've work on. This are fetchet
+            from Github using Github's GraphQL API.
+          </p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {repos.map((item: any) => (
+              <GithubCard key={item.node.id} repo={item.node.name} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -90,11 +87,6 @@ export default function HomePage({
           <CurrentGoals />
         </div>
       </section>
-
-      {/* 
-      <FeaturedPosts featuredPosts={featuredPosts} />
-      <FeaturedProjects featuredProjects={projects} />
-      <DeveloperSkills /> */}
     </Layout>
   )
 }
