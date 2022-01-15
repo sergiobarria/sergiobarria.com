@@ -23,7 +23,7 @@ html {
 }
 
 ::selection {
-  background-color: #f59e0b;
+  background-color: #4022c5;
   color: #fefefe;
 }
 
@@ -36,18 +36,6 @@ html {
 }
 
 @layer base {
-  /* inter var - latin */
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: optional;
-    src: url('/fonts/inter-var-latin.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-      U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
-      U+2215, U+FEFF, U+FFFD;
-  }
-
   /* START - DEFAULT TYPOGRAPHY */
   h1 {
     @apply text-4xl font-bold text-gray-darker dark:text-gray-light md:text-5xl;
@@ -69,6 +57,10 @@ html {
 
   hr {
     @apply my-4 border-gray-200 dark:border-gray-500;
+  }
+
+  .min-h-main {
+    @apply min-h-[calc(100vh-82px)];
   }
 }
 

@@ -1,21 +1,15 @@
-// TODO: Update next.config file
-const withPlugins = require('next-compose-plugins')
-const { withContentlayer } = require('next-contentlayer')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
+const { withContentlayer } = require('next-contentlayer');
 
 /**
  * @type {import('next').NextConfig}
  **/
 
-const nextConfig = {
+module.exports = withContentlayer()({
   swcMinify: true,
   reactStrictMode: true,
   images: {
     domains: ['res.cloudinary.com', 'i.scdn.co'],
   },
-  reactStrictMode: true,
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {
@@ -23,14 +17,9 @@ const nextConfig = {
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat',
-      })
+      });
     }
 
-    return config
+    return config;
   },
-}
-
-module.exports = withPlugins(
-  [withBundleAnalyzer, withContentlayer()],
-  nextConfig
-)
+});

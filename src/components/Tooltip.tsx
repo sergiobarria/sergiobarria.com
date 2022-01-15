@@ -3,7 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Tooltip as TippyTooltip, TooltipProps } from 'react-tippy';
 
-type TootipTextProps = {
+type TooltipTextProps = {
   content?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
@@ -19,7 +19,7 @@ export default function Tooltip({
   spanClassName,
   withUnderline = false,
   ...rest
-}: TootipTextProps) {
+}: TooltipTextProps) {
   return (
     <TippyTooltip
       trigger='mouseenter'

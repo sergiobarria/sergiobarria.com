@@ -5,7 +5,7 @@ import {
 } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import SnippetLayout from '@/components/layout/SnippetLayout';
+import SnippetLayout from '@/components/layout-pages/SnippetLayout';
 import components from '@/components/MDXComponents';
 
 import { allSnippets } from '.contentlayer/data';

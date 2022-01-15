@@ -5,9 +5,9 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import clsx from 'clsx';
 import { HiArrowRight } from 'react-icons/hi';
 
-import Layout from '@/components/layout/Layout';
-import SearchBar from '@/components/misc/SearchBar';
-import TechIcons, { TechListType } from '@/components/misc/TechIcons';
+import Layout from '@/components/layout-main/Layout';
+import SearchBar from '@/components/SearchBar';
+import TechIcons, { TechListType } from '@/components/TechIcons';
 
 // import CloudinaryImage from '@/components/images/CloudinaryImage'
 import { allProjects } from '.contentlayer/data';

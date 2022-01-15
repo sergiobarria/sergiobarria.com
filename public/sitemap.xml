@@ -1,108 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://sergiobarria.com/about</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/blog</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/contact</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/portfolio</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/resources</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/about/about</loc>
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/5-common-mistakes-beginners-make-when-learning-to-code</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/back-end-vs-front-end-web-development</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/build-projects-build-knowledge-build-a-foundation</loc
-    >
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/blog/choosing-your-developer-path</loc>
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/blog/hello-world</loc>
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/how-to-add-pagination-to-gatsby-site</loc
-    >
-  </url>
-
-  <url>
-    <loc>https://sergiobarria.com/blog/how-to-add-rss-feed-to-next-js-site</loc>
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/how-to-create-and-edit-your-github-profile</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/how-to-link-and-display-your-latest-blog-post-to-your-github-profile</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/how-to-make-a-blog-with-next-js-and-sanity-io</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/my-personal-portfolio-got-some-improvements</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/should-i-learn-more-than-one-programming-language-at-the-same-time</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://sergiobarria.com/blog/what-is-the-tutorial-hell-and-how-to-escape-it</loc
-    >
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://sergiobarria.com</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.083Z</lastmod></url>
+<url><loc>https://sergiobarria.com/about</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/contact</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/library</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/portfolio</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/library/send-email-with-sendgrid</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/5-common-mistakes-beginners-make-when-learning-to-code</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/back-end-vs-front-end-web-development</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/build-projects-build-knowledge-build-a-foundation</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/choosing-your-developer-path</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/hello-world</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/how-to-add-dynamic-routes-to-next-js-blog-with-sanity-io-content</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/how-to-add-pagination-to-gatsby-site</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/how-to-add-rss-feed-to-nextjs-site</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/how-to-create-and-edit-your-github-profile</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/how-to-link-and-display-your-latest-blog-posts-to-your-github-profile</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/how-to-make-a-blog-with-next-js-and-sanity-io</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/my-personal-portfolio-got-some-improvements</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/should-i-learn-more-than-one-programming-language-at-the-same-time</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
+<url><loc>https://sergiobarria.com/blog/what-is-the-tutorial-hell-and-how-to-escape-it</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-15T20:31:18.084Z</lastmod></url>
 </urlset>

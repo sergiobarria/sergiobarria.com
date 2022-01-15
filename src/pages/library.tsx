@@ -4,9 +4,9 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { pick } from 'contentlayer/client';
 
-import Layout from '@/components/layout/Layout';
-import SearchBar from '@/components/misc/SearchBar';
-import TechIcons, { TechListType } from '@/components/misc/TechIcons';
+import Layout from '@/components/layout-main/Layout';
+import SearchBar from '@/components/SearchBar';
+import TechIcons, { TechListType } from '@/components/TechIcons';
 
 import { allSnippets } from '.contentlayer/data';
 import { Snippet } from '.contentlayer/types';
@@ -52,7 +52,7 @@ export default function LibraryPage({
           />
         </section>
 
-        <section className='section'>
+        <section className='mb-8 section'>
           {!filteredSnippets.length && (
             <p className='mt-2 text-gray-regular dark:text-gray-lighter'>
               No snippets found...
@@ -60,9 +60,9 @@ export default function LibraryPage({
           )}
 
           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
-            {filteredSnippets.map((snippet: Snippet) => (
+            {filteredSnippets.map((snippet: Snippet, index: number) => (
               <div
-                key={snippet._id}
+                key={index}
                 className='p-3 transition duration-200 border rounded-md hover:scale-[1.03] hover:shadow-md'
               >
                 <a href={`library/${snippet.slug}`} className='space-y-2'>

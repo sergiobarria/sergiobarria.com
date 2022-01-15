@@ -11,6 +11,14 @@ In the last post, I wrote a short guide on [how to make a blog with Next.js and
 
 Adding dynamic pages is easier than you may think. So, without further to do, let's get to work.
 
+1. [1. Create a template for your routes](#1-create-a-template-for-your-routes)
+2. [2. Fetching data from Sanity Studio](#2-fetching-data-from-sanity-studio)
+3. [Generate dynamic routes: `getStaticPaths`](#generate-dynamic-routesgetstaticpaths)
+4. [Get static content: `getStaticProps`](#get-static-contentgetstaticprops)
+5. [3. Pass the fetched data to our template](#3-pass-the-fetched-data-to-our-template)
+6. [4. Incremental Static Regeneration](#4-incremental-static-regeneration)
+7. [That's it!](#thats-it)
+
 ## 1. Create a template for your routes
 
 The first thing we need for our routes is a template. This template will be used to render all the pages that we need to look the same way. For example, let's say we are creating a blog, probably all our blog posts will have the same look (a header, a body content and a footer is a basic example). So, for our blog posts, we will create a template. Of course, the same example applies to any other content, a single product page for e-commerce, a podcast page, and so on.

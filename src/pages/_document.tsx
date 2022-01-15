@@ -4,60 +4,55 @@ import Document, {
   Html,
   Main,
   NextScript,
-} from 'next/document'
+} from 'next/document';
 
 // TODO: Remove or update inter font family
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang='en'>
         <Head>
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link
-            rel="preload"
-            href="/fonts/inter-var-latin.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
+            rel='preconnect'
+            href='https://fonts.gstatic.com'
+            crossOrigin='true'
           />
-          {/* Font Family Import: IBM Plex Sans */}
-          {/* <link
-            rel="preload"
-            href="/fonts/ibm-plex-sans-var.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          /> */}
+          <link
+            href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap'
+            rel='stylesheet'
+          />
 
           {/* Favicon */}
-          <link href="/static/favicon/favicon.ico" rel="shortcut icon" />
-          <link href="/static/favicon/site.webmanifest" rel="manifest" />
+          <link href='/static/favicon/favicon.ico' rel='shortcut icon' />
+          <link href='/static/favicon/site.webmanifest' rel='manifest' />
           <link
-            href="/static/favicon/apple-touch-icon.png"
-            rel="apple-touch-icon"
-            sizes="180x180"
+            href='/static/favicon/apple-touch-icon.png'
+            rel='apple-touch-icon'
+            sizes='180x180'
           />
           <link
-            href="/static/favicon/favicon-32x32.png"
-            rel="icon"
-            sizes="32x32"
-            type="image/png"
+            href='/static/favicon/favicon-32x32.png'
+            rel='icon'
+            sizes='32x32'
+            type='image/png'
           />
           <link
-            href="/static/favicon/favicon-16x16.png"
-            rel="icon"
-            sizes="16x16"
-            type="image/png"
+            href='/static/favicon/favicon-16x16.png'
+            rel='icon'
+            sizes='16x16'
+            type='image/png'
           />
           <link
-            color="#4a9885"
-            href="/static/favicon/safari-pinned-tab.svg"
-            rel="mask-icon"
+            color='#4a9885'
+            href='/static/favicon/safari-pinned-tab.svg'
+            rel='mask-icon'
           />
 
           {/* Google Site Tag (gtag.js) - Google Analytics */}
@@ -79,11 +74,11 @@ export default class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className="antialiased">
+        <body className='antialiased bg-gray-50 dark:bg-gray-900'>
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

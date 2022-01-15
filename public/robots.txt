@@ -1,2 +1,9 @@
+# *
 User-agent: *
+Allow: /
+
+# Host
+Host: https://sergiobarria.com
+
+# Sitemaps
 Sitemap: https://sergiobarria.com/sitemap.xml

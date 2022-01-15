@@ -1,28 +1,28 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { buildUrl } from 'cloudinary-build-url'
-import clsx from 'clsx'
-import Lightbox from 'react-image-lightbox'
+import { buildUrl } from 'cloudinary-build-url';
+import clsx from 'clsx';
+import Lightbox from 'react-image-lightbox';
 
-import 'react-image-lightbox/style.css'
+import 'react-image-lightbox/style.css';
 
 type ICloudinaryImg = {
-  publicId: string
-  height: string | number
-  width: string | number
-  alt: string
-  title?: string
-  className?: string
-  preview?: boolean
-  noStyle?: boolean
+  publicId: string;
+  height: string | number;
+  width: string | number;
+  alt: string;
+  title?: string;
+  className?: string;
+  preview?: boolean;
+  noStyle?: boolean;
   aspect?: {
-    width: number
-    height: number
-  }
-  mdx?: boolean
-} & React.ComponentPropsWithoutRef<'figure'>
+    width: number;
+    height: number;
+  };
+  mdx?: boolean;
+} & React.ComponentPropsWithoutRef<'figure'>;
 
 export default function CloudinaryImage({
   publicId,
@@ -38,7 +38,7 @@ export default function CloudinaryImage({
   aspect,
   ...rest
 }: ICloudinaryImg) {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false)
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const urlBlurred = buildUrl(publicId, {
     cloud: {
@@ -53,7 +53,7 @@ export default function CloudinaryImage({
         ? `c_fill,ar_${aspect.width}:${aspect.height},w_${width}`
         : undefined,
     },
-  })
+  });
 
   const url = buildUrl(publicId, {
     cloud: {
@@ -64,9 +64,9 @@ export default function CloudinaryImage({
         ? `c_fill,ar_${aspect.width}:${aspect.height},w_${width}`
         : undefined,
     },
-  })
+  });
 
-  const aspectRatio = aspect ? aspect.height / aspect.width : undefined
+  const aspectRatio = aspect ? aspect.height / aspect.width : undefined;
 
   return (
     <figure
@@ -89,7 +89,7 @@ export default function CloudinaryImage({
             : `${(+height / +width) * 100}%`,
           cursor: preview ? 'zoom-in' : 'default',
         }}
-        className="img-blur"
+        className='img-blur'
         onClick={preview ? () => setIsOpen(true) : undefined}
       >
         <style jsx>{`
@@ -104,7 +104,7 @@ export default function CloudinaryImage({
             background-size: 100%;
           }
         `}</style>
-        <div className="absolute top-0 left-0">
+        <div className='absolute top-0 left-0'>
           <Image
             src={url}
             width={width}
@@ -118,5 +118,5 @@ export default function CloudinaryImage({
         <Lightbox mainSrc={url} onCloseRequest={() => setIsOpen(false)} />
       )}
     </figure>
-  )
+  );
 }

@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react';
 
 import clsx from 'clsx';
 
-import Layout from './Layout';
 import { Snippet } from '.contentlayer/types';
+import Layout from '../layout-main/Layout';
 
 export default function SnippetLayout({
   children,

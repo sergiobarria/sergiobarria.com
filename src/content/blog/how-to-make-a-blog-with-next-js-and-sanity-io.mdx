@@ -11,7 +11,23 @@ isFeatured: true
 I started using Sanity headless CMS a few weeks back and in general, although I hit a few bumps in the way the process was relatively simple. Nonetheless, I couldn't find any tutorials or information on how to use Next js and Sanity together. And a good part of what I found was a bit outdated.
 Because of this, I decided to write a small tutorial on how the general process works. There is a lot to do so, let's get to it.
 
-## 1. Install Sanity CLI
+## Table of Contents
+1. [Table of Contents](#table-of-contents)
+2. [Install Sanity CLI](#install-sanity-cli)
+3. [Create Next.js Project](#create-nextjs-project)
+4. [Start Sanity Studio](#start-sanity-studio)
+5. [Connect Sanity and Next Js](#connect-sanity-and-next-js)
+   1. [Next to Sanity Connection](#next-to-sanity-connection)
+   2. [Sanity to Next Connection](#sanity-to-next-connection)
+6. [Fetch data from Sanity](#fetch-data-from-sanity)
+   1. [Fetching Data Using GROQ](#fetching-data-using-groq)
+7. [Render our data](#render-our-data)
+8. [Finish our blog and deploy](#finish-our-blog-and-deploy)
+   1. [Deploy frontend](#deploy-frontend)
+   2. [Deploy Sanity Studio](#deploy-sanity-studio)
+9. [Next steps...](#next-steps)
+
+## Install Sanity CLI
    
 First, make sure you have a registered account in sanity.io.
 
@@ -30,7 +46,7 @@ Now install the Sanity CLI by typing this in your terminal:
 npm install -g @sanity/cli
 ```
 
-## 2. Create Next.js Project
+## Create Next.js Project
 
 Although you can create a Next.js project using one of the starter templates that Sanity provides, we are going to start with a basic create-next-app. So, in your terminal or command line navigate to the folder where you're going to save your blog and write
 
@@ -48,7 +64,7 @@ npx create-next-app your-blog-name-here
 
 Once the process has finished you can type `npm run dev` in your terminal to start the developer server on `localhost:3000`. Now you can open your Next project in your text editor or IDE.
 
-## 3. Start Sanity Studio
+## Start Sanity Studio
 
 Now that we have our Next project ready to start developing, we need to create our Sanity Studio. The studio is the one that will allow us to create our "backend" to manage our block content, it is very easy to use and very customizable.
 
@@ -85,7 +101,7 @@ Now you can go to `localhost:3333` in your web browser and you will be asked to 
   height={295} 
 />
 
-## 4. Connect Sanity and Next Js
+## Connect Sanity and Next Js
 
 ### Next to Sanity Connection
 
@@ -141,7 +157,7 @@ Add your development server: `http://localhost:3000`
 
 **IMPORTANT:** Once we deploy our blog, we need to come back here and add our URL for deployment in order to be able to fetch data during production.
 
-## 5. Fetch data from Sanity
+## Fetch data from Sanity
 
 First, let's make sure we have some data to fetch. So, in our sanity studio, local server (in the browser) let's add a new post. You can start by using any "dummy data" for a start. Just type any data on the input boxes. In the case of the author and category, you can either leave it empty or create an author and category on the correspondent content tabs, you can read more about the content models in the sanity docs [here](https://www.sanity.io/guides/implementing-a-content-model-in-sanity-io). Remember to click the publish button once you have finished creating your dummy post.
 
@@ -157,7 +173,7 @@ Now that we have some data to fetch, let's go to our next js pages and inside th
 
 In order to fetch data from sanity, we're going to use Next Static Side Generation (SSG). In order to do this, we have to use the special function provided by Next.js called: `getStaticProps`. You can read more about static data fetching in Next docs [here](https://nextjs.org/docs/basic-features/data-fetching).
 
-## Fetching Data Using GROQ
+### Fetching Data Using GROQ
 
 Sanity provides two ways of data fetching. The first is using standard GraphQL. The second one and the one we're going to use is using Sanity in house query language which they call [Graph-Relational Object Queries (GROQ)](https://www.sanity.io/docs/how-queries-work). You can find a `GROQ` cheat sheet here.
 
@@ -214,7 +230,7 @@ The rest of the query simply lists all of the items that we want from the post s
 
 **Side note:** inside the schemas folder is where we can customize our studio and add or remove fields to adapt our project to the required needs.
 
-## 6. Render our data
+## Render our data
 
 Now that we fetched our data we need to render it to HTML. We first need to pass our data via props to the components that are going to render it. In order to render fields like title, author, or date we can use simple `JSX` elements to render the data.
 
@@ -237,7 +253,7 @@ export default function YourComponent(props) {
 
 Remember that you have to destructure your body content from the data previously fetched with `GROQ` and `getStaticProps`. Also, you can customize how your BlockContent renders each element like headings, blockquotes, lists, and others by using a prop called serializers inside the `BlockContent` component. You can read more on the [package documentation](https://www.npmjs.com/package/@sanity/block-content-to-react).
 
-## 7. Finish our blog and deploy
+## Finish our blog and deploy
 
 At this point, we have all the basics required to build our blog and connect our Next js project to the Sanity CMS. Once you are ready to deploy you can follow these steps.
 

@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
+import CloudinaryImage from './CloudinaryImage';
 // import Link from 'next/link'
 import CodeBlock, { Pre } from './CodeBlock';
 import CustomLink from './CustomLink';
-import CloudinaryImage from './images/CloudinaryImage';
-import Step from './misc/Step';
+import Step from './Step';
 
 const MDXComponents = {
   a: CustomLink,

@@ -37,13 +37,13 @@ export type TechIconsProps = {
 export default function TechIcons({ className, techs }: TechIconsProps) {
   return (
     <ul className={clsx(className, 'flex gap-4')}>
-      {techs.map((tech) => {
+      {techs.map((tech, index) => {
         if (!techList[tech]) return;
 
         const current = techList[tech];
 
         return (
-          <Tooltip key={current.name} content={<p>{current.name}</p>}>
+          <Tooltip key={index} content={<p>{current.name}</p>}>
             <li className='text-xl text-gray-darker dark:text-gray-light'>
               <current.icon />
             </li>

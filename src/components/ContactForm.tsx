@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import cn from 'classnames';
+import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { FiSend } from 'react-icons/fi';
 import { toast, ToastContainer } from 'react-toastify';
@@ -12,8 +12,8 @@ import useSubmit from '@/hooks/useSubmit';
 import { formValidationSchema } from '@/utils/formValidationSchema';
 
 import Loader from './Loader';
+import MessageCard from './MessageCard';
 
-// import MessageCard from './MessageCard';
 import { UserSubmitForm } from '@/types/types';
 
 export default function ContactForm() {
@@ -31,31 +31,28 @@ export default function ContactForm() {
 
   useEffect(() => {
     if (message === 'success') {
-      toast.success(
-        "Thanks for getting in touch. I'll get back to you as soon as possible!"
-      );
+      toast.success('Message Sent!');
     }
   }, [message]);
 
   return (
     <>
       {isLoading && <Loader />}
-      {/* {message && <MessageCard message={message} />} */}
-      {!isLoading && (
+      {message && <MessageCard message={message} />}
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        theme={currentTheme === 'light' ? 'light' : 'dark'}
+      />
+      {!isLoading && !message && (
         <form className='w-full' onSubmit={handleSubmit(handler)}>
-          <ToastContainer
-            position='top-right'
-            autoClose={5000}
-            hideProgressBar={false}
-            closeOnClick
-            pauseOnHover
-            theme={currentTheme === 'light' ? 'light' : 'dark'}
-          />
-
           {/* Name Input */}
           <div className='flex flex-wrap w-full mb-6'>
             <input
-              className={cn(
+              className={clsx(
                 'input mb-2',
                 errors.name ? 'ring-2 ring-red-500' : ''
               )}
@@ -73,7 +70,7 @@ export default function ContactForm() {
           {/* Email Input */}
           <div className='flex flex-wrap w-full mb-6'>
             <input
-              className={cn(
+              className={clsx(
                 'mb-2 input',
                 errors.email ? 'ring-2 text-red-500' : ''
               )}
@@ -91,7 +88,7 @@ export default function ContactForm() {
           {/* Message Input */}
           <div className='flex flex-wrap w-full mb-6'>
             <textarea
-              className={cn(
+              className={clsx(
                 'h-48 mb-2 input ',
                 errors.message ? 'ring-2 text-red-500' : ''
               )}
@@ -107,7 +104,13 @@ export default function ContactForm() {
 
           {/* Submit Button */}
           <div className='md:w-1/3'>
-            <button className='flex items-center send-form-btn focus:shadow-outline'>
+            <button
+              disabled={message ? true : false}
+              className={clsx(
+                'flex items-center send-form-btn focus:shadow-outline',
+                message && 'cursor-not-allowed bg-gray-regular'
+              )}
+            >
               Send <FiSend className='ml-2' />
             </button>
           </div>
