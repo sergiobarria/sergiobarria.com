@@ -37,6 +37,8 @@ yarn-error.log*
 
 /public/mockups/
 /public/other-favicons/
+/public/robots.txt
+/public/sitemap.xml
 
 TODO.md
 pagesViews.md

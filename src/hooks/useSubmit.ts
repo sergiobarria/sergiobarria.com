@@ -1,22 +1,23 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-import axios, { AxiosRequestConfig } from 'axios'
+import axios, { AxiosRequestConfig } from 'axios';
+import { toast } from 'react-toastify';
 
-import { UserSubmitForm } from '@/types/types'
+import { UserSubmitForm } from '@/types/types';
 
 const useSubmit = () => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [message, setMessage] = useState<string>('')
-  const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState<string>('');
+  const router = useRouter();
 
   async function submitFormHandler(
     url: string,
     formData: UserSubmitForm,
     reset: () => void
   ) {
-    setIsLoading(true)
+    setIsLoading(true);
 
     const config: AxiosRequestConfig = {
       method: 'POST',
@@ -26,26 +27,26 @@ const useSubmit = () => {
         'Content-Type': 'application/json',
       },
       data: formData,
-    }
+    };
 
     try {
-      const res = await axios(config)
+      const res = await axios(config);
       if (res.status === 200) {
-        reset()
-        setIsLoading(false)
-        setMessage(res.data.message)
+        reset();
+        setIsLoading(false);
+        setMessage(res.data.message);
         setTimeout(() => {
-          router.push('/')
-        }, 3000)
+          router.push('/');
+        }, 5000);
       }
     } catch (error: any) {
-      setIsLoading(false)
-      setMessage(error.message)
-      console.error(error.message)
+      setIsLoading(false);
+      setMessage(error.message);
+      toast.error('Something went wrong! Please, try again later.');
     }
   }
 
-  return { isLoading, submitFormHandler, message }
-}
+  return { isLoading, submitFormHandler, message };
+};
 
-export default useSubmit
+export default useSubmit;

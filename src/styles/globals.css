@@ -48,22 +48,6 @@ html {
       U+2215, U+FEFF, U+FFFD;
   }
 
-  /* @font-face {
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: optional;
-    src: url(/fonts/ibm-plex-sans-var.woff2) format('woff2');
-  }
-
-  @font-face {
-    font-family: 'IBM Plex Sans';
-    font-style: italic;
-    font-weight: 100 900;
-    font-display: optional;
-    src: url(/fonts/ibm-plex-sans-var-italic.woff2) format('woff2');
-  } */
-
   /* START - DEFAULT TYPOGRAPHY */
   h1 {
     @apply text-4xl font-bold text-gray-darker dark:text-gray-light md:text-5xl;
@@ -135,11 +119,11 @@ html {
   }
 
   .input {
-    @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-amber-400 focus:border-0;
+    @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-green-400 focus:border-0;
   }
 
   .send-form-btn {
-    @apply px-4 py-2 font-bold text-white transition duration-300 rounded shadow bg-amber-500 hover:scale-105 hover:bg-amber-400 focus:outline-none;
+    @apply px-4 py-2 font-bold text-gray-darker transition duration-300 rounded shadow bg-gradient-to-tr from-green-500 to-yellow-300 hover:scale-105 hover:bg-opacity-50 focus:outline-none;
   }
 }
 
