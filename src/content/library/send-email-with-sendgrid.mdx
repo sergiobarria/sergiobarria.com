@@ -1,0 +1,64 @@
+---
+title: 'Send emails with SendGrid'
+description: 'How to send emails using Sendgrid with Next Js API routes.'
+tags: 'next,sendgrid'
+---
+
+```js:send-email.js
+import sgMail from '@sendgrid/mail'
+
+// Set SendGrid Api key
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
+export default async function handler(req, res) {
+  const { name, email, message } = req.body
+
+  const msg = `
+    Name: ${name}\r\n
+    Email: ${email}\r\n
+    Message: ${message}
+  `
+
+  const data = {
+    to: 'receiver@email.com',
+    from: 'sender@email.com',
+    subject: 'New email from...',
+    text: msg,
+    html: msg.replace(/\r\n/g, '<br>'),
+  }
+
+  try {
+    await sgMail.send(data)
+
+    res.status(200).json({
+      message: 'success',
+    })
+  } catch (error: any) {
+    res.status(500).json({
+      message: 'fail',
+    })
+  }
+}
+```
+
+## How to use
+
+<Step number={1} title='Login in your SendGrid Account' />
+
+Login to your [SendGrid account](https://app.sendgrid.com/login), if you don't have one, you can create one [here](https://signup.sendgrid.com/)
+
+<Step number={2} title='Add Sender Auth' />
+
+We need to let SendGrid know which domains are authorized to send emails. To do this:
+
+1. In your SendGrid dashboard, navigate to settings (on the left panel).
+2. Click on Sender Authentication -> Authenticate Your Domain. Add your domain info.
+3. Once you're finished, you should get 3 new DNS Recors to add to your DNS provider.
+
+<Step number={3} title='Generate your API Key' />
+
+In your dashboard, go to settings -> API Keys. Click on `Create API Key`. 
+
+Give your key a meaningfull name so you can remember what it does. Then select API Key Permissions and create your key.
+
+Remember to save your key in your .env.local file inside your Next Js project and don't push it to Github.

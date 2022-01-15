@@ -1,96 +1,113 @@
-// import { useState } from 'react'
+import { useState } from 'react';
 
-// import { GetStaticProps } from 'next'
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-// import { getAllProjects } from 'src/lib/graphcms'
+import clsx from 'clsx';
+import { HiArrowRight } from 'react-icons/hi';
 
-// import { client } from '@/lib/urql/client'
+import Layout from '@/components/layout/Layout';
+import SearchBar from '@/components/misc/SearchBar';
+import TechIcons, { TechListType } from '@/components/misc/TechIcons';
 
-import Layout from '@/components/layout/Layout'
-// import MainLayout from '@/components/layout/MainLayout'
-// import CurrentGoals from '@/components/misc/CurrentGoals'
-// import SearchBar from '@/components/misc/SearchBar'
-// import Section from '@/components/misc/Section'
-// import SectionTitle from '@/components/misc/SectionTitle'
-// import SingleProjectCard from '@/components/misc/SingleProjectCard'
+// import CloudinaryImage from '@/components/images/CloudinaryImage'
+import { allProjects } from '.contentlayer/data';
+import { Project } from '.contentlayer/types';
 
-// import { IProject } from '@/types/ProjectTypes'
+export async function getStaticProps() {
+  const projects = allProjects.sort((p1, p2) => p2.number - p1.number);
 
-// interface IProps {
-//   projects: IProject[]
-// }
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 60 * 60, // every 1 hr
+  };
+}
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const projectsQuery = getAllProjects()
+export default function PortfolioPage({
+  projects,
+}: InferGetStaticPropsType<GetStaticProps>) {
+  const [searchValue, setSearchValue] = useState('');
 
-//   const {
-//     data: { projects },
-//   } = await client?.query(projectsQuery).toPromise()
+  // Search project functionality
+  const filterProjects = (projects: Project[], searchValue: string) => {
+    const filteredProjects = projects.filter(
+      (p) =>
+        p.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchValue.toLowerCase())
+    );
 
-//   return {
-//     props: {
-//       projects,
-//     },
-//     revalidate: 60 * 60, // Every 1 hr
-//   }
-// }
+    return filteredProjects;
+  };
 
-export default function PortfolioPage() {
-  // const [searchValue, setSearchValue] = useState('')
-  // const orderedProjects = [...projects].sort(
-  //   (projA, projB) => projB.number - projA.number
-  // )
-
-  // // Search project functionality
-  // const filterProjects = (projects: IProject[], searchValue: string) => {
-  //   const filteredProjects = projects.filter(
-  //     p =>
-  //       p.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-  //       p.description.toLowerCase().includes(searchValue.toLowerCase())
-  //   )
-
-  //   return filteredProjects
-  // }
-
-  // const filteredProjects = filterProjects(orderedProjects, searchValue)
+  const filteredProjects = filterProjects(projects, searchValue);
 
   const customMetadata = {
     url: 'https://sergiobarria.com/portfolio',
     title: 'Portfolio | Sergio Barria',
-  }
+  };
 
   return (
     <Layout customMetadata={customMetadata}>
-      {/* <div>
-        <h1>Welcome to my Portfolio</h1>
-        <hr className="my-6" />
-        <p className="mb-6 prose max-w-none long-text dark:prose-invert">
-          In this section I&apos;m showing some of the projects I&apos;ve worked
-          on. You can find live demos, source code, which technologies I used
-          and some short explanations of the project in general.
-        </p>
+      <div className='layout'>
+        {/* Heading */}
+        <section className='space-y-4 section'>
+          <h1>Portfolio Projects</h1>
+          <p className='text-long'>
+            Showcase of the projects I've work on in both, front and back end
+            development.
+          </p>
+          <SearchBar
+            setSearchValue={setSearchValue}
+            placeholderText='Search project...'
+          />
+        </section>
+
+        {/* Projects showcase */}
+        <section className='section'>
+          {!filteredProjects.length && (
+            <p className='mt-2 text-gray-regular dark:text-gray-lighter'>
+              No projects found...
+            </p>
+          )}
+
+          <ul className='grid grid-cols-1 gap-4 mb-16 md:grid-cols-2 auto-rows-fr'>
+            {filteredProjects.map((project: Project) => (
+              <li key={project._id}>
+                <article className='flex flex-col h-full p-4 border rounded-md'>
+                  {/* <CloudinaryImage
+                    publicId={`sergiobarria/projects/${project.banner}`}
+                    width={1200}
+                    height={720}
+                    alt={project.name}
+                    className="mb-2"
+                  /> */}
+                  <h4>{project.name}</h4>
+                  <p className='text-sm text-gray-regular dark:text-gray-lighter'>
+                    {project.description}
+                  </p>
+                  <div className='flex items-center justify-between pt-3 mt-auto'>
+                    <TechIcons
+                      techs={project.techs.split(',') as Array<TechListType>}
+                    />
+                    <a
+                      href={project.liveUrl}
+                      className={clsx(
+                        'flex items-center text-sm transition-all duration-300 text-gray-regular',
+                        // 'underline decoration-dotted',
+                        'hover:scale-105',
+                        'animated-underline dark:text-gray-lighter hover:text-gray-darker dark:hover:text-gray-light'
+                      )}
+                    >
+                      See live <HiArrowRight className='ml-2' />
+                    </a>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
-
-      <CurrentGoals />
-
-      <Section>
-        <SectionTitle title="Portfolio Projects" />
-        <p className="my-6 long-text">
-          Here you can see some of the projects I&apos;ve work on. Or filter
-          using the search bar below in you&apos;re looking for something in
-          particular.
-        </p>
-
-        <SearchBar
-          setSearchValue={setSearchValue}
-          placeholderText="Search for a project name, language or description..."
-        />
-        <div className="grid grid-cols-1 gap-4 mt-6 md:grid-cols-2">
-          {filteredProjects.map((project: IProject) => (
-            <SingleProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </Section> */}
     </Layout>
-  )
+  );
 }
