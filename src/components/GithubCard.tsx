@@ -27,14 +27,14 @@ export default function GithubCard({ repo }: IProps) {
           </span>
           <span className='bg-text-gradient'>{repo.name}</span>
         </h4>
-        <p className='py-2 text-sm text-gray-regular dark:text-gray-lighter'>
+        <p className='py-2 text-sm text-gray-500 dark:text-gray-300'>
           {repo.description}
         </p>
         <div className='flex items-center mt-auto space-x-2'>
           <div
             className={`w-2 h-2 ${repo.primaryLanguage.name.toLowerCase()} rounded-full`}
           />
-          <span className='text-sm text-gray-regular dark:text-gray-lighter'>
+          <span className='text-sm text-gray-500 dark:text-gray-300'>
             {repo.primaryLanguage.name}
           </span>
         </div>

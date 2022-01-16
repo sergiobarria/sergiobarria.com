@@ -32,15 +32,15 @@ export default function BlogPostCard({ post, isLast }: IProps) {
 
   return (
     <article className='mt-8'>
-      <div className='flex items-center gap-1 text-gray-regular'>
+      <div className='flex items-center gap-1 text-gray-500'>
         <div>
           <span>{formattedDate}</span>
-          <span className='mx-2 text-gray-lighter'>|</span>
+          <span className='mx-2 text-gray-300'>|</span>
         </div>
         <div className='flex items-center gap-1'>
           <HiOutlineClock />
           <span>{post.readingTime.text}</span>
-          <span className='mx-2 text-gray-lighter'>|</span>
+          <span className='mx-2 text-gray-300'>|</span>
         </div>
         <div className='flex items-center gap-1'>
           <HiOutlineEye />

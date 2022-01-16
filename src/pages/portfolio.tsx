@@ -66,7 +66,7 @@ export default function PortfolioPage({
         {/* Projects showcase */}
         <section className='section'>
           {!filteredProjects.length && (
-            <p className='mt-2 text-gray-regular dark:text-gray-lighter'>
+            <p className='mt-2 text-gray-500 dark:text-gray-300'>
               No projects found...
             </p>
           )}
@@ -83,20 +83,20 @@ export default function PortfolioPage({
                     className="mb-2"
                   /> */}
                   <h4>{project.name}</h4>
-                  <p className='text-sm text-gray-regular dark:text-gray-lighter'>
+                  <p className='text-sm text-gray-500 dark:text-gray-300'>
                     {project.description}
                   </p>
                   <div className='flex items-center justify-between pt-3 mt-auto'>
                     <TechIcons
                       techs={project.techs.split(',') as Array<TechListType>}
+                      className='text-gray-500'
                     />
                     <a
                       href={project.liveUrl}
                       className={clsx(
-                        'flex items-center text-sm transition-all duration-300 text-gray-regular',
-                        // 'underline decoration-dotted',
-                        'hover:scale-105',
-                        'animated-underline dark:text-gray-lighter hover:text-gray-darker dark:hover:text-gray-light'
+                        'flex items-center text-sm transition-all duration-300 text-gray-500',
+                        'hover:scale-105 hover:text-gray-700 dark:hover:text-gray-200',
+                        'animated-underline dark:text-gray-300'
                       )}
                     >
                       See live <HiArrowRight className='ml-2' />

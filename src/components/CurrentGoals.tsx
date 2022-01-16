@@ -15,7 +15,7 @@ export default function CurrentGoals() {
             <div>
               <FiCheckCircle className='w-6 h-6 text-green-500' />
             </div>
-            <p className='text-gray-600 dark:text-gray-200'>{task}</p>
+            <p className='text-gray-500 dark:text-gray-200'>{task}</p>
           </li>
         ))}
       </ul>

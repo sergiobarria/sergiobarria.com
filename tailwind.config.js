@@ -1,6 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-// TODO: If not used, remove tailwind forms and tailwind selection variant from plugins
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(var(${variable}))`;
+    }
+    return `rgb(var(${variable}) / ${opacityValue})`;
+  };
+}
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -9,25 +16,22 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        // sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
       },
+      gradientColorStops: {},
       colors: {
-        'gray-light': 'var(--tw-clr-gray-light)',
-        'gray-lighter': 'var(--tw-clr-gray-lighter)',
-        'gray-regular': 'var(--tw-clr-gray-regular)',
-        'gray-darker': 'var(--tw-clr-gray-darker)',
-        'gray-dark': 'var(--tw-clr-gray-dark)',
+        primary: withOpacityValue('--tw-clr-primary'),
+        accent: withOpacityValue('--tw-clr-accent'),
         gray: {
-          0: '#fff',
-          100: '#fafafa',
-          200: '#eaeaea',
-          300: '#999999',
-          400: '#888888',
-          500: '#666666',
-          600: '#444444',
-          700: '#333333',
-          800: '#222222',
-          900: '#111111',
+          50: 'var(--gray-50)',
+          100: 'var(--gray-100)',
+          200: 'var(--gray-200)',
+          300: 'var(--gray-300)',
+          400: 'var(--gray-400)',
+          500: 'var(--gray-500)',
+          600: 'var(--gray-600)',
+          700: 'var(--gray-700)',
+          800: 'var(--gray-800)',
+          900: 'var(--gray-900)',
         },
       },
     },

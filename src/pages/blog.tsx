@@ -44,7 +44,7 @@ export async function getStaticProps() {
       featuredPosts,
       posts,
     },
-    revalidate: 60 * 60, // 3600s -> 1 hour
+    // revalidate: 60 * 60, // 3600s -> 1 hour
   };
 }
 
@@ -70,7 +70,7 @@ export default function BlogPage({
         <div className='layout'>
           <h1>Blog</h1>
           <hr className='my-6' />
-          <p className='mb-6 prose max-w-none long-text dark:prose-invert'>
+          <p className='mb-6 prose max-w-none dark:prose-invert'>
             Welcome to...whatever this is 😅 . Here I share my thoughts related
             to many web development topics and programming in general. I've
             always been a fan of writing, and I hope you can find something here
@@ -99,7 +99,7 @@ export default function BlogPage({
           })`}</h2>
 
           {!filteredPosts.length && (
-            <p className='mt-2 text-gray-regular dark:text-gray-lighter'>
+            <p className='mt-2 text-gray-500 dark:text-gray-300'>
               No posts found...
             </p>
           )}

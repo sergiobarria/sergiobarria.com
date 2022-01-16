@@ -1,21 +1,21 @@
-import NowPlaying from '../NowPlaying';
 import SocialIcons from '../SocialIcons';
+import SpotifyCard from '../SpotifyCard';
 
 export default function Footer() {
   return (
     <footer className='mt-auto'>
-      <div className='py-8 layout border-t-[1px] border-gray-light dark:border-gray-regular'>
+      <div className='py-8 layout border-t-[1px] border-gray-light dark:border-gray-500'>
         <div className='self-start mb-6'>
-          <NowPlaying />
+          <SpotifyCard />
         </div>
         <div className='flex flex-col items-center text-center'>
           <SocialIcons />
-          <p className='flex items-center justify-center mt-4 text-sm text-gray-regular dark:text-gray-lighter'>
+          <p className='flex items-center justify-center mt-4 text-sm text-gray-500 dark:text-gray-300'>
             <span>&copy; {new Date().getFullYear()}</span>
             <span className='mx-1 text-3xl'>&middot;</span>
             <span>Sergio Barria</span>
           </p>
-          <p className='text-sm text-gray-regular dark:text-gray-lighter'>
+          <p className='text-sm text-gray-500 dark:text-gray-300'>
             Built with{' '}
             <a
               href='https://nextjs.org/'

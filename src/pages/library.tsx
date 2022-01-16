@@ -54,7 +54,7 @@ export default function LibraryPage({
 
         <section className='mb-8 section'>
           {!filteredSnippets.length && (
-            <p className='mt-2 text-gray-regular dark:text-gray-lighter'>
+            <p className='mt-2 text-gray-500 dark:text-gray-300'>
               No snippets found...
             </p>
           )}
@@ -70,9 +70,10 @@ export default function LibraryPage({
                   <div>
                     <TechIcons
                       techs={snippet.tags.split(',') as Array<TechListType>}
+                      className='text-gray-500'
                     />
                   </div>
-                  <p className='text-sm text-gray-regular dark:text-gray-lighter'>
+                  <p className='text-sm text-gray-500 dark:text-gray-300'>
                     {snippet.description}
                   </p>
                 </a>

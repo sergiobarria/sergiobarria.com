@@ -47,9 +47,9 @@ export default function Header() {
         <a
           className={clsx(
             isActive
-              ? 'text-gray-darker dark:text-gray-light font-semibold'
-              : 'text-gray-lighter animated-underline',
-            'hidden md:block mr-6 transition-all duration-300 ease-in-out'
+              ? 'text-gray-900 dark:text-gray-200 font-semibold'
+              : 'text-gray-300 animated-underline',
+            'hidden md:block mr-6  ease-in-out'
           )}
         >
           {text}
@@ -61,7 +61,7 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        'sticky top-0 z-50 transition-shadow',
+        'sticky top-0 z-50 transition-shadow h-20 md:h-24',
         !onTop && 'shadow-sm bg-gray-50 dark:bg-gray-900'
       )}
     >
@@ -71,7 +71,7 @@ export default function Header() {
       </a>
 
       {/* Navbar */}
-      <nav className='flex items-center justify-end py-6 md:justify-between layout'>
+      <nav className='flex items-center justify-end h-full md:justify-between layout'>
         <div className='flex items-center'>
           <NavLink route='/' text='Home' />
           <NavLink route='/about' text='About' />
@@ -83,9 +83,9 @@ export default function Header() {
         <button
           className={clsx(
             'p-2 rounded-md focus:outline-none',
-            'border dark:border-gray-regular',
-            'hover:text-gray-darker, hover:border-gray-darker',
-            'dark:hover:border-gray-light',
+            'border dark:border-gray-500',
+            'hover:text-gray-700, hover:border-gray-700',
+            'dark:hover:border-gray-200',
             'transition-all duration-200 ease-in-out'
           )}
           onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
@@ -93,12 +93,12 @@ export default function Header() {
           {currentTheme === 'light' ? (
             <FiMoon
               size={20}
-              className='text-gray-regular hover:text-gray-darker dark:text-gray-lighter dark:hover:text-gray-light'
+              className='text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-200'
             />
           ) : (
             <FiSun
               size={20}
-              className='text-gray-regular hover:text-gray-darker dark:text-gray-lighter dark:hover:text-gray-light'
+              className='text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-200'
             />
           )}
         </button>

@@ -11,15 +11,15 @@ In the last post, I wrote a short guide on [how to make a blog with Next.js and
 
 Adding dynamic pages is easier than you may think. So, without further to do, let's get to work.
 
-1. [1. Create a template for your routes](#1-create-a-template-for-your-routes)
-2. [2. Fetching data from Sanity Studio](#2-fetching-data-from-sanity-studio)
+1. [Create a template for your routes](#create-a-template-for-your-routes)
+2. [Fetching data from Sanity Studio](#fetching-data-from-sanity-studio)
 3. [Generate dynamic routes: `getStaticPaths`](#generate-dynamic-routesgetstaticpaths)
 4. [Get static content: `getStaticProps`](#get-static-contentgetstaticprops)
-5. [3. Pass the fetched data to our template](#3-pass-the-fetched-data-to-our-template)
-6. [4. Incremental Static Regeneration](#4-incremental-static-regeneration)
+5. [Pass the fetched data to our template](#pass-the-fetched-data-to-our-template)
+6. [Incremental Static Regeneration](#incremental-static-regeneration)
 7. [That's it!](#thats-it)
 
-## 1. Create a template for your routes
+## Create a template for your routes
 
 The first thing we need for our routes is a template. This template will be used to render all the pages that we need to look the same way. For example, let's say we are creating a blog, probably all our blog posts will have the same look (a header, a body content and a footer is a basic example). So, for our blog posts, we will create a template. Of course, the same example applies to any other content, a single product page for e-commerce, a podcast page, and so on.
 
@@ -53,7 +53,7 @@ export default Post;
 
 Remember that your template is like any other regular Next.js page, so you can use components here too. You can read more about dynamic routes and static generation [here](https://nextjs.org/docs/basic-features/pages). Also, in this component, we are going to need our `sanity client config`. You can either create it here or in a separate file and then import it.
 
-## 2. Fetching data from Sanity Studio
+## Fetching data from Sanity Studio
 
 Once your template is ready or at least has the basics (you can create it using dummy data for the moment), we need to fetch the data from Sanity.
 
@@ -140,7 +140,7 @@ export const postQuery = `
 The second parameter is the id for our single post, in this case, we use the slug. This will tell Next.js which specific content should be fetched for each `.html` page generated. The rest of the queries are just examples of what you can query for. Our function then returns data that can be passed as props to our `[slug].js` component.
 
 
-## 3. Pass the fetched data to our template
+## Pass the fetched data to our template
 
 Now that we have our data, we can pass it as a prop to our template component (see the template code example on step 1.
 
@@ -150,7 +150,7 @@ With your fetched data, you can finish your template.
 
 If you have other parts of your site that require dynamic routes, you can follow the same steps here to create another template.
 
-## 4. Incremental Static Regeneration
+## Incremental Static Regeneration
 
 The last thing left is to deploy our site once it's ready. Of course, now we can create content from our sanity studio. The problem here is, because it is a Static Site, our studio updates won't show unless we rebuild our Next project which is of course, not ideal.
 

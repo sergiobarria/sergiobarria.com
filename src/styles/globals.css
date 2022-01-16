@@ -4,11 +4,42 @@
 
 :root {
   /* Global style variables */
-  --tw-clr-gray-light: #eaeaea;
-  --tw-clr-gray-lighter: #999999;
-  --tw-clr-gray-regular: #666666;
-  --tw-clr-gray-darker: #333333;
-  --tw-clr-gray-dark: #111111;
+  /* Using just the color channels allows to use opacity values with Tailwind */
+  --tw-clr-primary: 64 34 197;
+  --tw-clr-accent: 93 255 230;
+
+  --clr-primary: rgb(var(--tw-clr-primary)); /* #4022c5 */
+  --clr-accent: rgb(var(--tw-clr-accent)); /* #5de1e6 */
+
+  /* Gray variants */
+  --white: #fff;
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #eaeaea;
+  --gray-300: #999;
+  --gray-400: #888;
+  --gray-500: #666;
+  --gray-600: #444;
+  --gray-700: #333;
+  --gray-800: #222;
+  --gray-900: #111;
+
+  /* --tw-clr-gray-light: #eaeaea;
+  --tw-clr-gray-lighter: #999;
+  --tw-clr-gray-regular: #666;
+  --tw-clr-gray-darker: #333;
+  --tw-clr-gray-dark: #111;
+
+  --tw-clr-primary-lightest: #a7f3d0;
+  --tw-clr-primary-light: #4ade80;
+  --tw-clr-primary-regular: #22c55e;
+  --tw-clr-primary-dark: #047857;
+  --tw-clr-primary-darker: #064e3b;
+  --tw-clr-accent-lightest: #fde047;
+  --tw-clr-accent-light: #fde047;
+  --tw-clr-accent-regular: #fde047;
+  --tw-clr-accent-dark: #fde047;
+  --tw-clr-accent-darker: #fde047; */
 }
 
 html {
@@ -23,7 +54,7 @@ html {
 }
 
 ::selection {
-  background-color: #4022c5;
+  background-color: var(--clr-primary);
   color: #fefefe;
 }
 
@@ -37,20 +68,27 @@ html {
 
 @layer base {
   /* START - DEFAULT TYPOGRAPHY */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-gray-700 dark:text-gray-200;
+  }
+
   h1 {
-    @apply text-4xl font-bold text-gray-darker dark:text-gray-light md:text-5xl;
+    @apply text-4xl font-bold md:text-5xl;
   }
 
   h2 {
-    @apply text-2xl font-bold text-gray-700 dark:text-gray-200 md:text-4xl;
+    @apply text-2xl font-bold  md:text-4xl;
   }
 
   h3 {
-    @apply text-lg font-bold text-gray-700 dark:text-gray-200 md:text-2xl;
+    @apply text-lg font-bold  md:text-2xl;
   }
 
   h4 {
-    @apply text-base font-semibold text-gray-700 dark:text-gray-200;
+    @apply text-base font-semibold;
   }
 
   /* END - DEFAULT TYPOGRAPHY */
@@ -75,11 +113,11 @@ html {
   }
 
   .text-gradient {
-    @apply text-transparent bg-clip-text bg-gradient-to-tr from-green-500 to-yellow-300;
+    @apply text-transparent bg-clip-text bg-gradient-to-tr from-primary to-accent;
   }
 
   .bg-text-gradient {
-    @apply bg-gradient-to-tr from-green-500/40 to-yellow-300/40 dark:text-transparent dark:bg-clip-text dark:from-green-500 dark:to-yellow-200;
+    @apply bg-gradient-to-tr from-primary/40 to-accent/40 dark:text-transparent dark:bg-clip-text dark:from-primary dark:to-accent;
   }
 
   .mobile-link {
@@ -107,15 +145,15 @@ html {
   }
 
   .text-long {
-    @apply text-base font-normal text-gray-regular;
+    @apply text-base font-normal text-gray-500 dark:text-gray-200;
   }
 
   .input {
-    @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-green-400 focus:border-0;
+    @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-primary focus:border-0;
   }
 
   .send-form-btn {
-    @apply px-4 py-2 font-bold text-gray-darker transition duration-300 rounded shadow bg-gradient-to-tr from-green-500 to-yellow-300 hover:scale-105 hover:bg-opacity-50 focus:outline-none;
+    @apply px-4 py-2 font-bold text-gray-900 transition duration-300 rounded shadow bg-gradient-to-tr from-primary/50 to-accent/50 hover:scale-105 hover:shadow-lg focus:outline-none;
   }
 }
 
@@ -150,12 +188,12 @@ code {
 
 code::before,
 code::after {
-  @apply text-green-500;
+  @apply text-primary;
   /* display: none; */
 }
 
 code > span {
-  @apply text-green-500 dark:text-gradient;
+  @apply text-primary dark:text-gradient;
 }
 
 .step > h3 {
@@ -163,6 +201,11 @@ code > span {
 }
 
 /* Loader Animation */
+.segment {
+  opacity: 0;
+  fill: var(--clr-primary);
+}
+
 .loader-dots div {
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }

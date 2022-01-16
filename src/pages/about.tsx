@@ -66,6 +66,7 @@ export default function AboutPage() {
                 with
               </p>
               <TechIcons
+                className='text-gray-500'
                 techs={
                   'vue,django,mongodb,mysql,postgresql,firebase,sass,gatsby'.split(
                     ','

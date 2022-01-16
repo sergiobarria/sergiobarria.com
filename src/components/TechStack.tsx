@@ -24,8 +24,8 @@ export default function TechStack() {
             key={tech.id}
             className={clsx(
               'w-6 h-6 md:w-8 md:h-8',
-              'text-gray-regular dark:hover:text-green-500 dark:text-gray-light',
-              'hover:text-green-500 transition-colors'
+              'text-gray-500 dark:hover:text-primary dark:text-gray-200',
+              'hover:text-primary transition-colors'
             )}
           />
         </Tooltip>

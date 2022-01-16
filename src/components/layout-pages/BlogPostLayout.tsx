@@ -30,7 +30,7 @@ export default function BlogPostLayout({
     <Layout customMetadata={customMetadata}>
       <div className='my-10 layout'>
         <Link href='/blog'>
-          <a className='inline-block mb-4 text-gray-regular hover:text-gray-darker'>
+          <a className='inline-block mb-4 text-gray-500 transition-colors duration-300 hover:text-gray-700'>
             <span className='flex items-center'>
               <HiOutlineArrowNarrowLeft size={30} className='mr-2' />
               Back
@@ -44,14 +44,14 @@ export default function BlogPostLayout({
           height={720}
         />
         <h1 className='mt-4'>{post.title}</h1>
-        <div className='flex items-center gap-1 my-4 text-gray-regular'>
+        <div className='flex items-center gap-1 my-4 text-gray-500'>
           <div>
             <span>Written on {formattedDate}</span>
             <span> by Sergio Barria</span>
             {/* <span className="mx-2 text-gray-lighter">|</span> */}
           </div>
         </div>
-        <div className='flex items-center space-x-4 text-gray-regular dark:text-gray-lighter'>
+        <div className='flex items-center space-x-4 text-gray-500 dark:text-gray-300'>
           <div className='flex items-center gap-1'>
             <HiOutlineClock />
             <span>{post.readingTime.text}</span>

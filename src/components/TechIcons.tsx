@@ -44,7 +44,7 @@ export default function TechIcons({ className, techs }: TechIconsProps) {
 
         return (
           <Tooltip key={index} content={<p>{current.name}</p>}>
-            <li className='text-xl text-gray-darker dark:text-gray-light'>
+            <li className='text-xl text-gray-700 dark:text-gray-200'>
               <current.icon />
             </li>
           </Tooltip>
