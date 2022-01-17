@@ -1,6 +1,6 @@
 {
   "extends": ["next", "next/core-web-vitals"],
-  "plugins": ["simple-import-sort"],
+  "plugins": ["simple-import-sort", "cypress"],
   "rules": {
     "no-console": "warn",
     "react/no-unescaped-entities": 0,

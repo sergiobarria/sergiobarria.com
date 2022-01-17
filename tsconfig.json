@@ -18,14 +18,6 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"]
-      // "@/components/*": ["src/components/*"],
-      // "@/data/*": ["data/*"],
-      // "@/lib/*": ["src/lib/*"],
-      // "@/styles/*": ["src/styles/*"],
-      // "@/theme/*": ["theme/*"],
-      // "@/types/*": ["src/types/*"],
-      // "@/utils/*": ["src/utils/*"],
-      // "@/hooks/*": ["src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/gtag.js"],
