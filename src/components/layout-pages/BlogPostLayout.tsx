@@ -1,14 +1,12 @@
 import { PropsWithChildren } from 'react';
 
-import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import { format } from 'date-fns';
-import {
-  HiOutlineArrowNarrowLeft,
-  HiOutlineClock,
-  HiOutlineEye,
-} from 'react-icons/hi';
+import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
+import { IoChevronBackCircleSharp } from 'react-icons/io5';
+
+import CustomLink from '@/components/CustomLink';
 
 import { Post } from '.contentlayer/types';
 import CloudinaryImage from '../CloudinaryImage';
@@ -52,14 +50,15 @@ export default function BlogPostLayout({
     <>
       <NextSeo {...customMetadata} />
       <div className='my-10 layout'>
-        <Link href='/blog'>
-          <a className='inline-block mb-4 text-gray-500 transition-colors duration-300 hover:text-gray-700'>
-            <span className='flex items-center'>
-              <HiOutlineArrowNarrowLeft size={30} className='mr-2' />
-              Back
-            </span>
-          </a>
-        </Link>
+        <CustomLink href='/blog'>
+          <span className='flex items-center mb-3'>
+            <IoChevronBackCircleSharp
+              size={30}
+              className='mr-2 text-primary hover:text-primary/70'
+            />
+            Back
+          </span>
+        </CustomLink>
         <CloudinaryImage
           publicId={`sergiobarria/banners/${post.banner}`}
           alt='blog post cover'
@@ -93,7 +92,7 @@ export default function BlogPostLayout({
 
         {/* Main Content */}
         <section className='section md:grid'>
-          <article className='prose max-w-none dark:prose-invert prose-a:no-underline prose-li:marker:hidden'>
+          <article className='prose max-w-[768px] dark:prose-invert prose-a:no-underline prose-li:marker:hidden'>
             {children}
           </article>
         </section>

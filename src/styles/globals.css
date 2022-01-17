@@ -5,11 +5,11 @@
 :root {
   /* Global style variables */
   /* Using just the color channels allows to use opacity values with Tailwind */
-  --tw-clr-primary: 64 34 197;
-  --tw-clr-accent: 93 255 230;
+  --tw-clr-primary: 239 68 68;
+  --tw-clr-accent: 253 224 71;
 
-  --clr-primary: rgb(var(--tw-clr-primary)); /* #4022c5 */
-  --clr-accent: rgb(var(--tw-clr-accent)); /* #5de1e6 */
+  --clr-primary: rgb(var(--tw-clr-primary)); /* #ef4444 */
+  --clr-accent: rgb(var(--tw-clr-accent)); /* #fde047 */
 
   /* Gray variants */
   --white: #fff;
@@ -126,7 +126,7 @@ html {
 
   .animated-underline {
     background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(to right, #28313b, #485461);
+      linear-gradient(to right, var(--clr-primary), var(--clr-primary));
     background-size: 100% 2px, 0 2px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
@@ -153,7 +153,7 @@ html {
   }
 
   .send-form-btn {
-    @apply px-4 py-2 font-bold text-gray-900 transition duration-300 rounded shadow bg-gradient-to-tr from-primary/50 to-accent/50 hover:scale-105 hover:shadow-lg focus:outline-none;
+    @apply px-4 py-2 font-bold text-gray-900 transition duration-300 rounded shadow bg-primary hover:scale-105 hover:shadow-lg focus:outline-none;
   }
 }
 
@@ -188,12 +188,12 @@ code {
 
 code::before,
 code::after {
-  @apply text-primary;
+  @apply text-primary dark:text-accent;
   /* display: none; */
 }
 
 code > span {
-  @apply text-primary dark:text-gradient;
+  @apply text-primary dark:text-accent;
 }
 
 .step > h3 {

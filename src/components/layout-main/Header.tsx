@@ -47,7 +47,7 @@ export default function Header() {
         <a
           className={clsx(
             isActive
-              ? 'text-gray-900 dark:text-gray-200 font-semibold'
+              ? 'text-primary dark:text-gradient font-semibold'
               : 'text-gray-300 animated-underline',
             'hidden md:block mr-6  ease-in-out'
           )}
@@ -61,7 +61,7 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        'sticky top-0 z-50 transition-shadow h-20 md:h-24',
+        'sticky top-0 z-50 transition-shadow py-6',
         !onTop && 'shadow-sm bg-gray-50 dark:bg-gray-900'
       )}
     >
@@ -71,7 +71,7 @@ export default function Header() {
       </a>
 
       {/* Navbar */}
-      <nav className='flex items-center justify-end h-full md:justify-between layout'>
+      <nav className='flex items-center justify-end w-full h-full md:justify-between layout'>
         <div className='flex items-center'>
           <NavLink route='/' text='Home' />
           <NavLink route='/about' text='About' />

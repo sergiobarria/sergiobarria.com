@@ -7,6 +7,8 @@ import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
 import '@/styles/dracula.min.css';
+// import '@/styles/prism-holi.css';
+// import '@/styles/prism-night-owl.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 import * as gtag from '@/lib/gtag';

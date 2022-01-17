@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import NextImage from 'next/image';
 
+import clsx from 'clsx';
 import { animate } from 'motion';
 import { BsSpotify } from 'react-icons/bs';
 import useSWR from 'swr';
@@ -89,7 +90,10 @@ export default function SpotifyCard() {
           ? data.songUrl
           : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'
       }
-      className='relative flex items-center p-2 space-x-4 transition-shadow border rounded-md hover:shadow-md w-72'
+      className={clsx(
+        'relative flex items-center p-2 space-x-4 transition-shadow',
+        'border rounded-md hover:shadow-md w-72'
+      )}
     >
       <div>
         {data?.isPlaying ? (

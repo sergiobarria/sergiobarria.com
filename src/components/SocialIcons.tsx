@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export default function SocialIcons({ wdth = 'w-6', ht = 'h-6' }) {
   const styles = {
-    icon: `${wdth} ${ht} text-gray-700 transition duration-300 hover:text-gray-900 dark:hover:text-gray-300 opacity-70 hover:opacity-100`,
+    icon: `${wdth} ${ht} text-gray-700 transition duration-300 hover:text-primary dark:hover:text-accent opacity-70 hover:opacity-100`,
   };
 
   return (

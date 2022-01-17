@@ -11,7 +11,7 @@ export default function SnippetLayout({
   snippet,
 }: PropsWithChildren<{ snippet: Snippet }>) {
   const customMetadata = {
-    title: 'Librar',
+    title: 'Library',
     canonical: `htpps://sergiobarria.com/library/${snippet.slug}`,
     openGraph: {
       url: `https://sergiobarria.com/library/${snippet.slug}`,

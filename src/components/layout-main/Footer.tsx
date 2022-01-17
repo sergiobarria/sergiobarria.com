@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import SocialIcons from '../SocialIcons';
 import SpotifyCard from '../SpotifyCard';
 
@@ -19,7 +21,10 @@ export default function Footer() {
             Built with{' '}
             <a
               href='https://nextjs.org/'
-              className='font-semibold transition duration-300 ease-in-out hover:text-gray-800 dark:text-gradient'
+              className={clsx(
+                'font-semibold transition duration-300 ease-in-out text-primary',
+                'hover:text-primary/70 dark:text-gradient'
+              )}
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -28,7 +33,10 @@ export default function Footer() {
             ,{' '}
             <a
               href='https://tailwindcss.com/'
-              className='font-semibold transition duration-300 ease-in-out hover:text-gray-800 dark:text-gradient'
+              className={clsx(
+                'font-semibold transition duration-300 ease-in-out text-primary',
+                'hover:text-primary/70 dark:text-gradient'
+              )}
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -37,7 +45,10 @@ export default function Footer() {
             . Content with{' '}
             <a
               href='https://mdxjs.com/'
-              className='font-semibold transition duration-300 ease-in-out hover:text-gray-800 dark:text-gradient'
+              className={clsx(
+                'font-semibold transition duration-300 ease-in-out text-primary',
+                'hover:text-primary/70 dark:text-gradient'
+              )}
               target='_blank'
               rel='noopener noreferrer'
             >

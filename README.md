@@ -1,5 +1,5 @@
 
-![Logo](https://res.cloudinary.com/sbarria-dev/image/upload/v1642303890/sergiobarria/repo/sergiobarria.com-cover-2_nfz8uf.png)
+![Logo](https://res.cloudinary.com/sbarria-dev/image/upload/v1642399893/sergiobarria/repo/sergiobarria.com-cover-3_1_mvekdi.png)
 
 
 # sergiobarria.com
