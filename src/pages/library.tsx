@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { NextSeo } from 'next-seo';
 
 import { pick } from 'contentlayer/client';
 
-import Layout from '@/components/layout-main/Layout';
 import SearchBar from '@/components/SearchBar';
 import TechIcons, { TechListType } from '@/components/TechIcons';
 
@@ -33,12 +33,16 @@ export default function LibraryPage({
   );
 
   const customMetadata = {
-    url: 'https://sergiobarria.com/library',
-    title: 'Library | Sergio Barria',
+    title: 'Library',
+    canonical: 'https://sergiobarria.com/library',
+    openGraph: {
+      url: 'https://sergiobarria.com/library',
+    },
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
+    <>
+      <NextSeo {...customMetadata} />
       <div className='layout'>
         <section className='section'>
           <h1>My Library</h1>
@@ -82,6 +86,6 @@ export default function LibraryPage({
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   );
 }

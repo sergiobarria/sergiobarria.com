@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 import { InferGetStaticPropsType } from 'next';
+import { NextSeo } from 'next-seo';
 
 import { pick } from 'contentlayer/client';
 
 import BlogPostCard from '@/components/BlogPostCard';
-import Layout from '@/components/layout-main/Layout';
 import SearchBar from '@/components/SearchBar';
 
 import { allPosts } from '.contentlayer/data';
@@ -44,7 +44,6 @@ export async function getStaticProps() {
       featuredPosts,
       posts,
     },
-    // revalidate: 60 * 60, // 3600s -> 1 hour
   };
 }
 
@@ -59,15 +58,19 @@ export default function BlogPage({
   );
 
   const customMetadata = {
-    url: 'https://sergiobarria.com/blog',
-    title: 'Blog | Sergio Barria',
+    title: 'Blog',
+    canonical: 'https://sergiobarria.com/blog',
+    openGraph: {
+      url: 'https://sergiobarria.com/blog',
+    },
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
-      {/* Page Heading */}
-      <section className='section'>
-        <div className='layout'>
+    <>
+      <NextSeo {...customMetadata} />
+      <div className='layout'>
+        {/* Page Heading */}
+        <section className='section'>
           <h1>Blog</h1>
           <hr className='my-6' />
           <p className='mb-6 prose max-w-none dark:prose-invert'>
@@ -88,12 +91,10 @@ export default function BlogPage({
             featuredPosts.map((post, index) => (
               <BlogPostCard key={index} post={post} />
             ))}
-        </div>
-      </section>
+        </section>
 
-      {/* All Posts */}
-      <section className='py-10 section'>
-        <div className='layout'>
+        {/* All Posts */}
+        <section className='py-10 section'>
           <h2>{`All Posts (${
             searchValue ? filteredPosts.length : posts.length
           })`}</h2>
@@ -111,8 +112,8 @@ export default function BlogPage({
               isLast={index === filteredPosts.length - 1 ? true : false}
             />
           ))}
-        </div>
-      </section>
-    </Layout>
+        </section>
+      </div>
+    </>
   );
 }

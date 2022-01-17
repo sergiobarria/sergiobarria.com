@@ -1,10 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-
-import { PreloadProvider } from '@/context/PreloadContext';
-
+// import Head from 'next/head';
+// import { useRouter } from 'next/router';
+// import { PreloadProvider } from '@/context/PreloadContext';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -18,21 +16,21 @@ export default function Layout({
   children,
   customMetadata,
 }: PropsWithChildren<IProps>) {
-  const router = useRouter();
+  // const router = useRouter();
 
-  const metadata = {
-    title: 'Sergio Barria - Engineer, developer and writer',
-    description:
-      'Personal blog portfolio website. Created with Next.js, GraphCMS, and Tailwind CSS',
-    image: 'https://www.sergiobarria.com/static/images/banner.png',
-    type: 'website',
-    keywords:
-      "Sergio Barria's blog, HTML, CSS, JavaScript, Next js, Gatsby, React, Node, View, Tailwind CSS, React Native, Flutter",
-    ...customMetadata,
-  };
+  // const metadata = {
+  //   title: 'Sergio Barria - Engineer, developer and writer',
+  //   description:
+  //     'Personal blog portfolio website. Created with Next.js, GraphCMS, and Tailwind CSS',
+  //   image: 'https://www.sergiobarria.com/static/images/banner.png',
+  //   type: 'website',
+  //   keywords:
+  //     "Sergio Barria's blog, HTML, CSS, JavaScript, Next js, Gatsby, React, Node, View, Tailwind CSS, React Native, Flutter",
+  //   ...customMetadata,
+  // };
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{metadata.title}</title>
         <meta name='robots' content='index, follow' />
         <meta content={metadata.description} name='description' />
@@ -60,11 +58,11 @@ export default function Layout({
         {metadata.date && (
           <meta property='article:published_time' content={metadata.date} />
         )}
-      </Head>
+      </Head> */}
       <Header />
-      <PreloadProvider>
-        <main>{children}</main>
-      </PreloadProvider>
+      {/* <PreloadProvider> */}
+      <main>{children}</main>
+      {/* </PreloadProvider> */}
       <Footer />
     </>
   );

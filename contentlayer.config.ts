@@ -32,6 +32,7 @@ const Post = defineDocumentType(() => ({
     summary: { type: 'string', required: true },
     banner: { type: 'string', required: true },
     isFeatured: { type: 'boolean', required: true },
+    keywords: { type: 'string', required: false },
   },
   computedFields,
 }));

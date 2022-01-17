@@ -1,14 +1,19 @@
+import { NextSeo } from 'next-seo';
+
 import ContactForm from '@/components/ContactForm';
-import Layout from '@/components/layout-main/Layout';
 
 export default function contact() {
   const customMetadata = {
-    url: 'https://sergiobarria.com/contact',
-    title: 'Contact | Sergio Barria',
+    title: 'Contact',
+    canonical: 'https://sergiobarria.com/contact',
+    openGraph: {
+      url: 'https://sergiobarria.com/contact',
+    },
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
+    <>
+      <NextSeo {...customMetadata} />
       <section className='section'>
         <div className='layout'>
           <div className='w-full mx-auto mb-8 md:w-8/12'>
@@ -21,6 +26,6 @@ export default function contact() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

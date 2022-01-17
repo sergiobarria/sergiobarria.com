@@ -47,3 +47,6 @@ pagesViews.md
 
 # Prisma
 prisma/migrations/
+
+# ts
+tsconfig.tsbuildinfo

@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from 'next';
+import { NextSeo } from 'next-seo';
 
 import { pick } from 'contentlayer/client';
 
@@ -8,7 +9,6 @@ import { PINNED_REPOS_QUERY } from '@/lib/urql/queries';
 import BlogPostCard from '@/components/BlogPostCard';
 import CurrentGoals from '@/components/CurrentGoals';
 import GithubCard from '@/components/GithubCard';
-import Layout from '@/components/layout-main/Layout';
 
 import { allPosts } from '.contentlayer/data';
 
@@ -49,14 +49,16 @@ export default function HomePage({
   repos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const customMetadata = {
-    url: 'https://sergiobarria.com/',
-    title: 'Home | Sergio Barria',
-    description:
-      'Sergio Barria engineer, developer, writer. Sharing my journey as I transition from Civil Engineer to Web Developer',
+    title: 'Home',
+    canonical: 'https://sergiobarria.com/',
+    openGraph: {
+      url: 'https://sergiobarria.com/',
+    },
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
+    <>
+      <NextSeo {...customMetadata} />
       <div className='layout md:my-8'>
         {/* Hero */}
         <section className='w-full md:w-10/12'>
@@ -105,6 +107,6 @@ export default function HomePage({
           <CurrentGoals />
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

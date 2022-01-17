@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
 
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 
 import { format } from 'date-fns';
 import {
@@ -8,8 +9,6 @@ import {
   HiOutlineClock,
   HiOutlineEye,
 } from 'react-icons/hi';
-
-import Layout from '@/components/layout-main/Layout';
 
 import { Post } from '.contentlayer/types';
 import CloudinaryImage from '../CloudinaryImage';
@@ -21,13 +20,37 @@ export default function BlogPostLayout({
 }: PropsWithChildren<{ post: Post }>) {
   const formattedDate = format(new Date(post.publishedAt), 'MMMM dd, yyyy');
 
+  const keywords = post.keywords ?? undefined;
+
   const customMetadata = {
-    url: 'https://sergiobarria.com/blog',
-    title: 'Blog | Sergio Barria',
+    title: `Blog - ${post.title}`,
+    canonical: `https://sergiobarria.com/blog/${post.slug}`,
+    description: post.summary,
+    openGraph: {
+      url: `https://sergiobarria.com/blog/${post.slug}`,
+      type: 'article',
+      images: [
+        {
+          url: `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_ID}/image/upload/v1642051590/sergiobarria/banners/${post.banner}`,
+          width: 800,
+          height: 800,
+          alt: 'Og Banner',
+        },
+      ],
+    },
+    additionalMetaTags: [
+      {
+        ...((keywords && {
+          name: 'keywords',
+          content: keywords.replace(/,/g, ', '),
+        }) as any),
+      },
+    ],
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
+    <>
+      <NextSeo {...customMetadata} />
       <div className='my-10 layout'>
         <Link href='/blog'>
           <a className='inline-block mb-4 text-gray-500 transition-colors duration-300 hover:text-gray-700'>
@@ -75,6 +98,6 @@ export default function BlogPostLayout({
           </article>
         </section>
       </div>
-    </Layout>
+    </>
   );
 }

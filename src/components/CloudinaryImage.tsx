@@ -42,7 +42,7 @@ export default function CloudinaryImage({
 
   const urlBlurred = buildUrl(publicId, {
     cloud: {
-      cloudName: 'sbarria-dev',
+      cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_ID,
     },
     transformations: {
       effect: {
@@ -57,7 +57,7 @@ export default function CloudinaryImage({
 
   const url = buildUrl(publicId, {
     cloud: {
-      cloudName: 'sbarria-dev',
+      cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_ID,
     },
     transformations: {
       rawTransformation: aspect

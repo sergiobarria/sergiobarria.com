@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { NextSeo } from 'next-seo';
 
 import clsx from 'clsx';
 import { HiArrowRight } from 'react-icons/hi';
 
-import Layout from '@/components/layout-main/Layout';
 import SearchBar from '@/components/SearchBar';
 import TechIcons, { TechListType } from '@/components/TechIcons';
 
@@ -20,7 +20,6 @@ export async function getStaticProps() {
     props: {
       projects,
     },
-    revalidate: 60 * 60, // every 1 hr
   };
 }
 
@@ -43,12 +42,16 @@ export default function PortfolioPage({
   const filteredProjects = filterProjects(projects, searchValue);
 
   const customMetadata = {
-    url: 'https://sergiobarria.com/portfolio',
-    title: 'Portfolio | Sergio Barria',
+    title: 'Portfolio',
+    canonical: 'https://sergiobarria.com/portfolio',
+    openGraph: {
+      url: 'https://sergiobarria.com/portfolio',
+    },
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
+    <>
+      <NextSeo {...customMetadata} />
       <div className='layout'>
         {/* Heading */}
         <section className='space-y-4 section'>
@@ -108,6 +111,6 @@ export default function PortfolioPage({
           </ul>
         </section>
       </div>
-    </Layout>
+    </>
   );
 }

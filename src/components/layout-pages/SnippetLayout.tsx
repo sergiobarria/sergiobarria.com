@@ -1,36 +1,50 @@
 import { PropsWithChildren } from 'react';
 
+import { NextSeo } from 'next-seo';
+
 import clsx from 'clsx';
 
 import { Snippet } from '.contentlayer/types';
-import Layout from '../layout-main/Layout';
 
 export default function SnippetLayout({
   children,
   snippet,
 }: PropsWithChildren<{ snippet: Snippet }>) {
   const customMetadata = {
-    url: 'htpps://sergiobarria.com',
-    title: 'Library | Sergio Barria',
+    title: 'Librar',
+    canonical: `htpps://sergiobarria.com/library/${snippet.slug}`,
+    openGraph: {
+      url: `https://sergiobarria.com/library/${snippet.slug}`,
+      type: 'article',
+    },
+    additionalMetaTags: [
+      {
+        ...(((snippet.tags ?? undefined) && {
+          name: 'keywords',
+          content: snippet.tags.replace(/,/g, ', '),
+        }) as any),
+      },
+    ],
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
+    <>
+      <NextSeo {...customMetadata} />
       <div className='my-10 layout'>
         <h1 className='mb-4'>{snippet.title}</h1>
-        <p className='mb-6 text-gray-regular dark:text-gray-lighter'>
+        <p className='mb-6 text-gray-500 dark:text-gray-300'>
           {snippet.description}
         </p>
 
         <section
           className={clsx(
-            'prose max-w-none dark:prose-invert prose-li:marker:text-green-400',
+            'prose max-w-none dark:prose-invert prose-li:marker:text-primary',
             'prose-li:marker:text-lg prose-a:no-underline'
           )}
         >
           {children}
         </section>
       </div>
-    </Layout>
+    </>
   );
 }

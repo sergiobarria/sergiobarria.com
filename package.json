@@ -1,6 +1,6 @@
 {
   "name": "sergiobarria.com",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "author": {
     "name": "Sergio Barria",
@@ -14,6 +14,9 @@
     "db": "pscale connect sergiobarria_com initial-setup --port 3309",
     "lint": "next lint",
     "lint:fix": "eslint src --fix",
+    "test": "jest",
+    "cy": "cypress open",
+    "ci": "start-server-and-test dev 3000 cy",
     "prepare": "husky install",
     "pre-commit": "yarn tsc && yarn lint-staged"
   },
@@ -33,6 +36,7 @@
     "motion": "^10.5.0",
     "next": "^12.0.8",
     "next-contentlayer": "^0.0.33",
+    "next-seo": "^4.28.1",
     "next-themes": "^0.0.15",
     "next-urql": "^3.3.2",
     "planetscale-node": "^0.1.0",
@@ -52,16 +56,20 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
     "@types/react": "^17.0.38",
     "@types/react-copy-to-clipboard": "^5.0.2",
     "autoprefixer": "^10.4.1",
     "commitizen": "^4.2.4",
+    "cypress": "^9.2.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.25.0",
     "eslint-config-next": "12.0.7",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "globby": "^11.0.3",
     "husky": "^7.0.4",
+    "jest": "^27.4.7",
     "lint-staged": "^12.1.7",
     "next-sitemap": "^1.9.9",
     "postcss": "^8.4.5",
@@ -74,6 +82,7 @@
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
     "rss": "^1.2.2",
+    "start-server-and-test": "^1.14.0",
     "typescript": "^4.5.4"
   },
   "resolutions": {

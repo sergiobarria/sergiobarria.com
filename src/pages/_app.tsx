@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
@@ -10,9 +11,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import * as gtag from '@/lib/gtag';
 
-// TODO: if not used, remove router from _app props
+import Layout from '@/components/layout-main/Layout';
 
-export default function MyApp({ Component, pageProps, router }: AppProps) {
+import SEO from '../../next-seo.config';
+
+export default function MyApp({ Component, pageProps }: AppProps) {
   const routerHook = useRouter();
 
   useEffect(() => {
@@ -32,8 +35,11 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
+      <DefaultSeo {...SEO} />
       <ThemeProvider enableSystem={true} attribute='class'>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
   );

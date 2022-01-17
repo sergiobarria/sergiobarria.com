@@ -1,16 +1,21 @@
-import Layout from '@/components/layout-main/Layout';
+import { NextSeo } from 'next-seo';
+
 import TechIcons from '@/components/TechIcons';
 import { TechListType } from '@/components/TechIcons';
 import TechStack from '@/components/TechStack';
 
 export default function AboutPage() {
   const customMetadata = {
-    title: 'About | Sergio Barria',
-    url: 'https://sergiobarria.com/about',
+    title: 'About',
+    canonical: 'https://sergiobarria.com/about',
+    openGraph: {
+      url: 'https://sergiobarria.com/about',
+    },
   };
 
   return (
-    <Layout customMetadata={customMetadata}>
+    <>
+      <NextSeo {...customMetadata} />
       <div className='layout'>
         <section className='section'>
           <h1>About me</h1>
@@ -77,6 +82,6 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   );
 }
