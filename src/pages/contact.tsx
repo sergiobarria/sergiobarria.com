@@ -1,8 +1,49 @@
+import { useState } from 'react';
+
+import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
 import ContactForm from '@/components/ContactForm';
+import Loader from '@/components/Loader';
+import MessageCard from '@/components/MessageCard';
 
-export default function contact() {
+import { IUserSubmitForm } from '@/types/interfaces';
+
+export default function ContactPage() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>('');
+  const router = useRouter();
+
+  const submitHandler = async (formData: IUserSubmitForm) => {
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.message === 'success') {
+        setMessage(data.message);
+        setTimeout(() => {
+          router.push('/');
+        }, 3000);
+      }
+
+      setIsLoading(false);
+    } catch (error) {
+      setMessage('fail');
+      setIsLoading(false);
+    }
+  };
+
   const customMetadata = {
     title: 'Contact',
     canonical: 'https://sergiobarria.com/contact',
@@ -18,11 +59,15 @@ export default function contact() {
         <div className='layout'>
           <div className='w-full mx-auto mb-8 md:w-8/12'>
             <h2>Contact Me</h2>
-            <p className='my-2 text-long'>
+            <p className='mt-2 mb-8 text-long'>
               If you want to hire me, collaborate or give me any feedback or
               suggestions, get in touch.
             </p>
-            <ContactForm />
+
+            {/* Contact Form */}
+            {isLoading && <Loader />}
+            {message && <MessageCard message={message} />}
+            {!isLoading && !message && <ContactForm onSubmit={submitHandler} />}
           </div>
         </div>
       </section>
