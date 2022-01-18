@@ -57,7 +57,7 @@ export default function CloudinaryImage({
 
   const url = buildUrl(publicId, {
     cloud: {
-      cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_ID,
+      cloudName: 'sbarria-dev',
     },
     transformations: {
       rawTransformation: aspect
