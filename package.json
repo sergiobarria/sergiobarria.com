@@ -48,7 +48,7 @@
     "react-icons": "^4.3.1",
     "react-image-lightbox": "^5.1.4",
     "react-tippy": "^1.4.0",
-    "react-toastify": "^8.1.0",
+    "sharp": "^0.29.3",
     "swr": "^1.1.2",
     "tailwindcss": "^3.0.15",
     "urql": "^2.0.6",
