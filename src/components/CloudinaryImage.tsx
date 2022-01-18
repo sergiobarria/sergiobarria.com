@@ -42,7 +42,7 @@ export default function CloudinaryImage({
 
   const urlBlurred = buildUrl(publicId, {
     cloud: {
-      cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_ID,
+      cloudName: 'sbarria-dev',
     },
     transformations: {
       effect: {
