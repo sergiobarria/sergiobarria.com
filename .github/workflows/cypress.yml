@@ -2,7 +2,7 @@ name: Cypress ci
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -11,5 +11,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          # to run component tests we need to use "cypress run-ct"
-          command: yarn cypress run-ct
+          build: yarn build
+          start: yarn start
