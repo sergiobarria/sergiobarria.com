@@ -15,7 +15,7 @@
     "lint": "next lint",
     "lint:fix": "eslint src --fix",
     "test": "jest",
-    "cy": "cypress open",
+    "cypress": "cypress open",
     "ci": "start-server-and-test dev 3000 cy",
     "prepare": "husky install",
     "pre-commit": "yarn tsc && yarn lint-staged"
