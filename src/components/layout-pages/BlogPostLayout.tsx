@@ -29,7 +29,7 @@ export default function BlogPostLayout({
       type: 'article',
       images: [
         {
-          url: `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_ID}/image/upload/v1642051590/sergiobarria/banners/${post.banner}`,
+          url: `https://res.cloudinary.com/sbarria-dev/image/upload/v1642051590/sergiobarria/banners/${post.banner}`,
           width: 800,
           height: 800,
           alt: 'Og Banner',
