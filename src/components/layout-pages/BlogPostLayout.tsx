@@ -51,12 +51,11 @@ export default function BlogPostLayout({
       <NextSeo {...customMetadata} />
       <div className='my-10 layout'>
         <CustomLink href='/blog'>
-          <span className='flex items-center mb-3'>
-            <IoChevronBackCircleSharp
-              size={30}
-              className='mr-2 text-primary hover:text-primary/70'
-            />
-            Back
+          <span className='flex items-center mb-3 transition-colors text-primary hover:text-primary/70'>
+            <IoChevronBackCircleSharp size={30} className='mr-2 ' />
+            <span className='border-b-[2px] border-primary/50 border-dotted'>
+              Back
+            </span>
           </span>
         </CustomLink>
         <CloudinaryImage
@@ -91,8 +90,8 @@ export default function BlogPostLayout({
         </div>
 
         {/* Main Content */}
-        <section className='section md:grid'>
-          <article className='prose max-w-[768px] dark:prose-invert prose-a:no-underline prose-li:marker:hidden'>
+        <section className='section'>
+          <article className='prose max-w-[768px] prose-slate dark:prose-invert prose-a:no-underline'>
             {children}
           </article>
         </section>

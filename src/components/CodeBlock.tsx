@@ -3,6 +3,7 @@ import { ComponentPropsWithRef, useRef, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { HiCheckCircle } from 'react-icons/hi';
 import { MdContentCopy } from 'react-icons/md';
+import { SiJavascript, SiTypescript } from 'react-icons/si';
 
 export function Pre(props: ComponentPropsWithRef<'pre'>) {
   return (
@@ -12,7 +13,6 @@ export function Pre(props: ComponentPropsWithRef<'pre'>) {
         {`
           pre {
             position: relative;
-            padding-top: 2.5rem;
           }
         `}
       </style>
@@ -39,8 +39,12 @@ export default function CustomCodeBlock(props: ComponentPropsWithRef<'code'>) {
       )}
 
       {language && (
-        <div className='absolute top-0 left-0 px-3 py-1 border border-t-0 border-l-0 border-gray-600 rounded-br-md'>
-          <span className='font-medium text-gradient'>{language}</span>
+        <div className='absolute right-0 z-50 px-3 py-1 bottom-2'>
+          {language === 'js' ? (
+            <SiJavascript className='text-yellow-500' size={25} />
+          ) : language === 'typescript' ? (
+            <SiTypescript className='text-blue-500' size={25} />
+          ) : null}
         </div>
       )}
 

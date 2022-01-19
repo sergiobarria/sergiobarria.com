@@ -1,28 +1,25 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-import NextLink from 'next/link';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import clsx from 'clsx';
+import { Divide as Hamburger } from 'hamburger-react';
 import useDelayedRender from 'use-delayed-render';
 
 import styles from '@/styles/mobile-menu.module.css';
 
-export default function MobileMenu() {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
-    isMenuOpen,
+interface IProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function MobileMenu({ isOpen, setIsOpen }: IProps) {
+  const { mounted: isMounted, rendered: isMenuRendered } = useDelayedRender(
+    isOpen,
     { enterDelay: 20, exitDelay: 300 }
   );
-
-  function toggleMenu() {
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-      document.body.style.overflow = '';
-    } else {
-      setIsMenuOpen(true);
-      document.body.style.overflow = 'hidden';
-    }
-  }
+  const router = useRouter();
 
   useEffect(() => {
     return function cleanup() {
@@ -30,107 +27,59 @@ export default function MobileMenu() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsOpen(false);
+    }
+    // eslint-disable-next-line
+  }, [router.pathname]);
+
   return (
     <>
-      <button
-        className={clsx(styles.burger, 'visible md:hidden ml-4 md:ml-0')}
-        aria-label='Toggle menu'
-        type='button'
-        onClick={toggleMenu}
-      >
-        {isMenuOpen && <CrossIcon data-hide={!isMenuOpen} />}
-        {!isMenuOpen && <MenuIcon data-hide={isMenuOpen} />}
-      </button>
+      <div className='flex ml-4 md:hidden'>
+        <Hamburger size={24} toggled={isOpen} toggle={setIsOpen} />
+      </div>
 
-      {isMenuMounted && (
+      {isMounted && (
         <ul
           className={clsx(
             styles.menu,
-            'flex flex-col absolute top-20 bg-gray-100 dark:bg-gray-900',
+            'flex flex-col absolute top-20 bg-gray-50 dark:bg-gray-900',
             isMenuRendered && styles.menuRendered
           )}
         >
           <li className='mobile-link' style={{ transitionDelay: '150ms' }}>
-            <NextLink href='/'>
+            <Link href='/'>
               <a className='flex w-auto pb-4'>Home</a>
-            </NextLink>
+            </Link>
           </li>
           <li className='mobile-link' style={{ transitionDelay: '200ms' }}>
-            <NextLink href='/about'>
+            <Link href='/about'>
               <a className='flex w-auto pb-4'>About</a>
-            </NextLink>
+            </Link>
           </li>
           <li className='mobile-link' style={{ transitionDelay: '250ms' }}>
-            <NextLink href='/blog'>
+            <Link href='/blog'>
               <a className='flex w-auto pb-4'>Blog</a>
-            </NextLink>
+            </Link>
           </li>
           <li className='mobile-link' style={{ transitionDelay: '300ms' }}>
-            <NextLink href='/portfolio'>
+            <Link href='/portfolio'>
               <a className='flex w-auto pb-4'>Portfolio</a>
-            </NextLink>
+            </Link>
           </li>
           <li className='mobile-link' style={{ transitionDelay: '350ms' }}>
-            <NextLink href='/library'>
+            <Link href='/library'>
               <a className='flex w-auto pb-4'>Library</a>
-            </NextLink>
+            </Link>
           </li>
           <li className='mobile-link' style={{ transitionDelay: '400ms' }}>
-            <NextLink href='/contact'>
+            <Link href='/contact'>
               <a className='flex w-auto pb-4'>Contact</a>
-            </NextLink>
+            </Link>
           </li>
         </ul>
       )}
     </>
-  );
-}
-
-function MenuIcon(props: JSX.IntrinsicElements['svg']) {
-  return (
-    <svg
-      className='absolute w-6 h-6 text-gray-900 dark:text-gray-100'
-      width='20'
-      height='20'
-      viewBox='0 0 20 20'
-      fill='none'
-      {...props}
-    >
-      <path
-        d='M2.5 7.5H17.5'
-        stroke='currentColor'
-        strokeWidth='1.5'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M2.5 12.5H17.5'
-        stroke='currentColor'
-        strokeWidth='1.5'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-    </svg>
-  );
-}
-
-function CrossIcon(props: JSX.IntrinsicElements['svg']) {
-  return (
-    <svg
-      className='absolute w-6 h-6 text-gray-900 dark:text-gray-100'
-      viewBox='0 0 24 24'
-      width='24'
-      height='24'
-      stroke='currentColor'
-      strokeWidth='1.5'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      fill='none'
-      shapeRendering='geometricPrecision'
-      {...props}
-    >
-      <path d='M18 6L6 18' />
-      <path d='M6 6l12 12' />
-    </svg>
   );
 }

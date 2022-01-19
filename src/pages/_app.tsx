@@ -6,9 +6,10 @@ import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
-import '@/styles/dracula.min.css';
-
+// import '@/styles/dracula.min.css';
 // import '@/styles/prism-holi.css';
+import '@/styles/prism-hopscotch.css';
+
 // import '@/styles/prism-night-owl.css';
 import * as gtag from '@/lib/gtag';
 

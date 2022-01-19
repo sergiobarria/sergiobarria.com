@@ -12,7 +12,7 @@ export default function CustomLink(props: any) {
         <a
           {...props}
           className={clsx(
-            'text-primary dark:hover:text-white',
+            'text-primary dark:hover:text-white dark:text-accent',
             'hover:text-primary/50',
             'transition-colors duration-200'
           )}

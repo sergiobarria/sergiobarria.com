@@ -17,6 +17,7 @@ interface IRoute {
 
 export default function Header() {
   const [onTop, setOnTop] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const { mounted, currentTheme, setTheme } = useSetTheme();
   const router = useRouter();
   const activeRoute = router.pathname;
@@ -48,7 +49,7 @@ export default function Header() {
           className={clsx(
             isActive
               ? 'text-primary dark:text-gradient font-semibold'
-              : 'text-gray-300 animated-underline',
+              : 'text-gray-500 animated-underline',
             'hidden md:block mr-6  ease-in-out'
           )}
         >
@@ -61,8 +62,10 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        'sticky top-0 z-50 transition-shadow py-6',
-        !onTop && 'shadow-sm bg-gray-50 dark:bg-gray-900'
+        'sticky top-0 z-50 transition-shadow py-4 bg-gray-50 dark:bg-gray-900',
+        !onTop &&
+          'shadow-lg shadow-gray-200 dark:shadow-md dark:shadow-white/20',
+        !onTop && 'bg-blue-50 backdrop-filter backdrop-blur-lg bg-opacity-30'
       )}
     >
       {/* Skip Navigation */}
@@ -102,7 +105,7 @@ export default function Header() {
             />
           )}
         </button>
-        <MobileMenu />
+        <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </nav>
     </header>
   );
