@@ -1,5 +1,6 @@
 import { ComponentPropsWithRef, useRef, useState } from 'react';
 
+import clsx from 'clsx';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { HiCheckCircle } from 'react-icons/hi';
 import { MdContentCopy } from 'react-icons/md';
@@ -57,7 +58,13 @@ export default function CustomCodeBlock(props: ComponentPropsWithRef<'code'>) {
             setTimeout(() => setIsCopied(false), 1500);
           }}
         >
-          <button className='absolute top-0 right-0 hidden p-2 text-lg border border-t-0 border-gray-600 rounded-bl-md md:block hover:bg-gray-700'>
+          <button
+            className={clsx(
+              'absolute top-0 right-0 hidden p-2 text-lg border border-t-0',
+              'border-r-0 border-gray-200 dark:border-gray-700 rounded-bl-md',
+              'md:block hover:bg-gray-700'
+            )}
+          >
             {isCopied ? (
               <HiCheckCircle className='text-green-400' />
             ) : (

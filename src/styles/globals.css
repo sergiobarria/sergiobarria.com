@@ -166,12 +166,13 @@ html {
 }
 
 code {
-  @apply border-[1px] border-opacity-50 bg-gray-200 dark:bg-gray-700 dark:border-opacity-30 p-[1px] rounded-md border-gray-300;
+  @apply bg-gray-200 dark:bg-gray-700 dark:border-opacity-30 p-[1px] rounded-[4px];
 }
 
 code::before,
 code::after {
-  @apply text-primary dark:text-accent;
+  /* @apply text-primary dark:text-accent; */
+  @apply hidden;
 }
 
 code > span {
