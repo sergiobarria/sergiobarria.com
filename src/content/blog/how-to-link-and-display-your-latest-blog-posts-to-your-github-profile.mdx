@@ -52,7 +52,7 @@ Alternatively, you can edit your profile from your text editor by cloning your G
 
 1. Now, on your repo root, create the following folder structure:
 
-``` 
+```md 
 .github 
     └───workflows
             blog-post-workflow.yml
@@ -82,7 +82,7 @@ jobs:
 
 **Important:** Please note that I created my action to run every 2 days. You can set it to run automatically by changing this line with this:
 
-```
+```yml:blog-post-workflow.yml
 schedule:
   - cron: '0 * * * *'
 ```

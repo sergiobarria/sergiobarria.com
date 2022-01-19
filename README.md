@@ -11,7 +11,7 @@ This is my personal website, blog and portolio showcase. Built with Next.js and 
 
 ## Badges
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)[![Cypress ci](https://github.com/sergiobarria/sergiobarria.com/actions/workflows/cypress.yml/badge.svg?branch=main)](https://github.com/sergiobarria/sergiobarria.com/actions/workflows/cypress.yml)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Cypress ci](https://github.com/sergiobarria/sergiobarria.com/actions/workflows/cypress.yml/badge.svg?branch=main)](https://github.com/sergiobarria/sergiobarria.com/actions/workflows/cypress.yml)
 
 ## Overview
 
@@ -54,9 +54,9 @@ Most of the project content is inside the `src` folder.
 - Clone the project
 
 ```bash
-  git clone git@github.com:sergiobarria/sergiobarria.com.git
-  cd sergiobarria.com
-  yarn && yarn dev
+  $ git clone git@github.com:sergiobarria/sergiobarria.com.git
+  $ cd sergiobarria.com
+  $ yarn && yarn dev
 ```
 
 Create .env file similar to `.env.example`
@@ -66,8 +66,6 @@ Create .env file similar to `.env.example`
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env.local file
-
-`NEXT_PUBLIC_GOOGLE_ANALYTICS`
 
 `SENDGRID_API_KEY`
 

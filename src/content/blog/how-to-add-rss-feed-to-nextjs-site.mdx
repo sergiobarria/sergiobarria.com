@@ -13,7 +13,8 @@ Needless to say, this is by far not the only way, there are other packages and o
 
 Without further delay, let's get to it.
 
-Table of Contents
+## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [What is an RSS Feed](#what-is-an-rss-feed)
 - [Let's create an RSS Feed for a Next.js Project](#lets-create-an-rss-feed-for-a-nextjs-project)
 - [That's it...](#thats-it)
@@ -30,13 +31,13 @@ For this quick guide, and in order to make the process simpler, we will not writ
 
 First, we need to install the `rss` package we're going to use:
 
-```bash
+```bash:terminal
 npm i -D rss
 ```
 
 Also, in case that your content is stored in markdown files, you'll probably need a `gray-matter` parser. For this example I'm using the `front-matter` package:
 
-```bash
+```bash:terminal
 npm i -D gray-matter
 ```
 
@@ -71,7 +72,7 @@ fs.writeFileSync(path.resolve(__dirname, 'public') + '/rss.xml', xml); 
 
 With the above code, we're ready to test if it works. You can run it from your console:
 
-```bash
+```bash:terminal
 node rss-script.js
 ```
 

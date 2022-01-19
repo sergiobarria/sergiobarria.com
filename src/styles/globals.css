@@ -158,7 +158,7 @@ html {
 
 /* Titles for rehype-code-title class */
 .rehype-code-title {
-  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-[#322931] dark:bg-[#322931] border-b-[1px] border-opacity-50  border-gray-600 rounded-t-lg dark:text-gray-200 dark:border-gray-700 -z-50;
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-[#322931] dark:bg-[#322931] border-b-[1px] border-opacity-50  border-gray-600 rounded-t-lg dark:text-gray-200 dark:border-gray-700;
 }
 
 .rehype-code-title + pre {

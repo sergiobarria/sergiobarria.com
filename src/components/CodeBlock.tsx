@@ -14,6 +14,7 @@ export function Pre(props: ComponentPropsWithRef<'pre'>) {
         {`
           pre {
             position: relative;
+            padding-top: 2.5rem;
           }
         `}
       </style>
@@ -41,9 +42,9 @@ export default function CustomCodeBlock(props: ComponentPropsWithRef<'code'>) {
 
       {language && (
         <div className='absolute right-0 z-50 px-3 py-1 bottom-2'>
-          {language === 'js' ? (
+          {language === 'js' || language === 'jsx' ? (
             <SiJavascript className='text-yellow-500' size={25} />
-          ) : language === 'typescript' ? (
+          ) : language === 'typescript' || language === 'tsx' ? (
             <SiTypescript className='text-blue-500' size={25} />
           ) : null}
         </div>

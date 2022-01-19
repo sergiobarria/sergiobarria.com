@@ -84,7 +84,7 @@ pre[class*='language-'] {
 
 pre[class*='language-'] {
   background: var(--background);
-  @apply border dark:border-gray-700 border-t-0;
+  @apply border dark:border-gray-700;
   border-radius-bottom: 0.5em;
   padding: 1em;
   /* margin: 0.5em 0; */
@@ -144,7 +144,7 @@ pre[class*='language-'] {
 
 .token.maybe-class-name {
   /* color: var(--foreground); */
-  @apply text-gray-200;
+  @apply text-gray-500 dark:text-gray-200;
 }
 
 .token.script {
@@ -329,4 +329,5 @@ pre[class*='language-'] {
 
 .code-line {
   display: block;
+  @apply text-orange-600;
 }
