@@ -6,6 +6,8 @@ import Document, {
   NextScript,
 } from 'next/document';
 
+import clsx from 'clsx';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -16,7 +18,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          {/* <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link
             rel='preconnect'
             href='https://fonts.gstatic.com'
@@ -25,7 +27,7 @@ export default class MyDocument extends Document {
           <link
             href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap'
             rel='stylesheet'
-          />
+          /> */}
 
           {/* Favicon */}
           <link href='/static/favicon/favicon.ico' rel='shortcut icon' />
@@ -72,7 +74,12 @@ export default class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className='antialiased bg-gray-50 dark:bg-gray-900'>
+        <body
+          className={clsx(
+            'antialiased bg-gray-50 dark:bg-gray-900',
+            process.env.NODE_ENV === 'development' && 'debug-screens'
+          )}
+        >
           <Main />
           <NextScript />
         </body>

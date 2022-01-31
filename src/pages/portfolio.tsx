@@ -3,13 +3,9 @@ import { useState } from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 
-import clsx from 'clsx';
-import { HiArrowRight } from 'react-icons/hi';
-
+import ProjectCard from '@/components/ProjectCard';
 import SearchBar from '@/components/SearchBar';
-import TechIcons, { TechListType } from '@/components/TechIcons';
 
-// import CloudinaryImage from '@/components/images/CloudinaryImage'
 import { allProjects } from '.contentlayer/data';
 import { Project } from '.contentlayer/types';
 
@@ -74,41 +70,11 @@ export default function PortfolioPage({
             </p>
           )}
 
-          <ul className='grid grid-cols-1 gap-4 mb-16 md:grid-cols-2 auto-rows-fr'>
+          <div className='grid grid-cols-1 gap-6 mb-16 md:grid-cols-2 auto-rows-fr'>
             {filteredProjects.map((project: Project) => (
-              <li key={project._id}>
-                <article className='flex flex-col h-full p-4 border rounded-md'>
-                  {/* <CloudinaryImage
-                    publicId={`sergiobarria/projects/${project.banner}`}
-                    width={1200}
-                    height={720}
-                    alt={project.name}
-                    className="mb-2"
-                  /> */}
-                  <h4>{project.name}</h4>
-                  <p className='text-sm text-gray-500 dark:text-gray-300'>
-                    {project.description}
-                  </p>
-                  <div className='flex items-center justify-between pt-3 mt-auto'>
-                    <TechIcons
-                      techs={project.techs.split(',') as Array<TechListType>}
-                      className='text-gray-500'
-                    />
-                    <a
-                      href={project.liveUrl}
-                      className={clsx(
-                        'flex items-center text-sm transition-all duration-300 text-gray-500',
-                        'hover:scale-105 hover:text-gray-700 dark:hover:text-gray-200',
-                        'animated-underline dark:text-gray-300'
-                      )}
-                    >
-                      See live <HiArrowRight className='ml-2' />
-                    </a>
-                  </div>
-                </article>
-              </li>
+              <ProjectCard key={project._id} project={project} />
             ))}
-          </ul>
+          </div>
         </section>
       </div>
     </>

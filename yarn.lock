@@ -2445,7 +2445,7 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-contentlayer@^0.0.33:
+contentlayer@0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/contentlayer/-/contentlayer-0.0.33.tgz#35ef97ef2c0fe0dae95764436c1a095943d92be1"
   integrity sha512-dsXpW1JoQ5E1+dpUmjpGhwTfifEcE7l1+KLmwe9NKgeLQG7+PJyuM75Z3IYpip/4Tk9zrQt1+NEd0FhfVKeVFQ==
@@ -7900,6 +7900,11 @@ table@^6.0.9:
     slice-ansi "^4.0.0"
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
+
+tailwindcss-debug-screens@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-debug-screens/-/tailwindcss-debug-screens-2.2.1.tgz#8dd0854a273daa4f30f4c383370872c6bca337cd"
+  integrity sha512-EMyA0CYBzqcZJHtVDvBfmYzfx3NxuK4qDyVO5wnzcGOrmJsv25D9xPpWefVTORTvhE6pCh90Z1WYnLUKsg3yMw==
 
 tailwindcss@^3.0.15:
   version "3.0.15"

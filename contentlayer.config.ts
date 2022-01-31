@@ -39,18 +39,18 @@ const Post = defineDocumentType(() => ({
 
 const Project = defineDocumentType(() => ({
   name: 'Project',
-  filePathPattern: 'projects/*.mdx',
+  filePathPattern: 'projects/*.md',
   bodyType: 'mdx',
   fields: {
     name: { type: 'string', required: true },
     number: { type: 'number', required: true },
     description: { type: 'string', required: true },
-    publishedAt: { type: 'string', required: true },
     techs: { type: 'string', required: true },
     banner: { type: 'string', required: true },
-    route: { type: 'string', required: true },
+    slug: { type: 'string', required: true },
     liveUrl: { type: 'string', required: true },
     repo: { type: 'string', required: true },
+    status: { type: 'string', required: true },
   },
 }));
 
