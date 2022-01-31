@@ -4,12 +4,11 @@ import { NextSeo } from 'next-seo';
 
 import { format } from 'date-fns';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
-import { IoChevronBackCircleSharp } from 'react-icons/io5';
-
-import CustomLink from '@/components/CustomLink';
 
 import { Post } from '.contentlayer/types';
 import CloudinaryImage from '../CloudinaryImage';
+import ReturnLink from '../ReturnLink';
+import TextBodyContainer from '../TextBodyContainer';
 import ViewCounter from '../ViewCounter';
 
 export default function BlogPostLayout({
@@ -50,14 +49,15 @@ export default function BlogPostLayout({
     <>
       <NextSeo {...customMetadata} />
       <div className='my-10 layout'>
-        <CustomLink href='/blog'>
+        <ReturnLink href='/blog' />
+        {/* <CustomLink href='/blog'>
           <span className='flex items-center mb-3 transition-colors text-primary hover:text-primary/70'>
             <IoChevronBackCircleSharp size={30} className='mr-2 ' />
             <span className='border-b-[2px] border-primary/50 border-dotted'>
               Back
             </span>
           </span>
-        </CustomLink>
+        </CustomLink> */}
         <CloudinaryImage
           publicId={`sergiobarria/banners/${post.banner}`}
           alt='blog post cover'
@@ -91,9 +91,7 @@ export default function BlogPostLayout({
 
         {/* Main Content */}
         <section className='section'>
-          <article className='prose max-w-[768px] prose-slate dark:prose-invert prose-a:no-underline'>
-            {children}
-          </article>
+          <TextBodyContainer>{children}</TextBodyContainer>
         </section>
       </div>
     </>

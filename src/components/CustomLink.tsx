@@ -12,7 +12,7 @@ export default function CustomLink(props: any) {
         <a
           {...props}
           className={clsx(
-            'text-primary dark:hover:text-white dark:text-accent',
+            'text-primary dark:hover:text-white dark:text-primary',
             'hover:text-primary/50',
             'transition-colors duration-200'
           )}
@@ -29,10 +29,10 @@ export default function CustomLink(props: any) {
       rel='noopener noreferrer'
       {...props}
       className={clsx(
-        'text-primary dark:text-accent',
+        'text-primary dark:text-primary',
         'hover:text-primary/70 transition-colors',
         'border-b-[1px] border-primary border-dotted',
-        'dark:hover:text-accent/70 dark:border-accent'
+        'dark:hover:text-primary/70 dark:border-primary'
       )}
     ></a>
   );

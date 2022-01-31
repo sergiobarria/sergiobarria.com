@@ -62,9 +62,9 @@ export default function HomePage({
       <div className='layout md:my-8'>
         {/* Hero */}
         <section className='w-full md:w-10/12'>
-          <h1 className='mb-3'>Hi, I&apos;m Sergio</h1>
+          <h1 className='mb-1'>Hi, I&apos;m Sergio</h1>
           <p className='text-lg text-gray-300 dark:text-gray-300'>
-            Web Developer
+            Frontend Web Developer
           </p>
           <p className='text-lg text-gray-500 dark:text-gray-200'>
             I work with the JavaScript ecosystem. Welcome to my small piece of

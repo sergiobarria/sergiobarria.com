@@ -13,9 +13,13 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class', // 'media' or 'class'
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        // sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
       },
       gradientColorStops: {},
       colors: {
@@ -41,5 +45,9 @@ module.exports = {
       typography: ['dark'],
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('tailwindcss-debug-screens'),
+  ],
 };

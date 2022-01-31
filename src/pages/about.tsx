@@ -33,7 +33,7 @@ export default function AboutPage() {
               Because of the pandemic, there was not much to do during
               quarantine, so I started looking for some new hobbies. By the end
               of 2020 I got the curiosity again of learning about software
-              development, this time focusing in the web. There is so much
+              development, this time focusing on the web. There is so much
               technologies to learn for both front and back end development,
               that I quickly fell in love with programming.
             </p>
