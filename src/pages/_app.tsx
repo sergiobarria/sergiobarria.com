@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
@@ -15,9 +14,7 @@ import Layout from '@/components/layout-main/Layout';
 
 import SEO from '../../next-seo.config';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
+export default function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
     const handleRouteChange = (url: any) => {
       gtag.pageview(url);
@@ -37,6 +34,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <DefaultSeo {...SEO} />
 
+      {/* Main App */}
       <ThemeProvider enableSystem={true} attribute='class'>
         <Layout>
           <Component {...pageProps} />

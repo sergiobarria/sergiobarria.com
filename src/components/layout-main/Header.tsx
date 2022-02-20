@@ -24,7 +24,7 @@ export default function Header({ children }: Props) {
   return (
     <header
       className={clsx(
-        'sticky top-0 bg-gray-50 py-4 transition-shadow dark:bg-gray-900',
+        'sticky top-0 bg-gray-50 pt-8 pb-16 transition-shadow dark:bg-gray-900',
         !onTop &&
           'shadow-lg shadow-gray-200 dark:shadow-md dark:shadow-white/20',
         !onTop && 'bg-gray-50 bg-opacity-30 backdrop-blur-lg backdrop-filter'
