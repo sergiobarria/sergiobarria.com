@@ -2,7 +2,7 @@ import { useSetTheme } from '@/hooks/useSetTheme';
 
 import Header from '@/components/layout-main/Header';
 import NavLink from '@/components/NavLink';
-import ThemeToggle from '@/components/ThemeToggle';
+import ThemeToggleBtn from '@/components/ThemeToggleBtn';
 
 import { routes } from '@/fixtures/routes';
 
@@ -27,7 +27,7 @@ export default function Navbar() {
             <NavLink key={route.id} route={route.route} text={route.text} />
           ))}
         </nav>
-        <ThemeToggle />
+        <ThemeToggleBtn />
       </div>
     </Header>
   );
