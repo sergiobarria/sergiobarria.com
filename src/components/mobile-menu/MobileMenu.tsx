@@ -8,8 +8,8 @@ import FloatingButton from './FloatingButton';
 import Navigation from './Navigation';
 
 const sidebar = {
-  open: (height = 500) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at right 4rem bottom 4rem)`,
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -17,9 +17,9 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(10px at 325px 780px',
+    clipPath: 'circle(10px at right 4rem bottom 4rem)',
     transition: {
-      delay: 0.5,
+      delay: 0.1,
       type: 'spring',
       stiffness: 400,
       damping: 40,
@@ -40,11 +40,11 @@ export default function MobileMenu() {
       ref={containerRef}
     >
       <motion.div
-        className='absolute inset-0 z-10 bg-primary'
+        className='absolute inset-0 z-10 bg-primary dark:bg-gray-600 sm:hidden'
         variants={sidebar}
       />
 
-      <Navigation isOpen={isOpen} />
+      <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <FloatingButton isOpen={isOpen} setIsOpen={setIsOpen} />
     </motion.nav>

@@ -15,15 +15,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "noUnusedLocals": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "contentlayer/generated": ["./.contentlayer/generated"],
+      "@/*": ["src/*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    ".contentlayer/generated",
     "src/lib/gtag.js",
     "__tests__/contactForm.test.tsx"
   ],

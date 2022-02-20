@@ -19,9 +19,12 @@ module.exports = {
     extend: {
       fontFamily: {
         // sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+        // sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+        sans: ['Lato', ...defaultTheme.fontFamily.sans],
       },
-      gradientColorStops: {},
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(var(--gradient-color-stops))',
+      },
       colors: {
         primary: withOpacityValue('--tw-clr-primary'),
         accent: withOpacityValue('--tw-clr-accent'),

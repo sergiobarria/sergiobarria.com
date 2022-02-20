@@ -24,15 +24,17 @@ const variants = {
 interface Props {
   text: string;
   href: string;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function MenuItem({ text, href }: Props) {
+export default function MenuItem({ text, href, setIsOpen }: Props) {
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       className='text-lg text-white'
+      onClick={() => setIsOpen(false)}
     >
       <Link href={href}>
         <a>{text}</a>

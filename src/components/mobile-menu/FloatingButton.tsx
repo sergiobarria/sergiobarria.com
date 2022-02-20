@@ -13,7 +13,7 @@ export default function FloatingButton({ isOpen, setIsOpen }: Props) {
     <div
       className={clsx(
         'fixed bottom-10 right-10 rounded-full',
-        'z-50  md:hidden',
+        'z-50  sm:hidden',
         isOpen && 'bg-white text-primary',
         !isOpen && 'bg-primary text-white'
       )}

@@ -18,20 +18,26 @@ const variants = {
 
 interface Props {
   isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Navigation({ isOpen }: Props) {
+export default function Navigation({ isOpen, setIsOpen }: Props) {
   return (
     <motion.ul
       variants={variants}
       className={clsx(
         !isOpen && 'hidden',
-        'absolute inset-0 z-20 space-y-6 text-center',
+        'absolute inset-0 z-20 space-y-8 text-center',
         'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform'
       )}
     >
       {routes.map((route) => (
-        <MenuItem key={route.id} text={route.text} href={route.route} />
+        <MenuItem
+          key={route.id}
+          text={route.text}
+          href={route.route}
+          setIsOpen={setIsOpen}
+        />
       ))}
     </motion.ul>
   );
