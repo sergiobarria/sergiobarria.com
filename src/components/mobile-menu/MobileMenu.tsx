@@ -40,7 +40,7 @@ export default function MobileMenu() {
       ref={containerRef}
     >
       <motion.div
-        className='absolute inset-0 z-10 bg-primary dark:bg-gray-600 sm:hidden'
+        className='fixed inset-0 z-10 bg-primary dark:bg-gray-600 sm:hidden'
         variants={sidebar}
       />
 

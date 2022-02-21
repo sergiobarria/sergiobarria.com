@@ -66,7 +66,7 @@ export default function HomePage({
       {/* Hero */}
       <Section className='mt-0'>
         <div className='layout'>
-          <header className='w-2/3'>
+          <header className='md:-2/3'>
             <h1 className='mb-0'>Hi, I&apos;m Sergio</h1>
             <p className='mb-3 text-gray-400 dark:text-gray-400'>
               Frontend Web & Mobile Developer

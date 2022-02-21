@@ -36,6 +36,7 @@ export default class MyDocument extends Document {
         </Head>
         <body
           className={clsx(
+            'bg-gray-50 dark:bg-gray-900',
             process.env.NODE_ENV === 'development' && 'debug-screens'
           )}
         >

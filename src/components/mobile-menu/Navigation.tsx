@@ -27,7 +27,7 @@ export default function Navigation({ isOpen, setIsOpen }: Props) {
       variants={variants}
       className={clsx(
         !isOpen && 'hidden',
-        'absolute inset-0 z-20 space-y-8 text-center',
+        'fixed inset-0 z-20 space-y-8 text-center',
         'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform'
       )}
     >
