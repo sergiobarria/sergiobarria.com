@@ -5,11 +5,10 @@ import {
 } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import SnippetLayout from '@/components/layout-pages/SnippetLayout';
-import components from '@/components/MDXComponents';
+import { allSnippets, Snippet } from 'contentlayer/generated';
 
-import { allSnippets } from '.contentlayer/data';
-import type { Snippet } from '.contentlayer/types';
+import SnippetLayout from '@/components/layout-pages/SnippetLayout';
+import components from '@/components/misc/MDXComponents';
 
 export async function getStaticPaths() {
   return {

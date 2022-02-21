@@ -6,7 +6,7 @@ export default function TextBodyContainer({
   children: React.ReactNode;
 }) {
   return (
-    <article className='prose max-w-none prose-a:no-underline prose-p:my-3 dark:prose-invert'>
+    <article className='prose max-w-none prose-p:my-3 prose-a:no-underline dark:prose-invert'>
       {children}
     </article>
   );

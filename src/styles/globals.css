@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@fontface {
-  font-family: 'IBM Plex Sans';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: optional;
-  src: url(/fonts/ibm-plex-sans-var.woff2) format('woff2');
-}
-
-@fontface {
-  font-family: 'IBM Plex Sans';
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: optional;
-  src: url(/fonts/ibm-plex-sans-var-italic.woff2) format('woff2');
-}
-
 :root {
   /* Global style variables */
   /* Using just the color channels allows to use opacity values with Tailwind */
@@ -47,6 +31,7 @@ html {
 
 #__next {
   @apply bg-gray-50 dark:bg-gray-900;
+  @apply transition-colors duration-150;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -55,10 +40,6 @@ html {
 ::selection {
   background-color: var(--clr-primary);
   color: #fefefe;
-}
-
-.skip-nav {
-  @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
 }
 
 #skip {
@@ -75,7 +56,7 @@ html {
   }
 
   h1 {
-    @apply text-4xl font-bold md:text-5xl;
+    @apply mb-4 text-4xl font-bold md:text-5xl;
   }
 
   h2 {
@@ -83,76 +64,38 @@ html {
   }
 
   h3 {
-    @apply text-lg font-bold md:text-2xl;
+    @apply mb-4 text-lg font-bold md:text-2xl;
   }
 
   h4 {
     @apply text-base font-semibold;
   }
 
+  p,
+  span {
+    @apply text-base text-gray-600 dark:text-gray-200;
+  }
   /* END - DEFAULT TYPOGRAPHY */
 
   hr {
     @apply my-4 border-gray-200 dark:border-gray-500;
-  }
-
-  .min-h-main {
-    @apply min-h-[calc(100vh-82px)];
   }
 }
 
 @layer utilities {
   .layout {
     max-width: 48rem;
-    @apply px-4 mx-auto md:px-0;
-  }
-
-  .section {
-    @apply mt-10;
-  }
-
-  .text-gradient {
-    @apply text-transparent bg-clip-text bg-gradient-to-tr from-primary to-accent;
-  }
-
-  .bg-text-gradient {
-    @apply bg-gradient-to-tr from-primary/40 to-accent/40 dark:text-transparent dark:bg-clip-text dark:from-primary dark:to-accent;
-  }
-
-  .mobile-link {
-    @apply text-sm font-semibold text-gray-900 border-b border-gray-300 dark:border-gray-700 dark:text-gray-100;
-  }
-
-  .animated-underline {
-    background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(to right, var(--clr-primary), var(--clr-primary));
-    background-size: 100% 2px, 0 2px;
-    background-position: 100% 100%, 0 100%;
-    background-repeat: no-repeat;
-    transition: 0.3s ease;
-    transition-property: background-size, color, background-color, border-color;
-  }
-
-  .animated-underline:hover,
-  .animated-underline:focus-visible {
-    background-size: 0 2px, 100% 2px;
+    @apply mx-auto px-4 md:px-0;
   }
 
   .text-gradient {
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    @apply bg-gradient-to-tr from-primary to-accent bg-clip-text text-transparent;
   }
 
-  .text-long {
-    @apply text-base font-normal text-gray-500 dark:text-gray-200;
-  }
-
-  .input {
-    @apply block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:ring-primary focus:border-0;
-  }
-
-  .send-form-btn {
-    @apply px-4 py-2 font-bold text-gray-900 transition duration-300 rounded shadow bg-primary hover:scale-105 hover:shadow-lg focus:outline-none;
+  .bg-text-gradient {
+    @apply bg-gradient-to-tr from-primary/40 to-accent/40 dark:from-primary dark:to-accent dark:bg-clip-text dark:text-transparent;
   }
 }
 
@@ -174,7 +117,7 @@ html {
 
 /* Titles for rehype-code-title class */
 .rehype-code-title {
-  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-[#322931] dark:bg-[#322931] border-b-[1px] border-opacity-50  border-gray-600 rounded-t-lg dark:text-gray-200 dark:border-gray-700;
+  @apply rounded-t-lg border-b-[1px] border-gray-600 border-opacity-50 bg-[#322931] px-5 py-3 font-mono text-sm font-bold  text-gray-200 dark:border-gray-700 dark:bg-[#322931] dark:text-gray-200;
 }
 
 .rehype-code-title + pre {
@@ -182,7 +125,7 @@ html {
 }
 
 code {
-  @apply bg-gray-200 dark:bg-gray-700 dark:border-opacity-30 p-[1px] rounded-[4px];
+  @apply rounded-[4px] bg-gray-200 p-[1px] dark:border-opacity-30 dark:bg-gray-700;
 }
 
 code::before,

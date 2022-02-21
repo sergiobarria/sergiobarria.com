@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
-import ContactForm from '@/components/ContactForm';
-import Loader from '@/components/Loader';
-import MessageCard from '@/components/MessageCard';
+import MessageCard from '@/components/cards/MessageCard';
+import ContactForm from '@/components/forms/ContactForm';
+import Loader from '@/components/misc/Loader';
 
 import { IUserSubmitForm } from '@/types/interfaces';
 
@@ -57,9 +57,9 @@ export default function ContactPage() {
       <NextSeo {...customMetadata} />
       <section className='section'>
         <div className='layout'>
-          <div className='w-full mx-auto mb-8 md:w-8/12'>
+          <div className='mx-auto mb-8 w-full md:w-8/12'>
             <h2>Contact Me</h2>
-            <p className='mt-2 mb-8 text-long'>
+            <p className='mt-2 mb-8'>
               If you want to hire me, collaborate or give me any feedback or
               suggestions, get in touch.
             </p>

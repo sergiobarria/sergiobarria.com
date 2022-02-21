@@ -3,23 +3,23 @@ import { SiGithub } from 'react-icons/si';
 
 import { IGithubRepoGQL } from '@/types/interfaces';
 
-interface IProps {
+interface Props {
   repo: IGithubRepoGQL;
 }
 
-export default function GithubCard({ repo }: IProps) {
+export default function GithubCard({ repo }: Props) {
   return (
     <div
       className={clsx(
-        'px-4 py-2 transition-all duration-300 border rounded-md',
-        'hover:scale-105 hover:shadow-md hover:border-primary'
+        'h-full rounded-md border px-4 py-2 transition-all duration-300',
+        'hover:scale-105 hover:border-primary hover:shadow-md'
       )}
     >
       <a
         target='_blank'
         rel='noopener noreferrer'
         href={repo.url}
-        className='flex flex-col h-full'
+        className='flex h-full flex-col'
       >
         <h4 className='flex items-center space-x-3'>
           <span>
@@ -30,9 +30,9 @@ export default function GithubCard({ repo }: IProps) {
         <p className='py-2 text-sm text-gray-500 dark:text-gray-300'>
           {repo.description}
         </p>
-        <div className='flex items-center mt-auto space-x-2'>
+        <div className='mt-auto flex items-center space-x-2'>
           <div
-            className={`w-2 h-2 ${repo.primaryLanguage.name.toLowerCase()} rounded-full`}
+            className={`h-2 w-2 ${repo.primaryLanguage.name.toLowerCase()} rounded-full`}
           />
           <span className='text-sm text-gray-500 dark:text-gray-300'>
             {repo.primaryLanguage.name}

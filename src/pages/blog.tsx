@@ -4,11 +4,10 @@ import { InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 
 import { pick } from 'contentlayer/client';
+import { allPosts } from 'contentlayer/generated';
 
-import BlogPostCard from '@/components/BlogPostCard';
-import SearchBar from '@/components/SearchBar';
-
-import { allPosts } from '.contentlayer/data';
+import BlogPostCard from '@/components/cards/BlogPostCard';
+import SearchBar from '@/components/forms/SearchBar';
 
 export async function getStaticProps() {
   const featuredPosts = allPosts
@@ -73,7 +72,7 @@ export default function BlogPage({
         <section className='section'>
           <h1>Blog</h1>
           <hr className='my-6' />
-          <p className='mb-6 prose max-w-none dark:prose-invert'>
+          <p className='prose mb-6 max-w-none dark:prose-invert'>
             Welcome to...whatever this is 😅 . Here I share my thoughts related
             to many web development topics and programming in general. I've
             always been a fan of writing, and I hope you can find something here
@@ -94,7 +93,7 @@ export default function BlogPage({
         </section>
 
         {/* All Posts */}
-        <section className='py-10 section'>
+        <section className='section py-10'>
           <h2>{`All Posts (${
             searchValue ? filteredPosts.length : posts.length
           })`}</h2>
