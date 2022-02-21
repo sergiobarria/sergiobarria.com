@@ -2,14 +2,15 @@ import { PropsWithChildren } from 'react';
 
 import { NextSeo } from 'next-seo';
 
+import { Post } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
-import { Post } from '.contentlayer/types';
-import CloudinaryImage from '../CloudinaryImage';
-import ReturnLink from '../ReturnLink';
-import TextBodyContainer from '../TextBodyContainer';
-import ViewCounter from '../ViewCounter';
+import { Section } from '@/components/base';
+import CloudinaryImage from '@/components/CloudinaryImage';
+import ReturnLink from '@/components/links/ReturnLink';
+import TextBodyContainer from '@/components/TextBodyContainer';
+import ViewCounter from '@/components/ViewCounter';
 
 export default function BlogPostLayout({
   children,
@@ -48,16 +49,8 @@ export default function BlogPostLayout({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='my-10 layout'>
+      <div className='layout mb-10'>
         <ReturnLink href='/blog' />
-        {/* <CustomLink href='/blog'>
-          <span className='flex items-center mb-3 transition-colors text-primary hover:text-primary/70'>
-            <IoChevronBackCircleSharp size={30} className='mr-2 ' />
-            <span className='border-b-[2px] border-primary/50 border-dotted'>
-              Back
-            </span>
-          </span>
-        </CustomLink> */}
         <CloudinaryImage
           publicId={`sergiobarria/banners/${post.banner}`}
           alt='blog post cover'
@@ -65,18 +58,16 @@ export default function BlogPostLayout({
           height={720}
         />
         <h1 className='mt-4'>{post.title}</h1>
-        <div className='flex items-center gap-1 my-4 text-gray-500'>
+        <div className='my-4 flex items-center gap-1 text-gray-500'>
           <div>
             <span>Written on {formattedDate}</span>
             <span> by Sergio Barria</span>
-            {/* <span className="mx-2 text-gray-lighter">|</span> */}
           </div>
         </div>
         <div className='flex items-center space-x-4 text-gray-500 dark:text-gray-300'>
           <div className='flex items-center gap-1'>
             <HiOutlineClock />
             <span>{post.readingTime.text}</span>
-            {/* <span className='mx-2 text-gray-lighter'>|</span> */}
           </div>
           <div className='flex items-center gap-1'>
             <HiOutlineEye />
@@ -85,14 +76,19 @@ export default function BlogPostLayout({
         </div>
 
         {/* Summary */}
-        <div className='py-6 my-10 italic border-dashed text-long dark:text-gray-lighter border-y'>
-          {post.summary}
-        </div>
+        <Section className='mt-6 border-y border-double py-6 italic dark:text-gray-300'>
+          <p>
+            <span className='uppercase text-primary dark:text-primary'>
+              Quick Summary ↬
+            </span>
+            {post.summary}
+          </p>
+        </Section>
 
         {/* Main Content */}
-        <section className='section'>
+        <Section>
           <TextBodyContainer>{children}</TextBodyContainer>
-        </section>
+        </Section>
       </div>
     </>
   );

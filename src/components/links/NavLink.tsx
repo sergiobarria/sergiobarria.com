@@ -24,7 +24,7 @@ export default function NavLink({ route, text }: INavLinkProps) {
         className={clsx(
           isActive
             ? 'font-semibold text-primary'
-            : 'text-gray-500 hover:skew-x-6 hover:text-primary'
+            : 'text-gray-300 hover:skew-x-6 hover:text-primary'
         )}
       >
         {text}

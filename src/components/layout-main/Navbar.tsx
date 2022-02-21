@@ -1,8 +1,10 @@
+import clsx from 'clsx';
+
 import { useSetTheme } from '@/hooks/useSetTheme';
 
+import ThemeToggleBtn from '@/components/buttons/ThemeToggleBtn';
 import Header from '@/components/layout-main/Header';
-import NavLink from '@/components/NavLink';
-import ThemeToggleBtn from '@/components/ThemeToggleBtn';
+import NavLink from '@/components/links/NavLink';
 
 import { routes } from '@/fixtures/routes';
 
@@ -16,12 +18,18 @@ export default function Navbar() {
   return (
     <Header>
       {/* Skip Navigation */}
-      <a href='#skip' className='skip-nav'>
+      <a
+        href='#skip'
+        className={clsx(
+          'absolute -left-1/4 -top-8 -translate-y-12 transform px-4 py-3',
+          'transition-transform duration-200 focus:top-4 focus:translate-y-3'
+        )}
+      >
         Skip to content
       </a>
 
       {/* Navbar */}
-      <div className='content flex w-full items-center justify-end md:justify-between'>
+      <div className='layout flex w-full items-center justify-end md:justify-between'>
         <nav className='hidden h-full items-center space-x-6 sm:flex'>
           {routes.map((route) => (
             <NavLink key={route.id} route={route.route} text={route.text} />

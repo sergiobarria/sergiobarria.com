@@ -3,17 +3,17 @@ import React from 'react';
 import Link from 'next/link';
 
 import clsx from 'clsx';
+import { Snippet } from 'contentlayer/generated';
 
-import TechIcons, { TechListType } from './TechIcons';
-import { Snippet } from '.contentlayer/types';
+import TechIcons, { TechListType } from '../TechIcons';
 
 export default function SnippetCard({ snippet }: { snippet: Snippet }) {
   return (
     <Link href={`library/${snippet.slug}`}>
       <a
         className={clsx(
-          'space-y-2 p-3 transition duration-200 border rounded-md',
-          'hover:scale-[1.02] hover:shadow-md hover:border-2 hover:border-primary'
+          'space-y-2 rounded-md border p-3 transition duration-200',
+          'hover:scale-[1.02] hover:border-2 hover:border-primary hover:shadow-md'
         )}
       >
         <h4 className='mb-2'>{snippet.title}</h4>

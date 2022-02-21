@@ -18,9 +18,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        // sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
         // sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
-        sans: ['Lato', ...defaultTheme.fontFamily.sans],
+        // sans: ['Lato', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
         'radial-gradient': 'radial-gradient(var(--gradient-color-stops))',

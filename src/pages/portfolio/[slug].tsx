@@ -7,11 +7,10 @@ import {
 } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import ProjectLayout from '@/components/layout-pages/ProjectLayout';
-import components from '@/components/MDXComponents';
+import { allProjects, Project } from 'contentlayer/generated';
 
-import { allProjects } from '.contentlayer/data';
-import type { Project } from '.contentlayer/types';
+import ProjectLayout from '@/components/layout-pages/ProjectLayout';
+import components from '@/components/misc/MDXComponents';
 
 export async function getStaticPaths() {
   return {

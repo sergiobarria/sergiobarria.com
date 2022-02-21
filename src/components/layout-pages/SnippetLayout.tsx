@@ -3,8 +3,9 @@ import { PropsWithChildren } from 'react';
 import { NextSeo } from 'next-seo';
 
 import clsx from 'clsx';
+import { Snippet } from 'contentlayer/generated';
 
-import { Snippet } from '.contentlayer/types';
+import { Section } from '@/components/base';
 
 export default function SnippetLayout({
   children,
@@ -30,20 +31,20 @@ export default function SnippetLayout({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='my-10 layout'>
+      <div className='layout my-10'>
         <h1 className='mb-4'>{snippet.title}</h1>
         <p className='mb-6 text-gray-500 dark:text-gray-300'>
           {snippet.description}
         </p>
 
-        <section
+        <Section
           className={clsx(
-            'prose max-w-none dark:prose-invert prose-li:marker:text-primary',
-            'prose-li:marker:text-lg prose-a:no-underline'
+            'prose max-w-none prose-li:marker:text-primary dark:prose-invert',
+            'prose-a:no-underline prose-li:marker:text-lg'
           )}
         >
           {children}
-        </section>
+        </Section>
       </div>
     </>
   );

@@ -1,11 +1,10 @@
 import { GetStaticPropsContext } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import BlogPostLayout from '@/components/layout-pages/BlogPostLayout';
-import components from '@/components/MDXComponents';
+import { allPosts, Post } from 'contentlayer/generated';
 
-import { allPosts } from '.contentlayer/data';
-import { Post } from '.contentlayer/types';
+import BlogPostLayout from '@/components/layout-pages/BlogPostLayout';
+import components from '@/components/misc/MDXComponents';
 
 export async function getStaticPaths() {
   return {

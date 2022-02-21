@@ -2,13 +2,13 @@ import NextLink from 'next/link';
 
 export default function MessageCard({ message }: { message: string }) {
   return (
-    <div className='flex items-center justify-center bg-white rounded-lg shadow-md h-72'>
-      <div className='flex flex-col items-center justify-center w-full h-full p-6 '>
+    <div className='flex h-72 items-center justify-center rounded-lg bg-white shadow-md'>
+      <div className='flex h-full w-full flex-col items-center justify-center p-6 '>
         <div>
           {message === 'success' ? (
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className='w-16 h-16 text-green-500'
+              className='h-16 w-16 text-green-500'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -23,7 +23,7 @@ export default function MessageCard({ message }: { message: string }) {
           ) : (
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className='w-16 h-16 text-red-500'
+              className='h-16 w-16 text-red-500'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -39,7 +39,7 @@ export default function MessageCard({ message }: { message: string }) {
         </div>
 
         <div className='mt-2'>
-          <p className='text-center long-text'>
+          <p className='long-text text-center'>
             {message === 'success'
               ? "Thanks for reaching out! I'll be getting back to you as soon as possible"
               : 'Oopps! Something went wrong when sending your email, is not your fault. Please try again later.'}
@@ -48,7 +48,7 @@ export default function MessageCard({ message }: { message: string }) {
 
         <div className='mt-10'>
           <NextLink href='/'>
-            <a className='className="flex items-center send-form-btn focus:shadow-outline"'>
+            <a className='className="flex send-form-btn focus:shadow-outline" items-center'>
               Return Home
             </a>
           </NextLink>

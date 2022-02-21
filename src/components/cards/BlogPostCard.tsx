@@ -32,25 +32,25 @@ export default function BlogPostCard({ post, isLast }: IProps) {
 
   return (
     <article className='mt-8'>
-      <div className='flex items-center gap-1 text-gray-500'>
+      <div className='flex items-center gap-1'>
         <div>
-          <span>{formattedDate}</span>
+          <span className='text-gray-300'>{formattedDate}</span>
           <span className='mx-2 text-gray-300'>|</span>
         </div>
         <div className='flex items-center gap-1'>
-          <HiOutlineClock />
-          <span>{post.readingTime.text}</span>
+          <HiOutlineClock className='text-gray-300' />
+          <span className='text-gray-300'>{post.readingTime.text}</span>
           <span className='mx-2 text-gray-300'>|</span>
         </div>
-        <div className='flex items-center gap-1'>
-          <HiOutlineEye />
+        <div className='flex items-center gap-1 text-gray-300'>
+          <HiOutlineEye className='text-gray-300' />
           {views ? new Number(views).toLocaleString() : '---'} views
         </div>
       </div>
-      <h3 className='transition-all duration-300 hover:text-gray-700 hover:scale-[1.01] dark:text-gradient'>
+      <h3 className='transition-all duration-300 hover:scale-[1.01] hover:text-gray-700 dark:text-primary'>
         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
       </h3>
-      <p className='mt-2 text-long'>{post.summary}</p>
+      <p className='mt-2'>{post.summary}</p>
       <hr className={`my-4 ${isLast ? 'hidden' : ''}`} />
     </article>
   );

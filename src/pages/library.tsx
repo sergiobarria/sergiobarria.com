@@ -4,12 +4,10 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 
 import { pick } from 'contentlayer/client';
+import { allSnippets, Snippet } from 'contentlayer/generated';
 
-import SearchBar from '@/components/SearchBar';
-import SnippetCard from '@/components/SnippetCard';
-
-import { allSnippets } from '.contentlayer/data';
-import { Snippet } from '.contentlayer/types';
+import SnippetCard from '@/components/cards/SnippetCard';
+import SearchBar from '@/components/forms/SearchBar';
 
 export async function getStaticProps() {
   const snippets = allSnippets.map((snippet) =>
@@ -46,7 +44,7 @@ export default function LibraryPage({
       <div className='layout'>
         <section className='section'>
           <h1>My Library</h1>
-          <p className='my-4 text-long'>
+          <p className='my-4'>
             This is a collection of some code snippets, that I use on my
             projects. It includes stuff like styles, functions, and others.
           </p>
@@ -56,7 +54,7 @@ export default function LibraryPage({
           />
         </section>
 
-        <section className='mb-8 section'>
+        <section className='section mb-8'>
           {!filteredSnippets.length && (
             <p className='mt-2 text-gray-500 dark:text-gray-300'>
               No snippets found...

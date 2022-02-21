@@ -63,18 +63,18 @@ function AnimatedBars() {
   }, []);
 
   return (
-    <div className='flex items-end w-auto overflow-hidden'>
+    <div className='flex w-auto items-end overflow-hidden'>
       <span
         id='bar1'
-        className='w-1 mr-[3px] h-2 bg-primary/60 dark:bg-primary/70 opacity-75'
+        className='mr-[3px] h-2 w-1 bg-primary/60 opacity-75 dark:bg-primary/70'
       />
       <span
         id='bar2'
-        className='w-1 mr-[3px] h-1 bg-primary/60 dark:bg-primary/70'
+        className='mr-[3px] h-1 w-1 bg-primary/60 dark:bg-primary/70'
       />
       <span
         id='bar3'
-        className='w-1 h-3 bg-primary/60 dark:bg-primary/70 opacity-80'
+        className='h-3 w-1 bg-primary/60 opacity-80 dark:bg-primary/70'
       />
     </div>
   );
@@ -91,8 +91,8 @@ export default function SpotifyCard() {
           : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'
       }
       className={clsx(
-        'relative flex items-center p-2 space-x-4 transition-shadow',
-        'border rounded-md hover:shadow-md w-72'
+        'relative flex items-center space-x-4 p-2 transition-shadow',
+        'w-72 rounded-md border hover:shadow-md'
       )}
     >
       <div>
@@ -105,15 +105,15 @@ export default function SpotifyCard() {
             className='w-16 shadow-sm'
           />
         ) : (
-          <BsSpotify className='text-[#1ED760] w-12 h-12' />
+          <BsSpotify className='h-12 w-12 text-[#1ED760]' />
         )}
       </div>
 
       <div className='flex-1'>
-        <p className='font-bold component'>
+        <p className='component font-bold'>
           {data?.isPlaying ? data.title : 'Not Listening'}
         </p>
-        <div className='flex items-center justify-between text-xs font-gray-900'>
+        <div className='font-gray-900 flex items-center justify-between text-xs'>
           {data?.isPlaying ? (
             <>
               <span>{data?.artist}</span>

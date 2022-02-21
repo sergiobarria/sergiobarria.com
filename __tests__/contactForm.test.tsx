@@ -2,7 +2,7 @@ import React from 'react';
 
 import { act, fireEvent, render, screen } from '@testing-library/react';
 
-import ContactForm from '@/components/ContactForm';
+import ContactForm from '@/components/forms/ContactForm';
 
 describe('Contact Form', () => {
   describe('with valid inputs', () => {

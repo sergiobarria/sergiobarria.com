@@ -2,11 +2,12 @@ import React, { PropsWithChildren } from 'react';
 
 import { NextSeo } from 'next-seo';
 
-import type { Project } from '.contentlayer/types';
-import CloudinaryImage from '../CloudinaryImage';
-import Divider from '../Divider';
-import ReturnLink from '../ReturnLink';
-import TextBodyContainer from '../TextBodyContainer';
+import { Project } from 'contentlayer/generated';
+
+import CloudinaryImage from '@/components/CloudinaryImage';
+import ReturnLink from '@/components/links/ReturnLink';
+import Divider from '@/components/misc/Divider';
+import TextBodyContainer from '@/components/TextBodyContainer';
 
 export default function ProjectLayout({
   children,
@@ -15,7 +16,7 @@ export default function ProjectLayout({
   return (
     <>
       <NextSeo />
-      <div className='my-10 layout'>
+      <div className='layout my-10'>
         <ReturnLink href='/portfolio' />
         <CloudinaryImage
           publicId={`sergiobarria/projects/${project.banner}`}
@@ -24,7 +25,7 @@ export default function ProjectLayout({
           height={720}
         />
         <h2 className='mt-4'>{project.name}</h2>
-        <p className='mt-4 prose max-w-none'>{project.description}</p>
+        <p className='prose mt-4 max-w-none'>{project.description}</p>
         <Divider />
         <TextBodyContainer>{children}</TextBodyContainer>
       </div>

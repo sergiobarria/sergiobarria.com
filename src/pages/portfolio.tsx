@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 
-import ProjectCard from '@/components/ProjectCard';
-import SearchBar from '@/components/SearchBar';
+import { allProjects, Project } from 'contentlayer/generated';
 
-import { allProjects } from '.contentlayer/data';
-import { Project } from '.contentlayer/types';
+import { Section } from '@/components/base';
+import ProjectCard from '@/components/cards/ProjectCard';
+import SearchBar from '@/components/forms/SearchBar';
 
 export async function getStaticProps() {
   const projects = allProjects.sort((p1, p2) => p2.number - p1.number);
@@ -50,9 +50,9 @@ export default function PortfolioPage({
       <NextSeo {...customMetadata} />
       <div className='layout'>
         {/* Heading */}
-        <section className='space-y-4 section'>
+        <Section className='space-y-4'>
           <h1>Portfolio Projects</h1>
-          <p className='text-long'>
+          <p>
             Showcase of the projects I've work on in both, front and back end
             development.
           </p>
@@ -60,22 +60,22 @@ export default function PortfolioPage({
             setSearchValue={setSearchValue}
             placeholderText='Search project...'
           />
-        </section>
+        </Section>
 
         {/* Projects showcase */}
-        <section className='section'>
+        <Section>
           {!filteredProjects.length && (
             <p className='mt-2 text-gray-500 dark:text-gray-300'>
               No projects found...
             </p>
           )}
 
-          <div className='grid grid-cols-1 gap-6 mb-16 md:grid-cols-2 auto-rows-fr'>
+          <div className='mb-16 grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2'>
             {filteredProjects.map((project: Project) => (
               <ProjectCard key={project._id} project={project} />
             ))}
           </div>
-        </section>
+        </Section>
       </div>
     </>
   );
