@@ -8,7 +8,7 @@ import FloatingButton from './FloatingButton';
 import Navigation from './Navigation';
 
 const sidebar = {
-  open: (height = 1000) => ({
+  open: (height = 750) => ({
     clipPath: `circle(${height * 2 + 200}px at right 4rem bottom 4rem)`,
     transition: {
       type: 'spring',
@@ -17,7 +17,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(10px at right 4rem bottom 4rem)',
+    clipPath: 'circle(0px at right 4rem bottom 4rem)',
     transition: {
       delay: 0.1,
       type: 'spring',

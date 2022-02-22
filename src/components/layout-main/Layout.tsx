@@ -14,7 +14,7 @@ export default function Layout({ children }: Props) {
     <>
       <Navbar />
       <MobileMenu />
-      <main className='mt-16'>{children}</main>
+      <main className='mt-6 md:mt-16'>{children}</main>
       <Footer />
     </>
   );
