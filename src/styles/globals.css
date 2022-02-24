@@ -31,7 +31,6 @@ html {
 
 #__next {
   @apply bg-gray-50 dark:bg-gray-900;
-  @apply transition-colors duration-150;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -71,10 +70,6 @@ html {
     @apply text-base font-semibold;
   }
 
-  p,
-  span {
-    @apply text-base text-gray-600 dark:text-gray-200;
-  }
   /* END - DEFAULT TYPOGRAPHY */
 
   hr {
@@ -83,11 +78,6 @@ html {
 }
 
 @layer utilities {
-  .layout {
-    max-width: 48rem;
-    @apply mx-auto px-4 md:px-0;
-  }
-
   .text-gradient {
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -8,14 +8,16 @@ const taskList = [
 
 export default function CurrentGoals() {
   return (
-    <div className='w-full pb-8 my-6'>
+    <div className='my-6 w-full pb-8'>
       <ul>
         {taskList.map((task, index) => (
-          <li key={index} className='flex items-center gap-4 mb-4'>
+          <li key={index} className='mb-4 flex items-center gap-4'>
             <div>
-              <FiCheckCircle className='w-6 h-6 text-green-500' />
+              <FiCheckCircle className='h-6 w-6 text-green-500' />
             </div>
-            <p className='text-gray-500 dark:text-gray-200'>{task}</p>
+            <p className='text-sm text-gray-600 dark:text-gray-200 md:text-base'>
+              {task}
+            </p>
           </li>
         ))}
       </ul>

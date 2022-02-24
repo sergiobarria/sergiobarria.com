@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { SiGithub } from 'react-icons/si';
 
-import { IGithubRepoGQL } from '@/types/interfaces';
+import { GithubRepoGQL } from '@/types';
 
 interface Props {
-  repo: IGithubRepoGQL;
+  repo: GithubRepoGQL;
 }
 
 export default function GithubCard({ repo }: Props) {

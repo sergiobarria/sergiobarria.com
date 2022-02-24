@@ -9,7 +9,7 @@ import useSWR from 'swr';
 
 import fetcher from '@/lib/fetcher';
 
-import { NowPlayingSong } from '@/types/interfaces';
+import { NowPlayingSong } from '@/types';
 
 function AnimatedBars() {
   useEffect(() => {

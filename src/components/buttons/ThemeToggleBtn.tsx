@@ -3,34 +3,22 @@ import React from 'react';
 import clsx from 'clsx';
 import { FiMoon, FiSun } from 'react-icons/fi';
 
-import { useSetTheme } from '@/hooks/useSetTheme';
+import { useAppTheme } from '@/hooks/useAppTheme';
 
 export default function ThemeToggleBtn() {
-  const { currentTheme, setTheme } = useSetTheme();
+  const { currentTheme, setTheme } = useAppTheme();
 
   return (
     <button
       className={clsx(
-        'rounded-md p-2 focus:outline-none',
-        'border dark:border-gray-500',
-        'hover:text-gray-700, hover:border-gray-700',
-        'dark:hover:border-gray-200',
-        'transition-all duration-200 ease-in-out',
-        'ml-auto sm:ml-0'
+        'rounded-md p-2 transition-colors duration-150 focus:outline-none',
+        'border dark:border-gray-600',
+        'hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary',
+        'focus-visible:border-primary focus-visible:text-primary dark:focus-visible:border-primary dark:focus-visible:text-primary'
       )}
       onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
     >
-      {currentTheme === 'light' ? (
-        <FiMoon
-          size={20}
-          className='text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-200'
-        />
-      ) : (
-        <FiSun
-          size={20}
-          className='text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-200'
-        />
-      )}
+      {currentTheme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
     </button>
   );
 }

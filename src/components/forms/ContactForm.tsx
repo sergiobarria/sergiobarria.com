@@ -9,7 +9,7 @@ import TextareaField from '@/components/forms/TextareaField';
 
 import { formValidationSchema } from '@/utils/formValidationSchema';
 
-import { IUserSubmitForm } from '@/types/interfaces';
+import { IUserSubmitForm } from '@/types';
 
 interface Props {
   onSubmit: (formData: IUserSubmitForm) => void;

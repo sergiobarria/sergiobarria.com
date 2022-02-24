@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo';
 import { pick } from 'contentlayer/client';
 import { allPosts } from 'contentlayer/generated';
 
+import { PageContainer } from '@/components/base';
 import BlogPostCard from '@/components/cards/BlogPostCard';
 import SearchBar from '@/components/forms/SearchBar';
 
@@ -67,7 +68,7 @@ export default function BlogPage({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='layout'>
+      <PageContainer>
         {/* Page Heading */}
         <section className='section'>
           <h1>Blog</h1>
@@ -112,7 +113,7 @@ export default function BlogPage({
             />
           ))}
         </section>
-      </div>
+      </PageContainer>
     </>
   );
 }

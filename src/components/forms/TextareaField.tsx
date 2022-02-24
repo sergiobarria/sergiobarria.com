@@ -39,7 +39,7 @@ export default function InputField(props: Props) {
         </label>
       </div>
       {meta.touched && meta.error && (
-        <p className='text-sm text-red-500 dark:text-red-500'>*{meta.error}</p>
+        <p className='text-xs text-red-500 dark:text-red-500'>*{meta.error}</p>
       )}
     </div>
   );

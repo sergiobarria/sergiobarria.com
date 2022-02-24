@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo';
 import { allProjects, Project } from 'contentlayer/generated';
 
 import { Section } from '@/components/base';
+import { PageContainer } from '@/components/base';
 import ProjectCard from '@/components/cards/ProjectCard';
 import SearchBar from '@/components/forms/SearchBar';
 
@@ -48,11 +49,12 @@ export default function PortfolioPage({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='layout'>
+
+      <PageContainer>
         {/* Heading */}
         <Section className='space-y-4'>
           <h1>Portfolio Projects</h1>
-          <p>
+          <p className='text-gray-600 dark:text-gray-200'>
             Showcase of the projects I've work on in both, front and back end
             development.
           </p>
@@ -70,13 +72,13 @@ export default function PortfolioPage({
             </p>
           )}
 
-          <div className='mb-16 grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2'>
+          <div className='my-12 grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2'>
             {filteredProjects.map((project: Project) => (
               <ProjectCard key={project._id} project={project} />
             ))}
           </div>
         </Section>
-      </div>
+      </PageContainer>
     </>
   );
 }

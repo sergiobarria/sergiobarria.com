@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
 import { Section } from '@/components/base';
+import { PageContainer } from '@/components/base';
 import CloudinaryImage from '@/components/CloudinaryImage';
 import ReturnLink from '@/components/links/ReturnLink';
 import TextBodyContainer from '@/components/TextBodyContainer';
@@ -49,7 +50,8 @@ export default function BlogPostLayout({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='layout mb-10'>
+
+      <PageContainer>
         <ReturnLink href='/blog' />
         <CloudinaryImage
           publicId={`sergiobarria/banners/${post.banner}`}
@@ -77,9 +79,9 @@ export default function BlogPostLayout({
 
         {/* Summary */}
         <Section className='mt-6 border-y border-double py-6 italic dark:text-gray-300'>
-          <p>
+          <p className='text-gray-600 dark:text-gray-200'>
             <span className='uppercase text-primary dark:text-primary'>
-              Quick Summary ↬
+              Quick Summary ↬{' '}
             </span>
             {post.summary}
           </p>
@@ -89,7 +91,7 @@ export default function BlogPostLayout({
         <Section>
           <TextBodyContainer>{children}</TextBodyContainer>
         </Section>
-      </div>
+      </PageContainer>
     </>
   );
 }

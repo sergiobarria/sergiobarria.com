@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
+import { Section } from '@/components/base';
+import { PageContainer } from '@/components/base';
 import TechIcons from '@/components/TechIcons';
 import { TechListType } from '@/components/TechIcons';
 import TechStack from '@/components/TechStack';
@@ -17,10 +19,10 @@ export default function AboutPage() {
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='layout'>
-        <section className='section'>
+      <PageContainer>
+        <Section>
           <h1>About me</h1>
-          <article className='prose my-8 max-w-none dark:prose-invert'>
+          <article className='prose prose-stone my-8 max-w-none dark:prose-invert'>
             <p>
               Hello! I'm Sergio. I'm a Civil Engineer - Web & Mobile Developer
               from Panama.
@@ -55,19 +57,21 @@ export default function AboutPage() {
               contact page. I'll be happy to receive your feedback.
             </p>
           </article>
-        </section>
+        </Section>
 
-        <section className='section'>
+        <Section>
           <div className='my-8 space-y-3'>
             <div className='mb-16 space-y-3'>
               <h3>Current Favorite Tech Stack</h3>
-              <p>This is my current favorite stack to work with</p>
+              <p className='text-gray-600 dark:text-gray-200'>
+                This is my current favorite stack to work with
+              </p>
               <TechStack />
             </div>
 
             <div className='space-y-3'>
               <h3>Other Tech</h3>
-              <p>
+              <p className='text-gray-600 dark:text-gray-200'>
                 This is some of the other technologies that I know and have work
                 with
               </p>
@@ -81,8 +85,8 @@ export default function AboutPage() {
               />
             </div>
           </div>
-        </section>
-      </div>
+        </Section>
+      </PageContainer>
     </>
   );
 }

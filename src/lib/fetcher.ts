@@ -1,8 +1,8 @@
-export default async function Fetcher<JSON = any>(
+export default async function fetcher<JSON = any>(
   input: RequestInfo,
   init?: RequestInit
 ) {
-  const res = await fetch(input, init)
+  const res = await fetch(input, init);
 
-  return res.json()
+  return res.json();
 }

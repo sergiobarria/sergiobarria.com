@@ -13,7 +13,7 @@ export interface IIcon {
   hide?: boolean;
 }
 
-export interface IViews {
+export interface Views {
   total: number;
 }
 
@@ -26,7 +26,7 @@ export interface NowPlayingSong {
   title: string;
 }
 
-export interface IGithubRepoGQL {
+export interface GithubRepoGQL {
   id: string;
   name: string;
   description: string;
