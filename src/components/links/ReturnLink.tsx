@@ -1,18 +1,24 @@
 import React from 'react';
 
-import { IoChevronBackCircleSharp } from 'react-icons/io5';
+import Link from 'next/link';
 
-import CustomLink from '@/components/links/CustomLink';
+import clsx from 'clsx';
+import { IoChevronBackCircleSharp } from 'react-icons/io5';
 
 export default function ReturnLink({ href }: { href: string }) {
   return (
-    <CustomLink href={href}>
-      <span className='mb-3 flex items-center text-primary transition-colors hover:text-primary/70'>
+    <Link href={href}>
+      <a
+        className={clsx(
+          'mb-3 flex self-start text-primary transition-colors',
+          'hover:text-primary/70'
+        )}
+      >
         <IoChevronBackCircleSharp size={30} className='mr-2 ' />
         <span className='border-b-[2px] border-dotted border-primary/50'>
           Back
         </span>
-      </span>
-    </CustomLink>
+      </a>
+    </Link>
   );
 }

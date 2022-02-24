@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { Snippet } from 'contentlayer/generated';
 
 import { Section } from '@/components/base';
+import { PageContainer } from '@/components/base';
 
 export default function SnippetLayout({
   children,
@@ -31,7 +32,7 @@ export default function SnippetLayout({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='layout my-10'>
+      <PageContainer>
         <h1 className='mb-4'>{snippet.title}</h1>
         <p className='mb-6 text-gray-500 dark:text-gray-300'>
           {snippet.description}
@@ -45,7 +46,7 @@ export default function SnippetLayout({
         >
           {children}
         </Section>
-      </div>
+      </PageContainer>
     </>
   );
 }

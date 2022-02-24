@@ -19,6 +19,8 @@ interface Props {
 export default function Layout({ children }: Props) {
   const { mounted } = useAppTheme();
 
+  if (!mounted) return null;
+
   return (
     <div className='bg-gray-50 dark:bg-gray-900'>
       <DefaultSeo {...SEO} />

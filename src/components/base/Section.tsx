@@ -6,7 +6,7 @@ interface SectionProps extends React.HTMLProps<HTMLDivElement> {
 
 export function Section({ children, ...rest }: SectionProps) {
   return (
-    <section className='my-12' {...rest}>
+    <section className='mb-12' {...rest}>
       {children}
     </section>
   );

@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo';
 import { pick } from 'contentlayer/client';
 import { allSnippets, Snippet } from 'contentlayer/generated';
 
+import { PageContainer } from '@/components/base';
 import SnippetCard from '@/components/cards/SnippetCard';
 import SearchBar from '@/components/forms/SearchBar';
 
@@ -41,10 +42,10 @@ export default function LibraryPage({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <div className='layout'>
+      <PageContainer>
         <section className='section'>
           <h1>My Library</h1>
-          <p className='my-4'>
+          <p className='my-4 text-gray-600 dark:text-gray-200'>
             This is a collection of some code snippets, that I use on my
             projects. It includes stuff like styles, functions, and others.
           </p>
@@ -67,7 +68,7 @@ export default function LibraryPage({
             ))}
           </div>
         </section>
-      </div>
+      </PageContainer>
     </>
   );
 }

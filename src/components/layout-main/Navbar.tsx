@@ -1,19 +1,11 @@
 import clsx from 'clsx';
 
-import { useAppTheme } from '@/hooks/useAppTheme';
-
 import ThemeToggleBtn from '@/components/buttons/ThemeToggleBtn';
 import NavLink from '@/components/links/NavLink';
 
 import { routes } from '@/fixtures/routes';
 
 export default function Navbar() {
-  const { mounted } = useAppTheme();
-
-  // if the application is not mounted yet return null to avoid hydration mismatch
-  // because the theme will be undefined
-  if (!mounted) return null;
-
   return (
     <header className='flex flex-col justify-center px-6'>
       {/* Skip Navigation */}
