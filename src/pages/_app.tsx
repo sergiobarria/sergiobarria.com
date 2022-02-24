@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
-import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
@@ -11,8 +10,6 @@ import '@/styles/syntax-highlight.css';
 import * as gtag from '@/lib/gtag';
 
 import Layout from '@/components/layout-main/Layout';
-
-import SEO from '../../next-seo.config';
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -32,8 +29,6 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <DefaultSeo {...SEO} />
-
       {/* Main App */}
       <ThemeProvider enableSystem={true} attribute='class'>
         <Layout>

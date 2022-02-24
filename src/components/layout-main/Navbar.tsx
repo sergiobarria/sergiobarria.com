@@ -1,22 +1,21 @@
 import clsx from 'clsx';
 
-import { useSetTheme } from '@/hooks/useSetTheme';
+import { useAppTheme } from '@/hooks/useAppTheme';
 
 import ThemeToggleBtn from '@/components/buttons/ThemeToggleBtn';
-import Header from '@/components/layout-main/Header';
 import NavLink from '@/components/links/NavLink';
 
 import { routes } from '@/fixtures/routes';
 
 export default function Navbar() {
-  const { mounted } = useSetTheme();
+  const { mounted } = useAppTheme();
 
   // if the application is not mounted yet return null to avoid hydration mismatch
   // because the theme will be undefined
   if (!mounted) return null;
 
   return (
-    <Header>
+    <header className='flex flex-col justify-center px-6'>
       {/* Skip Navigation */}
       <a
         href='#skip'
@@ -29,14 +28,19 @@ export default function Navbar() {
       </a>
 
       {/* Navbar */}
-      <div className='layout flex w-full items-center justify-end md:justify-between'>
-        <nav className='hidden h-full items-center space-x-6 sm:flex'>
+      <nav
+        className={clsx(
+          'mx-auto flex w-full max-w-3xl items-center justify-end py-8',
+          'sm:space-x-8 sm:pb-16 md:justify-between'
+        )}
+      >
+        <div className='hidden items-center space-x-6 sm:flex'>
           {routes.map((route) => (
             <NavLink key={route.id} route={route.route} text={route.text} />
           ))}
-        </nav>
+        </div>
         <ThemeToggleBtn />
-      </div>
-    </Header>
+      </nav>
+    </header>
   );
 }

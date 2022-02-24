@@ -1,11 +1,11 @@
 import SpotifyCard from '@/components/cards/SpotifyCard';
-import InlineLink from '@/components/links/InlineLink';
+import ExternalLink from '@/components/links/ExternalLink';
 import SocialIcons from '@/components/SocialIcons';
 
 export default function Footer() {
   return (
-    <footer className='mt-auto'>
-      <div className='layout border-gray-light border-t-[1px] py-8 dark:border-gray-500'>
+    <footer className='mx-auto mt-auto max-w-3xl'>
+      <div className=' border-gray-light border-t-[1px] py-8 dark:border-gray-500'>
         <div className='mb-6 self-start'>
           <SpotifyCard />
         </div>
@@ -13,20 +13,18 @@ export default function Footer() {
           <SocialIcons />
           <div className='flex items-center justify-center'>
             <p className='text-sm text-gray-500'>
-              <span className='text-inherit'>
-                &copy; Copyright {new Date().getFullYear()}
-              </span>
-              <span className='text-inherit'> by Sergio Barria</span>
+              <span>&copy; Copyright {new Date().getFullYear()}</span>
+              <span> by Sergio Barria</span>
             </p>
           </div>
           <p className='text-sm text-gray-500'>
             Built with{' '}
-            <InlineLink href='https://nextjs.org/'>Next.js</InlineLink>,{' '}
-            <InlineLink href='https://tailwindcss.com/'>
+            <ExternalLink href='https://nextjs.org/'>Next.js</ExternalLink>,{' '}
+            <ExternalLink href='https://tailwindcss.com/'>
               Tailwind CSS
-            </InlineLink>
+            </ExternalLink>
             . Content with{' '}
-            <InlineLink href='https://mdxjs.com/'>MDX</InlineLink>
+            <ExternalLink href='https://mdxjs.com/'>MDX</ExternalLink>
           </p>
         </div>
       </div>

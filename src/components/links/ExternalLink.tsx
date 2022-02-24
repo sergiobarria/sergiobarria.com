@@ -2,12 +2,12 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-interface InlineLinkProps {
+interface Props {
   href: string;
   children: React.ReactNode;
 }
 
-export default function InlineLink({ href, children }: InlineLinkProps) {
+export default function ExternalLink({ href, children }: Props) {
   return (
     <a
       href={href}
