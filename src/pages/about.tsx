@@ -6,6 +6,7 @@ import { PageContainer } from '@/components/base';
 import TechIcons from '@/components/TechIcons';
 import { TechListType } from '@/components/TechIcons';
 import TechStack from '@/components/TechStack';
+import TopSpotifyTracks from '@/components/TopSpotifyTracks';
 
 export default function AboutPage() {
   const customMetadata = {
@@ -85,6 +86,15 @@ export default function AboutPage() {
               />
             </div>
           </div>
+        </Section>
+
+        <Section>
+          <h3>Top Spotify Tracks</h3>
+          <p className='text-gray-600 dark:text-gray-200'>
+            Want to know what I'm currently listening the most? Here's my top
+            tracks from Spotify
+          </p>
+          <TopSpotifyTracks />
         </Section>
       </PageContainer>
     </>

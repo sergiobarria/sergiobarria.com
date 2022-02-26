@@ -17,15 +17,6 @@ export interface Views {
   total: number;
 }
 
-export interface NowPlayingSong {
-  album: string;
-  albumImageUrl: string;
-  artist: string;
-  isPlaying: boolean;
-  songUrl: string;
-  title: string;
-}
-
 export interface GithubRepoGQL {
   id: string;
   name: string;

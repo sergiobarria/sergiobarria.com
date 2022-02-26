@@ -113,7 +113,7 @@ export default function HomePage({
             <a
               className={clsx(
                 'flex items-center text-gray-500 transition-colors ease-in-out',
-                'hover:text-gray-700 dark:text-gray-400'
+                'hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-600'
               )}
             >
               See all posts <BsArrowRight className='ml-2' />
@@ -139,7 +139,7 @@ export default function HomePage({
             <a
               className={clsx(
                 'flex items-center text-gray-500 transition-colors ease-in-out',
-                'hover:text-gray-700 dark:text-gray-400'
+                'hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-600'
               )}
             >
               See all projects <BsArrowRight className='ml-2' />

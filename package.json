@@ -26,6 +26,7 @@
     "@sendgrid/mail": "^7.6.0",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
+    "axios": "^0.26.0",
     "cloudinary-build-url": "^0.2.1",
     "clsx": "^1.1.1",
     "contentlayer": "^0.1.1",
