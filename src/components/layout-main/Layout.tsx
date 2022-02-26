@@ -3,6 +3,7 @@ import React from 'react';
 import { DefaultSeo } from 'next-seo';
 
 import clsx from 'clsx';
+import { ToastContainer } from 'react-toastify';
 
 import { useAppTheme } from '@/hooks/useAppTheme';
 
@@ -22,22 +23,29 @@ export default function Layout({ children }: Props) {
   if (!mounted) return null;
 
   return (
-    <div className='bg-gray-50 dark:bg-gray-900'>
+    <>
       <DefaultSeo {...SEO} />
       <Navbar />
       <MobileMenu />
-      {mounted && (
-        <main
-          id='skip'
-          className={clsx(
-            'flex flex-col justify-center bg-gray-50',
-            'px-6 dark:bg-gray-900'
-          )}
-        >
-          {children}
-        </main>
-      )}
+      <main
+        id='skip'
+        className={clsx(
+          'flex flex-col justify-center bg-gray-50',
+          'px-6 dark:bg-gray-900'
+        )}
+      >
+        {children}
+      </main>
       <Footer />
-    </div>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        draggable={false}
+        pauseOnFocusLoss
+        pauseOnHover
+      />
+    </>
   );
 }

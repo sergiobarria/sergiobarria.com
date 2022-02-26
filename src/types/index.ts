@@ -29,9 +29,3 @@ export interface GithubRepoGQL {
     color: string;
   };
 }
-
-export interface IUserSubmitForm {
-  name: string;
-  email: string;
-  message: string;
-}

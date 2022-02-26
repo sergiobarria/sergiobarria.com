@@ -1,48 +1,53 @@
-import { useState } from 'react';
-
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
+import axios from 'axios';
+import { Formik } from 'formik';
+import { toast } from 'react-toastify';
+
 import { Section } from '@/components/base';
 import { PageContainer } from '@/components/base';
-import MessageCard from '@/components/cards/MessageCard';
 import ContactForm from '@/components/forms/ContactForm';
-import Loader from '@/components/misc/Loader';
 
-import { IUserSubmitForm } from '@/types';
+import { formValidationSchema } from '@/utils/formValidationSchema';
+
+interface FormInputs {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export default function ContactPage() {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>('');
   const router = useRouter();
 
-  const submitHandler = async (formData: IUserSubmitForm) => {
-    setIsLoading(true);
+  const initialValues: FormInputs = {
+    name: '',
+    email: '',
+    message: '',
+  };
 
+  const submitHandler = async (formData: FormInputs) => {
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await axios.post('/api/contact', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          formData,
-        }),
       });
 
-      const data = await response.json();
+      const { data } = response;
 
       if (data.message === 'success') {
-        setMessage(data.message);
+        toast.success(
+          "Message sent! Thanks for reaching out. I'll get back to you as soon as possible."
+        );
         setTimeout(() => {
           router.push('/');
         }, 3000);
       }
-
-      setIsLoading(false);
     } catch (error) {
-      setMessage('fail');
-      setIsLoading(false);
+      toast.error(
+        'Something went wrong sending your message. Please try again later'
+      );
     }
   };
 
@@ -60,21 +65,21 @@ export default function ContactPage() {
 
       <PageContainer>
         <Section>
-          <div className='layout'>
-            <div className='mx-auto mb-8 w-full md:w-8/12'>
-              <h2>Contact Me</h2>
-              <p className='mt-2 mb-8 text-gray-600 dark:text-gray-200'>
-                If you want to hire me, collaborate or give me any feedback or
-                suggestions, get in touch.
-              </p>
+          <div className='mx-auto mb-8 w-full md:w-8/12'>
+            <h2>Contact Me</h2>
+            <p className='mt-2 mb-8 text-gray-600 dark:text-gray-200'>
+              If you want to hire me, collaborate or give me any feedback or
+              suggestions, get in touch.
+            </p>
 
-              {/* Contact Form */}
-              {isLoading && <Loader />}
-              {message && <MessageCard message={message} />}
-              {!isLoading && !message && (
-                <ContactForm onSubmit={submitHandler} />
-              )}
-            </div>
+            {/* Contact Form */}
+            <Formik
+              initialValues={initialValues}
+              onSubmit={submitHandler}
+              validationSchema={formValidationSchema}
+            >
+              <ContactForm />
+            </Formik>
           </div>
         </Section>
       </PageContainer>

@@ -23,7 +23,7 @@ export default function InputField(props: Props) {
             'peer w-full border-0 py-4 px-3',
             'focus:border-0 focus:ring-1 focus:ring-primary',
             'placeholder-transparent focus:outline-none',
-            'rounded-md bg-gray-200 text-gray-700 dark:bg-gray-600'
+            'rounded-md bg-gray-200 text-gray-700 dark:bg-gray-600 dark:text-gray-200'
           )}
         />
         <label
