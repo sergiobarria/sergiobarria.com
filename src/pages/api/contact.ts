@@ -9,7 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { name, email, message } = req.body.formData;
+  const { name, email, message } = req.body;
   const emailReceiver = process.env.EMAIL_RECEIVER!;
   const emailSender = process.env.EMAIL_SENDER!;
 
@@ -35,13 +35,6 @@ export default async function handler(
       message: 'success',
     });
   } catch (error: any) {
-    // * This console logs are for debug purposes in case of error
-    // console.error(error)
-
-    // if (error.response) {
-    //   console.error(error.response.body)
-    // }
-
     res.status(500).json({
       message: 'fail',
     });

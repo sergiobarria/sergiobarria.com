@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
 import '@/styles/syntax-highlight.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import * as gtag from '@/lib/gtag';
 
