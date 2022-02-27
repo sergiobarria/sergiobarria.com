@@ -1,17 +1,14 @@
+![Logo](https://res.cloudinary.com/sbarria-dev/image/upload/v1645935591/sergiobarria/banners/sergiobarria.com-cover-3_p0qc3a.png)
 
-![Logo](https://res.cloudinary.com/sbarria-dev/image/upload/v1642399893/sergiobarria/repo/sergiobarria.com-cover-3_1_mvekdi.png)
-
+<p align="center">
+  <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
+  <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
+  <img src="https://github.com/sergiobarria/sergiobarria.com/actions/workflows/cypress.yml/badge.svg?branch=main" />
+</p>
 
 # sergiobarria.com
 
 This is my personal website, blog and portolio showcase. Built with Next.js and Tailwind CSS. Written using TypeScript and content managed with MDX.
-
-
-
-
-## Badges
-
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Cypress ci](https://github.com/sergiobarria/sergiobarria.com/actions/workflows/cypress.yml/badge.svg?branch=main)](https://github.com/sergiobarria/sergiobarria.com/actions/workflows/cypress.yml)
 
 ## Overview
 
@@ -33,7 +30,6 @@ Most of the project content is inside the `src` folder.
 - `types/*` - Global Typescript styles that are used in more than one component
 - `utils/*` - Utility files that didn't fit any of the other categories
 
-
 ## Tech Stack
 
 **Language:** Typescript
@@ -44,10 +40,9 @@ Most of the project content is inside the `src` folder.
 
 **Databases:** Planetscale with Prisma
 
-**Content:** MDX
+**Content:** MDX, [Contentlayer](https://github.com/contentlayerdev/contentlayer)
 
 **API's:** Spotify API, Github GraphQL API
-
 
 ## Run Locally
 
@@ -60,8 +55,6 @@ Most of the project content is inside the `src` folder.
 ```
 
 Create .env file similar to `.env.example`
-
-
 
 ## Environment Variables
 
@@ -83,11 +76,12 @@ To run this project, you will need to add the following environment variables to
 
 `GITHUB_ACCESS_TOKEN`
 
-
 ## Screenshots
 
 My pinned github repos using Github GraphQL API and Urql client for data fetching
-![Featured Projects](https://res.cloudinary.com/sbarria-dev/image/upload/v1642280532/sergiobarria/repo/featured_projects_ltdrog.png)
+
+<img alt="featured projects from github" src="https://res.cloudinary.com/sbarria-dev/image/upload/v1642280532/sergiobarria/repo/featured_projects_ltdrog.png" />
 
 Currently playing using spotify API
-![Spotify Now Playing](https://res.cloudinary.com/sbarria-dev/image/upload/v1642280643/sergiobarria/repo/spotify_now_playing_nae3rq.png)
+
+<img alt="currently playing card" src="https://res.cloudinary.com/sbarria-dev/image/upload/v1642280643/sergiobarria/repo/spotify_now_playing_nae3rq.png" />
