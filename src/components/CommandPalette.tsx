@@ -106,7 +106,6 @@ export default function CommandPalette({ data }: Props) {
                       >
                         <p
                           className={clsx(
-                            'dark:text-gray-200',
                             active ? 'text-white' : 'text-gray-500'
                           )}
                         >
