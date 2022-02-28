@@ -3,10 +3,13 @@ import React from 'react';
 import { DefaultSeo } from 'next-seo';
 
 import clsx from 'clsx';
+import { pick } from 'contentlayer/client';
+import { allPosts } from 'contentlayer/generated';
 import { ToastContainer } from 'react-toastify';
 
 import { useAppTheme } from '@/hooks/useAppTheme';
 
+import CommandPalette from '@/components/CommandPalette';
 import MobileMenu from '@/components/mobile-menu/MobileMenu';
 
 import Footer from './Footer';
@@ -18,6 +21,13 @@ interface Props {
 }
 
 export default function Layout({ children }: Props) {
+  const posts = allPosts.map((post) =>
+    pick(post, ['_id', 'title', 'slug', 'publishedAt'])
+  );
+  // .sort(
+  //   (a, b) =>
+  //     Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+  // );
   const { mounted } = useAppTheme();
 
   if (!mounted) return null;
@@ -27,6 +37,7 @@ export default function Layout({ children }: Props) {
       <DefaultSeo {...SEO} />
       <Navbar />
       <MobileMenu />
+      <CommandPalette data={posts} />
       <main
         id='skip'
         className={clsx(
