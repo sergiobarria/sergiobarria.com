@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { Switch } from '@headlessui/react';
 import clsx from 'clsx';
-import { FiMoon, FiSun } from 'react-icons/fi';
 
 import { useAppTheme } from '@/hooks/useAppTheme';
 
@@ -9,16 +9,22 @@ export default function ThemeToggleBtn() {
   const { currentTheme, setTheme } = useAppTheme();
 
   return (
-    <button
+    <Switch
+      checked={currentTheme === 'dark'}
+      onChange={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
       className={clsx(
-        'rounded-md p-2 transition-colors duration-150 focus:outline-none',
-        'border dark:border-gray-600',
-        'hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary',
-        'focus-visible:border-primary focus-visible:text-primary dark:focus-visible:border-primary dark:focus-visible:text-primary'
+        currentTheme === 'dark' ? 'bg-primary' : 'bg-gray-400',
+        'relative inline-flex h-6 w-11 items-center rounded-full'
       )}
-      onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
     >
-      {currentTheme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
-    </button>
+      <span className='sr-only'>Toggle theme mode</span>
+      <span
+        className={clsx(
+          currentTheme === 'dark' ? 'translate-x-6' : 'translate-x-1',
+          'inline-block h-4 w-4 transform rounded-full bg-white',
+          'transition duration-200 ease-in-out'
+        )}
+      />
+    </Switch>
   );
 }
