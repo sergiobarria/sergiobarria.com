@@ -39,7 +39,7 @@ const Post = defineDocumentType(() => ({
 
 const Project = defineDocumentType(() => ({
   name: 'Project',
-  filePathPattern: 'projects/*.md',
+  filePathPattern: 'projects/*.mdx',
   contentType: 'mdx',
   fields: {
     name: { type: 'string', required: true },
@@ -51,6 +51,7 @@ const Project = defineDocumentType(() => ({
     liveUrl: { type: 'string', required: true },
     repo: { type: 'string', required: true },
     status: { type: 'string', required: true },
+    shouldRender: { type: 'boolean', required: true, default: true },
   },
 }));
 

@@ -8,9 +8,8 @@ banner: 'netflix-clone-cover_kppbvg'
 liveUrl: 'https://photosnap-website-sb.netlify.app/'
 repo: 'https://github.com/sergiobarria/photosnap-website'
 status: 'in progress'
+shouldRender: true
 ---
-
-## 
 
 ## Short Explanation
 
@@ -48,38 +47,38 @@ This is other of my go to technologies in most of my projects, easy to setup, fa
 
 ### Display Movies and Series - The MovieDB API
 
-This is perhaps the more important decision when making something similar to Netflix.  Of course, it's not easy to have access to a database such as the one Netflix has. So, after some research, I came up to 2 solutions: Youtube API and The MovieDB API.
+This is perhaps the more important decision when making something similar to Netflix. Of course, it's not easy to have access to a database such as the one Netflix has. So, after some research, I came up to 2 solutions: Youtube API and The MovieDB API.
 
 Either options would be find to this project but, in the end, I felt that TMDB API gave me more than enough data for the project, so I went with it.
 
-### User Auth and Database - Supabase
+### User Auth and Database - Firebase
 
 This is the other part of the puzzle, users and database. I needed to achieve to main goals, user Auth and data persistence. For this project I didn't feel the need to create a full backend server like using Node.js and Express for this tasks, so I wanted to find something easier.
 
 My first choice was Firebase. Google's platform had all I needed for the project, it allowed me to authenticate users and store users data all at the same time. In general Firebase is a somewhat easy platform to use, plus it saves you the time of creating and deploying a backend server.
 
-Another alternative was a combination of Magic Links (for password-less auth) with Hasura Database. I was intrigued to use Hasura for the first time and test their GraphQL API. But the one thing this combo had agains was that I needed to use to different services, vs Firebase alone.
+Another alternative was a combination of Magic Links (for password-less auth) with Hasura Database. I was intrigued to use Hasura for the first time and test their GraphQL API. But the one thing this combo had against was that I needed to use to different services, vs Firebase alone.
 
-Here is where I decided to use Firebase. And then, I stumbled with Supabase. In Supabase own words, they are the "Open Source Firebase Alternative". And, as I said, I always like to test new technologies, so, why not test Supabase? 
+Here is where I decided to use Firebase. And then, I stumbled with Supabase. In Supabase own words, they are the "Open Source Firebase Alternative". At the end I decided to use Firebase for this project. But I looking to work with Supabase in another project soon.
 
 ## Screenshots
 
 <div>
-    <img src='https://res.cloudinary.com/sbarria-dev/image/upload/v1643512997/sergiobarria/projects/netflix-clone-login_khlc66.png' />
+      
+  <img src='https://res.cloudinary.com/sbarria-dev/image/upload/v1643512997/sergiobarria/projects/netflix-clone-login_khlc66.png' />
 </div>
 
 <div>
-    <img src='https://res.cloudinary.com/sbarria-dev/image/upload/v1643513151/sergiobarria/projects/showcase_hqqvlt.png' />
+      
+  <img src='https://res.cloudinary.com/sbarria-dev/image/upload/v1643513151/sergiobarria/projects/showcase_hqqvlt.png' />
 </div>
-
----
-
-### I'm still working on this project. Once I finish, I'll comeback and update the rest.
-
----
 
 ## Dealing with difficulties
 
-## Lessons Learned
+Replicating Netflix UI to the pixel will be really difficult, there is no doubt about it. But I think the biggest difficulty for a project like this would be getting videos data, like series or movies. The best option I found to obtain this data was [The MovieDB](https://www.themoviedb.org/)
 
 ## Demo and Links
+
+- [Live Demo](https://netflix-clone-seven-gules.vercel.app/)
+
+- [Github Source](https://github.com/sergiobarria/netflix-clone)
