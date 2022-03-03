@@ -4,13 +4,13 @@ import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
 
-import '@/styles/globals.css';
-import '@/styles/syntax-highlight.css';
+import '@/styles/index.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 import * as gtag from '@/lib/gtag';
 
-import Layout from '@/components/layout-main/Layout';
+import { SearchProvider } from '@/context/searchbar.context';
+import Layout from '@/layouts/MainLayout';
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -32,9 +32,11 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       {/* Main App */}
       <ThemeProvider enableSystem={true} attribute='class'>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <SearchProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SearchProvider>
       </ThemeProvider>
 
       {/* Google Site Tag (gtag.js) - Google Analytics */}

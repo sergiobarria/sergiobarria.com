@@ -11,11 +11,12 @@ import { client } from '@/lib/urql/client';
 import { PINNED_REPOS_QUERY } from '@/lib/urql/queries';
 
 import { Section } from '@/components/base';
-import { PageContainer } from '@/components/base';
+import { Main } from '@/components/base';
 import Card from '@/components/cards/Card';
 import FeaturedPostCard from '@/components/cards/FeaturedPostCard';
 import GithubCard from '@/components/cards/GithubCard';
 import CurrentGoals from '@/components/CurrentGoals';
+import { H1, H2, H4, Paragraph } from '@/components/Typography';
 
 import { jobs } from '@/fixtures/jobs';
 
@@ -40,7 +41,7 @@ export async function getStaticProps() {
       featuredPosts,
       repos: pinnedRepos,
     },
-    revalidate: 60 * 10, // 10 min
+    revalidate: 60 * 60, // 60 min
   };
 }
 
@@ -60,34 +61,34 @@ export default function HomePage({
     <>
       <NextSeo {...customMetadata} />
 
-      <PageContainer>
+      <Main>
         {/* Hero */}
         <Section>
           <header className='md:w-2/3'>
-            <h1 className='mb-0'>Hi, I&apos;m Sergio</h1>
-            <p className='mb-3 text-gray-400 dark:text-gray-500'>
-              Frontend Web & Mobile Developer
-            </p>
-            <p className='text-gray-700 dark:text-gray-200'>
+            <H1>Hi, I&apos;m Sergio</H1>
+            <Paragraph className='mb-3 text-gray-400 dark:text-gray-500'>
+              Web & Mobile Frontend Developer
+            </Paragraph>
+            <Paragraph>
               I work with the JavaScript ecosystem. Welcome to my small piece of
               the internet, where I write and share about different topics
               related to the tech industry and life style.
-            </p>
+            </Paragraph>
           </header>
         </Section>
 
         {/* What I do */}
         <Section>
-          <h2 className='mb-4'>My Skills</h2>
+          <H2>My Skills</H2>
 
           <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
             {jobs.map((job) => (
               <Card key={job.id} className='hover:border-primary'>
                 <div className='flex flex-col'>
-                  <h4>{job.title}</h4>
-                  <p className='text-sm text-gray-600 dark:text-gray-400'>
+                  <H4>{job.title}</H4>
+                  <Paragraph className='text-sm dark:text-gray-300'>
                     {job.description}
-                  </p>
+                  </Paragraph>
                 </div>
               </Card>
             ))}
@@ -96,7 +97,7 @@ export default function HomePage({
 
         {/* Featured Posts */}
         <Section>
-          <h2 className='mb-6'>Featured Posts</h2>
+          <H2>Featured Posts</H2>
 
           <div className='mb-4 flex flex-col gap-6 md:flex-row'>
             {featuredPosts.map((post) => (
@@ -113,7 +114,7 @@ export default function HomePage({
             <a
               className={clsx(
                 'flex items-center text-gray-500 transition-colors ease-in-out',
-                'hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-600'
+                'hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               )}
             >
               See all posts <BsArrowRight className='ml-2' />
@@ -123,11 +124,11 @@ export default function HomePage({
 
         {/* Featured Projects */}
         <Section>
-          <h2 className='mb-6'>Featured Projects</h2>
-          <p className='mb-4 text-gray-600 dark:text-gray-200'>
+          <H2>Featured Projects</H2>
+          <Paragraph className='mb-4'>
             Here you can see some of the projects I've work on. This are fetchet
             from Github using Github's GraphQL API.
-          </p>
+          </Paragraph>
 
           <div className='mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2'>
             {repos.map((repo: GithubRepoGQL) => (
@@ -139,7 +140,7 @@ export default function HomePage({
             <a
               className={clsx(
                 'flex items-center text-gray-500 transition-colors ease-in-out',
-                'hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-600'
+                'hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
               )}
             >
               See all projects <BsArrowRight className='ml-2' />
@@ -149,10 +150,10 @@ export default function HomePage({
 
         {/* Current Goals */}
         <Section>
-          <h2 className='mb-2'>What I'm up to right now</h2>
+          <H2>What I'm up to right now</H2>
           <CurrentGoals />
         </Section>
-      </PageContainer>
+      </Main>
     </>
   );
 }

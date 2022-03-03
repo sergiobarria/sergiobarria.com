@@ -1,2 +1,2 @@
-export * from './PageContainer';
+export * from './Main';
 export * from './Section';

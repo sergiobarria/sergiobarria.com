@@ -1,15 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   /* Global style variables */
   /* Using just the color channels allows to use opacity values with Tailwind */
-  --tw-clr-primary: 62 205 141;
-  --tw-clr-accent: 253 224 71;
+  --tw-clr-blue: 56 162 254; /* #38A2FE */
+  --tw-clr-green: 62 205 141; /* #3ECD8D */
+  --tw-clr-red: 255 69 69; /* #FF4545 */
+  --tw-clr-yellow: 253 224 71; /* #fde047 */
+  /* #E11D48 */
 
-  --clr-primary: rgb(var(--tw-clr-primary)); /* #3ECD8D */
-  --clr-accent: rgb(var(--tw-clr-accent)); /* #fde047 */
+  --clr-primary: rgb(var(--tw-clr-red));
+  --clr-accent: rgb(var(--tw-clr-yellow));
 
   /* Gray variants */
   --white: #fff;
@@ -29,13 +28,6 @@ html {
   scroll-behavior: smooth;
 }
 
-#__next {
-  @apply bg-gray-50 dark:bg-gray-900;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 ::selection {
   background-color: var(--clr-primary);
   color: #fefefe;
@@ -45,48 +37,11 @@ html {
   scroll-margin-top: 1.125rem;
 }
 
-@layer base {
-  /* START - DEFAULT TYPOGRAPHY */
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply text-gray-700 dark:text-gray-200;
-  }
-
-  h1 {
-    @apply mb-4 text-4xl font-bold md:text-5xl;
-  }
-
-  h2 {
-    @apply text-2xl font-bold md:text-4xl;
-  }
-
-  h3 {
-    @apply mb-4 text-lg font-bold md:text-2xl;
-  }
-
-  h4 {
-    @apply text-base font-semibold;
-  }
-
-  /* END - DEFAULT TYPOGRAPHY */
-
-  hr {
-    @apply my-4 border-gray-200 dark:border-gray-500;
-  }
-}
-
-@layer utilities {
-  .text-gradient {
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    @apply bg-gradient-to-tr from-primary to-accent bg-clip-text text-transparent;
-  }
-
-  .bg-text-gradient {
-    @apply bg-gradient-to-tr from-primary/40 to-accent/40 dark:from-primary dark:to-accent dark:bg-clip-text dark:text-transparent;
-  }
+#__next {
+  @apply bg-gray-50 dark:bg-gray-900;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .javascript {

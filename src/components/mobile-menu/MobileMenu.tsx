@@ -38,6 +38,7 @@ export default function MobileMenu() {
       animate={isOpen ? 'open' : 'closed'}
       custom={height}
       ref={containerRef}
+      className='md:hidden'
     >
       <motion.div
         className='fixed inset-0 z-10 bg-primary dark:bg-gray-600 sm:hidden'

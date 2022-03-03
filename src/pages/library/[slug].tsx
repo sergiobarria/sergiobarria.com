@@ -7,8 +7,9 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { allSnippets, Snippet } from 'contentlayer/generated';
 
-import SnippetLayout from '@/components/layout-pages/SnippetLayout';
 import components from '@/components/misc/MDXComponents';
+
+import SnippetLayout from '@/layouts/SnippetLayout';
 
 export async function getStaticPaths() {
   return {
@@ -36,9 +37,7 @@ export default function SnippetPage({
 
   return (
     <SnippetLayout snippet={snippet}>
-      <div className='layout'>
-        <Component components={{ ...(components as any) }} />
-      </div>
+      <Component components={{ ...(components as any) }} />
     </SnippetLayout>
   );
 }

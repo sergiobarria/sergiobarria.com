@@ -5,6 +5,8 @@ import NavLink from '@/components/links/NavLink';
 
 import { routes } from '@/fixtures/routes';
 
+import QuickSearchBtn from '../QuickSearchBtn';
+
 export default function Navbar() {
   return (
     <header className='flex flex-col justify-center px-6'>
@@ -31,7 +33,10 @@ export default function Navbar() {
             <NavLink key={route.id} route={route.route} text={route.text} />
           ))}
         </div>
-        <ThemeToggleBtn />
+        <div className='flex items-center space-x-3'>
+          <QuickSearchBtn />
+          <ThemeToggleBtn />
+        </div>
       </nav>
     </header>
   );

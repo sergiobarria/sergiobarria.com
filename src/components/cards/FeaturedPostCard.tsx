@@ -9,6 +9,8 @@ import useSWR from 'swr';
 
 import fetcher from '@/lib/fetcher';
 
+import { H4, Paragraph } from '@/components/Typography';
+
 import { Views } from '@/types';
 
 export default function FeaturedPostCard({
@@ -30,20 +32,20 @@ export default function FeaturedPostCard({
       >
         <div className='flex h-full flex-col justify-between rounded-md bg-white p-4 dark:bg-gray-700'>
           <div className='flex flex-col justify-between sm:flex-row'>
-            <h4 className='mb-6 w-full text-lg tracking-tight sm:mb-10 md:text-xl'>
+            <H4 className='mb-6 w-full text-lg tracking-tight sm:mb-10 md:text-xl'>
               {title}
-            </h4>
+            </H4>
           </div>
           <div className='flex items-center justify-around text-sm text-gray-700 dark:text-gray-200'>
             <div className='flex items-center space-x-1'>
               <HiOutlineEye size={16} />
-              <p>{`${
+              <Paragraph>{`${
                 views ? new Number(views).toLocaleString() : '---'
-              } views`}</p>
+              } views`}</Paragraph>
             </div>
             <div className='flex items-center space-x-1'>
               <HiOutlineClock size={16} />
-              <p>{readingTime.text}</p>
+              <Paragraph>{readingTime.text}</Paragraph>
             </div>
           </div>
         </div>

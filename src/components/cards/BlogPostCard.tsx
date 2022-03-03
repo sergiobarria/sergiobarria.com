@@ -7,6 +7,8 @@ import useSWR from 'swr';
 
 import fetcher from '@/lib/fetcher';
 
+import { H3, Paragraph } from '@/components/Typography';
+
 import { Views } from '@/types';
 
 interface Props {
@@ -41,12 +43,10 @@ export default function BlogPostCard({ post, isLast }: Props) {
           {views ? new Number(views).toLocaleString() : '---'} views
         </div>
       </div>
-      <h3 className='transition-all duration-300 hover:scale-[1.01] hover:text-gray-700 dark:text-primary'>
+      <H3 className='transition-all duration-300 hover:scale-[1.01] hover:text-gray-700 dark:text-primary'>
         <Link href={`/blog/${slug}`}>{title}</Link>
-      </h3>
-      <p className='mt-2 text-sm text-gray-600 dark:text-gray-200 md:text-base'>
-        {summary}
-      </p>
+      </H3>
+      <Paragraph className='mt-2 text-sm md:text-base'>{summary}</Paragraph>
       <hr className={`my-4 ${isLast ? 'hidden' : ''}`} />
     </article>
   );

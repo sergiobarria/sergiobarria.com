@@ -6,9 +6,10 @@ import { NextSeo } from 'next-seo';
 import { allProjects, Project } from 'contentlayer/generated';
 
 import { Section } from '@/components/base';
-import { PageContainer } from '@/components/base';
+import { Main } from '@/components/base';
 import ProjectCard from '@/components/cards/ProjectCard';
 import SearchBar from '@/components/forms/SearchBar';
+import { H1, Paragraph } from '@/components/Typography';
 
 export async function getStaticProps() {
   const projects = allProjects.sort((p1, p2) => p2.number - p1.number);
@@ -50,14 +51,14 @@ export default function PortfolioPage({
     <>
       <NextSeo {...customMetadata} />
 
-      <PageContainer>
+      <Main>
         {/* Heading */}
         <Section className='space-y-4'>
-          <h1>Portfolio Projects</h1>
-          <p className='text-gray-600 dark:text-gray-200'>
+          <H1>Portfolio Projects</H1>
+          <Paragraph>
             Showcase of the projects I've work on in both, front and back end
             development.
-          </p>
+          </Paragraph>
           <SearchBar
             setSearchValue={setSearchValue}
             placeholderText='Search project...'
@@ -67,9 +68,7 @@ export default function PortfolioPage({
         {/* Projects showcase */}
         <Section>
           {!filteredProjects.length && (
-            <p className='mt-2 text-gray-500 dark:text-gray-300'>
-              No projects found...
-            </p>
+            <Paragraph className='mt-2'>No projects found...</Paragraph>
           )}
 
           <div className='my-12 grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2'>
@@ -78,7 +77,7 @@ export default function PortfolioPage({
             ))}
           </div>
         </Section>
-      </PageContainer>
+      </Main>
     </>
   );
 }

@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { SiGithub } from 'react-icons/si';
 
+import Card from './Card';
+
 import { GithubRepoGQL } from '@/types';
 
 interface Props {
@@ -9,9 +11,9 @@ interface Props {
 
 export default function GithubCard({ repo }: Props) {
   return (
-    <div
+    <Card
       className={clsx(
-        'h-full rounded-md border px-4 py-2 transition-all duration-300',
+        'transition-all duration-300',
         'hover:scale-105 hover:border-primary hover:shadow-md'
       )}
     >
@@ -39,6 +41,6 @@ export default function GithubCard({ repo }: Props) {
           </span>
         </div>
       </a>
-    </div>
+    </Card>
   );
 }

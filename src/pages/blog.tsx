@@ -6,23 +6,16 @@ import { NextSeo } from 'next-seo';
 import { pick } from 'contentlayer/client';
 import { allPosts } from 'contentlayer/generated';
 
-import { PageContainer } from '@/components/base';
+import { Main, Section } from '@/components/base';
 import BlogPostCard from '@/components/cards/BlogPostCard';
+import FeaturedPostCard from '@/components/cards/FeaturedPostCard';
 import SearchBar from '@/components/forms/SearchBar';
+import { H1, H2, Paragraph } from '@/components/Typography';
 
 export async function getStaticProps() {
   const featuredPosts = allPosts
     .filter((post) => post.isFeatured)
-    .map((post) =>
-      pick(post, [
-        '_id',
-        'slug',
-        'title',
-        'summary',
-        'publishedAt',
-        'readingTime',
-      ])
-    );
+    .map((post) => pick(post, ['_id', 'slug', 'title', 'readingTime']));
   const posts = allPosts
     .map((post) =>
       pick(post, [
@@ -68,17 +61,17 @@ export default function BlogPage({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <PageContainer>
+      <Main>
         {/* Page Heading */}
-        <section className='section'>
-          <h1>Blog</h1>
+        <Section>
+          <H1>Blog</H1>
           <hr className='my-6' />
-          <p className='prose mb-6 max-w-none dark:prose-invert'>
+          <Paragraph prose className='mb-6'>
             Welcome to...whatever this is 😅 . Here I share my thoughts related
             to many web development topics and programming in general. I've
             always been a fan of writing, and I hope you can find something here
             that could help you in your developer career.
-          </p>
+          </Paragraph>
 
           <SearchBar
             setSearchValue={setSearchValue}
@@ -86,23 +79,29 @@ export default function BlogPage({
           />
 
           {/* Most Popular Posts */}
-          {!searchValue && <h2>Most Popular Posts</h2>}
-          {!searchValue &&
-            featuredPosts.map((post, index) => (
-              <BlogPostCard key={index} post={post} />
-            ))}
-        </section>
+          {!searchValue && <H2>Most Popular Posts</H2>}
+          {!searchValue && (
+            <div className='mb-4 flex flex-col gap-6 md:flex-row'>
+              {featuredPosts.map((post, index) => (
+                <FeaturedPostCard
+                  key={index}
+                  title={post.title}
+                  slug={post.slug}
+                  readingTime={post.readingTime}
+                />
+              ))}
+            </div>
+          )}
+        </Section>
 
         {/* All Posts */}
-        <section className='section py-10'>
-          <h2>{`All Posts (${
+        <Section>
+          <H2>{`All Posts (${
             searchValue ? filteredPosts.length : posts.length
-          })`}</h2>
+          })`}</H2>
 
           {!filteredPosts.length && (
-            <p className='mt-2 text-gray-500 dark:text-gray-300'>
-              No posts found...
-            </p>
+            <Paragraph className='mt-2'>No posts found...</Paragraph>
           )}
 
           {filteredPosts.map((post, index) => (
@@ -112,8 +111,8 @@ export default function BlogPage({
               isLast={index === filteredPosts.length - 1 ? true : false}
             />
           ))}
-        </section>
-      </PageContainer>
+        </Section>
+      </Main>
     </>
   );
 }

@@ -6,9 +6,10 @@ import { NextSeo } from 'next-seo';
 import { pick } from 'contentlayer/client';
 import { allSnippets, Snippet } from 'contentlayer/generated';
 
-import { PageContainer } from '@/components/base';
+import { Main } from '@/components/base';
 import SnippetCard from '@/components/cards/SnippetCard';
 import SearchBar from '@/components/forms/SearchBar';
+import { H1, Paragraph } from '@/components/Typography';
 
 export async function getStaticProps() {
   const snippets = allSnippets.map((snippet) =>
@@ -42,13 +43,13 @@ export default function LibraryPage({
   return (
     <>
       <NextSeo {...customMetadata} />
-      <PageContainer>
+      <Main>
         <section className='section'>
-          <h1>My Library</h1>
-          <p className='my-4 text-gray-600 dark:text-gray-200'>
+          <H1>My Library</H1>
+          <Paragraph className='my-4'>
             This is a collection of some code snippets, that I use on my
             projects. It includes stuff like styles, functions, and others.
-          </p>
+          </Paragraph>
           <SearchBar
             placeholderText='Search Snippet'
             setSearchValue={setSearchValue}
@@ -57,9 +58,7 @@ export default function LibraryPage({
 
         <section className='section mb-8'>
           {!filteredSnippets.length && (
-            <p className='mt-2 text-gray-500 dark:text-gray-300'>
-              No snippets found...
-            </p>
+            <Paragraph className='mt-2'>No snippets found...</Paragraph>
           )}
 
           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
@@ -68,7 +67,7 @@ export default function LibraryPage({
             ))}
           </div>
         </section>
-      </PageContainer>
+      </Main>
     </>
   );
 }
