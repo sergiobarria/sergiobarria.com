@@ -9,8 +9,9 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { allProjects, Project } from 'contentlayer/generated';
 
-import ProjectLayout from '@/components/layout-pages/ProjectLayout';
 import components from '@/components/misc/MDXComponents';
+
+import PortfolioLayout from '@/layouts/PortfolioLayout';
 
 export async function getStaticPaths() {
   return {
@@ -35,13 +36,12 @@ export default function ProjectPage({
   project,
 }: InferGetStaticPropsType<GetStaticProps>) {
   const Component = useMDXComponent(project?.body.code);
-  // console.log(project);
 
   return (
-    <ProjectLayout project={project}>
+    <PortfolioLayout project={project}>
       <div className='layout'>
         <Component components={{ ...(components as any) }} />
       </div>
-    </ProjectLayout>
+    </PortfolioLayout>
   );
 }

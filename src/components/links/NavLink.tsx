@@ -22,9 +22,10 @@ export default function NavLink({ route, text }: INavLinkProps) {
     <Link href={route}>
       <a
         className={clsx(
+          'transition-colors duration-200',
           isActive
-            ? 'font-semibold text-primary'
-            : 'text-gray-300 hover:skew-x-6 hover:text-primary'
+            ? 'font-semibold text-gray-900 dark:text-primary'
+            : 'text-gray-300 hover:text-gray-700 dark:hover:text-primary'
         )}
       >
         {text}

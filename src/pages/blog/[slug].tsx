@@ -3,8 +3,9 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { allPosts, Post } from 'contentlayer/generated';
 
-import BlogPostLayout from '@/components/layout-pages/BlogPostLayout';
 import components from '@/components/misc/MDXComponents';
+
+import BlogPostLayout from '@/layouts/BlogPostLayout';
 
 export async function getStaticPaths() {
   return {

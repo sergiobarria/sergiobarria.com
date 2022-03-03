@@ -9,7 +9,7 @@ interface Props {
 
 export default function Card({ children, className }: Props) {
   return (
-    <article className={clsx('rounded-md border p-4', className && className)}>
+    <article className={clsx('rounded-md border p-4', className)}>
       {children}
     </article>
   );

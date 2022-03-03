@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 
 import { Project } from 'contentlayer/generated';
 
-import { PageContainer } from '@/components/base';
+import { Main } from '@/components/base';
 import CloudinaryImage from '@/components/CloudinaryImage';
 import ReturnLink from '@/components/links/ReturnLink';
 import Divider from '@/components/misc/Divider';
@@ -17,7 +17,7 @@ export default function ProjectLayout({
   return (
     <>
       <NextSeo />
-      <PageContainer>
+      <Main>
         <ReturnLink href='/portfolio' />
         <CloudinaryImage
           publicId={`sergiobarria/projects/${project.banner}`}
@@ -29,7 +29,7 @@ export default function ProjectLayout({
         <p className='prose mt-4 max-w-none'>{project.description}</p>
         <Divider />
         <TextBodyContainer>{children}</TextBodyContainer>
-      </PageContainer>
+      </Main>
     </>
   );
 }

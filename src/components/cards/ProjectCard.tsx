@@ -7,6 +7,7 @@ import { Project } from 'contentlayer/generated';
 
 import TechIcons from '../TechIcons';
 import { TechListType } from '../TechIcons';
+import { H4, Paragraph } from '../Typography';
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -18,10 +19,10 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       >
         <article className='flex h-full flex-col p-4 '>
-          <h4>{project.name}</h4>
-          <p className='text-sm text-gray-500 dark:text-gray-300'>
+          <H4 className='mb-2'>{project.name}</H4>
+          <Paragraph className='text-sm dark:text-gray-300'>
             {project.description}
-          </p>
+          </Paragraph>
           <div className='mt-auto flex items-center justify-between pt-3'>
             <TechIcons
               techs={project.techs.split(',') as Array<TechListType>}

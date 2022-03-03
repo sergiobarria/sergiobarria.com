@@ -4,7 +4,7 @@ import SocialIcons from '@/components/SocialIcons';
 
 export default function Footer() {
   return (
-    <footer className='mx-auto mt-auto max-w-3xl px-4 sm:px-0'>
+    <footer className='mx-auto mt-auto w-full max-w-3xl px-4 sm:px-0'>
       <div className=' border-gray-light border-t-[1px] py-8 dark:border-gray-500'>
         <div className='mb-6 self-start'>
           <SpotifyCard />

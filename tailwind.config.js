@@ -18,16 +18,14 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        // sans: ['Matter', ...defaultTheme.fontFamily.sans],
+        // sans: ['Inter', ...defaultTheme.fontFamily.sans],
         // sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
-        // sans: ['Lato', ...defaultTheme.fontFamily.sans],
-      },
-      backgroundImage: {
-        'radial-gradient': 'radial-gradient(var(--gradient-color-stops))',
       },
       colors: {
-        primary: withOpacityValue('--tw-clr-primary'),
-        accent: withOpacityValue('--tw-clr-accent'),
+        primary: withOpacityValue('--tw-clr-red'),
+        accent: withOpacityValue('--tw-clr-yellow'),
         gray: {
           50: 'var(--gray-50)',
           100: 'var(--gray-100)',

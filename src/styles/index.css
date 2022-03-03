@@ -1,0 +1,7 @@
+@import 'tailwind.css';
+
+/* Fonts */
+@import 'fonts.css';
+
+@import 'app.css';
+@import 'syntax-highlight.css';

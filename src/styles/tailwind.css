@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-gradient {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @apply bg-gradient-to-tr from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .bg-text-gradient {
+    @apply bg-gradient-to-tr from-primary/40 to-accent/40;
+    @apply dark:from-primary dark:to-accent dark:bg-clip-text dark:text-transparent;
+  }
+}

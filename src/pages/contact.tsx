@@ -6,8 +6,9 @@ import { Formik } from 'formik';
 import { toast } from 'react-toastify';
 
 import { Section } from '@/components/base';
-import { PageContainer } from '@/components/base';
+import { Main } from '@/components/base';
 import ContactForm from '@/components/forms/ContactForm';
+import { H2, Paragraph } from '@/components/Typography';
 
 import { formValidationSchema } from '@/utils/formValidationSchema';
 
@@ -63,14 +64,14 @@ export default function ContactPage() {
     <>
       <NextSeo {...customMetadata} />
 
-      <PageContainer>
+      <Main>
         <Section>
           <div className='mx-auto mb-8 w-full md:w-8/12'>
-            <h2>Contact Me</h2>
-            <p className='mt-2 mb-8 text-gray-600 dark:text-gray-200'>
+            <H2>Contact Me</H2>
+            <Paragraph className='mt-2 mb-8'>
               If you want to hire me, collaborate or give me any feedback or
               suggestions, get in touch.
-            </p>
+            </Paragraph>
 
             {/* Contact Form */}
             <Formik
@@ -82,7 +83,7 @@ export default function ContactPage() {
             </Formik>
           </div>
         </Section>
-      </PageContainer>
+      </Main>
     </>
   );
 }

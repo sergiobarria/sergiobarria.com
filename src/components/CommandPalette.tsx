@@ -1,55 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { useRouter } from 'next/router';
 
 import { Combobox, Dialog, Transition } from '@headlessui/react';
 import clsx from 'clsx';
+import { pick } from 'contentlayer/client';
+import { allPosts } from 'contentlayer/generated';
 import { BsSearch } from 'react-icons/bs';
 
-interface Props {
-  data: {
-    _id: string;
-    title: string;
-    slug: string;
-  }[];
-}
+import { useSearchBarContext } from '@/hooks/useSearchBarContext';
 
-export default function CommandPalette({ data }: Props) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [query, setQuery] = useState<string>('');
+export default function CommandPalette() {
+  const { isOpen, onClose, onInput, query } = useSearchBarContext();
   const router = useRouter();
 
+  // Data
+  const posts = allPosts.map((post) => pick(post, ['_id', 'title', 'slug']));
+
   const filteredPosts = query
-    ? data.filter((post) =>
+    ? posts.filter((post) =>
         post.title.toLowerCase().includes(query.toLowerCase())
       )
     : [];
 
   function handleChange(value: string) {
-    setIsOpen(false);
+    onClose();
     router.push(`/blog/${value}`);
   }
-
-  useEffect(() => {
-    function onkeydown(e: KeyboardEvent) {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        setIsOpen((prevValue) => !prevValue);
-      }
-    }
-
-    window.addEventListener('keydown', onkeydown);
-
-    return () => window.removeEventListener('keydown', onkeydown);
-  }, []);
 
   return (
     <Transition.Root
       show={isOpen}
       as={React.Fragment}
-      afterLeave={() => setQuery('')}
+      afterLeave={() => onInput('')}
     >
       <Dialog
-        onClose={setIsOpen}
+        onClose={onClose}
         className={clsx('fixed inset-0 overflow-y-auto p-4 pt-[25vh]')}
       >
         <Transition.Child
@@ -82,11 +68,12 @@ export default function CommandPalette({ data }: Props) {
             <div className='flex items-center px-4'>
               <BsSearch size={24} className='text-gray-500' />
               <Combobox.Input
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => onInput(e.target.value)}
                 className={clsx(
                   'h-12 w-full border-0 bg-transparent text-sm text-gray-800',
                   'placeholder-gray-400 focus:ring-0'
                 )}
+                autoComplete='false'
                 placeholder='Search...'
               />
             </div>
