@@ -6,11 +6,11 @@ import { Post } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
-import { Section } from '@/components/base';
-import { Main } from '@/components/base';
+import { Main, Section } from '@/components/base';
 import CloudinaryImage from '@/components/CloudinaryImage';
 import ReturnLink from '@/components/links/ReturnLink';
 import TextBodyContainer from '@/components/TextBodyContainer';
+import { H1, Paragraph } from '@/components/Typography';
 import ViewCounter from '@/components/ViewCounter';
 
 export default function BlogPostLayout({
@@ -59,7 +59,7 @@ export default function BlogPostLayout({
           width={1200}
           height={720}
         />
-        <h1 className='mt-4'>{post.title}</h1>
+        <H1 className='mt-4'>{post.title}</H1>
         <div className='my-4 flex items-center gap-1 text-gray-500'>
           <div>
             <span>Written on {formattedDate}</span>
@@ -79,12 +79,12 @@ export default function BlogPostLayout({
 
         {/* Summary */}
         <Section className='mt-6 border-y border-double py-6 italic dark:text-gray-300'>
-          <p className='text-gray-600 dark:text-gray-200'>
+          <Paragraph>
             <span className='uppercase text-primary dark:text-primary'>
               Quick Summary ↬{' '}
             </span>
             {post.summary}
-          </p>
+          </Paragraph>
         </Section>
 
         {/* Main Content */}
