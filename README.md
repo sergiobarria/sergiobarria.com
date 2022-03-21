@@ -1,4 +1,4 @@
-![Logo](https://res.cloudinary.com/sbarria-dev/image/upload/v1645935591/sergiobarria/banners/sergiobarria.com-cover-3_p0qc3a.png)
+![Logo](https://res.cloudinary.com/sbarria-dev/image/upload/v1647832358/sergiobarria/banners/sergiobarria.com-cover-3_1_gj8s6f.png)
 
 <p align="center">
   <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
@@ -18,15 +18,42 @@ I really like using headless CMS's like Sanity.io, Contentful or GraphCMS. But i
 
 ## Folder Structure
 
+```
+sergiobarria.com/
+├── __tests__/
+├── .github/
+├── .husky/
+├── .vscode/
+├── cypress/
+├── prisma/
+├── public/
+├── scripts/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── context/
+│   ├── fixtures/
+│   ├── hooks/
+│   ├── layouts/
+│   ├── lib/
+│   ├── pages/
+│   ├── styles/
+│   ├── types/
+│   └── utils/
+├── README.md
+└── ...(other root files)
+```
+
 Most of the project content is inside the `src` folder.
 
 - `components/*` - All project components
 - `content/*` - All data used to populate blog posts, library and projects info
 - `context/*` - React context
+- `fixtures/*` - Static info used around the website
 - `hooks/*` - Custom hooks
 - `lib/*` - Script utitlities to comunicate with 3rd party services
 - `pages/*` - Project pages
-- `styles/*` - All related to tailwind styles and global.css
+- `styles/*` - All related to tailwind styles and global css styles
 - `types/*` - Global Typescript styles that are used in more than one component
 - `utils/*` - Utility files that didn't fit any of the other categories
 
