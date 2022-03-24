@@ -53,12 +53,16 @@ We need to let SendGrid know which domains are authorized to send emails. To do 
 
 1. In your SendGrid dashboard, navigate to settings (on the left panel).
 2. Click on Sender Authentication -> Authenticate Your Domain. Add your domain info.
-3. Once you're finished, you should get 3 new DNS Recors to add to your DNS provider.
+3. Once you're finished, you should get 3 new DNS Records to add to your DNS provider.
 
 <Step number={3} title='Generate your API Key' />
 
-In your dashboard, go to settings -> API Keys. Click on `Create API Key`. 
+In your dashboard, go to settings -> API Keys. Click on `Create API Key`.
 
 Give your key a meaningfull name so you can remember what it does. Then select API Key Permissions and create your key.
 
-Remember to save your key in your .env.local file inside your Next Js project and don't push it to Github.
+Remember to save your key in your `.env.local` file inside your Next Js project and don't push it to Github.
+
+<Step number={4} title='Create API route' />
+
+Inside your `api` folder add the code snippet in your project API route. You can name the route however you want.

@@ -1,0 +1,98 @@
+---
+title: 'Create python virtual environment'
+description: 'how to create a python virtual environment using pip or poetry'
+tags: 'python,poetry,pip,virtual environment'
+---
+
+### With Pip
+
+```shell
+$ python3 -m venv venv
+
+# Activate environment
+$ source venv/bin/activate # for mac users
+$ venv\Scripts\activate.bat # for windows users
+```
+
+### With Poetry
+
+```shell
+$ poetry init
+
+$ poetry add DEPENDENCY_NAME
+```
+
+`pyproject.toml` file example:
+
+```toml:pyproject.toml
+[tool.poetry]
+name = "project name"
+version = "0.1.0"
+description = "Project description"
+authors = ["Your Name"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+# Other project dependencies will go here
+
+[tool.poetry.dev-dependencies]
+# Development dependencies will go here
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+```
+
+## How to use
+
+### Using Pip
+
+<Step number={1} title='Create virtual environment' />
+
+Inside your project folder, create a virtual environment with the following command:
+
+```shell
+$ python3 -m venv venv
+```
+
+Then, activate the environment:
+
+```shell
+$ source venv/bin/activate # for mac users
+$ venv\Scripts\activate.bat # for windows users
+```
+
+### Using Poetry
+
+<Step number={1} title='Initialize a poetry project' />
+
+```shell
+$ poetry init
+```
+
+This will create a new `pyproject.toml` file inside your project root.
+
+<Step number={2} title='Install dependencies' />
+
+Run:
+
+```shell
+$ poetry add DEPENDENCY_NAME
+```
+
+This will activate your virtual environment if exists or create a new one if it doesn't.
+
+To install a development package you can use the `--dev` or `-D` flags.
+
+The next time you start the project, you can run `poetry shell` to activate your project virtual env. To deactivate the environment run `deactivate`.
+
+In VScode, remember to activate the python interpreter as follows:
+
+- Open the command palette with `cmd + shift + p` or `ctrl + shift + p` and select `> Python: Select Interpreter`. Inside, select `Enter interpreter path`.
+- To get your poetry virtual env path in your terminal type:
+
+```shell
+$ poetry env info -p
+```
+
+- Copy the complete path and paste it in the command palette.
