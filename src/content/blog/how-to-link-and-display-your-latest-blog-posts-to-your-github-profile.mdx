@@ -4,7 +4,7 @@ number: 14
 publishedAt: '2021-08-14'
 summary: "In this guide, we'll see an easy way of linking our latest blog posts to our Github profile using a 3rd party package."
 banner: 'link-posts-to-github_n4oztg'
-isFeatured: true
+isFeatured: false
 ---
 
 Hi!
@@ -16,6 +16,7 @@ Since this is a very simple process (if we take advantage of some existing packa
 **Note:** As always with anything related to programming, it is safe to say this is not the only way to display your posts but is one of the simplest.
 
 ## Table of Contents
+
 - [Table of Contents](#table-of-contents)
 - [What you need](#what-you-need)
 - [Let's get started](#lets-get-started)
@@ -24,7 +25,7 @@ Since this is a very simple process (if we take advantage of some existing packa
 
 ## What you need
 
-- **A Github profile:**  if you don't have one yet, check this [link](https://www.sergiobarria.com/blog/how-to-create-and-edit-your-github-profile) to one of my latest posts or this on the [Github docs](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile).
+- **A Github profile:** if you don't have one yet, check this [link](https://www.sergiobarria.com/blog/how-to-create-and-edit-your-github-profile) to one of my latest posts or this on the [Github docs](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile).
 - **Github Actions:** at the simplest, these so-called actions are just instructions or functions that will be called on command via Github. You can read more about them [here](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions).
 - **An RSS Feed:** There are plenty of ways to create it and it all depends on your current project setup. In my case, my website is powered by [Next.js](https://nextjs.org/). You can check a guide I created in case this is your case [here](https://www.sergiobarria.com/blog/how-to-add-rss-feed-to-next-js-site). Alternately, check the package repo in which explains the most common sources and how to obtain the link to it, here is the [complete list available](https://github.com/gautamkrishnar/blog-post-workflow#popular-sources).
 
@@ -40,10 +41,11 @@ Instead of wasting any time writing everything manually, we'll take advantage of
 https://github.com/<USERNAME>/<USERNAME>
 ```
 
-2. Inside your README.md file copy these two lines where you want your posts rendered: 
-   
+2. Inside your README.md file copy these two lines where you want your posts rendered:
+
 ```markdown
 # Blog posts
+
 <!-- BLOG-POST-LIST:START -->
 <!-- BLOG-POST-LIST:END -->
 ```
@@ -52,16 +54,16 @@ Alternatively, you can edit your profile from your text editor by cloning your G
 
 1. Now, on your repo root, create the following folder structure:
 
-```md 
+```md
 .github 
-    └───workflows
-            blog-post-workflow.yml
+└───workflows
+blog-post-workflow.yml
 ```
 
 Make sure the files and folders names are correct.
 
 4. Add this content to the newly created `blog-post-workflow.yml` file:
-   
+
 ```yml:blog-post-workflow.yml
 name: Latest blog post workflow
 on:
@@ -88,8 +90,8 @@ schedule:
 ```
 
 5. Commit your changes and done.
-   
-Now, depending on how you configured your Github action schedule, it may or may not run immediately. 
+
+Now, depending on how you configured your Github action schedule, it may or may not run immediately.
 
 ## Configure your Github Action
 
@@ -97,34 +99,30 @@ To check on your newly created action, go to your Github profile repo. In the ac
 
 You can run this action manually by clicking on the Run workflow button.
 
-<CloudinaryImage 
-  mdx 
-  publicId='sergiobarria/posts/link-blog-post-to-github-profile/run-workflow_s2xbax' 
-  alt='creating new posts' 
-  width={385} 
-  height={183} 
+<CloudinaryImage
+  mdx
+  publicId='sergiobarria/posts/link-blog-post-to-github-profile/run-workflow_s2xbax'
+  alt='creating new posts'
+  width={385}
+  height={183}
 />
 
 Once your Github action finishes and assuming everything went well. You should have your latest blog post listed in your Github profile in the area you designated for this at the start of the guide.
 
-They should look like this: 
+They should look like this:
 
-<CloudinaryImage 
-  mdx 
-  publicId='sergiobarria/posts/link-blog-post-to-github-profile/final-result_ugg9lc' 
-  alt='creating new posts' 
-  width={1918} 
-  height={426} 
+<CloudinaryImage
+  mdx
+  publicId='sergiobarria/posts/link-blog-post-to-github-profile/final-result_ugg9lc'
+  alt='creating new posts'
+  width={1918}
+  height={426}
 />
 
 ## That's it!
 
-We did it! 
+We did it!
 
 Finally don't forget to check on all the options available in the Github package.
 
 Thanks for reading until the end. See you next time!
-
-
-
-
