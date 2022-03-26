@@ -10,7 +10,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "next-sitemap node scripts/rss-gen",
+    "postbuild": "next-sitemap & node scripts/rss-gen",
     "db": "pscale connect sergiobarria_com initial-setup --port 3309",
     "lint": "next lint",
     "lint:fix": "eslint src --fix",
