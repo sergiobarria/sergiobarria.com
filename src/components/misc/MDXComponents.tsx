@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import CalloutBox from '../CalloutBox';
 import CloudinaryImage from '../CloudinaryImage';
 import CodeBlock, { Pre } from '../CodeBlock';
 import CustomLink from '../links/CustomLink';
@@ -11,6 +12,7 @@ const MDXComponents = {
   pre: Pre,
   code: CodeBlock,
   CloudinaryImage,
+  CalloutBox,
   Step,
 };
 

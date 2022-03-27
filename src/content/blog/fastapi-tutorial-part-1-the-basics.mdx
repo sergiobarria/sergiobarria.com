@@ -129,7 +129,9 @@ In your browser, go to `http://localhost:8000`, if you see the following result,
   height={108}
 />
 
-**Note:** You can skip the next section and go to [Quick Recap](#quick-recap).
+<CalloutBox type='info'>
+  You can skip the next section and go to [Quick Recap](#quick-recap).
+</CalloutBox>
 
 ### Create basic project from scratch
 
@@ -203,14 +205,17 @@ We should end up with the following folder structure.
 fastapi-tutorial/
 ├── .vscode/ --> Optional: Only if you have any project specific setting
 ├── app/
-│ ├── **init**.py
+│ ├── __init__.py
 │ └── main.py
 ├── .gitignore
 ├── main.py
 └── pyproject.toml
 ```
 
-**Note:** If you're not using poetry, you should have a file named `requirements.txt` instead of `pyproject.toml`.
+<CalloutBox type='info'>
+  If you're not using poetry, you should have a file named `requirements.txt`
+  instead of `pyproject.toml`.
+</CalloutBox>
 
 Also, if you're using poetry the default config will create your `venv` folder in a location different from your project root. You can change this behavior by typing the following command in your terminal:
 
@@ -252,7 +257,10 @@ $ uvicorn app.main:app --reload
   height={108}
 />
 
-**Note:** by using the `--reload` flag in the `uvicorn` command we're telling `uvicorn` to watch our project for any change and reload the server automatically.
+<CalloutBox type='info'>
+  By using the `--reload` flag in the `uvicorn` command we're telling `uvicorn`
+  to watch our project for any change and reload the server automatically.
+</CalloutBox>
 
 ## Let's start our project API
 
@@ -277,10 +285,10 @@ fastapi-tutorial/
 ├── .vscode/
 ├── app/
 │ ├── endpoints/ --> NEW
-│ │ ├── **init**.py
+│ │ ├── __init__.py
 │ │ ├── api.py
 │ │ └── books.py
-│ ├── **init**.py
+│ ├── __init__.py
 │ └── main.py
 ├── .gitignore
 ├── main.py
@@ -289,7 +297,10 @@ fastapi-tutorial/
 
 First, let's work with the `endpoints` folder, inside it, let's create the 3 files you see in the project tree `__init__.py`, `api.py` and `books.py`.
 
-**Note:** Remember that by adding a `__init__.py` file to our folders, python will see this folders as a module, which will make easier to import from them.
+<CalloutBox type='info'>
+  Remember that by adding a `__init__.py` file to our folders, python will see
+  this folders as a module, which will make easier to import from them.
+</CalloutBox>
 
 #### FastAPI Router
 
@@ -346,7 +357,7 @@ Let's review the code:
 
 Finally, in our `main.py` we import this new router.
 
-```python: main.py
+```python:main.py
 # from fastapi import FastAPI
 
 from app.endpoints.api import api_router
@@ -362,7 +373,10 @@ app.include_router(api_router, prefix="/api")
 
 We included our main router the same way as with the `books` router.
 
-**Note:** By using the `prefix="/api"` we're telling python that all our endpoints will start with the `/api` prefix.
+<CalloutBox type='tip'>
+  By using the `prefix="/api"` we're telling python that all our endpoints will
+  start with the `/api` prefix.
+</CalloutBox>
 
 This means that to hit our books endpoints, we'll have a full Url similar to something like this:
 
@@ -406,9 +420,16 @@ You can try this endpoint by clicking on the `Try it out` button and then click 
 
 You notice, in the response body we get exactly the same 3 dummy books we created on our `books.py` file.
 
-**Note:** You can use this docs to test your entire API. Later we'll add schemas that will allow us the validate the data we receive and send from our API.
+<CalloutBox type='info'>
+  You can use this docs to test your entire API. Later we'll add schemas that
+  will allow us the validate the data we receive and send from our API.
+</CalloutBox>
 
-**Info:** Alternatevily, instead of Swagger docs, you can go to `htpp://localhost:8000/redoc` to see other type of documentation that also will allow you to test your API.
+<CalloutBox type='tip'>
+  Alternatevily, instead of Swagger docs, you can go to
+  `htpp://localhost:8000/redoc` to see other type of documentation that also
+  will allow you to test your API.
+</CalloutBox>
 
 For the purpuse of this tutorial series, we'll use Swagger docs, but feel free to use any API tester you prefer.
 
