@@ -78,7 +78,7 @@ export default function BlogPostLayout({
         </div>
 
         {/* Summary */}
-        <Section className='mt-6 border-y border-double py-6 italic dark:text-gray-300'>
+        <Section className='my-6 border-y border-double py-6 italic dark:text-gray-300'>
           <Paragraph>
             <span className='uppercase text-primary dark:text-primary'>
               Quick Summary ↬{' '}

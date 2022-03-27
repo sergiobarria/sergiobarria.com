@@ -13,6 +13,7 @@ In the last post, I wrote a short guide on [how to make a blog with Next.js and
 Adding dynamic pages is easier than you may think. So, without further to do, let's get to work.
 
 ## Table of Contents
+
 - [Table of Contents](#table-of-contents)
 - [Create a template for your routes](#create-a-template-for-your-routes)
 - [Fetching data from Sanity Studio](#fetching-data-from-sanity-studio)
@@ -142,7 +143,6 @@ export const postQuery = `
 
 The second parameter is the id for our single post, in this case, we use the slug. This will tell Next.js which specific content should be fetched for each `.html` page generated. The rest of the queries are just examples of what you can query for. Our function then returns data that can be passed as props to our `[slug].js` component.
 
-
 ## Pass the fetched data to our template
 
 Now that we have our data, we can pass it as a prop to our template component (see the template code example on step 1.
@@ -227,6 +227,3 @@ This means that if our page is not ready yet or it's been built, then we will on
 ## That's it!
 
 That's it! everybody. Now we have all the basics we need to work with Next.js and Sanity.io together.
-
-
-

@@ -4,3 +4,4 @@ yarn.lock
 package-lock.json
 public
 /src/styles/dracula.min.css
+*.mdx
