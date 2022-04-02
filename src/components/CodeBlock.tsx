@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { HiCheckCircle } from 'react-icons/hi';
 import { MdContentCopy } from 'react-icons/md';
-import { SiJavascript, SiTypescript } from 'react-icons/si';
+import { SiJavascript, SiPython, SiTypescript } from 'react-icons/si';
 
 export function Pre(props: ComponentPropsWithRef<'pre'>) {
   return (
@@ -41,11 +41,13 @@ export default function CustomCodeBlock(props: ComponentPropsWithRef<'code'>) {
       )}
 
       {language && (
-        <div className='absolute right-0 z-50 px-3 py-1 bottom-2'>
+        <div className='absolute right-0 bottom-2 z-50 px-3 py-1'>
           {language === 'js' || language === 'jsx' ? (
             <SiJavascript className='text-yellow-500' size={25} />
           ) : language === 'typescript' || language === 'tsx' ? (
             <SiTypescript className='text-blue-500' size={25} />
+          ) : language === 'python' ? (
+            <SiPython className='text-[#FFD753]' size={25} />
           ) : null}
         </div>
       )}
@@ -61,9 +63,9 @@ export default function CustomCodeBlock(props: ComponentPropsWithRef<'code'>) {
         >
           <button
             className={clsx(
-              'absolute top-0 right-0 hidden p-2 text-lg border border-t-0',
-              'border-r-0 border-gray-200 dark:border-gray-700 rounded-bl-md',
-              'md:block hover:bg-gray-700'
+              'absolute top-0 right-0 hidden border border-t-0 p-2 text-lg',
+              'rounded-bl-md border-r-0 border-gray-200 dark:border-gray-700',
+              'hover:bg-gray-700 md:block'
             )}
           >
             {isCopied ? (

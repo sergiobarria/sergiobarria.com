@@ -20,6 +20,7 @@ import {
   SiPython,
   SiReact,
   SiSass,
+  SiSvelte,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
@@ -142,5 +143,9 @@ const techList = {
   sendgrid: {
     icon: SiMinutemailer,
     name: 'SendGrid',
+  },
+  svelte: {
+    icon: SiSvelte,
+    name: 'Svelte',
   },
 };
