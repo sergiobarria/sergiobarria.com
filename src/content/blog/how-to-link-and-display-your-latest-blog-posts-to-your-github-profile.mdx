@@ -9,7 +9,7 @@ isFeatured: false
 
 Hi!
 
-If you're here, I'm guessing you're looking for a way to display your latest blog post articles in your Github profile. But just in case, you don't know what is a Github profile you can check this [link](https://www.sergiobarria.com/blog/how-to-create-and-edit-your-github-profile) where I explain what is a Github profile and how to create one.
+If you're here, I'm guessing you're looking for a way to display your latest blog post articles in your Github profile. But just in case, you don't know what is a Github profile you can check this [link](https://www.sergiobarria.com/blog/how-to-create-and-edit-your-github-profile) where I explain what is a Github profile and how to create one.
 
 Since this is a very simple process (if we take advantage of some existing package, more on this later), let's get to it without wasting any time.
 
@@ -25,23 +25,23 @@ Since this is a very simple process (if we take advantage of some existing packa
 
 ## What you need
 
-- **A Github profile:** if you don't have one yet, check this [link](https://www.sergiobarria.com/blog/how-to-create-and-edit-your-github-profile) to one of my latest posts or this on the [Github docs](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile).
-- **Github Actions:** at the simplest, these so-called actions are just instructions or functions that will be called on command via Github. You can read more about them [here](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions).
-- **An RSS Feed:** There are plenty of ways to create it and it all depends on your current project setup. In my case, my website is powered by [Next.js](https://nextjs.org/). You can check a guide I created in case this is your case [here](https://www.sergiobarria.com/blog/how-to-add-rss-feed-to-next-js-site). Alternately, check the package repo in which explains the most common sources and how to obtain the link to it, here is the [complete list available](https://github.com/gautamkrishnar/blog-post-workflow#popular-sources).
+- **A Github profile:** if you don't have one yet, check this [link](https://www.sergiobarria.com/blog/how-to-create-and-edit-your-github-profile) to one of my latest posts or this on the [Github docs](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile).
+- **Github Actions:** at the simplest, these so-called actions are just instructions or functions that will be called on command via Github. You can read more about them [here](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions).
+- **An RSS Feed:** There are plenty of ways to create it and it all depends on your current project setup. In my case, my website is powered by [Next.js](https://nextjs.org/). You can check a guide I created in case this is your case [here](https://www.sergiobarria.com/blog/how-to-add-rss-feed-to-next-js-site). Alternately, check the package repo in which explains the most common sources and how to obtain the link to it, here is the [complete list available](https://github.com/gautamkrishnar/blog-post-workflow#popular-sources).
 
 Although we can do the process manually regarding the Github actions, we're developers, it's safe to say many of us are lazy. So, why reinvent the wheel?
 
-Instead of wasting any time writing everything manually, we'll take advantage of [Gautam Krishna package](https://github.com/gautamkrishnar/blog-post-workflow) for [blog-post-workflow](https://github.com/gautamkrishnar/blog-post-workflow). This will make the process way easier.
+Instead of wasting any time writing everything manually, we'll take advantage of [Gautam Krishna package](https://github.com/gautamkrishnar/blog-post-workflow) for [blog-post-workflow](https://github.com/gautamkrishnar/blog-post-workflow). This will make the process way easier.
 
 ## Let's get started
 
-1. Got to your Github profile page and open your README.md file for editing. Your Github profile link will be something like this:
+1. Got to your Github profile page and open your README.md file for editing. Your Github profile link will be something like this:
 
 ```bash
 https://github.com/<USERNAME>/<USERNAME>
 ```
 
-2. Inside your README.md file copy these two lines where you want your posts rendered:
+2. Inside your README.md file copy these two lines where you want your posts rendered:
 
 ```markdown
 # Blog posts
@@ -55,14 +55,14 @@ Alternatively, you can edit your profile from your text editor by cloning your G
 1. Now, on your repo root, create the following folder structure:
 
 ```md
-.github 
+.github 
 └───workflows
 blog-post-workflow.yml
 ```
 
 Make sure the files and folders names are correct.
 
-4. Add this content to the newly created `blog-post-workflow.yml` file:
+4. Add this content to the newly created `blog-post-workflow.yml` file:
 
 ```yml:blog-post-workflow.yml
 name: Latest blog post workflow
@@ -86,7 +86,7 @@ jobs:
 
 ```yml:blog-post-workflow.yml
 schedule:
-  - cron: '0 * * * *'
+  - cron: '0 * * * *'
 ```
 
 5. Commit your changes and done.
@@ -95,7 +95,7 @@ Now, depending on how you configured your Github action schedule, it may or may 
 
 ## Configure your Github Action
 
-To check on your newly created action, go to your Github profile repo. In the actions tab, you should have a new Github action called `Latest blog post workflow` (the name depends on the name you added to the config `.yml` file.
+To check on your newly created action, go to your Github profile repo. In the actions tab, you should have a new Github action called `Latest blog post workflow` (the name depends on the name you added to the config `.yml` file.
 
 You can run this action manually by clicking on the Run workflow button.
 
