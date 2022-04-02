@@ -1,0 +1,56 @@
+---
+title: 'Sveltekit setup with Tailwind CSS'
+description: 'How to setup Sveltekit with Tailwind CSS'
+tags: 'svelte,tailwind'
+---
+
+## Code
+### Sveltekit app setup
+Create Sveltekit app
+
+```shell
+$ npm init svelte@next my-app
+$ cd my-app
+$ npm install
+$ npm run dev
+```
+
+### Add Tailwind CSS
+
+```shell
+$ npm install -D tailwindcss postcss autoprefixer
+$ npx tailwindcss init tailwind.config.cjs -p
+$ mv postcss.config.js postcss.config.cjs
+```
+
+Configure templates path
+
+```js:tailwind.config.cjs
+module.exports = {
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		extend: {}
+	},
+	plugins: []
+}
+```
+
+Create a `./src/app.css` file and add Tailwind directives to app CSS
+
+```css:app.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Create a `./src/routes/__layout.svelte` and import the CSS file recently created.
+
+```js:__layout.svelte
+<script>
+	import "../app.css"
+</script>
+
+<slot />
+```
+
+Run the App with `npm run dev`
