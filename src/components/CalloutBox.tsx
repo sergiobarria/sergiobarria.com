@@ -63,9 +63,9 @@ export default function CalloutBox({
       >
         <CalloutBoxType type={type} />
       </div>
-      <p className='text-gray-700 dark:text-gray-300'>
+      <div className='text-gray-700 dark:text-gray-300'>
         {children ? children : 'CalloutBox'}
-      </p>
+      </div>
     </div>
   );
 }
