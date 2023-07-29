@@ -8,16 +8,13 @@
     --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
+::selection {
+    background-color: #47a3f3;
+    color: #fefefe;
 }
 
-body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
-        rgb(var(--background-start-rgb));
+@layer utilities {
+    .custom-transition {
+        @apply transition-colors duration-100 ease-in-out;
+    }
 }
