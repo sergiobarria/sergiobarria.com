@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 // 👇🏼 This is the app's entry point. It is not a page, but a layout that wraps all pages. 👇🏼
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={cn('text-zinc-300 bg-[#111010]', readexPro.className)}>
+        <html lang="en" className={cn('text-zinc-50 bg-[#111010]', readexPro.className)}>
             <head>
                 {/* favicon */}
                 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
@@ -27,10 +27,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                 {/* TODO: finish head metadata 👇🏼 */}
             </head>
-            <body className="max-w-2xl mx-auto antialiased text-zinc-300 custom-transition">
-                <div className="grid grid-rows-[auto_1fr_auto] min-h-screen gap-12">
+            <body className="max-w-2xl mx-auto antialiased custom-transition">
+                <div className="grid grid-rows-[auto_1fr_auto] min-h-screen gap-12 mt-8 mx-4">
                     <Header />
-                    <main className="px-4 border">{children}</main>
+                    <main className="">{children}</main>
                     <Footer />
                 </div>
             </body>
