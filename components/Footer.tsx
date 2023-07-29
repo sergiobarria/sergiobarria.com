@@ -19,7 +19,7 @@ export function Footer() {
                     <div className="md:text-start">
                         <p>&copy; Copyright {new Date().getFullYear()} - Sergio Barria</p>
                         <p className="">
-                            Made with{' '}
+                            Powered by{' '}
                             <a
                                 href="https://nextjs.org/"
                                 target="_blank"

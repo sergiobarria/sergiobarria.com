@@ -7,7 +7,7 @@ export function Header() {
     const links = navLinks.filter(link => link.isHeader);
 
     return (
-        <header className="mt-6">
+        <header className="flex justify-center mt-6 md:justify-start">
             <NavLinks links={links} underline />
         </header>
     );
