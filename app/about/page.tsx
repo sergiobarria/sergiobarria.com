@@ -1,5 +1,7 @@
-import { KitImage } from '@/components/KitImage';
+import Image from 'next/image';
+
 import site from '@/site/site.json';
+import profile from 'public/images/profile.jpg';
 
 function ContactLinks() {
     const { github, linkedin, email } = site.socialLinks;
@@ -95,23 +97,18 @@ export default function AboutPage() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-x-4 gap-y-8 md:gap-0">
             <div className="flex justify-center order-1 md:col-span-1">
-                {/* TODO: Fix image component */}
-                {/* <KitImage
-                    path="profile.jpeg"
-                    alt="profile"
-                    width={768}
-                    height={1024}
-                    transformation={[
-                        {
-                            width: '768',
-                            height: '1024',
-                            effectGray: 'auto',
-                            radius: '60',
-                            quality: '50',
-                        },
-                    ]}
-                    className="self-center w-2/3 py-3 rounded-xl rotate-3 md:h-full md:w-[75%]"
-                /> */}
+                <div className="grid h-96 w-[60%] items-center">
+                    <div className="relative w-full h-3/5 aspect-w-3 aspect-h-4">
+                        <Image
+                            src={profile}
+                            alt="hero profile"
+                            fill
+                            placeholder="blur"
+                            quality={50}
+                            className="grayscale rounded-xl shadow-lg shadow-neutral-700/90 object-cover rotate-3"
+                        />
+                    </div>
+                </div>
             </div>
             <div className="order-2 md:col-start-1 md:row-start-1 md:row-span-2">
                 <h1 className="text-2xl font-bold tracking-tight md:text-3xl text-zinc-800 dark:text-zinc-100 sm:text-5xl">

@@ -1,36 +1,29 @@
+import Image from 'next/image';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 
-import { KitImage, ContactForm } from '@/components';
+import { ContactForm } from '@/components';
+
+import profile from 'public/images/profile.jpg';
 
 export default function Home() {
     const posts = allPosts.sort((a, b) =>
         compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
     );
-    // console.log(posts);
 
     return (
         <div className="space-y-16">
             <section id="hero">
                 <div className="flex flex-col max-w-3xl gap-6 mx-auto md:flex-row md:items-center">
-                    <div className="flex justify-center">
-                        {/* TODO: Fix image component */}
-                        {/* <KitImage
-                            path="profile.jpeg"
+                    <div className="relative w-52 h-52 aspect-1 mx-auto">
+                        <Image
+                            src={profile}
                             alt="hero profile"
-                            width={768}
-                            height={1024}
-                            transformation={[
-                                {
-                                    width: '768',
-                                    height: '1024',
-                                    effectGray: 'auto',
-                                    radius: 'max',
-                                    quality: '20',
-                                },
-                            ]}
-                            className="max-w-[200px] border-4 rounded-full shadow-lg shadow-neutral-700/90"
-                        /> */}
+                            fill
+                            placeholder="blur"
+                            quality={10}
+                            className="rounded-full grayscale border-4 shadow-lg shadow-neutral-700/90 object-cover"
+                        />
                     </div>
 
                     <div className="text-center space-y-6 md:max-w-[70%] md:text-start md:space-y-4">
