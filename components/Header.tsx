@@ -9,6 +9,7 @@ export function Header() {
     return (
         <header className="flex justify-center mt-6 md:justify-start">
             <NavLinks links={links} underline />
+            {/* TODO: Add theme switcher here */}
         </header>
     );
 }

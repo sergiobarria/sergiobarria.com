@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { LayoutGroup, m, LazyMotion, domMax } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 
@@ -20,32 +21,36 @@ export function NavLinks({ small = false, underline = false, links }: NavLinkPro
     const pathname = usePathname();
 
     return (
-        <nav>
-            <ul className={cn('flex items-center gap-5', !small && 'md:gap-6')}>
-                {links.map(link => {
-                    const isActive = pathname === link.href;
-
-                    return (
-                        <li key={link.id}>
-                            <Link
-                                href={link.href}
-                                className={cn(
-                                    'transition-all text-neutral-200 hover:text-neutral-200 flex align-middle',
-                                    !isActive && 'text-neutral-500'
+        <LazyMotion features={domMax}>
+            <nav className={cn('flex items-center gap-5', !small && 'md:gap-6')}>
+                <LayoutGroup>
+                    {links.map(link => (
+                        <Link
+                            key={link.id}
+                            href={link.href}
+                            className={cn(
+                                'transition-all hover:text-neutral-200 flex align-middle',
+                                pathname === link.href ? 'text-neutral-200' : 'text-neutral-500'
+                            )}
+                        >
+                            <span className="relative">
+                                {link.label}
+                                {pathname === link.href && underline && (
+                                    <m.div
+                                        className="absolute h-[1px] top-7 mx-[3px] inset-0 bg-neutral-600 z-[-1] bg-gradient-to-r from-transparent to-neutral-900"
+                                        layoutId="link-underline"
+                                        transition={{
+                                            type: 'spring',
+                                            stiffness: 350,
+                                            damping: 30,
+                                        }}
+                                    />
                                 )}
-                            >
-                                <span className="relative">
-                                    {link.label}
-                                    {isActive && underline && (
-                                        // TODO: animate this underline transition 👇🏼 (using framer one or motion)
-                                        <div className="absolute h-[1px] top-7 mx-[3px] inset-0 bg-neutral-600 z-[-1] bg-gradient-to-r from-transparent to-neutral-900" />
-                                    )}
-                                </span>
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
-        </nav>
+                            </span>
+                        </Link>
+                    ))}
+                </LayoutGroup>
+            </nav>
+        </LazyMotion>
     );
 }
