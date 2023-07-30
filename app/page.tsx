@@ -1,6 +1,14 @@
+import { allPosts, Post } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
+
 import { KitImage, ContactForm } from '@/components';
 
 export default function Home() {
+    const posts = allPosts.sort((a, b) =>
+        compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+    );
+    // console.log(posts);
+
     return (
         <div className="space-y-16">
             <section id="hero">
