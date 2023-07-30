@@ -95,7 +95,8 @@ export default function AboutPage() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-x-4 gap-y-8 md:gap-0">
             <div className="flex justify-center order-1 md:col-span-1">
-                <KitImage
+                {/* TODO: Fix image component */}
+                {/* <KitImage
                     path="profile.jpeg"
                     alt="profile"
                     width={768}
@@ -110,7 +111,7 @@ export default function AboutPage() {
                         },
                     ]}
                     className="self-center w-2/3 py-3 rounded-xl rotate-3 md:h-full md:w-[75%]"
-                />
+                /> */}
             </div>
             <div className="order-2 md:col-start-1 md:row-start-1 md:row-span-2">
                 <h1 className="text-2xl font-bold tracking-tight md:text-3xl text-zinc-800 dark:text-zinc-100 sm:text-5xl">

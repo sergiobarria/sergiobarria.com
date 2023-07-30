@@ -6,7 +6,8 @@ export default function Home() {
             <section id="hero">
                 <div className="flex flex-col max-w-3xl gap-6 mx-auto md:flex-row md:items-center">
                     <div className="flex justify-center">
-                        <KitImage
+                        {/* TODO: Fix image component */}
+                        {/* <KitImage
                             path="profile.jpeg"
                             alt="hero profile"
                             width={768}
@@ -21,7 +22,7 @@ export default function Home() {
                                 },
                             ]}
                             className="max-w-[200px] border-4 rounded-full shadow-lg shadow-neutral-700/90"
-                        />
+                        /> */}
                     </div>
 
                     <div className="text-center space-y-6 md:max-w-[70%] md:text-start md:space-y-4">

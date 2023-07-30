@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getNowPlaying } from '@/lib/spotify';
+import { getNowPlaying } from '@/lib/spotify/spotify';
 
 import { SpotifyData } from '@/types/SpotifyTypes';
 

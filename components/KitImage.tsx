@@ -2,6 +2,7 @@
 
 import { IKContext, IKImage } from 'imagekitio-react';
 
+// TODO: Fix this component
 interface KitImageProps {
     path: string;
     alt: string;
