@@ -11,7 +11,7 @@ export function Footer() {
             <div
                 className={cn(
                     'flex flex-col px-4 text-xs text-neutral-500 text-center space-y-4',
-                    'md:flex-row md:justify-between md:items-center'
+                    'md:flex-row md:justify-between md:items-center pb-6'
                 )}
             >
                 <div className="flex flex-col items-center order-2 mt-4 space-y-1 md:order-1 md:mt-0 md:items-start md:space-y-2">

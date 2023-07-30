@@ -13,4 +13,5 @@ export const {
     MAILTRAP_PASSWORD,
     EMAIL_SENDER,
     EMAIL_RECEIVER,
+    PUBLIC_APP_GITHUB_ACCESS_TOKEN,
 } = process.env;

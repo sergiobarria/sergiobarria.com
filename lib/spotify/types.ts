@@ -7,3 +7,11 @@ export interface SpotifyTrack {
         images: Array<{ width: number; height: number; url: string }>;
     };
 }
+
+export interface Track {
+    id: string;
+    songUrl: string;
+    artists: string;
+    title: string;
+    images: Array<{ width: number; height: number; url: string }>;
+}
