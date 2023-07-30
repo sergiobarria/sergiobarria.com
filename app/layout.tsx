@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {/* TODO: finish head metadata 👇🏼 */}
             </head>
             <body className="max-w-2xl mx-auto antialiased custom-transition">
-                <Toaster />
+                <Toaster position="top-right" />
                 <div className="grid grid-rows-[auto_1fr_auto] min-h-screen gap-12 mt-8 mx-4">
                     <Header />
                     <main className="">{children}</main>

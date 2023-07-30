@@ -54,7 +54,7 @@ export default function Home() {
 
             <section id="contact">
                 <h2 className="text-xl font-semibold text-center md:text-2xl lg:text-3xl">
-                    Get in <span className="text-accent-600">touch!</span>
+                    Get in touch! 📨
                 </h2>
 
                 <ContactForm />
