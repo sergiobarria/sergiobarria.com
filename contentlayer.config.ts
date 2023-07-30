@@ -11,6 +11,7 @@ export const Post = defineDocumentType(() => ({
         coverImage: { type: 'string', required: true },
         isFeatured: { type: 'boolean', required: false, default: false },
         archived: { type: 'boolean', required: false, default: false },
+        keywords: { type: 'list', of: { type: 'string' }, required: false },
     },
     computedFields: {
         url: { type: 'string', resolve: post => post._raw.flattenedPath },

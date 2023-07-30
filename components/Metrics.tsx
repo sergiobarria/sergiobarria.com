@@ -1,8 +1,8 @@
 import { getPostsViews } from '@/lib/metrics';
 import { getWakaAllTimeStats, getWakaStats } from '@/lib/wakatime';
 import { getGithubUserMetrics } from '@/lib/github';
-import { allPosts } from '@/.contentlayer/generated';
 import { cn, convertTimeToDecimal } from '@/lib/utils';
+import { allPosts } from '@/.contentlayer/generated';
 
 import site from '@/site/site.json';
 
@@ -15,7 +15,12 @@ interface CardProps {
 function Card({ title, value, href }: CardProps) {
     return (
         <a href={href} className={cn(href && 'cursor-pointer')}>
-            <div className={cn('flex flex-col bg-neutral-800 p-3', href && 'hover:bg-neutral-900')}>
+            <div
+                className={cn(
+                    'flex flex-col border border-neutral-800 p-3',
+                    href && 'hover:bg-neutral-900'
+                )}
+            >
                 <small className="text-ellipsis">{title}</small>
                 <div className="flex items-center justify-between">
                     <span className="text-2xl font-semibold">{value}</span>
@@ -65,23 +70,21 @@ export async function Metrics() {
         socialLinks: { github },
     } = site;
 
-    console.log({ github });
-
     return (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-3">
             <Card title="Total Posts" value={totalPosts} href="/blog" />
             <Card title="Total Posts Views" value={totalPostsViews ?? '--'} href="/blog" />
+
+            {/* Github stats */}
+            <Card title="GitHub Followers" value={followers ?? '--'} href={github.url} />
+            <Card title="Pull Requests" value={pullRequests ?? '--'} href={github.url} />
+            <Card title="GitHub Stars" value={githubStars ?? '--'} href={github.url} />
 
             {/* Wakatime stats */}
             <Card title="Wakatime*" value={wakatime ?? '--'} />
             <Card title="Daily Average*" value={dailyAvg ?? '--'} />
             <Card title="Top Language" value={topLang ?? '--'} />
             <Card title="Other Language" value={otherLang ?? '--'} />
-
-            {/* Github stats */}
-            <Card title="GitHub Followers" value={followers ?? '--'} href={github.url} />
-            <Card title="Pull Reuquests" value={pullRequests ?? '--'} href={github.url} />
-            <Card title="GitHub Stars" value={githubStars ?? '--'} href={github.url} />
         </div>
     );
 }

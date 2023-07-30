@@ -13,7 +13,7 @@ export function TrackItem({ track, index }: TrackItemProps) {
     const { title, artists, images, songUrl } = track;
 
     return (
-        <li className="flex items-center p-2 border-b border-neutral-700/50">
+        <li className="flex items-center p-2 border-b border-neutral-800">
             <span className="mr-2 text-xs text-neutral-500">{index + 1}</span>
             <div className="flex-grow w-[200px]">
                 <a

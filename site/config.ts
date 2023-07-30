@@ -14,4 +14,5 @@ export const {
     EMAIL_SENDER,
     EMAIL_RECEIVER,
     PUBLIC_APP_GITHUB_ACCESS_TOKEN,
+    RESEND_API_KEY,
 } = process.env;
