@@ -71,7 +71,7 @@ export async function Metrics() {
     } = site;
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Card title="Total Posts" value={totalPosts} href="/blog" />
             <Card title="Total Posts Views" value={totalPostsViews ?? '--'} href="/blog" />
 
@@ -85,6 +85,19 @@ export async function Metrics() {
             <Card title="Daily Average*" value={dailyAvg ?? '--'} />
             <Card title="Top Language" value={topLang ?? '--'} />
             <Card title="Other Language" value={otherLang ?? '--'} />
+        </div>
+    );
+}
+
+export function MetricsFallback() {
+    return (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {Array.from({ length: 8 }, (_, i) => (
+                <div key={i} className="flex flex-col border border-neutral-800 p-3 space-y-6">
+                    <span className="block animate-pulse bg-neutral-500 h-2"></span>
+                    <span className="block w-1/3 animate-pulse bg-neutral-500 h-2"></span>
+                </div>
+            ))}
         </div>
     );
 }
