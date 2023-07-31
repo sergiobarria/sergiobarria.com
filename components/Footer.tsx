@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { NavLinks } from './NavLinks';
+import { SpotifyCard } from './SpotifyCard';
 
 import site from '@/site/site.json';
 
@@ -49,7 +50,9 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="order-1 max-w-[20rem] mx-auto md:mx-0">Spotify Card</div>
+                <div className="order-1 max-w-[20rem] mx-auto md:mx-0">
+                    <SpotifyCard />
+                </div>
             </div>
         </footer>
     );

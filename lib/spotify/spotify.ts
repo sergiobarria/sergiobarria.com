@@ -1,5 +1,5 @@
 import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } from '@/site/config';
-import type { SpotifyTrack } from './types';
+import type { SpotifyTrack, SpotifyResponse } from './types';
 
 const token = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing';
@@ -47,4 +47,33 @@ export async function getTopTracks() {
     }));
 
     return tracks;
+}
+
+export async function getNowPlaying() {
+    try {
+        const accessToken = await getAccessToken();
+        const res = await fetch(NOW_PLAYING_ENDPOINT, {
+            headers: { Authorization: `Bearer ${accessToken}` },
+            cache: 'no-store',
+        });
+
+        if (!res.ok) throw new Error('Failed to fetch spotify now playing');
+
+        if (res.status === 204 || res.status > 400) throw new Error('No data available');
+
+        const json: SpotifyResponse = await res.json();
+        const data = {
+            isPlaying: json.is_playing,
+            title: json.item.name,
+            album: json.item.album.name,
+            artist: json?.item?.album?.artists?.map(artist => artist.name).join(', '),
+            albumImageUrl: json.item.album.images[0].url,
+            songUrl: json.item.external_urls.spotify,
+        };
+
+        return data;
+    } catch (err) {
+        console.error('💥 ERROR', err);
+        return null;
+    }
 }
