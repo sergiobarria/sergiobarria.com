@@ -55,7 +55,6 @@ export async function getNowPlaying() {
         const res = await fetch(NOW_PLAYING_ENDPOINT, {
             headers: { Authorization: `Bearer ${accessToken}` },
             cache: 'no-store',
-            next: { revalidate: 60 }, // revalidate every minute
         });
 
         if (!res.ok) throw new Error('Failed to fetch spotify now playing');

@@ -5,7 +5,6 @@ import { AnimatedBars } from './AnimatedBars';
 
 export async function SpotifyCard() {
     const data = await getNowPlaying();
-    console.log({ data });
 
     return data?.isPlaying ? <ListeningCard {...data} /> : <NotListeningCard />;
 }
