@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { animate } from 'motion';
 
 export function AnimatedBars() {
@@ -20,7 +20,6 @@ export function AnimatedBars() {
                 easing: ['ease-in-out'],
             }
         );
-
         animate(
             '#bar2',
             {
@@ -42,7 +41,7 @@ export function AnimatedBars() {
             {
                 transform: [
                     'scaleY(1.0)  translateY(0rem)',
-                    'scaleY(0.5) translateY(0.37rem)',
+                    'scaleY(0.5) translateY(0.31rem)',
                     'scaleY(1.0)  translateY(0rem)',
                 ],
             },
@@ -53,13 +52,30 @@ export function AnimatedBars() {
                 easing: ['ease-in-out'],
             }
         );
+        animate(
+            '#bar4',
+            {
+                transform: [
+                    'scaleY(1.0) translateY(0rem)',
+                    'scaleY(2) translateY(-0.083rem)',
+                    'scaleY(1.0) translateY(0rem)',
+                ],
+            },
+            {
+                delay: 0.4,
+                duration: 0.75,
+                repeat: Infinity,
+                easing: ['ease-in-out'],
+            }
+        );
     }, []);
 
     return (
-        <div className="flex items-baseline gap-0.5">
-            <span id="bar1" className="h-[4px] w-[2px] bg-green-500"></span>
-            <span id="bar2" className="h-[6px] w-[2px] bg-green-500"></span>
-            <span id="bar3" className="h-[8px] w-[2px] bg-green-500"></span>
+        <div className="flex w-auto items-end overflow-hidden gap-0.5">
+            <span id="bar1" className="h-2 w-[1px] bg-green-500" />
+            <span id="bar2" className="h-1 w-[1px] bg-green-500 " />
+            <span id="bar3" className="h-3 w-[1px] bg-green-500" />
+            <span id="bar4" className="h-1 w-[1px] bg-green-500" />
         </div>
     );
 }

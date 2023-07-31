@@ -5,8 +5,9 @@ import { AnimatedBars } from './AnimatedBars';
 
 export async function SpotifyCard() {
     const data = await getNowPlaying();
+    console.log({ data });
 
-    return data ? <ListeningCard {...data} /> : <NotListeningCard />;
+    return data?.isPlaying ? <ListeningCard {...data} /> : <NotListeningCard />;
 }
 
 interface ListeningCardProps {
@@ -32,7 +33,7 @@ function ListeningCard({ albumImageUrl, songUrl, title, artist }: ListeningCardP
                     {title}
                 </a>
                 <div className="flex items-baseline justify-between gap-3">
-                    <span className="text-[10px] opacity-80">{artist}</span>
+                    <span className="text-xs opacity-80">{artist}</span>
                     <AnimatedBars />
                 </div>
             </div>
