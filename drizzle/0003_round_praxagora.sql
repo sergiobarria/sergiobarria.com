@@ -1,1 +1,0 @@
-ALTER TABLE `posts` MODIFY COLUMN `slug` varchar(256) NOT NULL;

@@ -1,1 +1,0 @@
-ALTER TABLE `posts` MODIFY COLUMN `views` int NOT NULL;
