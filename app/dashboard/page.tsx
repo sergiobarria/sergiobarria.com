@@ -1,8 +1,5 @@
 import { Suspense } from 'react';
-import Image from 'next/image';
 
-import { getTopTracks } from '@/lib/spotify/spotify';
-import type { Track } from '@/lib/spotify/types';
 import { Metrics, MetricsFallback, SpotifyTopTracks, SpotifyTopTracksFallback } from '@/components';
 
 export default async function DashboardPage() {

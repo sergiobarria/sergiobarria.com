@@ -5,6 +5,7 @@ import { cn, convertTimeToDecimal } from '@/lib/utils';
 import { allPosts } from '@/.contentlayer/generated';
 
 import site from '@/site/site.json';
+import { ArrowUpRight } from './icons/ArrowUpRight';
 
 interface CardProps {
     title: string;
@@ -17,31 +18,14 @@ function Card({ title, value, href }: CardProps) {
         <a href={href} className={cn(href && 'cursor-pointer')}>
             <div
                 className={cn(
-                    'flex flex-col border border-neutral-800 p-3',
+                    'flex flex-col border border-neutral-800 p-3 rounded-md',
                     href && 'hover:bg-neutral-900'
                 )}
             >
                 <small className="text-ellipsis">{title}</small>
                 <div className="flex items-center justify-between">
                     <span className="text-2xl font-semibold">{value}</span>
-                    {href && (
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6 icon icon-tabler icon-tabler-arrow-up-right"
-                            width="44"
-                            height="44"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M17 7l-10 10" />
-                            <path d="M8 7l9 0l0 9" />
-                        </svg>
-                    )}
+                    {href && <ArrowUpRight />}
                 </div>
             </div>
         </a>

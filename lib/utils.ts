@@ -15,3 +15,7 @@ export function convertTimeToDecimal(time?: string) {
 
     return Math.round(hoursToDecimal * 5) / 5 + ' hrs';
 }
+
+export function formatDate(date: Date) {
+    return new Intl.DateTimeFormat('en', { dateStyle: 'long' }).format(date);
+}

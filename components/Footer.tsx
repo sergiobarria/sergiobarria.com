@@ -11,7 +11,7 @@ export function Footer() {
         <footer className="border-t-[0.5px] border-neutral-500/50 py-6">
             <div
                 className={cn(
-                    'flex flex-col px-4 text-xs text-neutral-500 text-center space-y-4',
+                    'flex flex-col text-xs text-neutral-500 text-center space-y-4',
                     'md:flex-row md:justify-between md:items-center pb-6'
                 )}
             >

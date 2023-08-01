@@ -27,7 +27,9 @@ export function NavLinks({ small = false, underline = false, links }: NavLinkPro
                     href={link.href}
                     className={cn(
                         'transition-all hover:text-neutral-200 flex align-middle',
-                        pathname === link.href ? 'text-neutral-200' : 'text-neutral-500'
+                        pathname.split('/')[1] === link.href.slice(1)
+                            ? 'text-neutral-200'
+                            : 'text-neutral-500'
                     )}
                 >
                     <span className="relative">
