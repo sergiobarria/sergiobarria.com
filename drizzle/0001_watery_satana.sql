@@ -1,0 +1,1 @@
+ALTER TABLE `posts` MODIFY COLUMN `views` int DEFAULT 0;

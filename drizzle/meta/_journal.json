@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1690904701460,
+      "tag": "0000_perfect_tomorrow_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1690907035966,
+      "tag": "0001_watery_satana",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1690907093929,
+      "tag": "0002_daily_war_machine",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1690907177956,
+      "tag": "0003_round_praxagora",
+      "breakpoints": true
+    }
+  ]
+}

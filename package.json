@@ -7,15 +7,19 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "generate-migrations": "drizzle-kit generate:mysql",
+        "migrate": "tsx ./lib/db/migrate.ts",
+        "studio": "drizzle-kit studio"
     },
     "dependencies": {
+        "@planetscale/database": "^1.10.0",
         "@react-email/components": "^0.0.7",
         "@react-email/tailwind": "^0.0.8",
-        "@xata.io/client": "^0.25.1",
         "clsx": "^2.0.0",
         "contentlayer": "^0.3.4",
         "date-fns": "^2.30.0",
+        "drizzle-orm": "^0.27.2",
         "motion": "^10.16.2",
         "next": "13.4.12",
         "next-contentlayer": "^0.3.4",
@@ -36,6 +40,8 @@
         "@types/react": "18.2.17",
         "@types/react-dom": "18.2.7",
         "autoprefixer": "10.4.14",
+        "dotenv": "^16.3.1",
+        "drizzle-kit": "^0.19.12",
         "eslint": "8.46.0",
         "eslint-config-next": "13.4.12",
         "eslint-plugin-prettier": "^5.0.0",
@@ -43,6 +49,7 @@
         "prettier": "^3.0.0",
         "prettier-plugin-tailwindcss": "^0.4.1",
         "tailwindcss": "3.3.3",
+        "tsx": "^3.12.7",
         "typescript": "5.1.6"
     }
 }

@@ -1,6 +1,0 @@
-{
-    "databaseURL": "https://Sergio-s-workspace-j88unm.us-east-1.xata.sh/db/personal-website",
-    "codegen": {
-        "output": "lib/xata/generated.ts"
-    }
-}

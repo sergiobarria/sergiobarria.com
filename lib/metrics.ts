@@ -1,12 +1,12 @@
 import { cache } from 'react';
-import xata from '@/lib/xata/client';
+import { db } from './db/client';
+import { posts, type DBPost } from './db/schema';
 
 // NOTE: wrapped in cache to prevent multiple requests, no needed if using fetch
 export const getPostsViews = cache(async () => {
     try {
-        const postsViews = await xata.db.posts.select(['id', 'views']).getMany();
-        const totalViews = postsViews.reduce((acc, post) => acc + post.views!, 0);
-
+        const result: DBPost[] = await db.select().from(posts);
+        const totalViews = result.reduce((acc, post) => acc + post.views, 0);
         return totalViews;
     } catch (err: unknown) {
         console.error(err);
