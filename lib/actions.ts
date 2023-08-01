@@ -1,8 +1,11 @@
 'use server';
 
 import { email, string, object, minLength, Output, parse, ValiError } from 'valibot';
+import { eq } from 'drizzle-orm';
 
 import { sendEmail } from '@/lib/email';
+import { db } from './db/client';
+import { DBPost, posts } from './db/schema';
 
 const contactFormSchema = object({
     name: string([minLength(3, 'Name must be at least 3 characters long')]),
@@ -42,4 +45,24 @@ export async function submitContactFormAction(data: FormData) {
 
         return { success: false, error: true, errors: [], message: 'An unknown error occurred' };
     }
+}
+
+export async function incrementViewsCount(slug: string) {
+    // NOTE: there is no clear way of doing upsert at the moment for mysql
+    // https://github.com/drizzle-team/drizzle-orm/issues/649
+    const result: DBPost[] = await db.select().from(posts).where(eq(posts.slug, slug));
+
+    if (result.length > 0) {
+        const updated = await db
+            .update(posts)
+            .set({ views: result[0]?.views + 1 })
+            .where(eq(posts.slug, slug));
+
+        return updated;
+    }
+
+    const inserted = await db.insert(posts).values({ slug, views: 1 });
+    console.log(inserted);
+
+    return inserted;
 }

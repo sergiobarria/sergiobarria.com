@@ -1,11 +1,11 @@
-import { getPostsViews } from '@/lib/metrics';
+import { getTotalPostsViews } from '@/lib/metrics';
 import { getWakaAllTimeStats, getWakaStats } from '@/lib/wakatime';
 import { getGithubUserMetrics } from '@/lib/github';
 import { cn, convertTimeToDecimal } from '@/lib/utils';
 import { allPosts } from '@/.contentlayer/generated';
 
 import site from '@/site/site.json';
-import { ArrowUpRight } from './icons/ArrowUpRight';
+import { ArrowUpRight } from './ArrowUpRight';
 
 interface CardProps {
     title: string;
@@ -34,7 +34,7 @@ function Card({ title, value, href }: CardProps) {
 
 export async function Metrics() {
     const [totalPostsViews, wakaStats, wakaAllTime, githubStats] = await Promise.all([
-        getPostsViews(),
+        getTotalPostsViews(),
         getWakaStats(),
         getWakaAllTimeStats(),
         getGithubUserMetrics(),

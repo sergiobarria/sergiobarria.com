@@ -31,8 +31,8 @@ function ListeningCard({ albumImageUrl, songUrl, title, artist }: ListeningCardP
                 <a href={songUrl} className="text-xs font-medium text-start truncate">
                     {title}
                 </a>
-                <div className="flex items-baseline justify-between gap-3">
-                    <span className="text-xs opacity-80">{artist}</span>
+                <div className="flex items-baseline justify-between gap-3 space-y-1 md:space-y-0">
+                    <span className="text-xs text-start opacity-80">{artist}</span>
                     <AnimatedBars />
                 </div>
             </div>

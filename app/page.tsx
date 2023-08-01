@@ -5,12 +5,14 @@ import { ContactForm } from '@/components';
 import { PostPreview } from '@/components/PostPreview';
 import { allPosts } from 'contentlayer/generated';
 import profile from 'public/images/profile.jpg';
+import { getPostsViews } from '@/lib/metrics';
 
-export default function Home() {
+export default async function Home() {
     const featuredPosts = allPosts
         // .filter(post => post.isFeatured)
         .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
     console.log({ length: featuredPosts.length });
+    const allViews = await getPostsViews();
 
     return (
         <div className="space-y-16">
@@ -54,7 +56,11 @@ export default function Home() {
 
                 <div className="space-y-3">
                     {featuredPosts.map(post => {
-                        return <PostPreview key={post._id} post={post} />;
+                        const postData = {
+                            ...post,
+                            views: allViews.find(p => p.slug === post.slug)?.views ?? 0,
+                        };
+                        return <PostPreview key={post._id} post={postData} />;
                     })}
                 </div>
             </section>

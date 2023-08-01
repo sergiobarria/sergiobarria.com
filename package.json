@@ -8,8 +8,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "generate-migrations": "drizzle-kit generate:mysql",
-        "migrate": "tsx ./lib/db/migrate.ts",
+        "db:push": "drizzle-kit push:mysql",
         "studio": "drizzle-kit studio"
     },
     "dependencies": {
