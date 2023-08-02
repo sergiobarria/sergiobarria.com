@@ -19,6 +19,7 @@ export const getPostsViews = cache(async () => {
             id: posts.id,
             slug: posts.slug,
             views: posts.views,
+            language: posts.language,
         })
         .from(posts);
 
