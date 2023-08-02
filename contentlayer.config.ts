@@ -7,11 +7,13 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 const computedFields = {
     slug: {
         type: 'string',
-        resolve: doc =>
-            doc._raw.flattenedPath
-                .split('/')
-                .slice(-1)[0]
-                .replace(/\.mdx$/, ''),
+        resolve: doc => {
+            // NOTE: use this when we have multiple languages
+            // const lang = doc._raw.flattenedPath.split('/')[1];
+            const fileName = doc._raw.flattenedPath.split('/').slice(-1)[0];
+            const slug = fileName.split('.')[0].split('_')[1];
+            return slug;
+        },
     },
     url: { type: 'string', resolve: post => post._raw.flattenedPath },
 } satisfies ComputedFields;
@@ -23,11 +25,12 @@ export const Post = defineDocumentType(() => ({
     fields: {
         title: { type: 'string', required: true },
         publishedAt: { type: 'date', required: true },
-        summary: { type: 'string', required: true },
+        summary: { type: 'string', required: false },
         image: { type: 'string', required: false },
         isFeatured: { type: 'boolean', required: false, default: false },
         isArchived: { type: 'boolean', required: false, default: false },
         keywords: { type: 'list', of: { type: 'string' }, required: false },
+        isDraft: { type: 'boolean', required: false, default: false },
     },
     computedFields,
 }));

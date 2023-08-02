@@ -7,6 +7,7 @@ export const posts = mysqlTable(
         id: serial('id').primaryKey(),
         slug: varchar('slug', { length: 256 }).notNull().unique(),
         views: int('views').notNull().default(0),
+        language: varchar('language', { length: 2 }).notNull().default('en'),
     },
     posts => ({
         slugIndex: uniqueIndex('slug_idx').on(posts.slug),

@@ -18,6 +18,7 @@ interface NavLinkProps {
 
 export function NavLinks({ small = false, underline = false, links }: NavLinkProps) {
     const pathname = usePathname();
+    const path = pathname.split('/')[1];
 
     return (
         <nav className={cn('flex items-center gap-5', !small && 'md:gap-6')}>
@@ -27,14 +28,12 @@ export function NavLinks({ small = false, underline = false, links }: NavLinkPro
                     href={link.href}
                     className={cn(
                         'transition-all hover:text-neutral-200 flex align-middle',
-                        pathname.split('/')[1] === link.href.slice(1)
-                            ? 'text-neutral-200'
-                            : 'text-neutral-500'
+                        path === link.href.slice(1) ? 'text-neutral-200' : 'text-neutral-500'
                     )}
                 >
                     <span className="relative">
                         {link.label}
-                        {pathname === link.href && underline && (
+                        {path === link.href.slice(1) && underline && (
                             <div className="absolute h-[1px] top-7 mx-[3px] inset-0 bg-neutral-600 z-[-1] bg-gradient-to-r from-transparent to-neutral-900" />
                         )}
                     </span>

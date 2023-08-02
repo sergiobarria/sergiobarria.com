@@ -1,0 +1,31 @@
+---
+title: How to use Drizzle ORM with PlaneScale and Next.js
+publishedAt: 2021-02-28
+summary: Learn how to use Drizzle ORM with PlaneScale and Next.js
+image:
+isFeatured: true
+isArchived: false
+---
+
+content
+
+```javascript
+import { migrate } from 'drizzle-orm/planetscale-serverless/migrator';
+
+import { db } from './client';
+
+async function main() {
+    console.log('⇨ 🚀 Running migrations...');
+    await migrate(db, { migrationsFolder: 'drizzle' });
+    console.log('⇨ ✅ Migrations complete!');
+}
+
+main();
+```
+
+```bash
+"db:push": "drizzle-kit push:mysql",
+"generate-migrations": "drizzle-kit generate:mysql",
+"migrate": "tsx ./lib/db/migrate.ts",
+"studio": "drizzle-kit studio"
+```

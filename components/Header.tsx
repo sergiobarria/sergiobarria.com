@@ -7,7 +7,7 @@ export function Header() {
     const links = navLinks.filter(link => link.isHeader);
 
     return (
-        <header className="flex justify-center mt-6 md:justify-start">
+        <header className="flex justify-center mt-6 mb-16 md:justify-start">
             <NavLinks links={links} underline />
             {/* TODO: Add theme switcher here */}
         </header>

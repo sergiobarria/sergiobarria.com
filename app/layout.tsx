@@ -27,10 +27,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                 {/* TODO: finish head metadata 👇🏼 */}
             </head>
-            <body className="max-w-2xl mx-auto antialiased transition-colors duration-200 ease-in-out">
-                <div className="grid grid-rows-[auto_1fr_auto] min-h-screen gap-12 mt-8 mx-4">
+            <body className="antialiased max-w-2xl flex flex-col md:flex-row mx-4 mt-8 md:mx-auto">
+                <div className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
                     <Header />
-                    <main className="">{children}</main>
+                    <main className="mb-10">{children}</main>
                     <Footer />
                 </div>
             </body>

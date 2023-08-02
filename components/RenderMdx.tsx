@@ -17,18 +17,22 @@ function RoundedImage(props: any) {
     return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
 
-function Callout(props: any) {
+interface CalloutProps {
+    type: 'tip' | 'warn' | 'error' | 'info';
+    children: React.ReactNode;
+}
+
+function Callout({ type, children }: CalloutProps) {
     return (
         <div
-            className={cn('p-3 rounded-xl my-5 [&_p]:my-4', {
-                'border-b border-green-400 text-green-200 bg-green-400/20': props.type === 'tip',
-                'border-b border-yellow-400 text-yellow-200 bg-yellow-400/20':
-                    props.type === 'warn',
-                'border-b border-red-400 text-red-200 bg-red-400/20': props.type === 'error',
-                'border-b border-blue-400 text-blue-200 bg-blue-400/20': props.type === 'info',
+            className={cn('p-3 rounded-xl my-5 [&_p]:my-2', {
+                'border-b border-green-400 text-green-200 bg-green-400/20': type === 'tip',
+                'border-b border-yellow-400 text-yellow-200 bg-yellow-400/20': type === 'warn',
+                'border-b border-red-400 text-red-200 bg-red-400/20': type === 'error',
+                'border-b border-blue-400 text-blue-200 bg-blue-400/20': type === 'info',
             })}
         >
-            {props.children}
+            <p className="text-xs">{children}</p>
         </div>
     );
 }
