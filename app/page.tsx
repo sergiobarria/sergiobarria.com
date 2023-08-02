@@ -6,6 +6,17 @@ import { PostPreview } from '@/components/PostPreview';
 import { allPosts } from 'contentlayer/generated';
 import profile from 'public/images/profile.jpg';
 import { getPostsViews } from '@/lib/metrics';
+import {
+    DjangoIcon,
+    FlutterIcon,
+    GoIcon,
+    JavaScriptIcon,
+    NextjsIcon,
+    PythonIcon,
+    ReactIcon,
+    SvelteIcon,
+    VueIcon,
+} from '@/components/icons';
 
 export default async function Home() {
     const featuredPosts = allPosts
@@ -45,6 +56,20 @@ export default async function Home() {
                         {/* TODO: Add social links */}
                         {/* <SocialLinks size={30} /> */}
                     </div>
+                </div>
+            </section>
+
+            <section id="frameworks">
+                <div className="flex items-center justify-center gap-3">
+                    <JavaScriptIcon />
+                    <PythonIcon />
+                    <GoIcon />
+                    <ReactIcon />
+                    <NextjsIcon />
+                    <VueIcon />
+                    <SvelteIcon />
+                    <DjangoIcon />
+                    <FlutterIcon />
                 </div>
             </section>
 

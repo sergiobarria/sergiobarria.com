@@ -5,7 +5,7 @@ import { cn, convertTimeToDecimal } from '@/lib/utils';
 import { allPosts } from '@/.contentlayer/generated';
 
 import site from '@/site/site.json';
-import { ArrowUpRight } from './ArrowUpRight';
+import { ArrowUpRight } from './icons/ArrowUpRightIcon';
 
 interface CardProps {
     title: string;

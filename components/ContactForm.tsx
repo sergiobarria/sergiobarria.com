@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { submitContactFormAction, type CustomIssue } from '@/lib/actions';
+import { ArrowUpRightIcon } from './icons';
 
 export function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -133,24 +134,7 @@ export function ContactForm() {
                     )}
                 >
                     <span>{isSubmitting ? 'Sending...' : "Let's talk"}</span>
-                    {!isSubmitting && (
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-4 h-4 icon icon-tabler icon-tabler-send text-neutral-500"
-                            width="44"
-                            height="44"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M10 14l11 -11" />
-                            <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-                        </svg>
-                    )}
+                    {!isSubmitting && <ArrowUpRightIcon />}
                 </button>
             </form>
         </>

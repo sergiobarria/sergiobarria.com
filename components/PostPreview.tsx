@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { formatDate } from '@/lib/utils';
 import { ViewsCounter } from './ViewsCounter';
-import { ArrowUpRight } from './ArrowUpRight';
+import { ArrowUpRightIcon } from './icons';
 import { type Post } from 'contentlayer/generated';
 
 interface PostPreviewProps {
@@ -27,7 +27,7 @@ export async function PostPreview({ post }: PostPreviewProps) {
                     </p>
                 </div>
                 <div className="group-hover:opacity-80">
-                    <ArrowUpRight />
+                    <ArrowUpRightIcon />
                 </div>
             </Link>
         </div>
