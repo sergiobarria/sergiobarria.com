@@ -36,7 +36,3 @@ next-env.d.ts
 
 # contentlayer
 .contentlayer
-
-# others
-_old
-_content
