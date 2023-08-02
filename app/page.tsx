@@ -11,7 +11,6 @@ export default async function Home() {
     const featuredPosts = allPosts
         // .filter(post => post.isFeatured)
         .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
-    console.log({ length: featuredPosts.length });
     const allViews = await getPostsViews();
 
     return (

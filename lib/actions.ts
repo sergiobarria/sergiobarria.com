@@ -52,17 +52,11 @@ export async function incrementViewsCount(slug: string) {
     // https://github.com/drizzle-team/drizzle-orm/issues/649
     const result: DBPost[] = await db.select().from(posts).where(eq(posts.slug, slug));
 
-    if (result.length > 0) {
-        const updated = await db
+    if (result.length > 0)
+        return await db
             .update(posts)
             .set({ views: result[0]?.views + 1 })
             .where(eq(posts.slug, slug));
 
-        return updated;
-    }
-
-    const inserted = await db.insert(posts).values({ slug, views: 1 });
-    console.log(inserted);
-
-    return inserted;
+    return await db.insert(posts).values({ slug, views: 1 });
 }

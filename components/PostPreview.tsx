@@ -14,7 +14,10 @@ export async function PostPreview({ post }: PostPreviewProps) {
 
     return (
         <div className="border-b border-neutral-600 py-3">
-            <Link href={`/blog/${slug}`} className="flex items-center justify-between gap-2">
+            <Link
+                href={`/blog/${slug}`}
+                className="flex items-center justify-between gap-2 group  transition-colors duration-200 ease-in-out"
+            >
                 <div>
                     <h3 className="font-semibold group-hover:opacity-80">{title}</h3>
                     <p className="flex py-1 opacity-80 text-sm">
@@ -23,7 +26,7 @@ export async function PostPreview({ post }: PostPreviewProps) {
                         <ViewsCounter slug={slug} views={views} />
                     </p>
                 </div>
-                <div>
+                <div className="group-hover:opacity-80">
                     <ArrowUpRight />
                 </div>
             </Link>

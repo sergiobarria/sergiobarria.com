@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Readex_Pro } from 'next/font/google';
-import { Toaster } from 'react-hot-toast';
 
 import { Header, Footer } from '@/components';
 import { cn } from '@/lib/utils';
@@ -28,8 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                 {/* TODO: finish head metadata 👇🏼 */}
             </head>
-            <body className="max-w-2xl mx-auto antialiased custom-transition">
-                <Toaster position="top-right" />
+            <body className="max-w-2xl mx-auto antialiased transition-colors duration-200 ease-in-out">
                 <div className="grid grid-rows-[auto_1fr_auto] min-h-screen gap-12 mt-8 mx-4">
                     <Header />
                     <main className="">{children}</main>

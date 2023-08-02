@@ -7,7 +7,7 @@ function ContactLinks() {
     const { github, linkedin, email } = site.socialLinks;
 
     return (
-        <ul role="list" className="self-start space-y-3 custom-transition">
+        <ul role="list" className="self-start space-y-3 transition-colors duration-200 ease-in-out">
             <li className="flex items-center gap-3 text-sm cursor-pointer md:ml-10 text-zinc-500 group">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

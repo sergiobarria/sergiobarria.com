@@ -33,7 +33,6 @@ export default async function PostPage({ params }: PageProps) {
     const postsViews = await getPostsViews();
     const views = postsViews.find(p => p.slug === slug)?.views ?? 0;
 
-    console.log({ params, slug });
     return (
         <section>
             <h1 className="font-bold text-2xl tracking-tighter max-w-[650px]">
@@ -42,7 +41,6 @@ export default async function PostPage({ params }: PageProps) {
             <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px] text-neutral-600">
                 <p className="text-sm">{formatDate(new Date(publishedAt))}</p>
                 <ViewsCounter slug={slug} views={views} track />
-                {/* <ViewCounter allViews={allViews} slug={post.slug} trackView /> */}
             </div>
             <RenderMdx code={post.body.code} />
         </section>

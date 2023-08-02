@@ -11,8 +11,6 @@ interface ViewsCounterProps {
 }
 
 export function ViewsCounter({ slug, views, track }: ViewsCounterProps) {
-    console.log('VIEWS COUNTER: ', { slug, views, track });
-
     useEffect(() => {
         if (track) incrementViewsCount(slug);
     }, [slug, track]);

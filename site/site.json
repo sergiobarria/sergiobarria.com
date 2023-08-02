@@ -15,10 +15,10 @@
         "email": { "id": 2, "label": "Contact me by Email", "url": "mailto:sbarria.dev@gmail.com" }
     },
     "navLinks": [
-        { "id": 0, "href": "/", "label": "home", "isHeader": true },
-        { "id": 1, "href": "/about", "label": "about", "isHeader": true },
-        { "id": 2, "href": "/blog", "label": "blog", "isHeader": true },
-        { "id": 3, "href": "/projects", "label": "projects", "isHeader": false },
-        { "id": 4, "href": "/dashboard", "label": "dashboard", "isHeader": false }
+        { "id": 0, "href": "/", "label": "home", "isHeader": true, "hidden": false },
+        { "id": 1, "href": "/about", "label": "about", "isHeader": true, "hidden": false },
+        { "id": 2, "href": "/blog", "label": "blog", "isHeader": true, "hidden": false },
+        { "id": 3, "href": "/projects", "label": "projects", "isHeader": false, "hidden": true },
+        { "id": 4, "href": "/dashboard", "label": "dashboard", "isHeader": false, "hidden": false }
     ]
 }

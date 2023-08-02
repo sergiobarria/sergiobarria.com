@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
+import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { submitContactFormAction, type CustomIssue } from '@/lib/actions';
@@ -20,11 +19,6 @@ export function ContactForm() {
         if (success) {
             setMessage('Thanks for reaching out!\n\nI will get back to you as soon as possible.');
             setSuccess(true);
-            toast(message, {
-                icon: '✅',
-                duration: 5000,
-                style: { background: '#333', color: '#fff' },
-            });
 
             const form = document.getElementById('contact-form') as HTMLFormElement;
             form.reset();
@@ -34,11 +28,6 @@ export function ContactForm() {
             setErrors(errors);
             setMessage('Oops! There was an error.');
             setSuccess(true);
-            toast.error(message, {
-                icon: '🤔',
-                duration: 5000,
-                style: { background: '#333', color: '#fff' },
-            });
         }
         // Hide the error message after 7 seconds.
         setTimeout(() => {
@@ -137,8 +126,8 @@ export function ContactForm() {
                     type="submit"
                     disabled={isSubmitting}
                     className={cn(
-                        'flex items-center gap-2 px-4 py-2 border border-zinc-700 text-sm transform',
-                        'hover:bg-neutral-600 hover:border-transparent hover:scale-[1.02] custom-transition rounded-md',
+                        'flex items-center gap-2 px-4 py-2 border border-zinc-700 text-sm transform rounded-md',
+                        'hover:bg-neutral-600 hover:border-transparent hover:scale-[1.02] transition-colors duration-200 ease-in-out',
                         'focus:outline-none focus:ring-1 focus:ring-neutral-600 focus:ring-offset-1 focus:ring-offset-transparent',
                         'disabled:opacity-50 disabled:cursor-not-allowed'
                     )}

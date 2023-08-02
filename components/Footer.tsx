@@ -5,7 +5,7 @@ import { SpotifyCard } from './SpotifyCard';
 import site from '@/site/site.json';
 
 export function Footer() {
-    const links = site.navLinks;
+    const links = site.navLinks.filter(link => !link.hidden);
 
     return (
         <footer className="border-t-[0.5px] border-neutral-500/50 py-6">
@@ -25,26 +25,26 @@ export function Footer() {
                                 href="https://nextjs.org/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-semibold custom-transition hover:text-neutral-200"
+                                className="font-semibold transition-colors duration-200 ease-in-out hover:text-neutral-200"
                             >
                                 Next.js,{' '}
                             </a>
                             <a
+                                href="https://planetscale.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-semibold transition-colors duration-200 ease-in-out hover:text-neutral-200"
+                            >
+                                PlanetScale{' '}
+                            </a>
+                            and,{' '}
+                            <a
                                 href="https://tailwindcss.com/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-semibold custom-transition hover:text-neutral-200"
+                                className="font-semibold transition-colors duration-200 ease-in-out hover:text-neutral-200"
                             >
-                                Tailwind,{' '}
-                            </a>
-                            and{' '}
-                            <a
-                                href="https://xata.io/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="font-semibold custom-transition hover:text-neutral-200"
-                            >
-                                Xata
+                                Tailwind
                             </a>
                         </p>
                     </div>
