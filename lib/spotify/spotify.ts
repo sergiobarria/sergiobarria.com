@@ -19,6 +19,7 @@ async function getAccessToken() {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: data,
+        cache: 'no-cache',
     });
 
     const json: { access_token: string } = await res.json();
@@ -26,27 +27,33 @@ async function getAccessToken() {
 }
 
 export async function getTopTracks() {
-    const accessToken = await getAccessToken();
-    const url = TOP_TRACKS_ENDPOINT + '?time_range=short_term&limit=10';
+    try {
+        const accessToken = await getAccessToken();
+        const url = TOP_TRACKS_ENDPOINT + '?time_range=short_term&limit=10';
 
-    const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-    });
+        const res = await fetch(url, {
+            headers: { Authorization: `Bearer ${accessToken}` },
+            next: { revalidate: 3600 * 24 }, // 24 hours
+        });
 
-    if (!res.ok) throw new Error('Failed to fetch spotify top tracks');
+        if (!res.ok) throw new Error('Failed to fetch spotify top tracks');
 
-    const { items } = (await res.json()) as { items: SpotifyTrack[] };
-    const tracks = items.map(track => ({
-        artists: track.artists.map((_artist: any) => _artist.name).join(', '),
-        songUrl: track.external_urls.spotify,
-        title: track.name,
-        id: track.id,
-        images: track?.album?.images,
-        // NOTE: return track to see all available data
-        // track: track
-    }));
+        const { items } = (await res.json()) as { items: SpotifyTrack[] };
+        const tracks = items.map(track => ({
+            artists: track.artists.map((_artist: any) => _artist.name).join(', '),
+            songUrl: track.external_urls.spotify,
+            title: track.name,
+            id: track.id,
+            images: track?.album?.images,
+            // NOTE: return track to see all available data
+            // track: track
+        }));
 
-    return tracks;
+        return tracks;
+    } catch (error) {
+        console.error('💥 ERROR', error);
+        return [];
+    }
 }
 
 export async function getNowPlaying() {

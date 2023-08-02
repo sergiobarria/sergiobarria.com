@@ -76,10 +76,10 @@ export async function Metrics() {
 export function MetricsFallback() {
     return (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {Array.from({ length: 8 }, (_, i) => (
-                <div key={i} className="flex flex-col border border-neutral-800 p-3 space-y-6">
+            {Array.from({ length: 12 }, (_, i) => (
+                <div key={i} className="flex flex-col border border-neutral-800 p-3 space-y-3">
                     <span className="block animate-pulse bg-neutral-500 h-2"></span>
-                    <span className="block w-1/3 animate-pulse bg-neutral-500 h-2"></span>
+                    <span className="block w-1/3 animate-pulse bg-neutral-500 h-6"></span>
                 </div>
             ))}
         </div>

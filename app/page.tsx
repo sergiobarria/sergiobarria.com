@@ -9,7 +9,7 @@ import { getPostsViews } from '@/lib/metrics';
 
 export default async function Home() {
     const featuredPosts = allPosts
-        // .filter(post => post.isFeatured)
+        .filter(post => post.isFeatured && !post.isDraft)
         .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
     const allViews = await getPostsViews();
 
