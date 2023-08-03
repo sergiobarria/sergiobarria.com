@@ -47,7 +47,7 @@ export async function submitContactFormAction(data: FormData) {
     }
 }
 
-export async function incrementViewsCount(slug: string) {
+export async function incrementCountAction(slug: string) {
     // NOTE: there is no clear way of doing upsert at the moment for mysql
     // https://github.com/drizzle-team/drizzle-orm/issues/649
     const result: DBPost[] = await db.select().from(posts).where(eq(posts.slug, slug));

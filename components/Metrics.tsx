@@ -5,7 +5,7 @@ import { cn, convertTimeToDecimal } from '@/lib/utils';
 import { allPosts } from '@/.contentlayer/generated';
 
 import site from '@/site/site.json';
-import { ArrowUpRight } from './icons/ArrowUpRightIcon';
+import { ArrowUpRightIcon } from './icons/ArrowUpRightIcon';
 
 interface CardProps {
     title: string;
@@ -25,7 +25,7 @@ function Card({ title, value, href }: CardProps) {
                 <small className="text-ellipsis">{title}</small>
                 <div className="flex items-center justify-between">
                     <span className="text-2xl font-semibold">{value}</span>
-                    {href && <ArrowUpRight />}
+                    {href && <ArrowUpRightIcon />}
                 </div>
             </div>
         </a>

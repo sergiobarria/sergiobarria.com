@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { getNowPlaying } from '@/lib/spotify/spotify';
+import { getNowPlaying } from '@/lib/spotify';
 import { AnimatedBars } from './AnimatedBars';
 
 export async function SpotifyCard() {

@@ -1,12 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { compareDesc } from 'date-fns';
 
-import { ContactForm } from '@/components';
-import { PostPreview } from '@/components/PostPreview';
+import { ContactForm, ViewsCounter } from '@/components';
 import { allPosts } from 'contentlayer/generated';
-import profile from 'public/images/profile.jpg';
 import { getPostsViews } from '@/lib/metrics';
 import {
+    ArrowUpRightIcon,
     DjangoIcon,
     FlutterIcon,
     GoIcon,
@@ -17,12 +17,47 @@ import {
     SvelteIcon,
     VueIcon,
 } from '@/components/icons';
+import { formatDate } from '@/lib/utils';
+import profile from 'public/images/profile.jpg';
+
+interface CardProps {
+    title: string;
+    slug: string;
+    publishedAt: string;
+    readingTime: string;
+}
+
+async function PostCard({ title, slug, publishedAt, readingTime }: CardProps) {
+    const allViews = await getPostsViews();
+    const views = allViews.find(view => view.slug === slug)?.views ?? 0;
+    const formattedDate = formatDate(new Date(publishedAt));
+
+    return (
+        <Link
+            href={`/blog/${slug}`}
+            className="border border-neutral-600 bg-neutral-800 rounded flex items-center justify-between p-3"
+        >
+            <div>
+                <h3 className="font-semibold group-hover:opacity-80">{title}</h3>
+                <p className="opacity-80 flex items-center gap-2 text-xs">
+                    <span>{formattedDate}</span>
+                    <span>•</span>
+                    <ViewsCounter slug={slug} views={views} />
+                    <span>•</span>
+                    <span>{readingTime}</span>
+                </p>
+            </div>
+            <div>
+                <ArrowUpRightIcon />
+            </div>
+        </Link>
+    );
+}
 
 export default async function Home() {
     const featuredPosts = allPosts
         .filter(post => post.isFeatured && !post.isDraft)
         .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
-    const allViews = await getPostsViews();
 
     return (
         <div className="space-y-16">
@@ -45,7 +80,7 @@ export default async function Home() {
                                 hey, I&apos;m Sergio 👋
                             </h1>
                             <p className="max-w-[80%] mx-auto opacity-70 md:w-full md:mx-0">
-                                Full-stack developer, engineer and amateur writer
+                                developer, engineer and amateur writer
                             </p>
                         </div>
                         <p>
@@ -79,13 +114,15 @@ export default async function Home() {
                 </h2>
 
                 <div className="space-y-3">
-                    {featuredPosts.map(post => {
-                        const postData = {
-                            ...post,
-                            views: allViews.find(p => p.slug === post.slug)?.views ?? 0,
-                        };
-                        return <PostPreview key={post._id} post={postData} />;
-                    })}
+                    {featuredPosts.map(({ _id, title, slug, publishedAt, readingTime }) => (
+                        <PostCard
+                            key={_id}
+                            title={title}
+                            slug={slug}
+                            publishedAt={publishedAt}
+                            readingTime={readingTime.text}
+                        />
+                    ))}
                 </div>
             </section>
 

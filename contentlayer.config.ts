@@ -3,6 +3,7 @@ import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import readingTime from 'reading-time';
 
 const computedFields = {
     slug: {
@@ -16,6 +17,10 @@ const computedFields = {
         },
     },
     url: { type: 'string', resolve: post => post._raw.flattenedPath },
+    readingTime: {
+        type: 'json',
+        resolve: doc => readingTime(doc.body.raw, { wordsPerMinute: 300 }),
+    },
 } satisfies ComputedFields;
 
 export const Post = defineDocumentType(() => ({

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { getTopTracks } from '@/lib/spotify/spotify';
-import type { Track } from '@/lib/spotify/types';
+import { getTopTracks } from '@/lib/spotify';
+import type { Track } from '@/lib/spotify';
 
 interface TrackItemProps {
     track: Track;
@@ -25,15 +25,13 @@ export function TrackItem({ track, index }: TrackItemProps) {
                 </a>
                 <small className="block text-xs text-neutral-500">{artists}</small>
             </div>
-            <div>
-                <Image
-                    src={images.at(0)?.url ?? ''}
-                    width={30}
-                    height={30}
-                    alt={title}
-                    className="w-8 h-8"
-                />
-            </div>
+            <Image
+                src={images.at(0)?.url ?? ''}
+                width={30}
+                height={30}
+                alt={title}
+                className="w-8 h-8"
+            />
         </li>
     );
 }

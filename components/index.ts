@@ -5,6 +5,5 @@ export * from './ContactForm';
 export * from './Metrics';
 export * from './SpotifyCard';
 export * from './SpotifyTopTracks';
-export * from './PostPreview';
 export * from './RenderMdx';
 export * from './ViewsCounter';

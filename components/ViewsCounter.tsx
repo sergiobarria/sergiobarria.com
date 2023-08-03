@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { incrementViewsCount } from '@/lib/actions';
+import { incrementCountAction } from '@/lib/actions';
 
 interface ViewsCounterProps {
     slug: string;
@@ -12,7 +12,7 @@ interface ViewsCounterProps {
 
 export function ViewsCounter({ slug, views, track }: ViewsCounterProps) {
     useEffect(() => {
-        if (track) incrementViewsCount(slug);
+        if (track) incrementCountAction(slug);
     }, [slug, track]);
 
     return <span>{views} views</span>;
