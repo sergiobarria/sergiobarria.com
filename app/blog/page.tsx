@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { compareDesc } from 'date-fns';
 
 import { getPostsViews } from '@/lib/metrics';
 import { formatDate } from '@/lib/utils';
@@ -38,7 +37,7 @@ async function PostPreview({ post }: { post: Post & { views: number } }) {
 export default async function BlogPage() {
     const postsData = allPosts
         .filter(post => !post.isArchived)
-        .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
+        .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
     const postsViews = await getPostsViews();
 
     const posts = postsData.map(post => ({

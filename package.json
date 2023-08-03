@@ -16,11 +16,9 @@
     },
     "dependencies": {
         "@planetscale/database": "^1.10.0",
-        "@react-email/components": "^0.0.7",
-        "@react-email/tailwind": "^0.0.8",
+        "@vercel/analytics": "^1.0.1",
         "clsx": "^2.0.0",
         "contentlayer": "^0.3.4",
-        "date-fns": "^2.30.0",
         "drizzle-orm": "^0.27.2",
         "motion": "^10.16.2",
         "next": "13.4.12",
@@ -39,7 +37,6 @@
         "valibot": "^0.5.0"
     },
     "devDependencies": {
-        "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.4",
         "@tailwindcss/typography": "^0.5.9",
         "@types/node": "20.4.5",

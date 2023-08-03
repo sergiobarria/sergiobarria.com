@@ -26,11 +26,16 @@ export async function submitContactFormAction(data: FormData) {
     const formData = Object.fromEntries(data);
 
     try {
-        const { name, email, subject, message } = parse(contactFormSchema, formData);
+        const data = parse(contactFormSchema, formData);
 
-        await sendEmail({ name, email, subject, message });
+        await sendEmail(data);
 
-        return { success: true, error: false, errors: [], message: 'Email successfully sent! 🎊' };
+        return {
+            success: true,
+            error: false,
+            errors: [],
+            message: 'Email successfully sent! 🎊',
+        };
     } catch (err: unknown) {
         let errors: Array<CustomIssue> = [];
         console.error(err);
@@ -40,10 +45,18 @@ export async function submitContactFormAction(data: FormData) {
                 return { field: issue.validation, input: issue.input, message: issue.message };
             });
 
-            return { success: false, error: true, errors, message: 'Please fix the errors below' };
+            return {
+                success: false,
+                errors,
+                message: 'Please fix the errors below',
+            };
         }
 
-        return { success: false, error: true, errors: [], message: 'An unknown error occurred' };
+        return {
+            success: false,
+            errors: [],
+            message: 'An unknown error occurred',
+        };
     }
 }
 

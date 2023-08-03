@@ -2,7 +2,6 @@ import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import typography from '@tailwindcss/typography';
 import forms from '@tailwindcss/forms';
-import aspect from '@tailwindcss/aspect-ratio';
 
 export default {
     content: [
@@ -17,5 +16,5 @@ export default {
             },
         },
     },
-    plugins: [typography, forms, aspect],
+    plugins: [typography, forms],
 } satisfies Config;

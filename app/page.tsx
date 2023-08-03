@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { compareDesc } from 'date-fns';
 
 import { ContactForm, ViewsCounter } from '@/components';
 import { allPosts } from 'contentlayer/generated';
@@ -56,10 +55,16 @@ async function PostCard({ title, slug, publishedAt, readingTime }: CardProps) {
     );
 }
 
+interface EmailTemplateProps {
+    senderName: string;
+    senderEmail: string;
+    message: string;
+}
+
 export default async function Home() {
     const featuredPosts = allPosts
         .filter(post => post.isFeatured && !post.isDraft)
-        .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
+        .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
     const { email, github, linkedin } = site.socialLinks;
 
@@ -67,7 +72,7 @@ export default async function Home() {
         <div className="space-y-16">
             <section id="hero">
                 <div className="flex flex-col max-w-3xl gap-6 mx-auto md:flex-row md:items-center">
-                    <div className="relative w-52 h-52 aspect-1 mx-auto">
+                    <div className="relative w-52 h-52 aspect-square mx-auto">
                         <Image
                             src={profile}
                             alt="hero profile"

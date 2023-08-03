@@ -98,7 +98,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-x-4 gap-y-8 md:gap-0">
             <div className="flex justify-center order-1 md:col-span-1">
                 <div className="grid h-96 w-[60%] items-center">
-                    <div className="relative w-full h-3/5 aspect-w-3 aspect-h-4">
+                    <div className="relative w-full h-4/5">
                         <Image
                             src={profile}
                             alt="hero profile"

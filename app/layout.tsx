@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Readex_Pro } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Header, Footer } from '@/components';
 import { cn } from '@/lib/utils';
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Header />
                     <main className="mb-10">{children}</main>
                     <Footer />
+                    <Analytics />
                 </div>
             </body>
         </html>
