@@ -5,6 +5,7 @@ import { compareDesc } from 'date-fns';
 import { ContactForm, ViewsCounter } from '@/components';
 import { allPosts } from 'contentlayer/generated';
 import { getPostsViews } from '@/lib/metrics';
+import { formatDate } from '@/lib/utils';
 import {
     ArrowUpRightIcon,
     DjangoIcon,
@@ -17,8 +18,9 @@ import {
     SvelteIcon,
     VueIcon,
 } from '@/components/icons';
-import { formatDate } from '@/lib/utils';
+
 import profile from 'public/images/profile.jpg';
+import site from '@/site/site.json';
 
 interface CardProps {
     title: string;
@@ -59,6 +61,8 @@ export default async function Home() {
         .filter(post => post.isFeatured && !post.isDraft)
         .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
 
+    const { email, github, linkedin } = site.socialLinks;
+
     return (
         <div className="space-y-16">
             <section id="hero">
@@ -88,8 +92,20 @@ export default async function Home() {
                             space of the internet, where I write and share about different topics
                             related to the web.
                         </p>
-                        {/* TODO: Add social links */}
-                        {/* <SocialLinks size={30} /> */}
+                        <ul className="flex items-center justify-center gap-4 text-xs md:justify-start">
+                            <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
+                                <a href={github.url}>github</a>
+                                <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                            </li>
+                            <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
+                                <a href={linkedin.url}>linkedin</a>
+                                <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                            </li>
+                            <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
+                                <a href={email.url}>email</a>
+                                <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -106,6 +122,28 @@ export default async function Home() {
                     <DjangoIcon />
                     <FlutterIcon />
                 </div>
+            </section>
+
+            <section id="about-me">
+                <h2 className="font-medium text-lg mt-6">What I Do 🛠️</h2>
+                <p className="prose prose-neutral dark:prose-invert">
+                    I work as a full stack developer building web and mobile applications, using
+                    different technologies and programming languages, like{' '}
+                    <strong>JavaScript</strong>, <strong>Python</strong>, and more.
+                </p>
+
+                <h2 className="font-medium text-lg mt-6">What I&apos;m Learning 🧠</h2>
+                <p className="prose prose-neutral dark:prose-invert">
+                    I&apos;m constantly exploring new technologies, currently focusing on improving
+                    my knowledge with: <strong>Django</strong>, <strong>MySQL</strong>, and other
+                    tools for web development.
+                </p>
+
+                <h2 className="font-medium text-lg mt-6">What I Like Doing 🎮</h2>
+                <p className="prose prose-neutral dark:prose-invert">
+                    When not coding, I like playing video games, watching movies, learning other
+                    hobbies that pick my interest, and spending time with my family.
+                </p>
             </section>
 
             <section id="featured-posts">
@@ -130,7 +168,6 @@ export default async function Home() {
                 <h2 className="text-xl font-semibold text-center md:text-2xl lg:text-3xl">
                     Get in touch! 📨
                 </h2>
-
                 <ContactForm />
             </section>
         </div>

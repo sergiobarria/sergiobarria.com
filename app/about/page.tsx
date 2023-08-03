@@ -112,7 +112,7 @@ export default function AboutPage() {
             </div>
             <div className="order-2 md:col-start-1 md:row-start-1 md:row-span-2">
                 <h1 className="text-2xl font-bold tracking-tight md:text-3xl text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                    Hey!, I’m Sergio. 👋
+                    hey!, I’m Sergio. 👋
                 </h1>
                 <p className="text-base opacity-60">A full stack developer from Panama.</p>
 
