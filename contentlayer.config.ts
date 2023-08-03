@@ -5,6 +5,18 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import readingTime from 'reading-time';
 
+function slugify(text: string) {
+    if (!text) return '';
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-') // Replace spaces with -
+        .replace(/&/g, '-and-') // Replace & with 'and'
+        .replace(/[^\w-]+/g, '') // Remove all non-word chars
+        .replace(/--+/g, '-'); // Replace multiple - with single -
+}
+
 const computedFields = {
     slug: {
         type: 'string',
@@ -21,6 +33,23 @@ const computedFields = {
         type: 'json',
         resolve: doc => readingTime(doc.body.raw, { wordsPerMinute: 300 }),
     },
+    headings: {
+        type: 'json',
+        resolve: async doc => {
+            const regex = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
+
+            return Array.from(doc.body.raw.matchAll(regex)).map((match: any) => {
+                const groups = match.groups;
+                const flag = groups?.flag;
+                const content = groups?.content as string;
+                return {
+                    level: (flag ? flag.length : 0) as number,
+                    text: content || '',
+                    slug: slugify(content),
+                };
+            });
+        },
+    },
 } satisfies ComputedFields;
 
 export const Post = defineDocumentType(() => ({
@@ -36,6 +65,7 @@ export const Post = defineDocumentType(() => ({
         isArchived: { type: 'boolean', required: false, default: false },
         keywords: { type: 'list', of: { type: 'string' }, required: false },
         isDraft: { type: 'boolean', required: false, default: false },
+        toc: { type: 'boolean', required: false, default: true },
     },
     computedFields,
 }));

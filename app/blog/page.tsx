@@ -49,7 +49,7 @@ export default async function BlogPage() {
         <section>
             <h1 className="font-bold text-2xl tracking-tighter">check out my blog! 📝</h1>
             <p className="mb-8 mt-1">
-                In total, I&apos;ve written {posts.length} articles. You can find them all below.
+                In total, I&apos;ve written {allPosts.length} articles. You can find them all below.
             </p>
 
             {posts.map(post => (
