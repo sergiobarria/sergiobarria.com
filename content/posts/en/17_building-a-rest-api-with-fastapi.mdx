@@ -1,0 +1,402 @@
+---
+title: Building a REST API with FastAPI
+publishedAt: 2023-08-04
+summary: FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.
+image:
+isFeatured: true
+isArchived: false
+isDraft: false
+---
+
+## Introduction
+
+In this post, we'll walk through the process of building a web aPI with FastAPI. FastAPI is a modern, fast (as the name implies), web framework for building APIs with Python. It's based on standard Python type hints, which makes it easy to use and learn. It's also very fast, thanks to the use of [Starlette](https://www.starlette.io/) and [Pydantic](https://pydantic-docs.helpmanual.io/).
+
+We'll build a simple API that allows users to create, read, update, and delete (CRUD) books from a database.
+
+## Stack
+
+-   [FastAPI](https://fastapi.tiangolo.com/) - for building the API
+-   [PostgreSQL](https://www.postgresql.org/) - for the database
+-   [SQLAlchemy](https://www.sqlalchemy.org/) - for the ORM
+-   [Alembic](https://alembic.sqlalchemy.org/en/latest/) - for database migrations
+
+## Prerequisites
+
+Before we get started, make sure you have the following installed on your machine:
+
+-   Python 3.6+ - You can download Python from [python.org](https://www.python.org/downloads/). I'm using Python 3.11.4 for this project.
+
+## Project overview
+
+We're going to build a simple API that allows users to create, read, update, and delete (CRUD) books from a database. The API will have the following endpoints:
+
+| Resource | Endpoint      | Method | Description                                 |
+| -------- | ------------- | ------ | ------------------------------------------- |
+| Books    | `/books`      | GET    | Get a list of books from the database       |
+| Books    | `/books/{id}` | GET    | Get a single book from the database         |
+| Books    | `/books`      | POST   | Create a new book and store in the database |
+| Books    | `/books/{id}` | PATCH  | Update a book record                        |
+| Books    | `/books/{id}` | DELETE | Delete a book record from the database      |
+
+## Getting Started
+
+Let's start by creating a new project directory and initializing a new Python project. For this, navigate to the directory where you want to create the project and run the following commands in your terminal:
+
+```bash
+$ mkdir fastapi-rest-api && cd fastapi-rest-api
+```
+
+### Virtual Environment Setup & Install Dependencies
+
+Next, create and activate the virtual environment like this:
+
+```bash
+$ python3 -m venv venv # create a virtual environment
+$ source venv/bin/activate # for Linux/MacOS
+$ venv\Scripts\activate.bat # for Windows
+```
+
+You should see the name of the virtual environment in your terminal prompt. This means that the virtual environment is active.
+
+<div className="flex justify-center">
+    <Image
+        alt="virtual environment activated in terminal"
+        src="/images/posts/17/python-venv.png"
+        width={331}
+        height={66}
+    />
+</div>
+
+Next, install the project dependencies:
+
+```bash
+$ pip install fastapi "uvicorn[standard]" "databases[aiosqlite]" sqlalchemy pydantic python-dotenv
+```
+
+<Callout type="info">
+    To see the list of installed packages, run <code>pip freeze > requirements.txt</code>. This will
+    create a <code>requirements.txt</code> file in your project root directory.
+</Callout>
+
+### FastAPI Setup
+
+Now that we have our project initialized and dependencies installed, let's create a new file called `main.py` in the project root directory. This is where we'll write our FastAPI code.
+
+```bash
+$ touch main.py
+```
+
+Next, open the `main.py` file in your code editor and add the following code:
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+def home():
+    return {"Hello": "World"}
+```
+
+This is the bare minimum code required to create a FastAPI application. We import the `FastAPI` class from the `fastapi` module and create a new instance of the `FastAPI` class.
+
+We then assign the instance to the `app` variable. Using the `app` variable, we can define routes and add other functionality to our application, the `@app.get("/")` decorator defines a route for the home page. When a user visits the home page, the `home()` function is called and the return value is sent back to the user.
+
+Let's run the application and see what happens. In your terminal, run the following command:
+
+```bash
+$ uvicorn main:app --reload
+```
+
+This will start the application in development mode. The `--reload` flag tells Uvicorn to reload the application whenever a change is made to the code.
+
+Go to `http://localhost:8000` in your browser and you should see the following:
+
+<div className="flex justify-center">
+    <Image alt="hello world" src="/images/posts/17/hello-world.png" width={374} height={142} />
+</div>
+
+<Callout type="info">
+    Your browser may show the result in a different way, I'm using a chrome extension called JSON
+    Viewer to format the JSON response.
+</Callout>
+
+### FastAPI Interactive Docs
+
+One of the best features of FastAPI is the interactive docs. FastAPI automatically generates interactive API documentation for your application. This makes it easy to test your API endpoints and see what data is required for each endpoint.
+
+With your server still running, go to `http://localhost:8000/docs` in your browser and you should see the following:
+
+<Image alt="fastapi interactive docs" src="/images/posts/17/docs.png" width={2860} height={1490} />
+
+The interactive docs are generated using [Swagger UI](https://swagger.io/tools/swagger-ui/). You can click on the `Try it out` button to test the endpoint and see the response. You should see the same response as before.
+
+## Database Setup
+
+By the end of this posts, we'll connect to a PostgreSQL database. But, to make the progress easier to follow, we'll use SQLite for now. SQLite is a lightweight database that doesn't require a server to run. It's perfect for development and testing.
+
+<Callout type="info">
+    SQLAlchemy is a Python SQL ORM (Object Relational Mapper) that makes it easy to interact with a
+    database using Python. It supports multiple database engines including SQLite and PostgreSQL.
+</Callout>
+
+```python title="database.py"
+from typing import List
+
+import databases
+import sqlalchemy
+from pydantic import BaseModel
+
+DATABASE_URL = "sqlite:///./data.db"
+
+metadata = sqlalchemy.MetaData()
+
+books = sqlalchemy.Table(
+    "books",
+    metadata,
+    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
+    sqlalchemy.Column("title", sqlalchemy.String),
+    sqlalchemy.Column("author", sqlalchemy.String),
+    sqlalchemy.Column("description", sqlalchemy.String),
+    sqlalchemy.Column("price", sqlalchemy.Float),
+)
+
+engine = sqlalchemy.create_engine(
+    DATABASE_URL, connect_args={"check_same_thread": False}
+)
+
+metadata.create_all(engine)
+
+db = databases.Database(DATABASE_URL)
+
+
+class BookIn(BaseModel):
+    title: str
+    author: str
+    description: str
+    price: float
+
+
+class Book(BaseModel):
+    id: int
+    title: str
+    author: str
+    description: str
+    price: float
+```
+
+Let's break this down:
+
+-   We import the `databases` and `sqlalchemy` modules.
+-   We define the database URL. This is the URL that SQLAlchemy will use to connect to the database. For SQLite, the URL is `sqlite:///data.db`. The `///` indicates that the database is a file on the local filesystem. The `data.db` part is the name of the database file. If the file doesn't exist, it will be created automatically. The name of the file can be anything you want.
+-   We create a `metadata` object. This object will store the database schema. We'll use it to define the database table.
+-   We create a `books_table` object. This object represents the `books` table in the database. It has five columns: `id`, `title`, `author`, `description`, and `price`. The `primary_key=True` argument tells SQLAlchemy that this column is the primary key.
+-   We create an `engine` object. This object is used to connect to the database. We pass the database URL to the `create_engine()` function. We also pass `connect_args={"check_same_thread": False}` to the function. This is required for SQLite. It tells SQLAlchemy to allow multiple threads to access the database.
+-   We call the `create_all()` method on the `metadata` object. This creates the database table if it doesn't exist.
+-   We create a `db` object. This object is used to interact with the database. We pass the database URL to the `Database()` class.
+-   Finally, we define our database models using Pydantic. `BookIn` represents the information needed to create a new book in our database. `Book` represents a book in our database. It has an `id` field in addition to the fields in `BookIn`. The `id` field is used to uniquely identify a book in the database.
+
+### Database Connection
+
+To connect to our database, we can use FastAPI app events. Let's update the `main.py` file to look like this:
+
+```python title="main.py"
+from fastapi import FastAPI
+
+from database import db
+
+app = FastAPI()
+
+
+@app.on_event("startup")
+async def startup():
+    await db.connect()
+
+
+@app.on_event("shutdown")
+async def shutdown():
+    await db.disconnect()
+
+
+@app.get("/")
+def home():
+    return {"Hello": "World"}
+```
+
+We import the `db` object from the `database` module. We then define two app events: `startup` and `shutdown`. The `startup` event is called when the application starts. We use it to connect to the database. The `shutdown` event is called when the application stops. We use it to disconnect from the database.
+
+If you restart the server, you should see a `data.db` file created in your project root directory. You can connect to the database with your tool of choice. Here, I'm using [DBeaver](https://dbeaver.io/).
+
+<Image
+    alt="database loaded from dbeaver"
+    src="/images/posts/17/database.png"
+    width={1136}
+    height={709}
+/>
+
+<Callout type="warn">
+    Because this is a simple example, we're creating the database and table as soon as our
+    application starts. In a real productions application, you'll probably want to use something
+    like Alembic to manage your database migrations.
+</Callout>
+
+## CRUD Operations
+
+Now that we have our database setup, let's add the CRUD operations. We'll start with the `create` operation. In our `main.py` file, add the following code:
+
+### Create
+
+```python title="main.py"
+from database import db, books, Book, BookIn
+
+@app.post("/books", response_model=Book, status_code=201)
+async def create_book(book: BookIn):
+    query = books.insert().values(
+        title=book.title,
+        author=book.author,
+        description=book.description,
+        price=book.price,
+    )
+    last_record_id = await db.execute(query)
+    return {**book.model_dump(), "id": last_record_id}
+```
+
+Go to your interactive docs and you should see the new `POST` endpoint `/books`. Open it and click the `Try it out` button. You should see the following:
+
+<Image
+    alt="create new book record"
+    src="/images/posts/17/create-book.png"
+    width={2312}
+    height={1306}
+/>
+
+Enter the required data and click the `Execute` button. You should get a `201` response with the new book record. You can also check the database to see if the record was created.
+
+<Image alt="created record" src="/images/posts/17/created-record.png" width={1136} height={344} />
+
+You can add a few more books to the database before we continue. Here's what my database looks like:
+
+<Image
+    alt="all created records"
+    src="/images/posts/17/all-created-books.png"
+    width={823}
+    height={226}
+/>
+
+### Read
+
+#### Get all books
+
+Next, let's add the `read` operation to get all the books from our database. In our `main.py` file, add the following code:
+
+```python title="main.py"
+from typing import List
+
+@app.get("/books", response_model=List[Book])
+async def get_books():
+    query = books.select()
+    return await db.fetch_all(query)
+```
+
+Go to your interactive docs and you should see the new `GET` endpoint `/books`. Open it and click the `Try it out` button. You should see the following:
+
+<Image alt="list all books" src="/images/posts/17/list-books.png" width={2800} height={1606} />
+
+#### Get a single book
+
+Next, let's add the `read` operation to get a single book from our database. In our `main.py` file, add the following code:
+
+```python title="main.py"
+from fastapi.exceptions import HTTPException
+
+@app.get("/books/{book_id}", response_model=Book)
+async def get_book(book_id: int):
+    query = books.select().where(books.c.id == book_id)
+    book_record = await db.fetch_one(query)
+
+    if not book_record:
+        raise HTTPException(status_code=404, detail="Book not found")
+
+    return book_record
+```
+
+<Callout type="info">
+    Notice the use of an `HTTPException` to raise a 404 response if the book is not found. We import
+    the <code>HTTPException</code> class from the <code>fastapi.exceptions</code> module.
+</Callout>
+
+Go to your docs and you should see the new `GET` endpoint `/books/{book_id}`. Open it and click the `Try it out` button. Add a book `id`, you should see the following response:
+
+<Image alt="get a single book" src="/images/posts/17/single-book.png" width={2796} height={1546} />
+
+### Update
+
+Next, let's add the `update` operation to update a book in our database. In our `main.py` file, add the following code:
+
+```python title="main.py"
+@app.patch("/books/{book_id}", response_model=Book)
+async def update_book(book_id: int, book: BookUpdate):
+    book_query = books.select().where(books.c.id == book_id)
+    book_record = await db.fetch_one(book_query)
+
+    if not book_record:
+        raise HTTPException(status_code=404, detail="Book not found")
+
+    update_data = book.model_dump(exclude_unset=True)
+    updated_book = dict(book_record)
+    updated_book.update(update_data)
+
+    query = books.update().where(books.c.id == book_id).values(**update_data)
+    await db.execute(query)
+
+    updated_book_query = books.select().where(books.c.id == book_id)
+    updated_book_record = await db.fetch_one(updated_book_query)
+    return updated_book_record
+```
+
+<Callout type="info">
+    Notice the use of the <code>BookUpdate</code> model. This model is similar to the{' '}
+    <code>Book</code> model but it doesn't have the <code>id</code> field. This is because we don't
+    want to allow the user to update the <code>id</code> field.
+</Callout>
+
+Let's break this code down:
+
+-   We define a new endpoint `/books/{book_id}`. This endpoint accepts a `PATCH` request. The `book_id` parameter is used to identify the book to update.
+-   We use the `book_id` to query the database for the book record. If the book is not found, we raise a `404` error.
+-   We use the `model_dump()` method to get the data from the `book` object. We pass `exclude_unset=True` to the method. This tells Pydantic to exclude fields that are not set. This is useful because we don't want to update a field if it's not set.
+-   We convert the `book_record` to a dictionary and update it with the `update_data`. This is because the `book_record` is a `RowProxy` object and we can't update it directly.
+-   We use the `update_data` to update the book record in the database.
+-   Finally query the database again to get the updated book record and return it.
+
+Go to your docs and you should see the new `PATCH` endpoint `/books/{book_id}`. Open it and click the `Try it out` button. Add a book `id` and the data you want to update. In our case, I'm updating the book price to 49.99 You should see the following response:
+
+<Image alt="update a book" src="/images/posts/17/update-book.png" width={2102} height={1682} />
+
+### Delete
+
+Next, let's add the `delete` operation to delete a book from our database. In our `main.py` file, add the following code:
+
+```python title="main.py"
+@app.delete("/books/{book_id}", status_code=204)
+async def delete_book(book_id: int):
+    query = books.delete().where(books.c.id == book_id)
+    await db.execute(query)
+    return None
+```
+
+Go to your docs and you should see the new `DELETE` endpoint `/books/{book_id}`. Open it and click the `Try it out` button. Add a book `id`, you should see the following response:
+
+<Image alt="delete a book" src="/images/posts/17/delete-book.png" width={2886} height={1482} />
+
+## Conclusion
+
+FastAPI is an empowering tool for crafting APIs in Python. Its alignment with Python's type hinting system ensures that your applications are not only swift to build, but also robust and secure. Plus, its seamless support for asynchronous programming makes it an excellent choice for real-time applications and long-running requests.
+
+We only scratched the surface of what FastAPI can do in this post. I encourage you to check out the [official documentation](https://fastapi.tiangolo.com/) to learn more.
+
+I this post helps you get started with FastAPI.
+
+You can find the complete source code for this project on [GitHub](...).
