@@ -1,0 +1,24 @@
+{
+    "title": "Sergio Barria | Engineer, developer, amateur writer",
+    "description": "Sergio Barria is a full stack Developer from Panama City, Panama. He is a passionate developer who loves to learn new things and share his knowledge with others.",
+    "socialLinks": {
+        "github": {
+            "id": 0,
+            "label": "Follow me on Github",
+            "url": "https://github.com/sergiobarria"
+        },
+        "linkedin": {
+            "id": 1,
+            "label": "Follow me on Linkedin",
+            "url": "https://www.linkedin.com/in/sergiobarria/"
+        },
+        "email": { "id": 2, "label": "Contact me by Email", "url": "mailto:sbarria.dev@gmail.com" }
+    },
+    "navLinks": [
+        { "id": 0, "href": "/", "label": "home", "isHeader": true, "hidden": false },
+        { "id": 1, "href": "/about", "label": "about", "isHeader": true, "hidden": false },
+        { "id": 2, "href": "/blog", "label": "blog", "isHeader": true, "hidden": false },
+        { "id": 3, "href": "/projects", "label": "projects", "isHeader": false, "hidden": true },
+        { "id": 4, "href": "/dashboard", "label": "dashboard", "isHeader": false, "hidden": false }
+    ]
+}
