@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
@@ -6,7 +7,6 @@ import { cn, formatDate } from '@/lib/utils';
 import { RenderMdx, ViewsCounter } from '@/components';
 import { getPostsViews } from '@/lib/metrics';
 import { allPosts } from 'contentlayer/generated';
-import Link from 'next/link';
 
 type MetadataProps = {
     params: { slug: string };
