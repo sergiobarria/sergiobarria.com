@@ -23,7 +23,3 @@ const nextConfig = {
 };
 
 module.exports = withPlausibleProxy()(withContentlayer(nextConfig));
-
-// const config = withPlausibleProxy()(nextConfig);
-
-// module.exports = withContentlayer(config);

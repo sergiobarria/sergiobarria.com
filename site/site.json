@@ -18,7 +18,7 @@
         { "id": 0, "href": "/", "label": "home", "isHeader": true, "hidden": false },
         { "id": 1, "href": "/about", "label": "about", "isHeader": true, "hidden": false },
         { "id": 2, "href": "/blog", "label": "blog", "isHeader": true, "hidden": false },
-        { "id": 3, "href": "/projects", "label": "projects", "isHeader": false, "hidden": true },
+        { "id": 3, "href": "/showcase", "label": "showcase", "isHeader": true, "hidden": false },
         { "id": 4, "href": "/dashboard", "label": "dashboard", "isHeader": false, "hidden": false }
     ]
 }

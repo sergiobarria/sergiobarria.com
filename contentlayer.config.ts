@@ -54,7 +54,7 @@ const computedFields = {
 
 export const Post = defineDocumentType(() => ({
     name: 'Post',
-    filePathPattern: '**/*.mdx',
+    filePathPattern: 'posts/**/*.mdx',
     contentType: 'mdx',
     fields: {
         title: { type: 'string', required: true },
@@ -70,9 +70,40 @@ export const Post = defineDocumentType(() => ({
     computedFields,
 }));
 
+export const Project = defineDocumentType(() => ({
+    name: 'Project',
+    filePathPattern: 'projects/**/*.mdx',
+    contentType: 'mdx',
+    fields: {
+        title: { type: 'string', required: true },
+        description: { type: 'string', required: true },
+        stack: { type: 'list', of: { type: 'string' }, required: true },
+        cover: { type: 'string', required: true },
+        isFeatured: { type: 'boolean', required: false, default: false },
+        isArchived: { type: 'boolean', required: false, default: false },
+        isDraft: { type: 'boolean', required: false, default: true },
+        live: { type: 'string', required: true },
+        github: { type: 'string', required: true },
+    },
+    computedFields,
+}));
+
+export const Snippet = defineDocumentType(() => ({
+    name: 'Snippet',
+    filePathPattern: 'snippets/**/*.mdx',
+    contentType: 'mdx',
+    fields: {
+        title: { type: 'string', required: true },
+        description: { type: 'string', required: false },
+        tags: { type: 'list', of: { type: 'string' }, required: false },
+        isDraft: { type: 'boolean', required: false, default: false },
+    },
+    computedFields,
+}));
+
 export default makeSource({
     contentDirPath: 'content',
-    documentTypes: [Post],
+    documentTypes: [Post, Snippet, Project],
     mdx: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [

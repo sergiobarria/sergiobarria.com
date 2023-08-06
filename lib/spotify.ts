@@ -108,7 +108,7 @@ export async function getNowPlaying() {
 
         if (!res.ok) throw new Error('Failed to fetch spotify now playing');
 
-        if (res.status === 204 || res.status > 400) throw new Error(`No data available`);
+        if (res.status === 204 || res.status > 400) return null;
 
         const json: SpotifyResponse = await res.json();
         const data = {

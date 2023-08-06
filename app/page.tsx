@@ -61,7 +61,7 @@ interface EmailTemplateProps {
     message: string;
 }
 
-export default async function Home() {
+export default async function HomePage() {
     const featuredPosts = allPosts
         .filter(post => post.isFeatured && !post.isDraft)
         .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
@@ -99,15 +99,21 @@ export default async function Home() {
                         </p>
                         <ul className="flex items-center justify-center gap-4 text-xs md:justify-start">
                             <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
-                                <a href={github.url}>github</a>
+                                <a href={github.url} target="_blank" rel="noopener noreferrer">
+                                    github
+                                </a>
                                 <ArrowUpRightIcon className="w-3 h-3 self-end" />
                             </li>
                             <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
-                                <a href={linkedin.url}>linkedin</a>
+                                <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
+                                    linkedin
+                                </a>
                                 <ArrowUpRightIcon className="w-3 h-3 self-end" />
                             </li>
                             <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
-                                <a href={email.url}>email</a>
+                                <a href={email.url} target="_blank" rel="noopener noreferrer">
+                                    email
+                                </a>
                                 <ArrowUpRightIcon className="w-3 h-3 self-end" />
                             </li>
                         </ul>
