@@ -5,7 +5,7 @@ import { eq } from 'drizzle-orm';
 
 import { sendEmail } from '@/lib/email';
 import { db } from './db/client';
-import { DBPost, posts } from './db/schema';
+import { posts, snippets } from './db/schema';
 
 const contactFormSchema = object({
     name: string([minLength(3, 'Name must be at least 3 characters long')]),
@@ -60,16 +60,18 @@ export async function submitContactFormAction(data: FormData) {
     }
 }
 
-export async function incrementCountAction(slug: string) {
+export async function incrementCountAction(slug: string, type: 'posts' | 'snippets' = 'posts') {
     // NOTE: there is no clear way of doing upsert at the moment for mysql
     // https://github.com/drizzle-team/drizzle-orm/issues/649
-    const result: DBPost[] = await db.select().from(posts).where(eq(posts.slug, slug));
+    const table = type === 'posts' ? posts : snippets;
+    const result = await db.select().from(table).where(eq(table.slug, slug));
 
     if (result.length > 0)
         return await db
-            .update(posts)
+            .update(table)
             .set({ views: result[0]?.views + 1 })
-            .where(eq(posts.slug, slug));
+            .where(eq(table.slug, slug));
 
-    return await db.insert(posts).values({ slug, views: 1 });
+    console.log('inserting new row');
+    return await db.insert(table).values({ slug, views: 1 });
 }

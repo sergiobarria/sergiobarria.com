@@ -1,6 +1,6 @@
 import { cache } from 'react';
 import { db } from './db/client';
-import { posts, type DBPost } from './db/schema';
+import { posts, snippets, type DBPost } from './db/schema';
 
 // NOTE: wrapped in cache to prevent multiple requests, no needed if using fetch
 export const getTotalPostsViews = cache(async () => {
@@ -24,4 +24,16 @@ export const getPostsViews = cache(async () => {
         .from(posts);
 
     return postsViews;
+});
+
+export const getSnippetsViews = cache(async () => {
+    const snippetsViews = await db
+        .select({
+            id: snippets.id,
+            slug: snippets.slug,
+            views: snippets.views,
+        })
+        .from(snippets);
+
+    return snippetsViews;
 });
