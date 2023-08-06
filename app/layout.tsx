@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Readex_Pro } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import PlausibleProvider from 'next-plausible';
 
 import { Header, Footer } from '@/components';
 import { cn } from '@/lib/utils';
@@ -25,6 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
                 <link rel="manifest" href="/favicon/site.webmanifest" />
+
+                {/* analytics */}
+                <PlausibleProvider domain="sergiobarria.com" />
 
                 {/* TODO: finish head metadata 👇🏼 */}
             </head>
