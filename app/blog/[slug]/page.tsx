@@ -13,14 +13,41 @@ type MetadataProps = {
     searchParams: { [key: string]: string | string[] | undefined };
 };
 
-// TODO: finish this metadata function logic
 export async function generateMetadata(
     { params, searchParams }: MetadataProps,
     parent: ResolvingMetadata
 ): Promise<Metadata | undefined> {
-    const { slug } = params;
+    const post = allPosts.find(post => post.slug === params.slug);
 
-    return {};
+    if (!post) return;
+
+    const { title, publishedAt: publishedTime, summary: description, image, slug } = post;
+    const ogImg = image
+        ? `https://sergiobaria.com/${image}`
+        : `https://sergiobaria.com/api/og?title=${title}`;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            type: 'article',
+            publishedTime,
+            url: `https://sergiobaria.com/blog/${slug}`,
+            images: [
+                {
+                    url: ogImg,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            images: [ogImg],
+        },
+    };
 }
 
 type Heading = {

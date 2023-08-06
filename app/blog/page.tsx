@@ -9,7 +9,8 @@ import { type Post, allPosts } from 'contentlayer/generated';
 // TODO: finish this metadata function logic
 export const metadata: Metadata = {
     title: 'Blog',
-    description: 'Read my thoughts on various topics related to software development',
+    description:
+        'check out my thoughts on various topics like web development, productivity, and more!',
 };
 
 async function PostPreview({ post }: { post: Post & { views: number } }) {
