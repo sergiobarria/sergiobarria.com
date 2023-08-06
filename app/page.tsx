@@ -1,22 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
-import { ContactForm, ViewsCounter } from '@/components';
+import { ContactForm, ViewsCounter, HomeIcons } from '@/components';
 import { allPosts } from 'contentlayer/generated';
 import { getPostsViews } from '@/lib/metrics';
 import { formatDate } from '@/lib/utils';
-import {
-    ArrowUpRightIcon,
-    DjangoIcon,
-    FlutterIcon,
-    GoIcon,
-    JavaScriptIcon,
-    NextjsIcon,
-    PythonIcon,
-    ReactIcon,
-    SvelteIcon,
-    VueIcon,
-} from '@/components/icons';
 
 import profile from 'public/images/profile.jpg';
 import site from '@/site/site.json';
@@ -36,7 +25,7 @@ async function PostCard({ title, slug, publishedAt, readingTime }: CardProps) {
     return (
         <Link
             href={`/blog/${slug}`}
-            className="border border-neutral-600 bg-neutral-800 rounded flex items-center justify-between p-3"
+            className="border group border-neutral-600 bg-neutral-800 rounded flex items-center justify-between p-3"
         >
             <div>
                 <h3 className="font-semibold group-hover:opacity-80">{title}</h3>
@@ -49,16 +38,10 @@ async function PostCard({ title, slug, publishedAt, readingTime }: CardProps) {
                 </p>
             </div>
             <div>
-                <ArrowUpRightIcon />
+                <ArrowUpRight className="w-4 h-4 group-hover:opacity-50" />
             </div>
         </Link>
     );
-}
-
-interface EmailTemplateProps {
-    senderName: string;
-    senderEmail: string;
-    message: string;
 }
 
 export default async function HomePage() {
@@ -102,19 +85,19 @@ export default async function HomePage() {
                                 <a href={github.url} target="_blank" rel="noopener noreferrer">
                                     github
                                 </a>
-                                <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                                <ArrowUpRight className="w-3 h-3 self-end" />
                             </li>
                             <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
                                 <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
                                     linkedin
                                 </a>
-                                <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                                <ArrowUpRight className="w-3 h-3 self-end" />
                             </li>
                             <li className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
                                 <a href={email.url} target="_blank" rel="noopener noreferrer">
                                     email
                                 </a>
-                                <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                                <ArrowUpRight className="w-3 h-3 self-end" />
                             </li>
                         </ul>
                     </div>
@@ -122,17 +105,7 @@ export default async function HomePage() {
             </section>
 
             <section id="frameworks">
-                <div className="flex items-center justify-center gap-3">
-                    <JavaScriptIcon />
-                    <PythonIcon />
-                    <GoIcon />
-                    <ReactIcon />
-                    <NextjsIcon />
-                    <VueIcon />
-                    <SvelteIcon />
-                    <DjangoIcon />
-                    <FlutterIcon />
-                </div>
+                <HomeIcons />
             </section>
 
             <section id="about-me">

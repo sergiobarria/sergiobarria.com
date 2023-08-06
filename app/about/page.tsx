@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 import site from '@/site/site.json';
 import profile from 'public/images/profile.jpg';
@@ -8,83 +9,36 @@ function ContactLinks() {
 
     return (
         <ul role="list" className="self-start space-y-3 transition-colors duration-200 ease-in-out">
-            <li className="flex items-center gap-3 text-sm cursor-pointer md:ml-10 text-zinc-500 group">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 icon icon-tabler icon-tabler-brand-github group-hover:text-zinc-200"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    stroke="currentColor"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                </svg>
+            <li className="flex items-center gap-3 text-sm cursor-pointer md:ml-10 text-neutral-500 group">
+                <Github className="w-4 h-4 group-hover:text-neutral-200" />
                 <a
                     href={github.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group-hover:text-zinc-200"
+                    className="group-hover:text-neutral-200"
                 >
                     {github.label}
                 </a>
             </li>
-            <li className="flex items-center gap-3 text-sm cursor-pointer md:ml-10 text-zinc-500 group">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 icon icon-tabler icon-tabler-brand-linkedin group-hover:text-zinc-200"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
-                    <path d="M8 11l0 5" />
-                    <path d="M8 8l0 .01" />
-                    <path d="M12 16l0 -5" />
-                    <path d="M16 16v-3a2 2 0 0 0 -4 0" />
-                </svg>
+            <li className="flex items-center gap-3 text-sm cursor-pointer md:ml-10 text-neutral-500 group">
+                <Linkedin className="w-4 h-4 group-hover:text-neutral-200" />
                 <a
                     href={linkedin.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group-hover:text-zinc-200"
+                    className="group-hover:text-neutral-200"
                 >
                     {linkedin.label}
                 </a>
             </li>
             <hr className="py-6 md:ml-10 opacity-10" />
-            <li className="flex items-center gap-3 text-sm cursor-pointer md:ml-10 text-zinc-500 group">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 icon icon-tabler icon-tabler-mail group-hover:text-zinc-200"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
-                    <path d="M3 7l9 6l9 -6" />
-                </svg>
+            <li className="flex items-center gap-3 text-sm cursor-pointer md:ml-10 text-neutral-500 group">
+                <Mail className="w-4 h-4 group-hover:text-neutral-200" />
                 <a
                     href={email.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group-hover:text-zinc-200"
+                    className="group-hover:text-neutral-200"
                 >
                     {email.label}
                 </a>
@@ -111,7 +65,7 @@ export default function AboutPage() {
                 </div>
             </div>
             <div className="order-2 md:col-start-1 md:row-start-1 md:row-span-2">
-                <h1 className="text-2xl font-bold tracking-tight md:text-3xl text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                <h1 className="text-2xl font-bold tracking-tight md:text-3xl text-neutral-800 dark:text-neutral-100 sm:text-5xl">
                     hey!, I’m Sergio. 👋
                 </h1>
                 <p className="text-base opacity-60">A full stack developer from Panama.</p>

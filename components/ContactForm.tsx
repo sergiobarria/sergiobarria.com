@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { submitContactFormAction, type CustomIssue } from '@/lib/actions';
-import { ArrowUpRightIcon } from './icons';
 
 export function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -134,7 +134,7 @@ export function ContactForm() {
                     )}
                 >
                     <span>{isSubmitting ? 'Sending...' : "Let's talk"}</span>
-                    {!isSubmitting && <ArrowUpRightIcon />}
+                    {!isSubmitting && <ArrowUpRight className="w-4 h-4" />}
                 </button>
             </form>
         </>

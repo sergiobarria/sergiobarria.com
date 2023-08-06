@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 
 import { allSnippets, allProjects, type Project } from 'contentlayer/generated';
-import { ArrowUpRightIcon } from '@/components/icons';
 
 function TagList({ tags }: { tags: string[] }) {
     return (
@@ -29,11 +29,11 @@ function ProjectCard({ project }: { project: Project }) {
                 alt="project"
                 width={2400}
                 height={1581}
-                className="w-44 h-33 mx-auto mb-4 md:mb-0 md:w-32 md:h-24 grayscale rounded-md"
+                className="hidden md:block w-44 h-33 mx-auto mb-4 md:mb-0 md:w-32 md:h-24 grayscale rounded-md"
             />
 
             <div className="flex-grow flex flex-col justify-between">
-                <div>
+                <div className="text-center md:text-start">
                     <h3 className="font-semibold group-hover:opacity-80">{title}</h3>
                     <p className="opacity-80 mt-1 text-sm">{description}</p>
                 </div>
@@ -53,7 +53,7 @@ function ProjectCard({ project }: { project: Project }) {
                             >
                                 live
                             </a>
-                            <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                            <ArrowUpRight className="w-3 h-3 self-end" />
                         </p>
                         <p className="flex items-center gap-1 hover:opacity-80 text-neutral-400">
                             <a
@@ -64,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
                             >
                                 github
                             </a>
-                            <ArrowUpRightIcon className="w-3 h-3 self-end" />
+                            <ArrowUpRight className="w-3 h-3 self-end" />
                         </p>
                     </div>
                 </div>
@@ -77,11 +77,11 @@ function ProjectsList() {
     const projects = allProjects.filter(project => !project.isDraft);
 
     return (
-        <div>
+        <>
             {projects.map(project => (
                 <ProjectCard key={project._id} project={project} />
             ))}
-        </div>
+        </>
     );
 }
 

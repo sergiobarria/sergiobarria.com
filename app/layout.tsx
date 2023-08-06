@@ -12,8 +12,35 @@ import site from '@/site/site.json';
 const readexPro = Readex_Pro({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: site.title,
+    metadataBase: new URL('https://sergiobarria.com/'),
+    title: {
+        default: site.title,
+        template: '%s | Sergio Barria',
+    },
     description: site.description,
+    openGraph: {
+        title: site.title,
+        description: site.description,
+        url: 'https://sergiobarria.com/',
+        siteName: 'Sergio Barria',
+        locale: 'en_US',
+        type: 'website',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-snippet': -1,
+            'max-image-preview': 'large',
+            'max-video-preview': -1,
+        },
+    },
+    twitter: {
+        title: site.title,
+        card: 'summary_large_image',
+    },
 };
 
 // 👇🏼 This is the app's entry point. It is not a page, but a layout that wraps all pages. 👇🏼
@@ -29,8 +56,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                 {/* analytics */}
                 <PlausibleProvider domain="sergiobarria.com" />
-
-                {/* TODO: finish head metadata 👇🏼 */}
             </head>
             <body className="antialiased max-w-2xl flex flex-col md:flex-row mx-4 mt-8 md:mx-auto">
                 <div className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">

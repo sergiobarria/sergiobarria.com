@@ -1,11 +1,12 @@
+import { ArrowUpRight } from 'lucide-react';
+
 import { getTotalPostsViews } from '@/lib/metrics';
 import { getWakaAllTimeStats, getWakaStats } from '@/lib/wakatime';
 import { getGithubUserMetrics } from '@/lib/github';
 import { cn, convertTimeToDecimal } from '@/lib/utils';
-import { allPosts } from '@/.contentlayer/generated';
+import { allPosts } from 'contentlayer/generated';
 
 import site from '@/site/site.json';
-import { ArrowUpRightIcon } from './icons/ArrowUpRightIcon';
 
 interface CardProps {
     title: string;
@@ -25,7 +26,7 @@ function Card({ title, value, href }: CardProps) {
                 <small className="text-ellipsis">{title}</small>
                 <div className="flex items-center justify-between">
                     <span className="text-2xl font-semibold">{value}</span>
-                    {href && <ArrowUpRightIcon />}
+                    {href && <ArrowUpRight className="w-4 h-4" />}
                 </div>
             </div>
         </a>

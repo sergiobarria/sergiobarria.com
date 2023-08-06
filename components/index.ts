@@ -7,3 +7,4 @@ export * from './SpotifyCard';
 export * from './SpotifyTopTracks';
 export * from './RenderMdx';
 export * from './ViewsCounter';
+export * from './HomeIcons';

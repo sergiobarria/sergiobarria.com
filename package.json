@@ -20,6 +20,7 @@
         "clsx": "^2.0.0",
         "contentlayer": "^0.3.4",
         "drizzle-orm": "^0.27.2",
+        "lucide-react": "^0.264.0",
         "motion": "^10.16.2",
         "next": "13.4.12",
         "next-contentlayer": "^0.3.4",

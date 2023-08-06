@@ -20,6 +20,9 @@ dependencies:
   drizzle-orm:
     specifier: ^0.27.2
     version: 0.27.2(@opentelemetry/api@1.4.1)(@planetscale/database@1.10.0)
+  lucide-react:
+    specifier: ^0.264.0
+    version: 0.264.0(react@18.2.0)
   motion:
     specifier: ^10.16.2
     version: 10.16.2
@@ -4012,6 +4015,14 @@ packages:
     dependencies:
       es5-ext: 0.10.62
     dev: true
+
+  /lucide-react@0.264.0(react@18.2.0):
+    resolution: {integrity: sha512-BmQTimZDhAy2vH9aCeQa+TLrkWwWd8FP5GRMoK3hKEvO1eS/llGXe4RxrZGSTdOjhw1JuDLpvtS8VmNCKxhL5A==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /markdown-extensions@1.1.1:
     resolution: {integrity: sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==}
