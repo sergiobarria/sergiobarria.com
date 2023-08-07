@@ -84,7 +84,7 @@ export function RenderMdx({ code }: RenderMdxProps) {
     const Component = useMDXComponent(code);
 
     return (
-        <article className="prose prose-neutral dark:prose-invert">
+        <article className="prose prose-quoteless prose-invert dark:prose-invert max-w-none">
             <Component components={{ ...components }} />
         </article>
     );

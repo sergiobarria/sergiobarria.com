@@ -70,11 +70,11 @@ export default async function PostPage({ params }: { params: { slug: string } })
             <h1 className="font-bold text-2xl tracking-tighter">
                 <Balancer>{title}</Balancer>
             </h1>
-            <div className="flex justify-between items-center mt-2 mb-8 text-sm text-neutral-600">
+            <div className="flex justify-between items-center mt-2 mb-8 text-sm text-neutral-400">
                 <p className="text-sm">{formatDate(new Date(publishedAt))}</p>
-                <p>
+                <p className="space-x-2">
                     <ViewsCounter slug={slug} views={views} track />
-                    <span className="mx-3 text-neutral-600">|</span>
+                    <span>•</span>
                     <span>{readingTime.text}</span>
                 </p>
             </div>
@@ -100,7 +100,7 @@ function TableOfContents({ headings }: { headings: Heading[] }) {
                     >
                         <Link
                             href={`#${slug}`}
-                            className="py-1 text-gray-400 hover:text-white transition duration-200"
+                            className="py-1 text-neutral-400 font-light hover:text-white transition duration-200"
                         >
                             {text}
                         </Link>

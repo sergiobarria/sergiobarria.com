@@ -36,16 +36,16 @@ const computedFields = {
     headings: {
         type: 'json',
         resolve: async doc => {
-            const regex = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
+            const withoutCode = doc.body.raw.replace(/```[\s\S]*?```/g, '');
+            const headings = withoutCode.match(/#{1,6}\s+.+/g) || [];
 
-            return Array.from(doc.body.raw.matchAll(regex)).map((match: any) => {
-                const groups = match.groups;
-                const flag = groups?.flag;
-                const content = groups?.content as string;
+            return headings.map((heading: any) => {
+                const level = heading.match(/#/g)?.length || 0;
+                const text = heading.replace(/#/g, '').trim();
                 return {
-                    level: (flag ? flag.length : 0) as number,
-                    text: content || '',
-                    slug: slugify(content),
+                    level,
+                    text,
+                    slug: slugify(text),
                 };
             });
         },
@@ -111,22 +111,24 @@ export default makeSource({
             [
                 rehypePrettyCode,
                 {
-                    // NOTE: other themes at https://unpkg.com/browse/shiki@0.14.2/themes/
                     theme: 'poimandres',
-                    // theme: 'rose-pine-moon',
+                    tokensMap: {
+                        // VScode command palette: Inspect Editor Tokens and Scopes
+                        // https://github.com/Binaryify/OneDark-Pro/blob/47c66a2f2d3e5c85490e1aaad96f5fab3293b091/themes/OneDark-Pro.json
+                        fn: 'entity.name.function',
+                        objKey: 'meta.object-literal.key',
+                    },
                     onVisitLine(node: any) {
-                        // Prevent lines from collapsing in `display: grid` mode, and allow empty
-                        // lines to be copy/pasted
+                        // Prevent lines from collapsing in `display: grid` mode, and
+                        // allow empty lines to be copy/pasted
                         if (node.children.length === 0) {
                             node.children = [{ type: 'text', value: ' ' }];
                         }
+                        node.properties.className = [''];
                     },
-                    onVisitHighlightedLine(node: any) {
-                        node.properties.className.push('line--highlighted');
-                    },
-                    onVisitHighlightedWord(node: any) {
-                        node.properties.className = ['word--highlighted'];
-                    },
+                    // onVisitHighlightedLine(node) {
+                    //     node.properties.className.push(HIGHLIGHTED_LINE);
+                    // },
                 },
             ],
             [
