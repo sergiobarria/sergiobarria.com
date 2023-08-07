@@ -110,21 +110,21 @@ export default async function HomePage() {
 
             <section id="about-me">
                 <h2 className="font-medium text-lg mt-6">What I Do 🛠️</h2>
-                <p className="prose prose-neutral dark:prose-invert">
+                <p className="prose prose-invert">
                     I work as a full stack developer building web and mobile applications, using
                     different technologies and programming languages, like{' '}
                     <strong>JavaScript</strong>, <strong>Python</strong>, and more.
                 </p>
 
                 <h2 className="font-medium text-lg mt-6">What I&apos;m Learning 🧠</h2>
-                <p className="prose prose-neutral dark:prose-invert">
+                <p className="prose prose-invert">
                     I&apos;m constantly exploring new technologies, currently focusing on improving
                     my knowledge with: <strong>Django</strong>, <strong>MySQL</strong>, and other
                     tools for web development.
                 </p>
 
                 <h2 className="font-medium text-lg mt-6">What I Like Doing 🎮</h2>
-                <p className="prose prose-neutral dark:prose-invert">
+                <p className="prose prose-invert">
                     When not coding, I like playing video games, watching movies, learning other
                     hobbies that pick my interest, and spending time with my family.
                 </p>
