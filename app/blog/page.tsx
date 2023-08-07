@@ -37,7 +37,7 @@ async function PostPreview({ post }: { post: Post & { views: number } }) {
 
 export default async function BlogPage() {
     const postsData = allPosts
-        .filter(post => !post.isArchived)
+        .filter(post => !post.isArchived && !post.isDraft)
         .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
     const postsViews = await getPostsViews();
 
@@ -50,7 +50,8 @@ export default async function BlogPage() {
         <section>
             <h1 className="font-bold text-2xl tracking-tighter">check out my blog! 📝</h1>
             <p className="mb-8 mt-1">
-                In total, I&apos;ve written {allPosts.length} articles. You can find them all below.
+                In total, I&apos;ve written {postsData.length} articles. You can find them all
+                below.
             </p>
 
             {posts.map(post => (
