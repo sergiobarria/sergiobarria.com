@@ -14,6 +14,14 @@ export default {
             fontFamily: {
                 sans: ['Readex Pro Variable', ...defaultTheme.fontFamily.sans],
             },
+            typography: {
+                quoteless: {
+                    css: {
+                        'blockquote p:first-of-type::before': { content: 'none' },
+                        'blockquote p:first-of-type::after': { content: 'none' },
+                    },
+                },
+            },
         },
     },
     plugins: [typography, forms],

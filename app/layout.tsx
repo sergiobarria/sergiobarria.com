@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 // 👇🏼 This is the app's entry point. It is not a page, but a layout that wraps all pages. 👇🏼
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={cn('text-zinc-50 bg-[#111010]', readexPro.className)}>
+        <html lang="en" className={cn('bg-[#111010] text-neutral-50', readexPro.className)}>
             <head>
                 {/* favicon */}
                 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
