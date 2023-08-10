@@ -108,7 +108,7 @@ export default async function HomePage() {
                 <HomeIcons />
             </section>
 
-            <section id="about-me">
+            {/* <section id="about-me">
                 <h2 className="font-medium text-lg mt-6">What I Do 🛠️</h2>
                 <p className="prose prose-invert">
                     I work as a full stack developer building web and mobile applications, using
@@ -128,10 +128,10 @@ export default async function HomePage() {
                     When not coding, I like playing video games, watching movies, learning other
                     hobbies that pick my interest, and spending time with my family.
                 </p>
-            </section>
+            </section> */}
 
             <section id="featured-posts">
-                <h2 className="text-xl font-semibold text-center md:text-2xl lg:text-3xl mb-3">
+                <h2 className="text-xl font-semibold md:text-2xl lg:text-3xl mb-3">
                     Latest Articles 📝
                 </h2>
 
@@ -149,9 +149,7 @@ export default async function HomePage() {
             </section>
 
             <section id="contact">
-                <h2 className="text-xl font-semibold text-center md:text-2xl lg:text-3xl">
-                    Get in touch! 📨
-                </h2>
+                <h2 className="text-xl font-semibold md:text-2xl lg:text-3xl">Get in touch! 📨</h2>
                 <ContactForm />
             </section>
         </div>

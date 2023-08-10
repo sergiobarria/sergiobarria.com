@@ -53,7 +53,7 @@ function Callout({ type, children }: CalloutProps) {
     const typeMapping = calloutTypeMappings[type];
 
     return (
-        <div className={cn('border rounded-md my-8', typeMapping.border)}>
+        <div className={cn('border rounded my-8', typeMapping.border)}>
             <span
                 className={cn(
                     'flex items-center gap-3 p-3',

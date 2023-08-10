@@ -19,13 +19,13 @@ function Card({ title, value, href }: CardProps) {
         <a href={href} className={cn(href && 'cursor-pointer')}>
             <div
                 className={cn(
-                    'flex flex-col border border-neutral-800 p-3 rounded-md',
+                    'flex flex-col border border-neutral-600 bg-neutral-800 p-3 rounded',
                     href && 'hover:bg-neutral-900'
                 )}
             >
                 <small className="text-ellipsis">{title}</small>
                 <div className="flex items-center justify-between">
-                    <span className="text-2xl font-semibold">{value}</span>
+                    <span className="text-xl font-semibold">{value}</span>
                     {href && <ArrowUpRight className="w-4 h-4" />}
                 </div>
             </div>

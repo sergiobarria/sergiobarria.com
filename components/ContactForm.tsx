@@ -74,7 +74,7 @@ export function ContactForm() {
                             required
                             disabled={isSubmitting}
                             className={cn(
-                                'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded-md',
+                                'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded',
                                 'disabled:opacity-50 disabled:cursor-not-allowed'
                             )}
                         />
@@ -87,7 +87,7 @@ export function ContactForm() {
                             placeholder="Email*"
                             disabled={isSubmitting}
                             className={cn(
-                                'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded-md',
+                                'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded',
                                 'disabled:opacity-50 disabled:cursor-not-allowed'
                             )}
                         />
@@ -101,7 +101,7 @@ export function ContactForm() {
                         placeholder="Subject*"
                         disabled={isSubmitting}
                         className={cn(
-                            'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded-md',
+                            'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded',
                             'disabled:opacity-50 disabled:cursor-not-allowed'
                         )}
                     />
@@ -114,7 +114,7 @@ export function ContactForm() {
                         rows={5}
                         disabled={isSubmitting}
                         className={cn(
-                            'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded-md',
+                            'w-full px-4 py-3 text-sm bg-transparent border-neutral-600 focus:ring-neutral-600 focus:border-transparent rounded',
                             'disabled:opacity-50 disabled:cursor-not-allowed'
                         )}
                     ></textarea>
@@ -127,7 +127,7 @@ export function ContactForm() {
                     type="submit"
                     disabled={isSubmitting}
                     className={cn(
-                        'flex items-center gap-2 px-4 py-2 border border-zinc-700 text-sm transform rounded-md',
+                        'flex items-center gap-2 px-4 py-2 border border-zinc-700 text-sm transform rounded',
                         'hover:bg-neutral-600 hover:border-transparent hover:scale-[1.02] transition-colors duration-200 ease-in-out',
                         'focus:outline-none focus:ring-1 focus:ring-neutral-600 focus:ring-offset-1 focus:ring-offset-transparent',
                         'disabled:opacity-50 disabled:cursor-not-allowed'

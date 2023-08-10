@@ -134,7 +134,7 @@ table {
 }
 
 [data-rehype-pretty-code-fragment] .word--highlighted {
-    @apply rounded-md bg-slate-500 bg-opacity-10 p-1;
+    @apply rounded bg-slate-500 bg-opacity-10 p-1;
 }
 
 [data-rehype-pretty-code-title] {

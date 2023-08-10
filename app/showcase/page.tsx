@@ -10,7 +10,7 @@ function TagList({ tags }: { tags: string[] }) {
             {tags.map(tag => (
                 <span
                     key={tag}
-                    className="px-2 py-1 mr-2 text-[10px] text-neutral-100 bg-neutral-800 rounded-md"
+                    className="px-2 py-1 mr-2 text-[10px] text-neutral-100 bg-neutral-800 rounded"
                 >
                     {tag}
                 </span>
@@ -23,13 +23,13 @@ function ProjectCard({ project }: { project: Project }) {
     const { title, description, cover, live, github, stack } = project;
 
     return (
-        <div className="border border-neutral-600 flex items-center gap-3 p-3 h-full flex-col md:flex-row rounded-md">
+        <div className="border border-neutral-600 flex items-center gap-3 p-3 h-full flex-col md:flex-row rounded">
             <Image
                 src={cover}
                 alt="project"
                 width={2400}
                 height={1581}
-                className="hidden md:block w-44 h-33 mx-auto mb-4 md:mb-0 md:w-32 md:h-24 grayscale rounded-md"
+                className="hidden md:block w-44 h-33 mx-auto mb-4 md:mb-0 md:w-32 md:h-24 grayscale rounded"
             />
 
             <div className="flex-grow flex flex-col justify-between">
@@ -93,7 +93,7 @@ function SnippetsList() {
             {snippets.map(snippet => {
                 return (
                     <Link href={`/showcase/${snippet.slug}`} key={snippet._id}>
-                        <div className="flex flex-col p-4 border border-neutral-800 rounded-md shadow-md hover:cursor-pointer hover:bg-neutral-800 h-full">
+                        <div className="flex flex-col p-4 border border-neutral-800 rounded shadow-md hover:cursor-pointer hover:bg-neutral-800 h-full">
                             <h3 className="text-lg font-semibold">{snippet.title}</h3>
                             <p className="text-sm text-gray-500 mb-auto">{snippet.description}</p>
 

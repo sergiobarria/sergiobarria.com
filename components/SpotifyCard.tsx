@@ -18,7 +18,7 @@ interface ListeningCardProps {
 
 function ListeningCard({ albumImageUrl, songUrl, title, artist }: ListeningCardProps) {
     return (
-        <div className="flex items-center gap-3 p-2 text-sm border border-zinc-700/70 text-zinc-300 md:max-w-[250px] rounded-md">
+        <div className="flex items-center gap-3 p-2 text-sm border border-neutral-700/70 text-neutral-300 md:max-w-[250px] rounded">
             <Image
                 src={albumImageUrl}
                 alt="album cover"
@@ -42,7 +42,7 @@ function ListeningCard({ albumImageUrl, songUrl, title, artist }: ListeningCardP
 
 function NotListeningCard() {
     return (
-        <div className="flex items-center gap-3 p-2 text-sm border border-zinc-700/70 text-zinc-300 rounded-md">
+        <div className="flex items-center gap-3 p-2 text-sm border border-neutral-700/70 text-neutral-300 rounded">
             {/* Spotify Logo SVG */}
             <svg
                 xmlns="http://www.w3.org/2000/svg"

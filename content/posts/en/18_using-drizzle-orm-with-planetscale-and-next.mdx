@@ -10,7 +10,7 @@ isDraft: true
 
 content
 
-```javascript
+```tsx title="lib/db/client.ts" {3}
 import { migrate } from 'drizzle-orm/planetscale-serverless/migrator';
 
 import { db } from './client';
